@@ -1,0 +1,120 @@
+{
+  "gpt_4o_mini": {
+    "summary": {
+      "convention": {
+        "line-too-long": 3187,
+        "trailing-whitespace": 2217,
+        "missing-function-docstring": 1262,
+        "invalid-name": 1211,
+        "missing-final-newline": 1200,
+        "missing-module-docstring": 1200,
+        "false-positive-tensorflow-import": 513
+      },
+      "warning": {
+        "unused-import": 793,
+        "redefined-outer-name": 309,
+        "unused-variable": 18
+      },
+      "error": {
+        "undefined-variable": 28,
+        "unexpected-keyword-arg": 1,
+        "no-value-for-parameter": 1
+      },
+      "refactor": {
+        "too-many-locals": 191
+      },
+      "fatal": {}
+    },
+    "zeroshot": {
+      "convention": {
+        "invalid-name": "1109(35%)",
+        "false-positive-tensorflow-import": "513(16%)",
+        "trailing-whitespace": "426(13%)",
+        "missing-function-docstring": "326(10%)",
+        "missing-final-newline": "300(9%)",
+        "missing-module-docstring": "300(9%)",
+        "line-too-long": "185(6%)"
+      },
+      "warning": {
+        "unused-import": "356(57%)",
+        "redefined-outer-name": "265(42%)",
+        "unused-variable": "3(0%)"
+      },
+      "error": {
+        "undefined-variable": "1(100%)"
+      },
+      "refactor": {
+        "too-many-locals": "37(100%)"
+      },
+      "fatal": {}
+    },
+    "oneshot": {
+      "convention": {
+        "line-too-long": "919(36%)",
+        "trailing-whitespace": "664(26%)",
+        "missing-function-docstring": "316(12%)",
+        "missing-final-newline": "300(12%)",
+        "missing-module-docstring": "300(12%)",
+        "invalid-name": "47(2%)"
+      },
+      "warning": {
+        "unused-import": "147(82%)",
+        "redefined-outer-name": "25(14%)",
+        "unused-variable": "7(4%)"
+      },
+      "error": {
+        "undefined-variable": "11(85%)",
+        "unexpected-keyword-arg": "1(8%)",
+        "no-value-for-parameter": "1(8%)"
+      },
+      "refactor": {
+        "too-many-locals": "58(100%)"
+      },
+      "fatal": {}
+    },
+    "oneshotcot": {
+      "convention": {
+        "line-too-long": "945(35%)",
+        "trailing-whitespace": "780(29%)",
+        "missing-function-docstring": "316(12%)",
+        "missing-final-newline": "300(11%)",
+        "missing-module-docstring": "300(11%)",
+        "invalid-name": "38(1%)"
+      },
+      "warning": {
+        "unused-import": "179(89%)",
+        "redefined-outer-name": "18(9%)",
+        "unused-variable": "4(2%)"
+      },
+      "error": {
+        "undefined-variable": "11(100%)"
+      },
+      "refactor": {
+        "too-many-locals": "60(100%)"
+      },
+      "fatal": {}
+    },
+    "fewshot": {
+      "convention": {
+        "line-too-long": "1138(47%)",
+        "trailing-whitespace": "347(14%)",
+        "missing-function-docstring": "304(13%)",
+        "missing-final-newline": "300(12%)",
+        "missing-module-docstring": "300(12%)",
+        "invalid-name": "17(1%)"
+      },
+      "warning": {
+        "unused-import": "111(96%)",
+        "unused-variable": "4(3%)",
+        "redefined-outer-name": "1(1%)"
+      },
+      "error": {
+        "undefined-variable": "5(100%)"
+      },
+      "refactor": {
+        "too-many-locals": "36(100%)"
+      },
+      "fatal": {}
+    }
+  }
+}

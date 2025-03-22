@@ -1,0 +1,179 @@
+{
+  "codegemma_7b_it": {
+    "summary": {
+      "convention": {
+        "line-too-long": 4869,
+        "invalid-name": 1868,
+        "missing-function-docstring": 1315,
+        "missing-module-docstring": 1190,
+        "missing-final-newline": 1188,
+        "trailing-whitespace": 1009,
+        "false-positive-tensorflow-import": 498,
+        "ungrouped-imports": 2
+      },
+      "warning": {
+        "unused-import": 1279,
+        "bad-indentation": 926,
+        "redefined-outer-name": 147,
+        "unused-variable": 133,
+        "unnecessary-lambda": 103,
+        "unused-argument": 11,
+        "reimported": 6,
+        "cell-var-from-loop": 3,
+        "redefined-builtin": 1
+      },
+      "error": {
+        "undefined-variable": 639,
+        "no-name-in-module": 27,
+        "no-member": 23,
+        "no-value-for-parameter": 12,
+        "unexpected-keyword-arg": 8,
+        "used-before-assignment": 3,
+        "return-outside-function": 1,
+        "import-error": 1,
+        "syntax-error": 1
+      },
+      "refactor": {
+        "too-many-locals": 171,
+        "too-many-arguments": 10,
+        "too-many-statements": 3,
+        "no-else-return": 1
+      },
+      "fatal": {}
+    },
+    "zeroshot": {
+      "convention": {
+        "invalid-name": "1434(47%)",
+        "false-positive-tensorflow-import": "432(14%)",
+        "missing-function-docstring": "343(11%)",
+        "missing-module-docstring": "297(10%)",
+        "missing-final-newline": "295(10%)",
+        "line-too-long": "214(7%)",
+        "trailing-whitespace": "15(0%)",
+        "ungrouped-imports": "2(0%)"
+      },
+      "warning": {
+        "bad-indentation": "574(60%)",
+        "unused-import": "206(22%)",
+        "redefined-outer-name": "87(9%)",
+        "unused-variable": "66(7%)",
+        "unnecessary-lambda": "11(1%)",
+        "unused-argument": "8(1%)",
+        "reimported": "2(0%)",
+        "redefined-builtin": "1(0%)",
+        "cell-var-from-loop": "1(0%)"
+      },
+      "error": {
+        "undefined-variable": "113(82%)",
+        "no-member": "10(7%)",
+        "no-name-in-module": "7(5%)",
+        "used-before-assignment": "3(2%)",
+        "no-value-for-parameter": "2(1%)",
+        "return-outside-function": "1(1%)",
+        "import-error": "1(1%)",
+        "unexpected-keyword-arg": "1(1%)"
+      },
+      "refactor": {
+        "too-many-locals": "20(74%)",
+        "too-many-arguments": "5(19%)",
+        "too-many-statements": "2(7%)"
+      },
+      "fatal": {}
+    },
+    "oneshot": {
+      "convention": {
+        "line-too-long": "1615(51%)",
+        "trailing-whitespace": "439(14%)",
+        "missing-function-docstring": "327(10%)",
+        "missing-final-newline": "298(9%)",
+        "missing-module-docstring": "298(9%)",
+        "invalid-name": "180(6%)",
+        "false-positive-tensorflow-import": "26(1%)"
+      },
+      "warning": {
+        "unused-import": "417(67%)",
+        "bad-indentation": "108(17%)",
+        "unnecessary-lambda": "37(6%)",
+        "redefined-outer-name": "27(4%)",
+        "unused-variable": "27(4%)",
+        "cell-var-from-loop": "2(0%)",
+        "reimported": "1(0%)"
+      },
+      "error": {
+        "undefined-variable": "172(87%)",
+        "no-member": "10(5%)",
+        "no-name-in-module": "9(5%)",
+        "no-value-for-parameter": "4(2%)",
+        "unexpected-keyword-arg": "2(1%)"
+      },
+      "refactor": {
+        "too-many-locals": "64(97%)",
+        "no-else-return": "1(2%)",
+        "too-many-arguments": "1(2%)"
+      },
+      "fatal": {}
+    },
+    "oneshotcot": {
+      "convention": {
+        "line-too-long": "1535(50%)",
+        "trailing-whitespace": "421(14%)",
+        "missing-function-docstring": "332(11%)",
+        "missing-final-newline": "297(10%)",
+        "missing-module-docstring": "297(10%)",
+        "invalid-name": "187(6%)",
+        "false-positive-tensorflow-import": "32(1%)"
+      },
+      "warning": {
+        "unused-import": "334(60%)",
+        "bad-indentation": "125(22%)",
+        "unnecessary-lambda": "49(9%)",
+        "unused-variable": "24(4%)",
+        "redefined-outer-name": "22(4%)",
+        "unused-argument": "3(1%)",
+        "reimported": "2(0%)"
+      },
+      "error": {
+        "undefined-variable": "204(94%)",
+        "no-name-in-module": "10(5%)",
+        "no-member": "2(1%)",
+        "syntax-error": "1(0%)"
+      },
+      "refactor": {
+        "too-many-locals": "52(91%)",
+        "too-many-arguments": "4(7%)",
+        "too-many-statements": "1(2%)"
+      },
+      "fatal": {}
+    },
+    "fewshot": {
+      "convention": {
+        "line-too-long": "1505(57%)",
+        "missing-function-docstring": "313(12%)",
+        "missing-final-newline": "298(11%)",
+        "missing-module-docstring": "298(11%)",
+        "trailing-whitespace": "134(5%)",
+        "invalid-name": "67(3%)",
+        "false-positive-tensorflow-import": "8(0%)"
+      },
+      "warning": {
+        "unused-import": "322(68%)",
+        "bad-indentation": "119(25%)",
+        "unused-variable": "16(3%)",
+        "redefined-outer-name": "11(2%)",
+        "unnecessary-lambda": "6(1%)",
+        "reimported": "1(0%)"
+      },
+      "error": {
+        "undefined-variable": "150(92%)",
+        "no-value-for-parameter": "6(4%)",
+        "unexpected-keyword-arg": "5(3%)",
+        "no-member": "1(1%)",
+        "no-name-in-module": "1(1%)"
+      },
+      "refactor": {
+        "too-many-locals": "35(100%)"
+      },
+      "fatal": {}
+    }
+  }
+}
