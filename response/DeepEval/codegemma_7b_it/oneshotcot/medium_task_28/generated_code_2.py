@@ -1,0 +1,45 @@
+import keras
+from keras.layers import Input, Conv2D, MaxPooling2D, Concatenate, BatchNormalization, Flatten, Dense, Multiply, GlobalAveragePooling2D, Conv2DTranspose, Lambda
+
+def dl_model():
+    input_layer = Input(shape=(32, 32, 3))
+    attention_conv = Conv2D(filters=1, kernel_size=(1, 1), strides=(1, 1), padding='same', activation='sigmoid')(input_layer)
+    attention_maxpool = MaxPooling2D(pool_size=(2, 2), strides=2, padding='valid')(attention_conv)
+    attention_flatten = Flatten()(attention_maxpool)
+    attention_dense1 = Dense(units=128, activation='relu')(attention_flatten)
+    attention_dense2 = Dense(units=32, activation='relu')(attention_dense1)
+    attention_dense3 = Dense(units=32, activation='softmax')(attention_dense2)
+    attention_reshape = Reshape((8, 8, 32))(attention_dense3)
+    attention_upsample = Conv2DTranspose(filters=32, kernel_size=(2, 2), strides=2, padding='same')(attention_reshape)
+    attention_upsample = BatchNormalization()(attention_upsample)
+    attention_upsample = Activation('relu')(attention_upsample)
+    attention_multiply = Multiply()([attention_upsample, input_layer])
+    attention_avgpool = GlobalAveragePooling2D()(attention_multiply)
+    attention_avgpool = Dense(units=16, activation='relu')(attention_avgpool)
+    attention_avgpool = Dense(units=32, activation='relu')(attention_avgpool)
+    attention_avgpool = Reshape((4, 4, 32))(attention_avgpool)
+    attention_avgpool = Conv2DTranspose(filters=32, kernel_size=(2, 2), strides=2, padding='same')(attention_avgpool)
+    attention_avgpool = BatchNormalization()(attention_avgpool)
+    attention_avgpool = Activation('relu')(attention_avgpool)
+    attention_avgpool = Conv2D(filters=3, kernel_size=(1, 1), strides=(1, 1), padding='same', activation='sigmoid')(attention_avgpool)
+    attention_avgpool = Lambda(lambda x: x * input_layer)(attention_avgpool)
+
+    conv_1 = Conv2D(filters=64, kernel_size=(3, 3), strides=(1, 1), padding='same', activation='relu')(input_layer)
+    conv_2 = Conv2D(filters=64, kernel_size=(3, 3), strides=(1, 1), padding='same', activation='relu')(conv_1)
+    maxpool_1 = MaxPooling2D(pool_size=(2, 2), strides=2, padding='valid')(conv_2)
+    conv_3 = Conv2D(filters=128, kernel_size=(3, 3), strides=(1, 1), padding='same', activation='relu')(maxpool_1)
+    conv_4 = Conv2D(filters=128, kernel_size=(3, 3), strides=(1, 1), padding='same', activation='relu')(conv_3)
+    maxpool_2 = MaxPooling2D(pool_size=(2, 2), strides=2, padding='valid')(conv_4)
+    conv_5 = Conv2D(filters=256, kernel_size=(3, 3), strides=(1, 1), padding='same', activation='relu')(maxpool_2)
+    conv_6 = Conv2D(filters=256, kernel_size=(3, 3), strides=(1, 1), padding='same', activation='relu')(conv_5)
+    conv_7 = Conv2D(filters=256, kernel_size=(3, 3), strides=(1, 1), padding='same', activation='relu')(conv_6)
+    maxpool_3 = MaxPooling2D(pool_size=(2, 2), strides=2, padding='valid')(conv_7)
+    flatten_layer = Flatten()(maxpool_3)
+    dense1 = Dense(units=1024, activation='relu')(flatten_layer)
+    dense2 = Dense(units=512, activation='relu')(dense1)
+    dense3 = Dense(units=256, activation='relu')(dense2)
+    dense4 = Dense(units=10, activation='softmax')(dense3)
+
+    model = keras.Model(inputs=input_layer, outputs=dense4)
+
+    return model

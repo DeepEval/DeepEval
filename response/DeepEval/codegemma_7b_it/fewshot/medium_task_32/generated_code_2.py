@@ -1,0 +1,22 @@
+import keras
+import tensorflow as tf
+from keras.layers import Input, Lambda, DepthwiseConv2D, Flatten, Dense, Concatenate
+
+def dl_model():
+
+    input_layer = Input(shape=(32, 32, 3))
+    
+    def feature_extraction(input_tensor):
+        inputs_groups = Lambda(lambda x: tf.split(value=x, num_or_size_splits=3, axis=-1))(input_tensor)
+        conv1 = DepthwiseConv2D(kernel_size=(1, 1), strides=(1, 1), padding='same', activation='relu')(inputs_groups[0])
+        conv2 = DepthwiseConv2D(kernel_size=(3, 3), strides=(1, 1), padding='same', activation='relu')(inputs_groups[1])
+        conv3 = DepthwiseConv2D(kernel_size=(5, 5), strides=(1, 1), padding='same', activation='relu')(inputs_groups[2])
+        output_tensor = Concatenate()([conv1, conv2, conv3])
+        return output_tensor
+    
+    feature_output = feature_extraction(input_layer)
+    flatten = Flatten()(feature_output)
+    output_layer = Dense(units=10, activation='softmax')(flatten)
+    model = keras.Model(inputs=input_layer, outputs=output_layer)
+
+    return model
