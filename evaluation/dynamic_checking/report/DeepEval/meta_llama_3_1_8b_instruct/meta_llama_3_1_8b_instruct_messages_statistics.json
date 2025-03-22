@@ -1,0 +1,82 @@
+{
+    "Python Error": {
+    "ValueError": {
+        "Number":593,
+        "DL Error":{
+        "Input Tensor Shape Mismatch": {
+            "Number":497,
+            "Root Cause Level":"APIs Call Sequence"
+        },
+        "Invalid API Argument Value": {
+            "Number":86,
+            "Root Cause Level":"Single API Call"
+        },
+        "InputTensor-API Argument Mismatch": {
+            "Number":6,
+            "Root Cause Level":"APIs Call Sequence"
+        },
+        "Graph Disconnection": {
+            "Number":3,
+            "Root Cause Level":"APIs Call Sequence"
+        },
+        "Input Tensor Numbers Mismatch":{
+            "Number":1,
+            "Root Cause Level":"APIs Call Sequence"
+        }
+    }
+    },
+    "TypeError":{
+        "Number":29,
+        "DL Error":{
+        "Missing API Argument": {
+            "Number":17,
+            "Root Cause Level":"Single API Call"
+        },    
+        "Invalid API Argument Type": {
+            "Number":6,
+            "Root Cause Level":"Single API Call"
+        },
+        "Invalid Input Tensor Type": {
+            "Number":6,
+            "Root Cause Level":"Single API Call"
+        }
+    }
+    },
+    "AttributeError":{
+        "Number":12,
+        "DL Error":{
+        "Non-Existent API Attribute Access": {
+            "Number":12,
+            "Root Cause Level":"Attribute"
+        }
+    },
+    "SyntaxError":{
+        "Number":4,
+        "DL Error":{
+        "Invalid Return Statement": {
+            "Number":4,
+            "Root Cause Level":"Syntax"
+        }
+    }
+    },
+    "UnboundLocalError":{
+        "Number":3,
+        "DL Error":{
+        "Unassigned Variable Reference": {
+            "Number":3,
+            "Root Cause Level":"Syntax"
+        }
+    }
+    },
+    "ModuleNotFoundError":{
+        "Number":3,
+        "DL Error":{
+        "Non-Existent Module Import": {
+            "Number":3,
+            "Root Cause Level":"Import"
+        }
+    }
+  }
+}
+}
+}

@@ -1,0 +1,87 @@
+{
+    "Python Error": {
+    "ValueError": {
+        "Number":433,
+        "DL Error":{
+        "Input Tensor Shape Mismatch": {
+            "Number":396,
+            "Root Cause Level":"APIs Call Sequence"
+        },
+        "Invalid API Argument Value": {
+            "Number":17,
+            "Root Cause Level":"Single API Call"
+        },
+        "InputTensor-API Argument Mismatch": {
+            "Number":16,
+            "Root Cause Level":"APIs Call Sequence"
+        },
+        "Input Tensor Numbers Mismatch": {
+            "Number":11,
+            "Root Cause Level":"APIs Call Sequence"
+        },
+        "Graph Disconnection": {
+            "Number":2,
+            "Root Cause Level":"APIs Call Sequence"
+        },
+        "Wrong API Argument": {
+            "Number":2,
+            "Root Cause Level":"Single API Call"
+        }
+        }
+    },
+    "NameError":{
+        "Number":155,
+        "DL Error":{
+        "Missing API Import": {
+            "Number":155,
+            "Root Cause Level":"Import"
+            }
+        }
+    },
+    "AttributeError":{
+        "Number":53,
+        "DL Error":{
+        "Non-Existent API Attribute Access": {
+            "Number":53,
+            "Root Cause Level":"Attribute"
+            }
+        }
+    },
+    "TypeError":{
+        "Number":39,
+        "DL Error":{
+        "Invalid API Argument Type": {
+            "Number":39,
+            "Root Cause Level":"Single API Call"
+            }
+        }
+    },
+    "ModuleNotFoundError":{
+        "Number":18,
+        "DL Error":{
+        "Non-Existent Module Import": {
+            "Number":18,
+            "Root Cause Level":"Import"
+            }
+        }
+    },
+    "ImportError":{
+        "Number":9,
+        "DL Error":{
+        "Non-Existent API Import": {
+            "Number":9,
+            "Root Cause Level":"Import"
+            }
+        }
+    },
+    "UnboundLocalError":{
+        "Number":4,
+        "DL Error":{
+        "Unassigned Variable Reference": {
+            "Number":4,
+            "Root Cause Level":"Syntax"
+            }
+        }
+    }
+}
+}

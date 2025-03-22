@@ -1,0 +1,43 @@
+{
+  "Python Error": {
+  "ValueError": {
+      "Number":195,
+      "DL Error":{
+      "Input Tensor Shape Mismatch": {
+          "Number":164,
+          "Root Cause Level":"APIs Call Sequence"
+      },
+      "Invalid API Argument Value": {
+          "Number":30,
+          "Root Cause Level":"Single API Call"
+      },
+      "InputTensor-API Argument Mismatch": {
+          "Number":1,
+          "Root Cause Level":"APIs Call Sequence"
+      }
+      }
+  },
+  "TypeError":{
+      "Number":17,
+      "DL Error":{
+      "Invalid API Argument Type": {
+          "Number":15,
+          "Root Cause Level":"Single API Call"
+      },
+      "Invalid Input Tensor Type": {
+          "Number":2,
+          "Root Cause Level":"Single API Call"
+      }
+      }
+  },
+  "NameError":{
+      "Number":10,
+      "DL Error":{
+      "Missing API Import": {
+          "Number":10,
+          "Root Cause Level":"Import"
+      }
+      }
+  }
+}
+}

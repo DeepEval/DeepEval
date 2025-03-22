@@ -1,0 +1,69 @@
+{
+    "Python Error": {
+    "ValueError": {
+        "Number":524,
+        "DL Error":{
+        "Input Tensor Shape Mismatch": {
+            "Number":453,
+            "Root Cause Level": "APIs Call Sequence"
+        },
+        "Invalid API Argument Value": {
+            "Number":54,
+            "Root Cause Level": "Single API Call"
+        },
+        "InputTensor-API Argument Mismatch": {
+            "Number":13,
+            "Root Cause Level": "APIs Call Sequence"
+        },
+        "Input Tensor Numbers Mismatch": {
+            "Number":4,
+            "Root Cause Level": "APIs Call Sequence"
+        }
+        }
+    },
+    "TypeError":{
+        "Number":60,
+        "DL Error":{
+        "Invalid API Argument Type": {
+            "Number":56,
+            "Root Cause Level": "Single API Call"
+        },
+        "Invalid API Argument shape": {
+            "Number":3,
+            "Root Cause Level": "Single API Call"
+        },
+        "Unexpected API Argument": {
+            "Number":1,
+            "Root Cause Level": "Single API Call"
+        }
+    }
+    },
+    "NameError":{
+        "Number":42,
+        "DL Error":{
+        "Missing API Import": {
+            "Number":42,
+            "Root Cause Level": "Import"
+        }
+        }
+    },
+    "AttributeError":{
+        "Number":2,
+        "DL Error":{
+        "Non-Existent API Attribute Access": {
+            "Number":2,
+            "Root Cause Level": "Attribute"
+        }
+    }
+    },
+    "UnboundLocalError": {
+        "Number":1,
+        "DL Error":{
+        "Unassigned Variable Reference": {
+            "Number":1,
+            "Root Cause Level": "Syntax"
+        }
+    }
+}
+}
+}

@@ -1,0 +1,87 @@
+{
+    "Python Error": {
+    "ValueError": {
+        "Number":441,
+        "DL Error":{
+        "Input Tensor Shape Mismatch": {
+            "Number":352,
+            "Root Cause Level": "APIs Call Sequence"
+        },
+        "Invalid API Argument Value": {
+            "Number":85,
+            "Root Cause Level": "Single API Call"
+        },
+        "InputTensor- API Argument Mismatch": {
+            "Number":3,
+            "Root Cause Level": "APIs Call Sequence"
+        },
+        "Input Tensor Numbers Mismatch": {
+            "Number":1,
+            "Root Cause Level": "APIs Call Sequence"
+        }
+        }
+    },
+    "NameError":{
+        "Number":158,
+        "DL Error":{
+        "Missing API Import": {
+            "Number":158,
+            "Root Cause Level": "Import"
+        }
+        }
+    },
+    "TypeError":{
+        "Number":65,
+        "DL Error":{
+        "Invalid API Argument Type": {
+            "Number":60,
+            "Root Cause Level": "Single API Call"
+        },
+        "Invalid Input Tensor Type": {
+            "Number":4,
+            "Root Cause Level": "Single API Call"
+        },
+        "Missing API Argument": {
+            "Number":1,
+            "Root Cause Level": "Single API Call"
+        }
+    },
+    "ImportError":{
+        "Number":15,
+        "DL Error":{
+        "Non-Existent API Import": {
+            "Number":15,
+            "Root Cause Level": "Import"
+        }
+        }
+    },
+    "AttributeError":{
+        "Number":6,
+        "DL Error":{
+        "Non-Existent API Attribute Access": {
+            "Number":6,
+            "Root Cause Level": "Attribute"
+        }
+        }
+    },
+    "ModuleNotFoundError":{
+        "Number":6,
+        "DL Error":{
+        "Non-Existent Module Import": {
+            "Number":6,
+            "Root Cause Level": "Import"
+        }
+        }
+    },
+    "SyntaxError":{
+        "Number":1,
+        "DL Error":{
+        "Missing Punctuation": {
+            "Number":1,
+            "Root Cause Level": "Syntax"
+        }
+        }
+    }
+}
+}
+}

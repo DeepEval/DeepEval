@@ -1,0 +1,78 @@
+{
+    "Python Error": {
+    "ValueError": {
+        "Number":464,
+        "DL Error":{
+        "Input Tensor Shape Mismatch": {
+            "Number":401,
+            "Root Cause Level": "APIs Call Sequence"
+        },
+        "Invalid API Argument Value": {
+            "Number":48,
+            "Root Cause Level": "Single API Call"
+        },
+        "InputTensor-API Argument Mismatch": {
+            "Number":9,
+            "Root Cause Level": "Single API Call"
+        },
+        "Input Tensor Numbers Mismatch": {
+            "Number":6,
+            "Root Cause Level": "APIs Call Sequence"
+        }
+        }
+    },
+    "NameError":{
+        "Number":207,
+        "DL Error":{
+        "Missing API Import": {
+            "Number":207,
+            "Root Cause Level": "Import Error"
+        }
+        }
+    },
+    "TypeError":{
+        "Number":31,
+        "DL Error":{
+        "Invalid API Argument Type": {
+            "Number":21,
+            "Root Cause Level": "Single API Call"
+        },
+        "Missing API Argument": {
+            "Number":7,
+            "Root Cause Level": "Single API Call"
+        },
+        "Unexpected API Argument": {
+            "Number":3,
+            "Root Cause Level": "Single API Call"
+        }
+        }
+    },
+    "AttributeError":{
+        "Number":9,
+        "DL Error":{
+        "Non-Existent API Attribute Access": {
+            "Number":9,
+            "Root Cause Level": "Attribute Error"
+        }
+        }
+    },
+    "ImportError":{
+        "Number":6,
+        "DL Error":{
+        "Non-Existent API Import": {
+            "Number":6,
+            "Root Cause Level": "Import Error"
+        }
+        }
+    },
+    "SyntaxError":{
+        "Number":1,
+        "DL Error":{
+        "Invalid Return Statement": {
+            "Number":1,
+            "Root Cause Level": "Syntax Error"
+        }
+    }
+  }
+}
+}

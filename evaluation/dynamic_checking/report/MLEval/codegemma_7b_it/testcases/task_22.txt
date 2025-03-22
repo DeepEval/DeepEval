@@ -1,0 +1,5 @@
+What is your name?	How do you introduce yourself?
+What is the capital of France?	Where is Paris located?
+How do I learn Python?	What are the best resources for learning Python?
+What is the meaning of life?	Why are we here?
+How do I cook pasta?	What is the best way to prepare spaghetti?
