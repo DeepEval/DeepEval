@@ -1,0 +1,7 @@
+Requirement: "Please assist me in creating a deep learning model for image classification
+  using the CIFAR-10 dataset. The model includes a main path and a branch path. The main 
+  path features two blocks of convolution followed by max pooling, while the branch path 
+  consists of one block of convolution and max pooling. The outputs from both paths are 
+  combined using an addition operation. Finally,the combined output is flattened into a 
+  one-dimensional vector by a flattening layer, and the features are projected onto a 
+  probability distribution across 10 classes using two fully connected layers."

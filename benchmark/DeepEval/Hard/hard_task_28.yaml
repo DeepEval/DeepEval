@@ -1,0 +1,9 @@
+Requirement: "Please help me create a deep learning model for image classification 
+  using the CIFAR-10 dataset. The model will consist of a main path and a branch path. 
+  The main path begins with a 7x7 depthwise convolution to extract features, followed 
+  by layer normalization for standardization. Next, it includes two sequential 1x1 
+  pointwise convolution layers with the same numbers of channel as the input layer 
+  to refine the feature representation. The branch path connects directly to the input.
+  The outputs of both paths are then combined through an addition operation. Finally, 
+  the combined output is flattened into a one-dimensional vector and processed through
+  two fully connected layers for classification."

@@ -1,0 +1,6 @@
+Requirement: "Please assist me in creating a deep learning model for image classification
+  using the MNIST dataset. The model consists of two paths. In the main path, the first 
+  convolutional layer increases the feature map width, followed by another convolutional 
+  layer that restores the number of channels. The branch path directly connects to the 
+  input. These two paths are then combined through an addition operation. Finally, a 
+  flattened layer and a fully connected layer produce the final classification results."

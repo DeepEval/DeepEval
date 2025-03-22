@@ -1,0 +1,13 @@
+Requirement: "Please help me create a deep learning model for image classification
+  using the CIFAR-10 dataset. The model consists of two blocks. The first block processes
+  the input through three max pooling layers with different scales, utilizing pooling
+  windows and strides of 1x1, 2x2, and 4x4, respectively. Each pooling output is flattened
+  into a one-dimensional vector. To mitigate overfitting, dropout is applied before
+  concatenating these vectors. A fully connected layer and a reshape operation transform
+  the output of the first block into a four-dimensional tensor for processing in second
+  block. The second block spilts the input into four groups along the last dimension
+  by encapsulating tf.split within Lambda layer.Each group is processed by a separable
+  convolutional with varying kernel sizes (1x1, 3x3, 5x5, and 7x7) to extract features.
+  The outputs from these four groups are concatenated. Finally, the model produces
+  the classification result by flattening the output and passing it through a fully
+  connected layer."

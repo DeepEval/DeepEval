@@ -1,0 +1,9 @@
+Requirement: "Please assist me in creating a deep learning model for image classification
+  using the CIFAR-10 dataset. The model begins by splitting the input into three groups 
+  along the channel dimension by encapsulating tf.split within Lambda layer and applying
+  1x1 convolutions to each group independently. The number of convolutional kernels for 
+  each group is set to one-third of the input channels. After this, each group undergoes
+  downsampling via an average pooling layer with consistent parameters.The three resulting
+  groups of feature maps are then concatenated along the channel dimension. Finally, the 
+  concatenated feature maps are flattened into a one-dimensional vector and passed through
+  two fully connected layers for classification."

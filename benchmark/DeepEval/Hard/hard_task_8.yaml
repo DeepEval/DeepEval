@@ -1,0 +1,11 @@
+Requirement: "Please assist me in creating a deep learning model for image classification
+  using the MNIST dataset. The model consists of two main blocks. In Block 1, the primary 
+  path extracts deep features through a sequence of operations: a 1x1 convolution, a 3x3 
+  depthwise separable convolution,followed by another 1x1 convolution. Meanwhile, the branch
+  path applies a 3x3 depthwise separable convolution and a 1x1 convolution. The features 
+  from both paths are concatenated along the channel dimension. Block 2 starts by obtaining
+  the shape of the features from Block 1 and then reshapes it into four groups, with a target
+  shape of (height, width, groups, channels_per_group). Then it swaps the third and fourth 
+  dimensions using permutation operations, before reshaping the features back to its original
+  shape to achieve channel shuffling.The final output is fed into a fully connected layer to 
+  complete the classification."

@@ -1,0 +1,6 @@
+Requirement: "Please help me create a deep learning model for image classification
+  using the CIFAR-10 dataset. The model will include three convolutional layers, where
+  the output from each layer is concatenated with the input of the previous layer
+  along the channel dimension for the next layer. Finally,the output will be flattened
+  and passed through two fully connected layers to produce classification probabilities,
+  making the model suitable for multi-class classification tasks."

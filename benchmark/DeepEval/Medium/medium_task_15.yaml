@@ -1,0 +1,10 @@
+Requirement: "Please assist me in creating a deep learning model for image classification 
+  using the CIFAR-10 dataset. The model begins with a convolutional layer, followed by 
+  batch normalization and ReLU activation, to extract initial features. Next,it compresses
+  these feature maps using global average pooling and two fully connected layers, adjusting
+  their dimensions to be same as the channels of the initial features. The output is then 
+  reshaped to match the size of the initial feature and multiplied with the initial features
+  to generate weighted feature maps, which are subsequently concatenated with the input layer.
+  Finally, the model reduces dimensionality and downsamples the feature using 1x1 convolution
+  and average pooling, culminating in a single fully connected layer that outputs the classification
+  results."

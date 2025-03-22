@@ -1,0 +1,10 @@
+Requirement: "Please help me create a deep learning model for image classification 
+  using the CIFAR-10 dataset. This model features a main path and a branch path. 
+  In the main path, the input is splitted into three groups along the channel by 
+  encapsulating tf.split within Lambda layer, each of which undergoes feature
+  extraction via depthwise separable convolutional layers with varying kernel sizes:
+  1x1, 3x3, and 5x5. The outputs from these three groups are concatenated to produce
+  the main path output. The branch path employs a 1x1 convolutional layer to align
+  the number of output channels with those of the main path. Finally, the outputs
+  from both the main and branch paths are added. The model concludes with two fully
+  connected layers for the 10-class classification task."

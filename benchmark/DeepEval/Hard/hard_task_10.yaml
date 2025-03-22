@@ -1,0 +1,8 @@
+Requirement: "I need assistance in creating a deep learning model for image classification
+  using the CIFAR-10 dataset. The model will have two feature extraction paths: 1. One path
+  employs a 1x1 convolution. 2. The second path consists of a sequence of convolutions: 1x1,
+  followed by 1x7,and then 7x1. The outputs from these two paths will be concatenated, and 
+  a 1x1 convolution will be applied to align the output dimensions with the input image's 
+  channel, creating the output for the main path. Additionally,a branch will connect directly
+  to the input, merging the outputs of the main path and the branch through addition. Finally,
+  the classification results will be produced through two fully connected layers."

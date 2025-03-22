@@ -1,0 +1,8 @@
+Requirement: "I need assistance in creating a deep learning model for image 
+  classification using the MNIST dataset. The model will consist of the following 
+  layers: two 1x1 convolutional layers, followed by a 3x1 convolutional layer, and 
+  a 1x3 convolutional layer. The number of channels will be restored to match the 
+  input's channel count using another 1x1 convolutional layer. To mitigate overfitting,
+  each convolutional layer will include a dropout layer. The processed features will 
+  be combined with the original input via addition. Finally, the model will include a
+  flattening layer followed by a fully connected layer to produce the final probability distribution."

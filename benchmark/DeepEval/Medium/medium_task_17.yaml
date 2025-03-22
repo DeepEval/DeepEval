@@ -1,0 +1,6 @@
+Requirement: "Please assist me in creating a deep learning model for image classification
+  using the CIFAR-10 dataset. The model begins by obtaining the shape of the input layer 
+  and reshaping the input tensor into three groups, targeting a shape of (height, width, groups, channels_per_group), where groups=3 and channels_per_group=channels/groups. Next, the model
+  swaps the third and fourth dimensions using a permutation operation to enable channel 
+  shuffling. The tensor is then reshaped back to its original input shape. Finally, the output
+  is passed through a fully connected layer with a softmax activation for classification."

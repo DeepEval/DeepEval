@@ -1,0 +1,10 @@
+Requirement: "Please help me generate a deep learning model for image classification. 
+  The input data set is: MNIST. The model consists of two pathways to process features.
+  The main path includes a specific block that, upon receiving the current input, 
+  extracts and enhances features through a ReLU activation function and a separable 
+  convolutional layer. Subsequently, the block input is concatenated with the convolved
+  feature map along the channel dimension. The main path repeats this block three times
+  in sequence. The branch path employs a convolutional layer that maintains the same 
+  channels as the main_path''s output. The two paths fuse their features through an 
+  addition operation, and finally, the flattened features are passed through a fully
+  connected layer to output the classification results."

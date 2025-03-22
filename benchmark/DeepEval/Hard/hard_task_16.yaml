@@ -1,0 +1,15 @@
+Requirement: "Please assist me in developing a deep learning model for image classification
+  using the CIFAR-10 dataset. The model consists of the following sequential components: 
+  Block 1, a Transition Convolution,and Block 2. In block 1, the input is splitted into 
+  three groups along the last dimension by encapsulating tf.split within Lambda layer, 
+  each responsible for extracting deep features through a series of convolutions: a 1x1 
+  convolution,followed by a 3x3 convolution, and concluding with another 1x1 convolution. 
+  The outputs from these three groups are then concatenated. Next, the transition convolution
+  layer adjusts the number of channels to match the input layer. Block 2 follows, performing
+  global max pooling on the adjusted output. It then generates channel-matching weights through
+  two fully connected layers, generating weights whose size is the same as the channels of 
+  the input. Block 2 then reshapes these weights to match the shape of adjusted output, and 
+  multiplies them with the adjusted output to produce the main path output. Additionally, 
+  a branch of the model connects directly to the input. The outputs from both the main path
+  and the branch are added together, and the final output is fed through a fully connected layer
+  for classification."

@@ -1,0 +1,12 @@
+Requirement: "Please help me create a deep learning model for image classification 
+  using the CIFAR-10 dataset.The model begins by processing the input through a 
+  initial convolutional layer. It then extracts features along the channel dimension 
+  using two parallel paths: one with global average pooling followed by two fully 
+  connected layers, and the other with global max pooling followed by two fully connected
+  layers. The outputs from these two paths are added and passed through an activation 
+  function to generate channel attention weights, which are then applied to the original
+  features via element-wise multiplication. Next, the processed features undergo separate
+  average and max pooling operations to extract spatial features, which are concatenated 
+  along the channel dimension to form a fused feature map. Finally,the spatial features are
+  combined with the channel features through element-wise multiplication, flattened, and 
+  fed into a fully connected layer to produce the final output."

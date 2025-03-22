@@ -1,0 +1,10 @@
+Requirement: "I would like assistance in creating a deep learning model for image 
+  classification using the CIFAR-10 dataset. The model will first generate
+  attention weights with a 1x1 convolution followed by a softmax layer. These weights
+  will then be multiplied with the input features to obtain contextual information
+  through weighted processing. Next, the model will reduce the input dimensionality
+  to one-third of its original size using another 1x1 convolution,followed by layer
+  normalization and ReLU activation. The dimensionality will then be restored with
+  an additional 1x1 convolution. The processed output will be added to the original
+  input image. Finally, a flattened layer and a fully connected layer will produce
+  the classification results."

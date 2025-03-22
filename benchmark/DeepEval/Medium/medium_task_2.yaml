@@ -1,0 +1,7 @@
+Requirement: "Please assist me in creating a deep learning model for image classification 
+  using the CIFAR-10 dataset. The model consists of two parallel pathways that are combined
+  at the end. Main path includes two consecutive 3x3 convolutional layers followed by a max
+  pooling layer to extract features from the input. Branch path consists of a single 5x5 
+  convolutional layer that also processes the input. The combined features from both paths 
+  are then flattened and mapped to a probability distribution across 10 classes using two 
+  fully connected layers."

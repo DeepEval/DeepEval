@@ -1,0 +1,9 @@
+Requirement: "Please help me generate a deep learning model for image classification. 
+  The input data set is: CIFAR-10.The model consists of four branches. The first branch
+  uses a 1x1 convolution for dimensionality reduction; the second branch extracts features
+  by first applying a 1x1 convolution followed by a 3x3 convolution; the third branch 
+  captures larger spatial information by first using a 1x1 convolution and then a 5x5 
+  convolution; the fourth branch first performs a 3x3 max pooling for downsampling, 
+  followed by a 1x1 convolution for further processing. Finally, the outputs of these 
+  branches are concatenated together. After flattening the features, the model uses two 
+  fully connected layers to combine the features and complete a 10-class classification task."

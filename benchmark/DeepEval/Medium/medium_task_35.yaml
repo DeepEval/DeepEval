@@ -1,0 +1,7 @@
+Requirement: "Please help me create a deep learning model for image classification
+  using the CIFAR-10 dataset. The model employs two stages of convolution and max
+  pooling for downsampling, enabling multi-level feature extraction.These features
+  are then processed through additional convolutional and dropout layers. To restore
+  spatial information, the model integrates two sets of convolutions with upsampling
+  using skip connections to the corresponding convolutional layers. Finally, it produces
+  probability outputs for 10 categories through a 1x1 convolutional layer."

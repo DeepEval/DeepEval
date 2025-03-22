@@ -1,0 +1,8 @@
+Requirement: "Please help me create a deep learning model for image classification 
+  using the CIFAR-10 dataset. The model features multiple branches for enhanced 
+  feature extraction. Specifically, the input is processed through three branches: 
+  1. <1x1 convolution, 3x3 convolution>2.<1x1 convolution, 1x7 convolution,
+  7x1 convolution, 3x3 convolution>3. <max pooling>.Each branch includes a dropout
+  layer at the end to mitigate overfitting.The outputs from all branches are concatenated,
+  and the final output is processed through three fully connected layers to generate
+  classification probabilities."

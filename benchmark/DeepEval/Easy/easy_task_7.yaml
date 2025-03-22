@@ -1,0 +1,7 @@
+Requirement: "I need assistance in creating a deep learning model for image classification 
+  using the MNIST dataset. The model consists of a main path and a branch path. In the main
+  path, the input first passes through two <convolution,dropout> blocks to gradually increase
+  the feature width. This is followed by another convolutional layer to restore the number of
+  channels. The branch path connects directly to the input. The outputs from both paths are 
+  combined through an addition operation. Finally,a flattening layer and a fully connected 
+  layer produce the final classification probabilities."

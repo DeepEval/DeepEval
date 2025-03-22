@@ -1,0 +1,11 @@
+Requirement: "Please assist me in creating a deep learning model for image classification
+  using the MNIST dataset. The model is structured into two blocks: The first block features
+  both a main path and a branch path. The main path begins with a convolutional layer that
+  increases the feature map's dimensions, followed by another convolutional layer that 
+  restores the number of channels. The branch path connects directly to the input. The outputs
+  from both paths are combined through addition to produce the final output of this block. 
+  The second employs three max pooling layers with varying scales (pooling windows and strides
+  of 1x1, 2x2, and 4x4, respectively). The results from these pooling layers are flattened 
+  into one-dimensional vectors, which are then concatenated to form the output for this block.
+  After processing through both blocks, the model passes through two fully connected layers 
+  to produce the final classification result."

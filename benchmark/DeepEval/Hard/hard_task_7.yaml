@@ -1,0 +1,15 @@
+Requirement: "Please help me create a deep learning model for image classification 
+  using the MNIST dataset. The model consists of two sequential blocks: Block 1 and
+  Block 2. Before entering Block 1, an initial convolutional layer with 32 kernels 
+  is applied to adjust the dimensions of the input data. In Block 1, the input is 
+  splitted into two groups along the last dimension by encapsulating tf.split
+  within Lambda layer.The first group undergoes a series of operations: a 1x1 convolution,
+  followed by a depthwise separable convolution, and then another 1x1 convolution.
+  The second group is passed through without modification. The outputs from both groups
+  are then merged using a concatenation operation. Block 2 tasks the output of block
+  1 as input. It starts by obtaining the shape of input and then reshapes the input
+  into four groups, with a target shape of (height, width, groups, channels_per_group),
+  where channels_per_group=channels/groups. Then it swaps the third and fourth dimensions
+  using permutation operations, before reshaping the input back to its original shape
+  to achieve channel shuffling.The final output is then flattened and passed through
+  a fully connected layer for classification."

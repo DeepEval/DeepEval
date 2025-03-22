@@ -1,0 +1,5 @@
+Requirement: "Please assist me in creating a deep learning model for image classification
+  using the CIFAR-10 dataset. The model will begin with two convolutional layers followed
+  by a max-pooling layer to extract features. The output features will be directly added 
+  with the input layer. Finally, these features will be flattened and processed through two
+  fully connected layers to produce a probability distribution across the 10 classes."

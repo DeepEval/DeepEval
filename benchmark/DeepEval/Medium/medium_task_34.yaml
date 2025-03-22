@@ -1,0 +1,8 @@
+Requirement: "Please help me generate a deep learning model for image classification. 
+  The input data set is: CIFAR-10.The model achieves feature extraction and classification
+  through three parts: Firstly, the input sequentially passes through 3 pairs of <convolutional
+  layer, max-pooling layer> to extract deep features; Secondly, it undergoes processing through
+  <convolutional layer, Dropout layer, convolutional layer> to enhance generalization capabilities;
+  Then, it undergoes upsampling through 3 pairs of <convolutional layer, transposed convolutional 
+  layer>, with skip connections to the corresponding convolutional layers in the first part, gradually restoring spatial information. Finally, a 1x1 convolutional layer generates a probability
+  output for 10 classes."

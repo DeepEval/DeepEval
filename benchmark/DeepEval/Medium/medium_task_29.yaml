@@ -1,0 +1,7 @@
+Requirement: "Please assist me in creating a deep learning model for image classification
+  using the CIFAR-10 dataset. The model will include three max pooling layers with varying
+  window sizes to extract features. The pooling windows will be 1x1, 2x2, and 4x4, with the
+  stride set equal to the size of the respective pooling window. The output from each pooling
+  layer will be flattened into a one-dimensional vector, and these vectors will be concatenated
+  to form a unified feature set. Finally, the combined features will be fed into two fully 
+  connected layers to produce classification results for the 10 classes."

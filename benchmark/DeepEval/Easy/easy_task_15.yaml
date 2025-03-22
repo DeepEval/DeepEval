@@ -1,0 +1,8 @@
+Requirement: "Please assist me in creating a deep learning model for image classification
+  using the MNIST dataset. The model features a specialized block designed to capture 
+  local features through a 3x3 convolutional layer, followed by two 1x1 convolutional 
+  layers for additional processing. An average pooling layer is then applied to downsample
+  the feature maps, and a dropout layer is included to mitigate overfitting. After two 
+  consecutive the blocks, a global average pooling layer converts the high-dimensional 
+  feature maps into a one-dimensional vector.This is followed by a flattening layer and
+  a fully connected layer that produces the final classification output."

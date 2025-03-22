@@ -1,0 +1,5 @@
+Requirement: "Please help me generate a deep learning model for image classification. 
+  The input data set is: MNIST.The model first extracts features through two <convolution,
+  convolution, max pooling> blocks, followed by two <convolution,convolution, convolution,
+  max pooling> blocks to further refine the features. Finally,the feature maps will be 
+  flattened and passed through three fully connected layers to produce the classification results."

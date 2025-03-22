@@ -1,0 +1,10 @@
+Requirement: "I need assistance in creating a deep learning model for image classification
+  using the CIFAR-10 dataset. The model begins by splitting the input into three groups 
+  along the channel dimension by encapsulating tf.split within Lambda layer. Each group 
+  undergoes a sequence of <1x1 convolution,3x3 convolution> to extract deep features, 
+  followed by a dropout layer for feature selection to mitigate overfitting. The outputs
+  from the three groups are then concatenated to form the main pathway. In parallel, a 
+  branch pathway processes the input through a 1x1 convolution to match the output dimension
+  of the main pathway. The outputs from both pathways are combined using an addition operation.
+  Finally, the resulting output is passed through a fully connected layer to complete the 
+  classification process."

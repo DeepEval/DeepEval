@@ -1,0 +1,6 @@
+Requirement: "Please assist me in creating a deep learning model for image classification
+  using the MNIST dataset. The model features three branches, each built from a specialized
+  block. This block begins with a depthwise separable convolutional layer, followed by a 
+  1x1 convolutional layer to extract features. To mitigate overfitting, dropout layers are 
+  applied after both convolutional layers. The outputs from the three branches are concatenated
+  and then processed through two fully connected layers to generate the final classification results."

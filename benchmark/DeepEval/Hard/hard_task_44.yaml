@@ -1,0 +1,10 @@
+Requirement: "Please assist me in generating a deep learning model for image classification
+  using the CIFAR-10 dataset. The model consists of two blocks. In block 1, the input is 
+  first splitted into three groups along the channel by encapsulating tf.split within Lambda
+  layer, each undergoing feature extraction through convolutional with varying kernel sizes 
+  (1x1, 3x3, and 5x5). A dropout layer is then applied to reduce overfitting, followed by 
+  concatenation of the outputs from the three groups. The second block features four branches
+  that process the input separately. The branches consist of: 1x1 convolution, <1x1 convolution,
+  3x3 convolution>, <1x1 convolution,5x5 convolution>, <3x3 max pooling, 1x1 convolution>. The
+  outputs from all branches are concatenated for feature fusion. Finally, the model outputs 
+  the result through a flattening layer followed by a fully connected layer."

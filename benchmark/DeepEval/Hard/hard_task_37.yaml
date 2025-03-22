@@ -1,0 +1,8 @@
+Requirement: "Please assist me in creating a deep learning model for image classification
+  using MNIST dataset. The model features two parallel branches, each consisting of a 
+  same block. The block contains three sequential convolutional layers, with the outputs
+  of each layer directed to separate main paths. Additionally, a parallel branch connects
+  the input through a convolutional layer. The outputs from all paths are combined using 
+  an addition operation. Subsequently, the outputs from the two blocks are concatenated.
+  After passing through a flattening layer and a fully connected layer, the model produces
+  the final classification results."

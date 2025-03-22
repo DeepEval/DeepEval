@@ -1,0 +1,6 @@
+Requirement: "Please assist me in creating a deep learning model for image classification 
+  using the CIFAR-10 dataset. The model starts with an initial convolution, followed by 
+  three parallel blocks. Each block consists of a convolutional layer, batch normalization,
+  and ReLU activation. The outputs of these blocks are added with the initial convolution's
+  output to enhance feature representation. Finally, the added output is flattened, passed 
+  through fully connected layers, and classified using a Softmax output."

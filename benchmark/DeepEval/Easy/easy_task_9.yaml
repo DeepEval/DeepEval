@@ -1,0 +1,7 @@
+Requirement: "Please assist me in creating a deep learning model for image classification
+  using the MNIST dataset. The model begins with a 1x1 convolutional layer to increase 
+  dimensionality, followed by a 3x3 depthwise separable convolutional layer for feature 
+  extraction. Next, it applies another 1x1 convolutional layer to reduce dimensionality,
+  maintaining a convolutional stride of 1 throughout. The output from this layer is then 
+  added to the original input layer. Finally, the processed output is passed through a 
+  flattening layer and a fully connected layer to generate the final classification probabilities."

@@ -1,0 +1,16 @@
+Requirement: "Please assist me in creating a deep learning model for image classification
+  using the CIFAR-10 dataset. The main path of the model consists of four components: 
+  Block 1, Block 2, Block 3, and Block 1 (repeated). Additionally, a branch path extracts
+  features from the original input using an average pooling layer. The outputs from both
+  the main path and the branch path are then concatenated. Finally, the combined output 
+  is passed through a fully connected layer to complete the classification process. The 
+  detailed of blocks are as follows: In Block 1, the input is splitted into three groups 
+  by encapsulating tf.split within Lambda layer, each processed by a 1x1 convolutional 
+  layer followed by an activation function. This reduces the number of output channels 
+  to one-third of the original count. The outputs from these three groups are concatenated
+  to produce the fused features of Block 1. Block 2 starts by obtaining the shape of the 
+  features from Block 1 and then reshapes the feature into a target shape of (height, width,
+  groups, channels_per_group),where groups=3. Then it swaps the third and fourth dimensions 
+  using permutation operations, before reshaping the feature back to its original shape to 
+  achieve channel shuffling. Block 3 applies a 3x3 depthwise separable convolution to the 
+  output from Block 2."

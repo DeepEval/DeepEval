@@ -1,0 +1,6 @@
+Requirement: "Please assist me in creating a deep learning model for image classification
+  using the CIFAR-10 dataset. The model will consist of three average pooling layers with
+  pooling windows and strides of 1x1,2x2, and 4x4, allowing it to capture spatial information
+  at different scales. The outputs of these pooling layers will be flattened into one-dimensional
+  vectors and concatenated. After concatenation, the fused features will be further flattened
+  and processed through two fully connected layers to generate the final classification results."

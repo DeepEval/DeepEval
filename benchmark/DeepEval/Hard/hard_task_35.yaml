@@ -1,0 +1,9 @@
+Requirement: "I'd like assistance in generating a deep learning model for image 
+  classification using the CIFAR-10 dataset. The model features two branches,
+  each incorporating a same block. The block first applies global average pooling
+  to compress the input features and then passes the pooled output through two fully
+  connected layers to produce weights whose dimension is equal to the channel of input.
+  These weights are reshaped to match the input's shape and are then element-wise
+  multiplied with the block's input. The outputs from both branches are concatenated,
+  followed by a flattening layer and a fully connected layer, which ultimately yields
+  the classification results."

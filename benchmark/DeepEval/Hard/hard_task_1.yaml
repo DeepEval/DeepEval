@@ -1,0 +1,15 @@
+Requirement: "Please help me design a deep learning model for image classification using
+  the CIFAR-10 dataset. The model begins with an initial convolutional layer that adjusts
+  the number of output channels to match the input image channels. Block 1 features two 
+  parallel processing paths: Path1: Global average pooling followed by two fully connected
+  layers. Path2: Global max pooling followed by two fully connected layers. These paths both
+  extract features whose size is equal to the input''s channels. The outputs from both paths 
+  are added and passed through an activation function to generate channel attention weights
+  matching the input's shape,which are then applied to the original features through element-wise
+  multiplication. Block 2 extracts spatial features by separately applying average pooling 
+  and max pooling. The outputs are concatenated along the channel dimension, followed by a 
+  1x1 convolution and a sigmoid activation to normalize the features. These normalized features
+  are then multiplied element-wise with the channel dimension features from Block 1. Finally, 
+  an additional branch with a 1x1 convolutional layer ensures the output channels align with the
+  input channels. The result is added to the main path and activated. The final classification
+  is performed through a fully connected layer."

@@ -1,0 +1,7 @@
+Requirement: "Please help me create a deep learning model for image classification 
+  using the CIFAR-10 dataset. The model consists of two main components: the main path
+  and the branch path.In the main path,the model sequentially extracts features through
+  three 3x3 convolutional layers,followed by a max pooling layer. The second path includes
+  a global average pooling layer and two fully connected layers that generate channel weights.
+  These weights are reshaped and multiplied with the input. Finally,the outputs from both
+  paths are added and passed through two additional fully connected layers for classification."

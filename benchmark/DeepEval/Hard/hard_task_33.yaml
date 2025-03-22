@@ -1,0 +1,8 @@
+Requirement: "Please help me generate a deep learning model for image classification. 
+  The input data set is: MNIST. The model consists of three branches, each composed 
+  of a same block. This block first elevates the dimension through a 1x1 convolutional 
+  layer, then extracts features through a 3x3 depthwise separable convolutional, followed
+  by a 1x1 convolutional layer to reduce the dimension. Finally, it adds the block's input
+  to form the output. The outputs from the three branches are concatenated, then passed
+  through a flattening layer followed by a fully connected layer to generate classification
+  probabilities."

@@ -1,0 +1,8 @@
+Requirement: "Please help me generate a deep learning model for image classification. 
+  The input data set is: CIFAR-10.The model begins by spiltting the input into three 
+  groups along the last dimension, utilizing a Lambda layer to encapsulate the tf.split
+  operation. Each group then undergoes feature extraction via depthwise separable 
+  convolutional layers, employing distinct kernel sizes of 1x1, 3x3, and 5x5, respectively.
+  The outputs of the three groups are then concatenated and fused together.Finally, the
+  fused features are flattened into a one-dimensional vector and passed through a fully 
+  connected layer for classification."

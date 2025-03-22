@@ -1,0 +1,7 @@
+Requirement: "Please assist me in creating a deep learning model for image classification 
+  using the CIFAR-10 dataset. The model will comprise three blocks, each containing 
+  convolutional operations, batch normalization, and a ReLU activation function. 
+  The output of each block will be concatenated with the output from the previous 
+  block along the channel dimension, serving as the input for the next block. Finally,
+  the output will be flattened and passed through two fully connected layers to generate
+  classification probabilities."

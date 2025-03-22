@@ -1,0 +1,7 @@
+Requirement: "Please assist me in creating a deep learning model for image classification 
+  using the MNIST dataset. The model will first reduce the input dimensionality
+  with a 1x1 convolution, then extract features using a 3x3 convolutional layer. It
+  will restore the dimensionality of the feature map with another 1x1 convolution
+  layer, followed by flattening the output. Finally, the flattened output will be
+  fed into a fully connected layer with 10 neurons for classification, producing the
+  final output."

@@ -1,0 +1,10 @@
+Requirement: "I need assistance in creating a deep learning model for image classification
+  using the CIFAR-10 dataset. The model begins by increasing the dimensionality of the 
+  input's channels threefold with a 1x1 convolution and extracts initial features using a
+  3x3 depthwise separable convolution. The model then computes channel attention weights 
+  through global average pooling followed by two fully connected layers, generating weights
+  whose size is same as the channels of the initial features.The weights are then reshaped 
+  to match the initial features and multiplied with the initial features to achieve achieve
+  channel attention weighting.Finally, a 1x1 convolution reduces the dimensionality, and the
+  output is combined with the initial input. The resulting output is passed through a flattening
+  layer and a fully connected layer to complete the classification process."

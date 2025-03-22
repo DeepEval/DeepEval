@@ -1,0 +1,10 @@
+Requirement: "Please assist me in creating a deep learning model for image classification 
+  using the CIFAR-10 dataset. The model comprises a main path and a branch path. In the 
+  main path, the input features undergo global average pooling to extract global information
+  from the feature map.The pooled output is then processed through two fully connected layers
+  to generate weights whose size is same as the channels of input layer. These weights are 
+  reshaped to match the input layer's shape and multiplied element-wise with the original 
+  feature map.In the branch path, this path connects to the input layer via a 3x3 convolution,
+  adjusting the output feature map's channel to match that of the input layer. The outputs 
+  from both paths are added together. Finally, the combined result is passed through three 
+  fully connected layers to produce the final probability distribution for classification."

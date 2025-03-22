@@ -1,0 +1,12 @@
+Requirement: "Please assist me in creating a deep learning model for image classification
+  using the CIFAR-10 dataset. The model consists of two main blocks. The first block features
+  both a main path and a branch path. The main path begins with a <convolution, dropout> block
+  to expand the width of the feature map, followed by a convolutional layer to restore the 
+  number of channels to same as those of input.In parallel, the branch path directly connects
+  to the input. The outputs from both paths are then added to produce the output of this block.
+  The second block split the input into three groups along the last dimension by encapsulating
+  tf.split within Lambda layer, with each group using separable convolutional layers of varying
+  kernel sizes (1x1, 3x3, and 5x5) to extract features. Each convolution is followed by a dropout
+  layer to mitigate overfitting. The outputs from the three groups are concatenated to create a 
+  unified feature representation. After processing through these two blocks to extract features, 
+  the model outputs the final predictions via a flattening layer and a fully connected layer."

@@ -1,0 +1,15 @@
+Requirement: "Please assist me in creating a deep learning model for image classification
+  using the MNIST dataset. The model comprises two specialized blocks.The first block 
+  processes the input through three average pooling layers with pooling windows and 
+  strides of 1x1, 2x2, and 4x4, respectively. The outputs from these pooling layers 
+  are flattened into one-dimensional vectors and concatenated to create a vector. A 
+  fully connected layer, followed by a reshape operation, converts this output into 
+  a 4-dimensional tensor suitable for the second block. The second block consists of 
+  four parallel paths, each designed to extract multi-scale features using different 
+  convolutional kernels. Path 1 employs a 1x1 convolution for quick feature extraction.
+  Path 2 features two 3x3 convolutions stacked after a 1x1 convolution. Path 3 includes
+  a single 3x3 convolution following a 1x1 convolution. While Path 4 combines average 
+  pooling with a 1x1 convolution for feature compression and extraction. Each path ends
+  with a dropout layer to mitigate overfitting. The outputs from all paths are then 
+  concatenated along the channel dimension. Finally, the model outputs the classification
+  result through two fully connected layers."

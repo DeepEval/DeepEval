@@ -1,0 +1,8 @@
+Requirement: "Please assist me in creating a deep learning model for image classification
+  using the CIFAR-10 dataset. The model features two pathways that combine to create a 
+  comprehensive feature representation through addition: path1 consists of two blocks of 
+  convolution followed by average pooling,which progressively extracts deep features from
+  the images. Path2 employs a single convolutional layer to process the input.After feature
+  extraction, the outputs from both pathways are flattened into a one-dimensional vector. 
+  This vector is then mapped to a probability distribution over the 10 classes using a fully
+  connected layer."

@@ -1,0 +1,8 @@
+Requirement: "Please assist me in generating a deep learning model for image classification
+  using the MNIST dataset. The model consists of two sequential blocks, each comprising a 
+  convolutional layer followed by a max pooling layer, which extracts deep features from 
+  the input. Note that the last convolution output dimension needs to be the same as the 
+  channel dimension of the input image. The outputs from both paths are then combined with
+  the input through an addition operation, creating a comprehensive feature representation.
+  Finally, a fully connected layer classifies the output, providing a probability distribution
+  across ten categories."

@@ -1,0 +1,9 @@
+Requirement: "Please help me create a deep learning model for image classification 
+  using the CIFAR-10 dataset. The model begins by compressing the input features with 
+  global average pooling to capture global information from the feature map. It then
+  utilizes two fully connected layers to generate weights whose size is the same as 
+  the channels of the input, learning the correlations among the feature map's channels.
+  These weights are reshaped to align with the input shape and multiplied element-wise 
+  with the input feature map. Finally, the output is produced by flattening the result 
+  and passing it through another fully connected layer to obtain the final probability 
+  distribution."

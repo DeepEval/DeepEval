@@ -1,0 +1,9 @@
+Requirement: "I would like assistance in creating a deep learning model for image 
+  classification using the MNIST dataset. The model will start with an average pooling
+  layer that utilizes a 5x5 window and a 3x3 stride for feature dimensionality reduction.
+  This is followed by a 1x1 convolutional layer,which enhances the depth and introduces 
+  nonlinearity to the feature maps. The feature maps are then flattened and passed through
+  two fully connected layers for additional feature processing. To mitigate the risk of 
+  overfitting, a dropout layer is included between these fully connected layers. Finally, 
+  the output from the second fully connected layer will produce a probability distribution
+  across 10 classes, suitable for multi-class classification."

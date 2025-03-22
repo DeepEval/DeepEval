@@ -1,0 +1,8 @@
+Requirement: "Please assist me in creating a deep learning model for image classification
+  using the CIFAR-10 dataset. The model will begin by extracting spatial features with a
+  7x7 depthwise separable convolutional layer, incorporating layer normalization to 
+  enhance training stability. It will then pass through two fully connected layers with 
+  the same numbers of channel as the input layer for channel-wise feature transformation.
+  Finally, the model will combine the original input with the processed features through
+  an addition operation. The output will classify the images into 10 categories using the 
+  final two fully connected layers."

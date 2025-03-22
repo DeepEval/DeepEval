@@ -1,0 +1,3115 @@
+{
+    "snippet": "from keras.models import Sequential\nfrom keras.layers import LSTM, Dense\nfrom keras.optimizers import RMSprop\nmodel = Sequential()\nmodel.add(LSTM(128, input_shape=(max_length, voc_size)))\nmodel.add(Dense(voc_size, activation='softmax'))\noptimizer = RMSprop(lr=0.01)\nmodel.compile(optimizer=optimizer, loss='categorical_crossentropy')\n",
+    "intent": "Let's build a first model and train it on a very small subset of the data to check that it works as expected:\n",
+    "task_id": 0
+}
+{
+    "snippet": "print (\"Logistic regression model \")\nlreg1 = smf.logit(formula = 'RESULT ~ RADIUS_MN + TEXTURE_MN + PERIMETER_MN + AREA_MN + SMOOTHNESS_MN + COMPACTNESS_MN + CONCAVITY_MN + CONCAVE_MN + SYMMETRY_MN + FRACTAL_MN ', data = data).fit()\nprint (lreg1.summary())\n",
+    "intent": "** Explore Correlation between house value  and AGE**\n",
+    "task_id": 1
+}
+{
+    "snippet": "scaler.fit(banknotes.drop('Class',axis=1))\n",
+    "intent": "**Fit scaler to the features.**\n",
+    "task_id": 2
+}
+{
+    "snippet": "sess.close()\ntf.reset_default_graph()\n",
+    "intent": "now that we understand this better let's try to use it to predict something the next term in the sequence above.\n",
+    "task_id": 3
+}
+{
+    "snippet": "from sklearn.linear_model import Ridge\nridge = Ridge(alpha=0.1).fit(X_train, y_train)\nprint(\"Training set score: {:.2f}\".format(ridge.score(X_train, y_train)))\nprint(\"Test set score: {:.2f}\".format(ridge.score(X_test, y_test)))\n",
+    "intent": "`Ridge` can also be found in `sklearn.linear_model`.\n",
+    "task_id": 4
+}
+{
+    "snippet": "CONV_SIZE = face_img.shape\ndef calc_auc_conv2d(rcoefs):\n    coefs = rcoefs.reshape(CONV_SIZE)/rcoefs.sum()\n    score_image = relu(convolve(grey_img,coefs))\n    score_value = score_image.flatten()\n    fpr2, tpr2, _ = roc_curve(ground_truth_labels,score_value)\n    return {'fpr': fpr2, 'tpr': tpr2, 'auc': auc(fpr2,tpr2), 'gimg': score_image}\n",
+    "intent": "Using the RGB instead of the gray value for the CNN\n",
+    "task_id": 5
+}
+{
+    "snippet": "subset = 3000\nZ_train_subset = Z_train[:subset]\ny_train_subset = y_train[:subset]\nmodel = SGDRegressor(random_state=42, tol=1e-3, max_iter=1000, verbose=True)\nmodel.fit(Z_train_subset, y_train_subset)\nprint(model.score(Z_test, y_test))\n",
+    "intent": "Looking at the learning curve, the model performs worse as training progresses.\nTherefore, use a subset of training data to stop training early.\n",
+    "task_id": 6
+}
+{
+    "snippet": "logmodel = LogisticRegression()\n",
+    "intent": "** Train and fit a logistic regression model on the training set.**\n",
+    "task_id": 7
+}
+{
+    "snippet": "from sklearn.linear_model import LogisticRegression\nclassifier = LogisticRegression()\nclassifier\n",
+    "intent": "Create a Logistic Regression Model\n",
+    "task_id": 8
+}
+{
+    "snippet": "studA_days = students['A']['days']\nstudA_mor = students['A']['morale']\nAmod = LinearRegression()\nAmod.fit(studA_days[:, np.newaxis], studA_mor)\n",
+    "intent": "---\nI decide to measure the morale with a linear regression, predicting it from the number of days. \nMy model is:\n",
+    "task_id": 9
+}
+{
+    "snippet": "from sklearn.naive_bayes import MultinomialNB\nclassifier = MultinomialNB()\nclassifier.fit(features_train, t_train)\n",
+    "intent": "A Naive Bayes classifier is fit on the training set.\n",
+    "task_id": 10
+}
+{
+    "snippet": "d_tree = DecisionTreeClassifier(criterion=\"gini\")\nd_tree.fit(train_data, train_data.index) \n",
+    "intent": "Vamos ao que interessa...\n",
+    "task_id": 11
+}
+{
+    "snippet": "from sklearn.naive_bayes import MultinomialNB\nclf = MultinomialNB(alpha=0.1)\nclf\n",
+    "intent": "We can now train a classifier, for instance a Multinomial Naive Bayesian classifier:\n",
+    "task_id": 12
+}
+{
+    "snippet": "reg = linear_model.LogisticRegression()\n",
+    "intent": "** Train and fit a logistic regression model on the training set.**\n",
+    "task_id": 13
+}
+{
+    "snippet": "model = model(Tx, Ty, n_a, n_s, len(human_vocab), len(machine_vocab))\n",
+    "intent": "Run the following cell to create your model.\n",
+    "task_id": 14
+}
+{
+    "snippet": "hist = model.fit(x_train, y_train,\n          batch_size=32,\n          epochs=2,\n          validation_data=(x_test, y_test), \n          verbose=2)\n",
+    "intent": "Run the model here. Experiment with different batch_size, and number of epochs!\n",
+    "task_id": 15
+}
+{
+    "snippet": "def softmax(inputs):\n    exp_inputs = np.exp(inputs)\n    out = np.divide (exp_inputs, exp_inputs.sum())\n    return out\nsoftmax([1, 0.5, 2])\n",
+    "intent": "- Sigmoid\n$$\\phi(x) = \\frac{1}{1 + \\exp(-x)}$$\n- Softmax\n$$\\phi(x)_k = \\frac{\\exp(- x_k)}{\\sum_{i=1}^K \\exp(-x_i)}$$\n- Linear\n$$\\phi(x) = x$$\n",
+    "task_id": 16
+}
+{
+    "snippet": "x = tf.Variable(2.0)\nf = tf.exp(x)\ngrads = tf.gradients(f,[x])\nwith tf.Session() as sess:\n    sess.run(tf.global_variables_initializer()) \n    print(grads[0].eval())\n",
+    "intent": "**Exercise:** Use TensorFlow to compute the derivative of $f(x) = e^x$ at $x=2$.\n",
+    "task_id": 17
+}
+{
+    "snippet": "classifier.fit(X_train, y_train)\n",
+    "intent": "Fit (train) or model using the training data\n",
+    "task_id": 18
+}
+{
+    "snippet": "nn = Sequential()\n",
+    "intent": "Initialise neural network.\n",
+    "task_id": 19
+}
+{
+    "snippet": "lr_kidney = LogisticRegression()\nlr_kidney.fit(X_kidney_train_std, y_kidney_train)\nprint('Train accuracy: {:.5f}'.format(lr_kidney.score(X_kidney_train_std, y_kidney_train)))\nprint('Test accuracy: {:.5f}'.format(lr_kidney.score(X_kidney_test_std, y_kidney_test)))\n",
+    "intent": "4 - Fit a Logistic Regression model to the data, report the training and testing accuracies, and comment on your results.\n",
+    "task_id": 20
+}
+{
+    "snippet": "from sklearn.ensemble import RandomForestRegressor\nforest = RandomForestRegressor( )\nparams = {'max_depth':[3,4,5],  \n          'max_leaf_nodes':[5,6,7], \n          'min_samples_split':[3,4],\n          'n_estimators': [100]\n         }\nestimator_rfr = GridSearchCV(forest, params, n_jobs=-1,  cv=5,verbose=1)\n",
+    "intent": "---\nInclude a gridsearch \n",
+    "task_id": 21
+}
+{
+    "snippet": "df_duplicate = df[df['is_duplicate'] == 1]\ndfp_nonduplicate = df[df['is_duplicate'] == 0]\np = np.dstack([df_duplicate[\"question1\"], df_duplicate[\"question2\"]]).flatten()\nn = np.dstack([dfp_nonduplicate[\"question1\"], dfp_nonduplicate[\"question2\"]]).flatten()\nprint (\"Number of data points in class 1 (duplicate pairs) :\",len(p))\nprint (\"Number of data points in class 0 (non duplicate pairs) :\",len(n))\nnp.savetxt('train_p.txt', p, delimiter=' ', fmt='%s')\nnp.savetxt('train_n.txt', n, delimiter=' ', fmt='%s')\n",
+    "intent": "- Creating Word Cloud of Duplicates and Non-Duplicates Question pairs\n- We can observe the most frequent occuring words\n",
+    "task_id": 22
+}
+{
+    "snippet": "_X = np.array([[1,2,3], [4,5,6]])\nX = tf.convert_to_tensor(_X)\nout = tf.zeros_like(X)\nprint(out.eval())\nassert np.allclose(out.eval(), np.zeros_like(_X))\n",
+    "intent": "Q2. Let X be a tensor of [[1,2,3], [4,5,6]]. <br />Create a tensor of the same shape and dtype as X with all elements set to zero.\n",
+    "task_id": 23
+}
+{
+    "snippet": "tf.reset_default_graph()\n",
+    "intent": "Q10. Apply 5 kernels of height 3, stride 2, and valid padding to x.\n",
+    "task_id": 24
+}
+{
+    "snippet": "reg_fake = LinearRegression()\nreg_fake.fit(fake_x.reshape(-1,1), fake_y.reshape(-1,1))\nfake_slope_estimated = reg_fake.coef_[0,0]\nfake_slope_estimated\n",
+    "intent": "And now let's calculate the estimated slope for this fake data\n",
+    "task_id": 25
+}
+{
+    "snippet": "model.fit(x_train, y_train, epochs=10, batch_size=100, verbose=0)\n",
+    "intent": "Run the model here. Experiment with different batch_size, and number of epochs!\n",
+    "task_id": 26
+}
+{
+    "snippet": "print(loss_func(model(xb), yb))\n",
+    "intent": "Let's double-check that our loss has gone down:\n",
+    "task_id": 27
+}
+{
+    "snippet": "from sklearn.linear_model import LogisticRegression\nclassifier = LogisticRegression(class_weight='balanced')\nclassifier\n",
+    "intent": "Create a Logistic Regression Model\n",
+    "task_id": 28
+}
+{
+    "snippet": "model.fit(x_train, y_train, batch_size = 32, epochs = 10, validation_data = (x_test, y_test), verbose = 2)\n",
+    "intent": "Run the model here. Experiment with different batch_size, and number of epochs!\n",
+    "task_id": 29
+}
+{
+    "snippet": "he_init = tf.variance_scaling_initializer()\ndef dnn(inputs, n_hidden_layers=5, n_neurons=100, name=None,\n        activation=tf.nn.elu, initializer=he_init):\n    with tf.variable_scope(name, \"dnn\"):\n        for layer in range(n_hidden_layers):\n            inputs = tf.layers.dense(inputs, n_neurons, activation=activation,\n                                     kernel_initializer=initializer,\n                                     name=\"hidden%d\" % (layer + 1))\n        return inputs\n",
+    "intent": "We will need similar DNNs in the next exercises, so let's create a function to build this DNN:\n",
+    "task_id": 30
+}
+{
+    "snippet": "start_fc = time.time()\ntrace = trace_callback()\nhistory_fc = model_fc.fit(X_train, y_train,\n                          epochs=100, \n                          batch_size=32,\n                          validation_data=(X_valid, y_valid), \n                          verbose=0, \n                          callbacks=[trace])\nend_fc = time.time()\n",
+    "intent": "Train model. Here we use simple callback (defined before) to trace how many epochs have been done (default output is too long for 100 epochs)\n",
+    "task_id": 31
+}
+{
+    "snippet": "loss_func(model(xb), yb), accuracy(model(xb), yb)\n",
+    "intent": "Note that we no longer call `log_softmax` in the `model` function. Let's confirm that our loss and accuracy are the same as before:\n",
+    "task_id": 32
+}
+{
+    "snippet": "kmeans2 = KMeans(3, random_state=rng).fit(df[df.columns[:-1]].values)\n",
+    "intent": "minimize the distance between the cluster and a data point in that cluster.  \n",
+    "task_id": 33
+}
+{
+    "snippet": "def most_similar(search):\n    title_vecs = np.array([nlp(i).vector for i in news_data['clean_title']])\n    nn = NearestNeighbors(n_neighbors=5, n_jobs=-1)\n    nn.fit(title_vecs)\n    distances, indices = nn.kneighbors(nlp(search).vector.reshape(1,-1))\n    print(news_data.ix[indices[0]])\n",
+    "intent": "* Test this function on a few search terms of your own\n",
+    "task_id": 34
+}
+{
+    "snippet": "def get_embed(input_data, vocab_size, embed_dim):\n    embedding = tf.Variable(tf.random_uniform((vocab_size,embed_dim), -1, 1))\n    embed = tf.nn.embedding_lookup(embedding, input_data)\n    return embed\ntests.test_get_embed(get_embed)\n",
+    "intent": "Apply embedding to `input_data` using TensorFlow.  Return the embedded sequence.\n",
+    "task_id": 35
+}
+{
+    "snippet": "from keras.models import Sequential\nfrom keras.layers.core import Dense\nfrom keras.optimizers import SGD\nnp.random.seed(0)\nmodel = Sequential()\nmodel.add(Dense(5, input_dim=784, activation=\"sigmoid\"))\nmodel.add(Dense(10, activation=\"sigmoid\"))\nmodel.compile(optimizer=SGD(lr=0.1), loss='mean_squared_error', metrics=[\"accuracy\"])\n",
+    "intent": " - Dense   < - >  Convolution\n -Fully\n -Connected\n -Network\n",
+    "task_id": 36
+}
+{
+    "snippet": "clf = KNeighborsClassifier(n_neighbors=alpha[best_alpha])\npredict_and_plot_confusion_matrix(train_x_responseCoding, train_y, cv_x_responseCoding, cv_y, clf)\n",
+    "intent": "<h3>5.2.2. Testing the model with best hyper paramters</h3>\n",
+    "task_id": 37
+}
+{
+    "snippet": "writer = tf.summary.FileWriter(log_dir, tf.get_default_graph())\nwriter.close()\n",
+    "intent": "Step 2: Write the graph info into that directory\n",
+    "task_id": 38
+}
+{
+    "snippet": "from sklearn.linear_model import LinearRegression\nreg=LinearRegression()\nfit=reg.fit(X_train,y_train)\naccuracy=reg.score(X_test,y_test)\naccuracy=accuracy*100\naccuracy = float(\"{0:.4f}\".format(accuracy))\nprint('Accuracy is:',accuracy,'%')\n",
+    "intent": "Coefficient of Determination used in the score function : $$ 1-\\frac{\\sum(y_{true}-y_{pred})^{2} }{\\sum (y_{true}-y_{mean,true})^{2}} $$\n",
+    "task_id": 39
+}
+{
+    "snippet": "def weight_variable(shape):\n  initial = tf.truncated_normal(shape, stddev=0.1)\n  return tf.Variable(initial)\ndef bias_variable(shape):\n  initial = tf.constant(0.1, shape=shape)\n  return tf.Variable(initial)\n",
+    "intent": "Watchout the ReLU activation functions, hence the need to carefully initialize the weights (dead neurons)\n",
+    "task_id": 40
+}
+{
+    "snippet": "g = load_graph(graph)\n",
+    "intent": "Load the graph (model) and the classes into the workspace\n",
+    "task_id": 41
+}
+{
+    "snippet": "import xgboost\nclxg = xgboost.XGBRegressor(max_depth=10, learning_rate=0.3, n_estimators=50)\nclxg.fit(X_train, y_train)\n",
+    "intent": "[XGBRegressor](https://github.com/dmlc/xgboost/blob/master/demo/guide-python/sklearn_examples.py)\n",
+    "task_id": 42
+}
+{
+    "snippet": "lm = LinearRegression()\n",
+    "intent": "The same linear regression in SKLearn\n",
+    "task_id": 43
+}
+{
+    "snippet": "logreg_parameters = {\n    'penalty':['l1','l2'],\n    'C': [0.1, .975, .98, .99, 1.0, 1.01, 1.02, 5],\n    'solver':['liblinear']}\ngs = GridSearchCV(logreg, logreg_parameters, verbose=False, cv=5)\ngs.fit(X, y)\n",
+    "intent": "- Use the provided parameter grid. Feel free to add if you like (such as n_jobs).\n- Use 5-fold cross-validation.\n",
+    "task_id": 44
+}
+{
+    "snippet": "from sklearn.model_selection import GridSearchCV\nmodel_c = GridSearchCV(tree.DecisionTreeClassifier(), param_grid)\nmodel_c.fit(X_train, y_train)\n",
+    "intent": "Then we can implement the grid search and fit our model according to the best parameters.\n",
+    "task_id": 45
+}
+{
+    "snippet": "dtree=DecisionTreeClassifier()\n",
+    "intent": "**Create an instance of DecisionTreeClassifier() called dtree and fit it to the training data.**\n",
+    "task_id": 46
+}
+{
+    "snippet": "feature_cols = ['TV', 'radio', 'newspaper', 'size_large']\nX = data[feature_cols]\ny = data.sales\nlm2 = LinearRegression()\nlm2.fit(X, y)\nzip(feature_cols, lm2.coef_)\n",
+    "intent": "Let's redo the multiple linear regression and include the **size_large** feature:\n",
+    "task_id": 47
+}
+{
+    "snippet": "sess = tf.Session()\n",
+    "intent": "A session places a graph onto a computation device and provides methods to execute it.\n",
+    "task_id": 48
+}
+{
+    "snippet": "a = tf.constant(2, name=\"Pedro\")\nb = tf.constant(2, name=\"Maria\")\nx = tf.add(a,b, name=\"add\")\nwith tf.Session() as sess:\n    writer = tf.summary.FileWriter(\"./graphs\", sess.graph)\n    print(sess.run(x))\n    writer.close()\n",
+    "intent": "We can visualize our session using tensorboard\n",
+    "task_id": 49
+}
+{
+    "snippet": "model = LeNetOneShot()\ndef eval_func(input_data, output, loss):\n    _, _, target = input_data\n    output1, output2 = output\n    euclidean_distance = F.pairwise_distance(output1, output2)\n    predict = (euclidean_distance > 1.2).float()\n    return predict.eq(target.squeeze()).sum().item()\nlearner = Learner(model, data_loader_train, data_loader_test)\nlearner.fit(model_loss_func, 0.002, num_epochs=100, eval_func=eval_func)\n",
+    "intent": "***BE CAREFUL***\nThe accuracy depends on threshold. Right now it's unreliable. We will find the best threshold later\n",
+    "task_id": 50
+}
+{
+    "snippet": "_X = np.diag((1, 2, 3))\nX = tf.convert_to_tensor(_X, tf.float32)\ne= tf.linalg.eigh(X)\nprint(e[0].eval())\nprint(e[1].eval())\n",
+    "intent": "Q12. Compute the eigenvalues and eigenvectors of X.\n",
+    "task_id": 51
+}
+{
+    "snippet": "diffed_fare = smt.ARIMA(fare[\"amount\"], order=(0,2,0)).fit()\n",
+    "intent": "We'll start by forecasting revenue.  And then we'll look at costs.\n",
+    "task_id": 52
+}
+{
+    "snippet": "with tf.name_scope(\"Layer_1_Conv\"):\n    W1 = tf.Variable(tf.truncated_normal([6,6,1,sizeLayerOne], stddev=0.1), name=\"Weights\")\n    b1 = tf.Variable(tf.ones([sizeLayerOne])/10, name=\"Bias\")\n    Y1 = tf.nn.relu(tf.nn.conv2d(X_img, W1, strides=stridesL1, padding='SAME') + b1)\n",
+    "intent": "Straturile retelei : \n",
+    "task_id": 53
+}
+{
+    "snippet": "svc = LinearSVC(C = 0.01)\nt=time.time()\nsvc.fit(X_train, y_train)\nt2 = time.time()\nprint(round(t2-t, 2), 'Seconds to train SVC...')\nprint('Test Accuracy of SVC = ', round(svc.score(X_test, y_test), 4))\n",
+    "intent": "The best C parameter was found to be 4 since it resulted in the fastest training time.\n",
+    "task_id": 54
+}
+{
+    "snippet": "a=[ [0.1, 0.2,  0.3  ],\n    [20,  2,       3   ] ]\nb = tf.Variable(a,name='b')\nwith tf.Session() as sess:\n    sess.run(tf.global_variables_initializer())\n    sess.run(tf.argmax(b,1))\n",
+    "intent": "Gets you the maximum value from a tensor along the specified axis.\n",
+    "task_id": 55
+}
+{
+    "snippet": "weights = tf.Variable(tf.random_normal(shape=(X.shape[1],1), stddev=0.01, dtype=tf.float32))\nb = tf.Variable(0.0, dtype=tf.float32)\n",
+    "intent": "__Your code goes here.__ For the training and testing scaffolding to work, please stick to the names in comments.\n",
+    "task_id": 56
+}
+{
+    "snippet": "m_km = KMeans(n_clusters=4, random_state=2017).fit(dfn)\nm_km\n",
+    "intent": "Last big drop at 3-4, so we pick 4. Note that this isn't an exact method.\n",
+    "task_id": 57
+}
+{
+    "snippet": "tf.reset_default_graph()\nparam_x = tf.placeholder(dtype=tf.float32, name='x')\nparam_y = tf.placeholder(dtype=tf.float32, name='y')\nsum_params = param_x + param_y\n",
+    "intent": "Placeholders can be created with the `tf.placeholder` method:\n",
+    "task_id": 58
+}
+{
+    "snippet": "reset_graph()\n",
+    "intent": "implement l1 regularization manually\n",
+    "task_id": 59
+}
+{
+    "snippet": "g = Graph()\ng.set_as_default()\n",
+    "intent": "z = Ax + b\nA = 10\nb = 1\nz = 10x + 1\n",
+    "task_id": 60
+}
+{
+    "snippet": "clear_session()\nmodel = Sequential(\n    [Dropout(0, input_shape=resnet.output_shape[1:]),\n        Dense(2, activation='softmax')])\nmodel.compile('adam', loss='categorical_crossentropy', metrics=['accuracy'])\nmodel.summary()\n",
+    "intent": "Define Simple Model\n",
+    "task_id": 61
+}
+{
+    "snippet": "smaller_model = models.Sequential()\nsmaller_model.add(layers.Dense(4, activation='relu', input_shape=(10000,)))\nsmaller_model.add(layers.Dense(4, activation='relu'))\nsmaller_model.add(layers.Dense(1, activation='sigmoid'))\nsmaller_model.compile(optimizer='rmsprop',\n                      loss='binary_crossentropy',\n                      metrics=['acc'])\n",
+    "intent": "Now let's try to replace it with this smaller network:\n",
+    "task_id": 62
+}
+{
+    "snippet": "from sklearn.svm import SVC\nsvm_clf = SVC()\nsvm_clf.fit(X_train, y_train)\n",
+    "intent": "We are now ready to train a classifier. Let's start with an `SVC`:\n",
+    "task_id": 63
+}
+{
+    "snippet": "reset_graph()\ndef relu(X):\n    with tf.name_scope(\"relu\"):\n        w_shape = (int(X.get_shape()[1]), 1)                          \n        w = tf.Variable(tf.random_normal(w_shape), name=\"weights\")    \n        b = tf.Variable(0.0, name=\"bias\")                             \n        z = tf.add(tf.matmul(X, w), b, name=\"z\")                      \n        return tf.maximum(z, 0., name=\"max\")                          \n",
+    "intent": "Even better using name scopes:\n",
+    "task_id": 64
+}
+{
+    "snippet": "X = tf.get_default_graph().get_tensor_by_name(\"X:0\")\ny = tf.get_default_graph().get_tensor_by_name(\"y:0\")\naccuracy = tf.get_default_graph().get_tensor_by_name(\"eval/accuracy:0\")\ntraining_op = tf.get_default_graph().get_operation_by_name(\"GradientDescent\")\n",
+    "intent": "Once you know which operations you need, you can get a handle on them using the graph's `get_operation_by_name()` or `get_tensor_by_name()` methods:\n",
+    "task_id": 65
+}
+{
+    "snippet": "hidden = tf.layers.dense(dnn_outputs, units=10, activation=tf.nn.elu, kernel_initializer=he_init)\nlogits = tf.layers.dense(hidden, units=1, kernel_initializer=he_init)\ny_proba = tf.nn.sigmoid(logits)\n",
+    "intent": "Now lets add an extra hidden layer with just 10 neurons, and the output layer, with a single neuron:\n",
+    "task_id": 66
+}
+{
+    "snippet": "with tf.Session():\n    print(T.eval(feed_dict={y: np.array([0, 1, 2, 3, 9])}))\n",
+    "intent": "A small example should make it clear what this does:\n",
+    "task_id": 67
+}
+{
+    "snippet": "prepare_log_dir()\nwriter = tf.summary.FileWriter(log_dir, tf.get_default_graph())\nwriter.close()\n",
+    "intent": "When visualizing the graph, placeholders are depicted as follows:\n",
+    "task_id": 68
+}
+{
+    "snippet": "def make_keras_estimator(output_dir):\n  from tensorflow import keras\n  model = keras.models.Sequential()\n  model.add(keras.layers.Dense(32, input_shape=(N_INPUTS,), name=TIMESERIES_INPUT_LAYER))\n  model.add(keras.layers.Activation('relu'))\n  model.add(keras.layers.Dense(1))\n  model.compile(loss = 'mean_squared_error',\n                optimizer = 'adam',\n                metrics = ['mae', 'mape']) \n  return keras.estimator.model_to_estimator(model)\n",
+    "intent": "You can also invoke a Keras model from within the Estimator framework by creating an estimator from the compiled Keras model:\n",
+    "task_id": 69
+}
+{
+    "snippet": "def try_out():\n  with tf.Session() as sess:\n    fn = read_dataset(tf.estimator.ModeKeys.EVAL, \n                    {'input_path': 'data', 'batch_size': 8, 'nitems': 5668, 'nusers': 82802})\n    feats, _ = fn()\n    print feats['input_rows'].eval()\ntry_out()\n",
+    "intent": "This code is helpful in developing the input function. You don't need it in production.\n",
+    "task_id": 70
+}
+{
+    "snippet": "model = LogisticRegression()\nclf = sklearn.model_selection.GridSearchCV(model, param_grid={'C': Cs})\nclf.fit(Xlr, ylr)\nprint(\"C={}\".format(clf.best_estimator_.C), \"Score={}\".format(clf.best_score_))\n",
+    "intent": "<div class=\"span5 alert alert-success\">\n<h4>SOLUTIONS: Exercise Set IV</h4>\n    </div>\n",
+    "task_id": 71
+}
+{
+    "snippet": "from sklearn.grid_search import GridSearchCV\nsvc = svm.SVC()\nC_range = 10.0 ** np.arange(-2, 5)\ngamma_range = 10.0 ** np.arange(-4, 5)\ndegree_range=[2,3,4]\nkernels=['linear', 'poly', 'rbf']\nparam_grid = dict(C=C_range, gamma=gamma_range, degree=degree_range, kernel=kernels)\ngrid = GridSearchCV(svc, param_grid, scoring='accuracy')\ngrid.fit(X, y)\n",
+    "intent": "Try out different things that we did above, try a grid search for the optimal model hyperparameters.\n",
+    "task_id": 72
+}
+{
+    "snippet": "from sklearn.linear_model import LogisticRegression\nlr = LogisticRegression()\n",
+    "intent": "** Train and fit a logistic regression model on the training set.**\n",
+    "task_id": 73
+}
+{
+    "snippet": "base_classifier = DecisionTreeClassifier()\nbase_classifier.fit(train_X, train_y)\n",
+    "intent": "Let's use Decision Tree classifier first. As mentioned, it can process multiclass data by design.\n",
+    "task_id": 74
+}
+{
+    "snippet": "from sklearn.cluster import DBSCAN\ndbscn = DBSCAN(eps = 3, min_samples = 3)\ndbscan.fit(Xs)\n",
+    "intent": "Remember to pass an `eps` and `min_samples` of your choice.\n",
+    "task_id": 75
+}
+{
+    "snippet": "x = tf.constant(1.0, name = 'input')\nw = tf.Variable(0.8, name = 'weight')\ny = tf.mul(w, x, name = 'output')\n",
+    "intent": "Tensorboard reads the name field that is stored inside each operation. \n",
+    "task_id": 76
+}
+{
+    "snippet": "tf.reset_default_graph()\nn_inputs = 28*28\nX = tf.placeholder(tf.float32, shape=[None, n_inputs])\nhidden1 = tf.nn.elu(tf.matmul(X, W1) + b1)\nhidden2 = tf.nn.elu(tf.matmul(hidden1, W2) + b2)\nhidden3 = tf.nn.elu(tf.matmul(hidden2, W3) + b3)\noutputs = tf.matmul(hidden3, W4) + b4\n",
+    "intent": "Finally, we can create a Stacked Autoencoder by simply reusing the weights and biases from the Autoencoders we just trained:\n",
+    "task_id": 77
+}
+{
+    "snippet": "with tf.Session() as sess:\n    result = sess.run(sum_params, feed_dict={param_x: 3, param_y: 2})\nprint(result)\n",
+    "intent": "To provide values for the placeholders upon execution, a `feed_dict` has to be provided:\n",
+    "task_id": 78
+}
+{
+    "snippet": "import tensorflow as tf\nsoftmax_data = [0.7, 0.2, 0.1]\none_hot_data = [1.0, 0.0, 0.0]\nsoftmax = tf.placeholder(tf.float32)\none_hot = tf.placeholder(tf.float32)\ncross_entropy = - tf.reduce_sum(tf.multiply(one_hot, tf.log(softmax)))\nwith tf.Session() as session:\n    result = session.run(cross_entropy, feed_dict={softmax: softmax_data, one_hot: one_hot_data})\n    print(result)\n",
+    "intent": "tf.reduce_sum() function takes an array of numbers and sums them together\ntf.log() is the natural log\n",
+    "task_id": 79
+}
+{
+    "snippet": "nl1 = BatchNormalization()\nnl2 = BatchNormalization()\n",
+    "intent": "Now we're ready to create and insert our layers just after each dense layer.\n",
+    "task_id": 80
+}
+{
+    "snippet": "fn = theano.function(all_args, error, updates=upd, allow_input_downcast=True)\n",
+    "intent": "We're finally ready to compile the function!\n",
+    "task_id": 81
+}
+{
+    "snippet": "def relu(x): return Activation('relu')(x)\ndef dropout(x, p): return Dropout(p)(x) if p else x\ndef bn(x): return BatchNormalization(mode=0, axis=-1)(x)\ndef relu_bn(x): return relu(bn(x))\n",
+    "intent": "These components should all be familiar to you:\n* Relu activation\n* Dropout regularization\n* Batch-normalization\n",
+    "task_id": 82
+}
+{
+    "snippet": "correct,total = 0,0\nfor data in testloader:\n    images, labels = data\n    outputs = net(Variable(images).cuda())\n    _, predicted = torch.max(outputs.data, 1)\n    total += labels.size(0)\n    correct += (predicted == labels.cuda()).sum()\nprint('Accuracy of the network on the 10000 test images: %d %%' % (100 * correct / total))\n",
+    "intent": "The results seem pretty good. Let us look at how the network performs on the whole dataset.\n",
+    "task_id": 83
+}
+{
+    "snippet": "xt, yt = next(dl)\ny_pred = net2(Variable(xt).cuda())\n",
+    "intent": "First, we will do a **forward pass**, which means computing the predicted y by passing x to the model.\n",
+    "task_id": 84
+}
+{
+    "snippet": "input_layer = lasagne.layers.InputLayer(shape = input_shape,input_var=input_X)\ndense_1 = lasagne.layers.DenseLayer(input_layer,num_units=50,\n                                   nonlinearity = lasagne.nonlinearities.sigmoid,\n                                   name = \"hidden_dense_layer\")\ndense_output = lasagne.layers.DenseLayer(dense_1,num_units = 10,\n                                        nonlinearity = lasagne.nonlinearities.softmax,\n                                        name='output')\n",
+    "intent": "Defining network architecture\n",
+    "task_id": 85
+}
+{
+    "snippet": "model = Sequential()\nmodel.add(Dense(100, input_shape=(dims,)))\nmodel.add(Dense(nb_classes))\nmodel.add(Activation('softmax'))\nmodel.compile(optimizer='sgd', loss='categorical_crossentropy')\nmodel.summary()\n",
+    "intent": "Take couple of minutes and try to play with the number of layers and the number of parameters in the layers to get the best results. \n",
+    "task_id": 86
+}
+{
+    "snippet": "print(np.sum(softmax([10, 2, -3])))\n",
+    "intent": "Probabilities should sum to 1:\n",
+    "task_id": 87
+}
+{
+    "snippet": "with tf.Session() as sess:\n    result = sum_params.eval(session=sess, feed_dict={param_x: 1, param_y: 2})\nprint(result)\n",
+    "intent": "This is also possible when using the `eval` method:\n",
+    "task_id": 88
+}
+{
+    "snippet": "num_epochs = 3\nfor epoch in range(num_epochs):\n    epoch_loss = 0.\n    for x, _ in train_loader:\n        x = Variable(x.view(-1, 784))\n        epoch_loss += svi.step(x)\n    normalizer = len(train_loader.dataset)\n    print(\"[epoch %03d]  average training ELBO: %.4f\" % (epoch, -epoch_loss / normalizer))\n",
+    "intent": "Let's do 3 epochs of training and report the ELBO averaged per data point for each epoch (note that this can be somewhat slow on Azure ML)\n",
+    "task_id": 89
+}
+{
+    "snippet": "from sklearn.linear_model import LogisticRegression\nlr = LogisticRegression(penalty='l1', C=1.0)\nlr.fit(X_train_std, y_train)\nprint('Training accuracy:', lr.score(X_train_std, y_train))\nprint('Test accuracy:', lr.score(X_test_std, y_test))\n",
+    "intent": "Applied to the standardized Wine data ...\n",
+    "task_id": 90
+}
+{
+    "snippet": "spikes = tf.Variable([False]*8, name='spikes')\n",
+    "intent": "Create a boolean vector called `spikes` of the same dimensions as before:\n",
+    "task_id": 91
+}
+{
+    "snippet": "w = tf.Variable([0.] * num_coeffs, name=\"parameters\")\ny_model = model(X, w)\ncost = tf.div(tf.add(tf.reduce_sum(tf.square(Y-y_model)),\n                     tf.multiply(reg_lambda, tf.reduce_sum(tf.square(w)))),\n              2*x_train.size)\ntrain_op = tf.train.GradientDescentOptimizer(learning_rate).minimize(cost)\n",
+    "intent": "Define the regularized cost function\n",
+    "task_id": 92
+}
+{
+    "snippet": "x = tf.placeholder(tf.float32, [None, 24 * 24])\ny = tf.placeholder(tf.float32, [None, len(names)])\nW1 = tf.Variable(tf.random_normal([5, 5, 1, 64]))\nb1 = tf.Variable(tf.random_normal([64]))\nW2 = tf.Variable(tf.random_normal([5, 5, 64, 64]))\nb2 = tf.Variable(tf.random_normal([64]))\nW3 = tf.Variable(tf.random_normal([6*6*64, 1024]))\nb3 = tf.Variable(tf.random_normal([1024]))\nW_out = tf.Variable(tf.random_normal([1024, len(names)]))\nb_out = tf.Variable(tf.random_normal([len(names)]))\n",
+    "intent": "Define the placeholders and variables for the CNN model:\n",
+    "task_id": 93
+}
+{
+    "snippet": "ranks = [5, 5, 5]\ncore = Variable(tl.tensor(rng.random_sample(ranks)), requires_grad=True)\nfactors = [Variable(tl.tensor(rng.random_sample((tensor.shape[i], ranks[i]))),\n                 requires_grad=True) for i in range(tl.ndim(tensor))]\n",
+    "intent": "Initialise a random Tucker decomposition of that tensor\n",
+    "task_id": 94
+}
+{
+    "snippet": "def net(X):\n    y_linear = nd.dot(X, W) + b\n    yhat = softmax(y_linear)\n    return yhat\n",
+    "intent": "Now we're ready to define our model\n",
+    "task_id": 95
+}
+{
+    "snippet": "model.compile(loss='categorical_crossentropy', optimizer=SGD(lr=0.001), \n              metrics=['accuracy'])\nnetwork_history = model.fit(X_train, Y_train, batch_size=128, \n                            epochs=4, verbose=1, validation_data=(X_val, Y_val))\n",
+    "intent": "Try increasing the number of epochs (if you're hardware allows to)\n",
+    "task_id": 96
+}
+{
+    "snippet": "LassoMd = lasso.fit(final_train_df.values,y_train)\nENetMd = ENet.fit(final_train_df.values,y_train)\nKRRMd = KRR.fit(final_train_df.values,y_train)\nGBoostMd = GBoost.fit(final_train_df.values,y_train)\n",
+    "intent": "**Fit the training dataset on every model**\n",
+    "task_id": 97
+}
+{
+    "snippet": "with tf.Session() as sess:\n    result = sum_params.eval(session=sess, feed_dict={param_x: [1,2,3], param_y: 3})\nprint(result)\n",
+    "intent": "Instead of scalars, one can also provide vectors (or other arrays) for the placeholders:\n",
+    "task_id": 98
+}
+{
+    "snippet": "def cluster_plotter(eps=1.0, min_samples=5):\n    dbkk = DBSCANKK(eps=eps, min_samples=min_samples)\n    dbkk.fit(X)\n    plot_clusters(X, dbkk.point_cluster_labels)\n",
+    "intent": "---\nDon't pass `X` in to the function. We will just use the \"global\" X defined in the jupyter notebook earlier.\n",
+    "task_id": 99
+}
+{
+    "snippet": "import tensorflow as tf\ngpu_options = tf.GPUOptions(per_process_gpu_memory_fraction=0.8)\nsession = tf.Session(config=tf.ConfigProto(gpu_options=gpu_options,allow_soft_placement=True))\n",
+    "intent": "---\nIn this notebook, we train a CNN to classify images from the CIFAR-10 database.\n",
+    "task_id": 100
+}
+{
+    "snippet": "clf_model_c = MultinomialNB()\n",
+    "intent": "* model c - train - [performance measures][0:4]\n* model c - test - [performance measures][0:4]\n",
+    "task_id": 101
+}
+{
+    "snippet": "lm = LogisticRegression()\nlm.fit(X1,y)\nprint lm.coef_\nprint lm.intercept_\n",
+    "intent": "Run your regression line on X1 and interpret your MOMMY AND DADMY coefficients.\n",
+    "task_id": 102
+}
+{
+    "snippet": "clf_iris_pr = KNeighborsClassifier()\nclf_iris_pr.fit(X_ir[:,:2], y_ir)\nplot_Kneig(clf_iris_pr, X_ir[:,:2], y_ir)\n",
+    "intent": "Classes are pretty well separated. We can check how the our model would work if we take two other features.\n",
+    "task_id": 103
+}
+{
+    "snippet": "def get_embed(input_data, vocab_size, embed_dim):\n    embedding = tf.Variable(tf.truncated_normal((vocab_size, embed_dim), stddev=0.01))\n    embedded = tf.nn.embedding_lookup(embedding, input_data)\n    return embedded\ntests.test_get_embed(get_embed)\n",
+    "intent": "Apply embedding to `input_data` using TensorFlow.  Return the embedded sequence.\n",
+    "task_id": 104
+}
+{
+    "snippet": "from sklearn import discriminant_analysis\nLDA = discriminant_analysis.LinearDiscriminantAnalysis()\nLDA.fit(x_tm, y_tm)\n",
+    "intent": "- Build the LDA model on the tumor data\n",
+    "task_id": 105
+}
+{
+    "snippet": "plotModel(svm_model, iris.data[:, 2], iris.data[:, 3], iris.target)\npl.xlabel('Petal Length')\npl.ylabel('Petal Width')\n",
+    "intent": "Visualize the result:\n",
+    "task_id": 106
+}
+{
+    "snippet": "kmeans.set_params(n_clusters=3)\nkmeans.fit(card)\nlabel = kmeans.labels_\nlabel\n",
+    "intent": "There are no obvious boundaries to split this data set.\nGroup these consumers into three clusters.\n",
+    "task_id": 107
+}
+{
+    "snippet": "tf.reset_default_graph()\nvar_theta = tf.Variable(3, name=\"theta\")\nvar_rand = tf.Variable(tf.random_normal(shape = []))\n",
+    "intent": "Upon creation, an initial value has to be provided:\n* in practice, this often is some random number\n",
+    "task_id": 108
+}
+{
+    "snippet": "model.fit(X, Y)\n",
+    "intent": "Now that you've initialized your model, it's time to train it.\n",
+    "task_id": 109
+}
+{
+    "snippet": "class ConvLayer(nn.Module):\n    def __init__(self, in_channels=3, out_channels=256, kernel_size=9):\n        super(ConvLayer, self).__init__()\n        self.conv = nn.Conv2d(in_channels=in_channels,\n                               out_channels=out_channels,\n                               kernel_size=kernel_size,\n                               stride=1\n                             )\n    def forward(self, x):\n        return F.relu(self.conv(x))\n",
+    "intent": "This is a usual convolution layer that extracts basic features from images.\n",
+    "task_id": 110
+}
+{
+    "snippet": "with tf.name_scope('model'):\n    m = tf.Variable(tf.random_normal([1]), name='m')\n    b = tf.Variable(tf.random_normal([1]), name='b')\n    y = m * x_placeholder + b\n",
+    "intent": "Step 3) Define our model.\nHere, we'll use a linear model: *y = mx + b*\n",
+    "task_id": 111
+}
+{
+    "snippet": "session = tf.Session(graph=model.graph)\n",
+    "intent": "We need a TensorFlow session to execute the graph.\n",
+    "task_id": 112
+}
+{
+    "snippet": "import numpy as np\nrun_options = tf.RunOptions(trace_level=tf.RunOptions.FULL_TRACE)\nwith tf.Session(\"grpc://tensorflow3.pipeline.io:8888\", graph=graph, config=sess_config) as session:\n    result = session.run(final_result, feed_dict={ input_array: np.ones([1000]) }, options=run_options)\n    print(result)\n",
+    "intent": "We can now run the graph \n",
+    "task_id": 113
+}
+{
+    "snippet": "import numpy as np\nimport tensorflow as tf\nm1 = np.array([[1., 2.], [3., 4.], [5., 6.], [7., 8.]], dtype=np.float32)\nm1_input = tf.placeholder(tf.float32, shape=[4, 2])\nm2 = tf.Variable(tf.random_uniform([2, 3], -1.0, 1.0))\nm3 = tf.matmul(m1_input, m2)\nm3 = tf.Print(m3, [m3], message=\"m3 is: \")\ninit = tf.initialize_all_variables()\n",
+    "intent": "A jupyter notebook version of the simple 'starter' example.\nFirst, define a constant, and define the TensorFlow graph.\n",
+    "task_id": 114
+}
+{
+    "snippet": "images = get_next_image_files(batch_size=3)\ndisplay_augment_pipeline(images)\n",
+    "intent": "Visualize each of the data augmentation operation\n=================================================\n",
+    "task_id": 115
+}
+{
+    "snippet": "lm1 = smf.ols('DomesticTotalGross ~ ones', data=df)\nfit1 = lm1.fit()\nfit1.summary()\n",
+    "intent": "The results of this model predicts the mean of the outcome variable.\n",
+    "task_id": 116
+}
+{
+    "snippet": "with tf.Session() as sess:\n    saver.restore(sess, \"./rnn_time_series_model__testing\")\n    zero_seq_seed = [0. for i in range(num_time_steps)]\n    for iteration in range(len(ts_data.x_data) - num_time_steps):\n        X_batch = np.array(zero_seq_seed[-num_time_steps:]).reshape(1, num_time_steps, 1)\n        y_pred = sess.run(outputs, feed_dict={X: X_batch})\n        zero_seq_seed.append(y_pred[0, -1, 0])\n",
+    "intent": "** Note: Can give wacky results sometimes, like exponential growth**\n",
+    "task_id": 117
+}
+{
+    "snippet": "with tf.Session() as sess:\n    sess.run(tf.global_variables_initializer())\n    print(\"f({0}) = {1}, f'({0})={2}\".format(*sess.run((x,f,gradient), feed_dict={c: 4.2})))\n",
+    "intent": "The gradient can be evaluated like every other tensor:\n",
+    "task_id": 118
+}
+{
+    "snippet": "def get_embed(input_data, vocab_size, embed_dim):\n    embedded_input = tf.Variable(tf.random_uniform([vocab_size, embed_dim], -1.0, 1.0))\n    return tf.nn.embedding_lookup(embedded_input, input_data)\ntests.test_get_embed(get_embed)\n",
+    "intent": "Apply embedding to `input_data` using TensorFlow.  Return the embedded sequence.\n",
+    "task_id": 119
+}
+{
+    "snippet": "def get_embed(input_data, vocab_size, embed_dim):\n    return tf.contrib.layers.embed_sequence(input_data, \n                                            vocab_size=vocab_size, \n                                            embed_dim=embed_dim)\ntests.test_get_embed(get_embed)\n",
+    "intent": "Apply embedding to `input_data` using TensorFlow.  Return the embedded sequence.\n",
+    "task_id": 120
+}
+{
+    "snippet": "test_input = [[0.25, 0.15]]\ngraph=tf.Graph()\nwith tf.Session() as session:\n    tf.global_variables_initializer().run(session=session)\n    output = session.run(out, feed_dict=feed_dict) \n    print(output[0]) \n",
+    "intent": "As with the previous example, we can use `session.run()` to execute this computation graph, and use a `feed_dict` to feed in our input:\n",
+    "task_id": 121
+}
+{
+    "snippet": "svc.fit(data,labels)\n",
+    "intent": "Fit SVC with the same training data and predict the same point\n",
+    "task_id": 122
+}
+{
+    "snippet": "def get_data(sz, bs):\n    tfms = tfms_from_model(arch, sz, aug_tfms=transforms_side_on, max_zoom=1.1)\n    data = ImageClassifierData.from_csv(PATH, 'train', f'{PATH}labels.csv', test_name='test', \n                                        num_workers=4, val_idxs=val_idxs, suffix='.jpg', \n                                        tfms=tfms, bs=bs)\n    return data if sz > 300 else data.resize(340, 'tmp')\n",
+    "intent": "starting w/ small images, large batch sizes to train model v.fast in beginning; increase image size and decrease batch-size as go along.\n",
+    "task_id": 123
+}
+{
+    "snippet": "graph_in = Input((vocab_size, 50))\nconvs = [ ]\nfor fsz in xrange(3, 6):\n    x = Convolution1D(64, fsz, border_mode='same', activation='relu')(graph_in)\n    x = MaxPooling1D()(x)\n    x = Flatten()(x)\n    convs.append(x)\nout = Merge(mode='concat')(convs)\ngraph = Model(graph_in, out)\n",
+    "intent": "We use the functional API to create multiple ocnv layers of different sizes, and then concatenate them.\n",
+    "task_id": 124
+}
+{
+    "snippet": "model.fit([conv_feat, trn_sizes], trn_labels, batch_size=batch_size, nb_epoch=3,\n             validation_data=([conv_val_feat, val_sizes], val_labels))\n",
+    "intent": "And when we train the model, we have to provide all the input layers' data in an array:\n",
+    "task_id": 125
+}
+{
+    "snippet": "model = RandomForestRegressor(n_jobs=-1)\nmodel.fit(df, y)\nmodel.score(df, y)\n",
+    "intent": "Now we have something we can pass into a Random-Forest Regressor.\n",
+    "task_id": 126
+}
+{
+    "snippet": "torch.tensor([[1, 2, 3]],dtype=torch.int32)\n",
+    "intent": "*umm....*\n*...*\nSo it's `torch.tensor` not `torch.Tensor`? Got a lot of errors trying to specify a datatype with capital T. Alright then.\n",
+    "task_id": 127
+}
+{
+    "snippet": "classifier.fit(X_train, z_train)\n",
+    "intent": "Fit (train) or model using the training data\n",
+    "task_id": 128
+}
+{
+    "snippet": "from sklearn.model_selection import KFold\nfrom sklearn.model_selection import GridSearchCV\nn_folds = 5\nparameters = {'max_features': [4, 8, 14, 20, 24]}\nrf = RandomForestClassifier(max_depth=4)\nrf = GridSearchCV(rf, parameters, \n                    cv=n_folds, \n                   scoring=\"accuracy\")\nrf.fit(X_train, y_train)\n",
+    "intent": "Let's see how the model performance varies with ```max_features```, which is the maximum numbre of features considered for splitting at a node.\n",
+    "task_id": 129
+}
+{
+    "snippet": "np.savez('model.npz', *lasagne.layers.get_all_param_values(network))\n",
+    "intent": "https://goo.gl/forms/EeadABISlVmdJqgr2 \n",
+    "task_id": 130
+}
+{
+    "snippet": "compiled_expr = theano.function([x, y, alpha], z)\n",
+    "intent": "`theano.function`\nReturns a callable object that will calculate outputs from inputs\n",
+    "task_id": 131
+}
+{
+    "snippet": "model.fit(X, y, cat_features=categorical_features_indices)\n",
+    "intent": "Now we would re-train our tuned model on all train data that we have\n",
+    "task_id": 132
+}
+{
+    "snippet": "tree_mod = DecisionTreeRegressor()\nrf_mod = RandomForestRegressor()\nada_mod = AdaBoostRegressor()\nreg_mod = LinearRegression()\n",
+    "intent": "> **Step 3:** Now that you have imported the 4 models that can be used for regression problems, instantate each below.\n",
+    "task_id": 133
+}
+{
+    "snippet": "def get_embed(input_data, vocab_size, embed_dim):\n    embedding = tf.Variable(tf.random_uniform((vocab_size, embed_dim)))\n    embed = tf.nn.embedding_lookup(embedding, input_data)\n    return embed\ntests.test_get_embed(get_embed)\n",
+    "intent": "Apply embedding to `input_data` using TensorFlow.  Return the embedded sequence.\n",
+    "task_id": 134
+}
+{
+    "snippet": "y = data.label\nmodel = LogisticRegression() \nmodel.fit(X, y) \nprint model.score(X, y)\nexamine_coefficients(model, X).head()\n",
+    "intent": "- Change the `C` parameter\n    - how do the coefficients change? (use `examine_coeffcients`)\n    - how does the model perfomance change (using AUC)\n",
+    "task_id": 135
+}
+{
+    "snippet": "with tf.name_scope('model'):\n    m = tf.Variable(tf.random_normal([1]), name='m')\n    b = tf.Variable(tf.random_normal([1]), name='b')\n    y = m * x_placeholder + b\n",
+    "intent": "Here, we'll use a linear model (e.g., *y = mx + b*)\n",
+    "task_id": 136
+}
+{
+    "snippet": "model.fit(x_train, y_train, epochs=10, batch_size=32, verbose=2)\n",
+    "intent": "Run the model here. Experiment with different batch_size, and number of epochs!\n",
+    "task_id": 137
+}
+{
+    "snippet": "def split_Xy(data):\n    return data[:, [0,1,2,3]], data[:, [4]].flatten()\n    raise NotImplementedError()\n",
+    "intent": "Split the data into the features `X` and the labels `y`. The labels are last column of the data\n",
+    "task_id": 138
+}
+{
+    "snippet": "X = torch.Tensor([[1,4],[3,1]])\nprint(\"X=\", X)\nsorted_tensor, sorted_indices = X.sort(1)\nprint(\"sorted tensor=\", sorted_tensor)\nprint(\"sorted indices=\", sorted_indices)\nassert np.array_equal(sorted_tensor.numpy(), np.sort(X.numpy(), axis=1))\nassert np.array_equal(sorted_indices.numpy(), np.argsort(X.numpy(), axis=1))\n",
+    "intent": "Q22. Sort X along the second dimension.\n",
+    "task_id": 139
+}
+{
+    "snippet": "x = torch.Tensor([1, 2, 3])\ny = torch.Tensor([-1, -2, -3])\nz = x.add(y)\nprint(z)\nassert np.array_equal(z.numpy(), np.add(x.numpy(), y.numpy()))\n",
+    "intent": "Q11. Add x and y element-wise.\n",
+    "task_id": 140
+}
+{
+    "snippet": "X = torch.Tensor( [[-1, -2, -3], [0, 1, 2]] )\nY = X.ne(0)\nprint(Y)\nassert np.allclose(Y.numpy(), np.not_equal(X.numpy(), 0))\n",
+    "intent": "Q22. Return 0 if an element of X is 0, otherwise 1.\n",
+    "task_id": 141
+}
+{
+    "snippet": "X = torch.Tensor(\n    [[1, 2, 3, 4],\n     [5, 6, 7, 8]])\nprint(...)\n",
+    "intent": "Q8. Return the cumulative product of all elements along the second axis in X.\n",
+    "task_id": 142
+}
+{
+    "snippet": "x = torch.Tensor([-3, -2, -1, 1, 2, 3])\ny = 2.\nz = ...\nprint(z)\n",
+    "intent": "Q18. Compute the remainder of x / y element-wise.\n",
+    "task_id": 143
+}
+{
+    "snippet": "x = torch.Tensor([1, 2])\ny = torch.Tensor([3, 4])\nz = x.matmul(y)\nprint(z)\nassert z==x.dot(y)\n",
+    "intent": "Q1. Compute the inner product of two vectors x and y.\n",
+    "task_id": 144
+}
+{
+    "snippet": "X = torch.Tensor([[1, 2], [3, 4]])\ny = torch.Tensor([3, 4])\nz = ...\nprint(z)\n",
+    "intent": "Q3. Compute a matrix-vector product of matrix X and vector y.\n",
+    "task_id": 145
+}
+{
+    "snippet": "model = Sequential()\nmodel.add(Dense(512, activation='relu', input_dim=1000))\nmodel.add(Dropout(0.5))\nmodel.add(Dense(num_classes, activation='softmax'))\nmodel.summary()\nmodel.compile(loss='categorical_crossentropy', optimizer='rmsprop', metrics=['accuracy'])\n",
+    "intent": "Build a model here using sequential. Feel free to experiment with different layers and sizes! Also, experiment adding dropout to reduce overfitting.\n",
+    "task_id": 146
+}
+{
+    "snippet": "from sklearn.linear_model import LogisticRegression\nfrom sklearn.neural_network import MLPClassifier\nfrom sklearn.ensemble import RandomForestClassifier\nclfs = {'lr': LogisticRegression(random_state=0),\n        'mlp': MLPClassifier(random_state=0),\n        'rf': RandomForestClassifier(random_state=0)}\n",
+    "intent": "In the dictionary:\n- the key is the acronym of the classifier\n- the value is the classifier (with random_state=0)\n",
+    "task_id": 147
+}
+{
+    "snippet": "from keras.models import load_model\nG = load_model('G.h5') \nD = load_model('D.h5') \n",
+    "intent": "- Load $\\mathcal{G}$ and $\\mathcal{D}$ into memory\n- Save them into python variables named `G` and `D` respectively\n",
+    "task_id": 148
+}
+{
+    "snippet": "model_2 = ensemble.RandomForestClassifier(n_estimators=500, max_depth=12, random_state=0)\nmodel_2.fit(X_train1, y_train1)\n",
+    "intent": "Provo ad aumentare la profondita' del Random Forest per aumentare la ROC:\n",
+    "task_id": 149
+}
+{
+    "snippet": "elastic = sklearn.linear_model.ElasticNetCV()\nelastic.fit(weather[non_syd_col], weather.SYDNEY)\nprint elastic.score(weather[non_syd_col], weather.SYDNEY)\nprint elastic.intercept_\nzip(non_syd_col, elastic.coef_)\n",
+    "intent": "The cross validation (CV) has sorted out the alpha, correct?\n",
+    "task_id": 150
+}
+{
+    "snippet": "from IPython.display import display\nfrom keras.preprocessing.image import array_to_img\nimport numpy as np\ndigit_idxs = [np.argwhere(y_mnist == d).flatten()[0] for d in range(10)]\nX_train = X_mnist[digit_idxs]\nfor x in X_train:\n    img = array_to_img(np.expand_dims(x, axis=0), data_format='channels_first')\n    display(img)\nX_train.shape\n",
+    "intent": "The following code creates a training set consisting of one image digit per class.\n",
+    "task_id": 151
+}
+{
+    "snippet": "model.fit(X_train,Y_train,validation_data=(X_val,Y_val), epochs=20)\n",
+    "intent": "- Optimize `model` on `X_train` and `Y_train`\n",
+    "task_id": 152
+}
+{
+    "snippet": "data_vectors = np.array([get_phrase_embedding(l) for l in data])\n",
+    "intent": "Finally, let's build a simple \"similar question\" engine with phrase embeddings we've built.\n",
+    "task_id": 153
+}
+{
+    "snippet": "model.compile(loss=keras.losses.categorical_crossentropy,\n              optimizer=keras.optimizers.Adadelta(),\n              metrics=['accuracy'])\n",
+    "intent": "Let's now compile and train the model.\n",
+    "task_id": 154
+}
+{
+    "snippet": "def conv_block(x, num_filters, filter_size, stride=(2,2), mode='same', act=True):\n    x = Convolution2D(num_filters, filter_size, filter_size, subsample=stride, border_mode=mode)(x)\n    x = BatchNormalization(mode=2)(x)\n    return Activation('relu')(x) if act else x\ndef res_block(initial_input, num_filters=64):\n    x = conv_block(initial_input, num_filters, 3, (1,1))\n    x = conv_block(x, num_filters, 3, (1,1), act=False)\n    return merge([x, initial_input], mode='sum')\n",
+    "intent": "ConvBlock  \nResBlock\n    - no activation on the last layer\n",
+    "task_id": 155
+}
+{
+    "snippet": "inp = Input(shape=(SEQ_LEN,))\nemb = Embedding(VOCAB_SIZE, EMBEDDING_LEN_50, input_length=SEQ_LEN)(inp)\nlstm = LSTM(100)(emb)\npreds = Dense(2, activation = 'softmax')(lstm)\nsimple_lstm_model = Model(inputs=inp, outputs=preds)\nsimple_lstm_model.compile(optimizer=Adam(), loss='categorical_crossentropy', metrics=['accuracy'])\nsimple_lstm_model.summary()\n",
+    "intent": "First, let us try to use a very simple model using the LSTM layer. We will NOT be working with the pre-trained embeddings for now\n",
+    "task_id": 156
+}
+{
+    "snippet": "ones = torch.FloatTensor([1]).cuda()\n",
+    "intent": "Lets create labels for real images\n",
+    "task_id": 157
+}
+{
+    "snippet": "from keras.models import Sequential\nfrom keras.layers import Dense, Activation\nfrom IPython.display import SVG\nfrom keras.utils.vis_utils import model_to_dot\nfrom keras.regularizers import l1\nENCODING_DIM = 32\nencoder = Sequential(name='encoder')\nencoder.add(Dense(units=ENCODING_DIM, activity_regularizer=l1(1e-5), input_shape=[784] ))\nencoder.summary()\n",
+    "intent": "- Define an encoder which maps a flattened MNIST image to a vector of size `ENCODING_DIM`\n- Use a keras sequential model\n- Do not compile your model!\n",
+    "task_id": 158
+}
+{
+    "snippet": "def logistic_regression_grad(X, y, theta):\n    grad = (sigmoid(X @ theta) - y) @ X \n    return grad\ntheta = [0, 1]\nsimple_X_1 = np.hstack([np.arange(10)/10, np.arange(10)/10 + 0.75])\nsimple_X = np.vstack([np.ones(20), simple_X_1]).T\nsimple_y = np.hstack([np.zeros(10), np.ones(10)])\nlinear_regression_grad(simple_X, simple_y, theta)\n",
+    "intent": "And then complete the gradient function. You should get a gradient of about $[0.65, 0.61]$ for the given values $\\theta$ on this example dataset.\n",
+    "task_id": 159
+}
+{
+    "snippet": "regr_test = LinearRegression()\nregr_test.fit(X_reduced, y)\nregr_test.coef_\n",
+    "intent": "The above plot indicates that the lowest training MSE is reached when doing regression on 18 components.\n",
+    "task_id": 160
+}
+{
+    "snippet": "db2 = DBSCAN(eps=1, min_samples=10)\ndb2.fit(iris_data_scaled)\ndb2.labels_\n",
+    "intent": "What happens as we alter either $\\epsilon$ or min_samples?\nLet's first alter min_samples:\n",
+    "task_id": 161
+}
+{
+    "snippet": "dt = DecisionTreeRegressor(random_state=seed)\n",
+    "intent": "Define a decision tree. ([DecisionTreeRegressor](http://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeRegressor.html\n",
+    "task_id": 162
+}
+{
+    "snippet": "encoding_dim = 32\nimage_size = mnist.train.images.shape[1]\ninputs_ = tf.placeholder(tf.float32, (None, image_size), name='inputs')\ntargets_ = tf.placeholder(tf.float32, (None, image_size), name='targets')\nencoded = tf.layers.dense(inputs_, encoding_dim, activation=tf.nn.relu)\nlogits = tf.layers.dense(encoded, image_size, activation=None)\ndecoded = tf.nn.sigmoid(logits, name='output')\nloss = tf.nn.sigmoid_cross_entropy_with_logits(labels=targets_, logits=logits)\ncost = tf.reduce_mean(loss)\nopt = tf.train.AdamOptimizer(0.001).minimize(cost)\n",
+    "intent": "> name parameter in tensor\n> image_size = mnist.train.images.shape[1]\n",
+    "task_id": 163
+}
+{
+    "snippet": "class Length(layers.Layer):\n    def call(self, inputs, **kwargs):\n        return K.sqrt(K.sum(K.square(inputs), -1))\n    def compute_output_shape(self, input_shape):\n        return input_shape[:-1]\n",
+    "intent": "Definitions will emerge here for all parts of Capsule Layer\n- Class Length\n- Class Mask\n- Squashing Function\n- Class Capsule Layer\n",
+    "task_id": 164
+}
+{
+    "snippet": "mean_knn_n2 = KNeighborsClassifier(n_neighbors=1,\n                              weights='uniform',\n                              p=2,\n                              metric='minkowski')\naccuracy_crossvalidator(X, Y, mean_knn_n2, cv_indices)\n",
+    "intent": "As you can see the mean cross-validated accuracy is very high with 5 neighbors. \nLet's see what it's like when we use only 1 neighbor:\n",
+    "task_id": 165
+}
+{
+    "snippet": "print('Gradient Boost with 1200 trees, learning rate of .2')\ngb5 = GradientBoostingRegressor(learning_rate=.2,n_estimators=1200)\nstage_score_plot(gb5, X_train, y_train, X_test, y_test, .2)\n",
+    "intent": "- Looking better, let's try even smaller.\n",
+    "task_id": 166
+}
+{
+    "snippet": "for i in range(10,90,10):\n    print('Gamma :{}'.format(i))\n    svm_imbalanced = SVC(kernel='rbf',gamma=i).fit(X_small_ann,y_small_ann)\n    decision_boundary(svm_imbalanced ,X_small_ann,y_small_ann)\n",
+    "intent": "- No decision boundaries. Try changing the parameters.\n",
+    "task_id": 167
+}
+{
+    "snippet": "decoder = Sequential(name='decoder')\ndecoder.add(Dense(units=64, activation='relu', input_shape=[ENCODING_DIM]))\ndecoder.add(Dense(units=128, activation='relu'))\ndecoder.add(Dense(units=784, activation='sigmoid'))\ndecoder.summary()\n",
+    "intent": "- Define a decoder which maps a compressed version of an image back to a flattened image\n- Use a keras sequential model\n- Do not compile your model!\n",
+    "task_id": 168
+}
+{
+    "snippet": "from keras.optimizers import SGD\nmodel1.compile(loss='categorical_crossentropy',\n               optimizer=SGD(lr=0.04),\n               metrics=['accuracy'])\nmodel1.fit(X_train, y_train, nb_epoch=20, batch_size=16)\n",
+    "intent": "Compile and fit this smaller model. You should get very similar accuracy on the test data as we saw above.\n",
+    "task_id": 169
+}
+{
+    "snippet": "poly=LinearRegression()\npoly.fit(x_train_pr,y_train)\n",
+    "intent": "Now let's create a linear regression model \"poly\" and train it.\n",
+    "task_id": 170
+}
+{
+    "snippet": "MaxPooling2D(pool_size=2, strides=1)\n",
+    "intent": "If we would instead like to use a stride of 1, but still keep the size of the window at 2x2, then we would use:\n",
+    "task_id": 171
+}
+{
+    "snippet": "net = SingleHiddenLayerNetwork()\nopt = tf.train.AdamOptimizer(learning_rate=0.01)\nacc_history = np.zeros(50)\nfor epoch in range(50):\n  accuracy = tfe.metrics.Accuracy()\n  for (xb, yb) in tfe.Iterator(train_dataset.shuffle(1000).batch(32)):\n    opt.apply_gradients(loss_grad(net, xb, yb))\n    accuracy(tf.argmax(net(tf.constant(xb)), axis=1), tf.argmax(tf.constant(yb), axis=1))\n  acc_history[epoch] = accuracy.result().numpy()\n",
+    "intent": "Let us rewrite the optimization code, this time by accumulating the training accuracy at each epoch:\n",
+    "task_id": 172
+}
+{
+    "snippet": "x = tf.Variable(5)\n",
+    "intent": "Coding the Linear Function in Tensorlow\n",
+    "task_id": 173
+}
+{
+    "snippet": "n_hidden_layer = 256\nweights = {'hidden_layer':tf.Variable(tf.random_normal([n_input, n_hidden_layer])),\n           'output_layer':tf.Variable(tf.random_normal([n_hidden_layer, n_classes]))}\nbiases = {'hidden_layer':tf.Variable(tf.random_normal([n_hidden_layer])),\n          'output_layer':tf.Variable(tf.zeros([n_classes]))}\n",
+    "intent": "* Network architecture\n",
+    "task_id": 174
+}
+{
+    "snippet": "model = NearestNeighbors(metric = 'cosine', algorithm = 'brute')\nmodel.fit(interactions_mtx_knn)\n",
+    "intent": "And run knn in two lines\n",
+    "task_id": 175
+}
+{
+    "snippet": "logit_data = [2.0, 1.0, 0.1]\nlogits = tf.placeholder(tf.float32)\nsoftmax = tf.nn.softmax(logits)    \nwith tf.Session() as sess:\n    output = sess.run(softmax, feed_dict={logits: logit_data} )\n    print(output)\n",
+    "intent": "Easy as that! ```tf.nn.softmax()``` implements the softmax function for you. It takes in logits and returns softmax activations.\n",
+    "task_id": 176
+}
+{
+    "snippet": "model.fit(X_train, y_train)\n",
+    "intent": "** Train/fit lm on the training data.**\n",
+    "task_id": 177
+}
+{
+    "snippet": "autoencoder.fit(X_train,X_train)\n",
+    "intent": "- Optimize your autoencoder on the training data\n",
+    "task_id": 178
+}
+{
+    "snippet": "with tf.Session() as session:\n    result = session.run(c)\n    print \"c =: {}\".format(result)\n",
+    "intent": "<div align=\"right\">\n<a href=\"\n</div>\n<div id=\"operations\" class=\"collapse\">\n```\nc=tf.sin(a)\n```\n</div>\n",
+    "task_id": 179
+}
+{
+    "snippet": "for k in range(1, 30)[::-1]:\n    knn = KNeighborsClassifier(n_neighbors=k)\n    knn.fit(X_train, y_train)\n    print(k, knn.score(X_test, y_test))\n",
+    "intent": "Are our choice of hyper-parameters and features the same as they were when we were validating based on a training set alone?\n",
+    "task_id": 180
+}
+{
+    "snippet": "universe_end_date = pd.Timestamp('2016-01-05', tz='UTC')\nuniverse_tickers = engine\\\n    .run_pipeline(\n        Pipeline(screen=universe),\n        universe_end_date,\n        universe_end_date)\\\n    .index.get_level_values(1)\\\n    .values.tolist()\nuniverse_tickers\n",
+    "intent": "With the pipeline engine built, let's get the stocks at the end of the period in the universe we're using.\n",
+    "task_id": 181
+}
+{
+    "snippet": "model.fit(x_train,y_train,\n          epochs = 10,\n          batch_size = int(x_train.shape[0]*0.1),\n          verbose = 0)\n",
+    "intent": "Run the model here. Experiment with different batch_size, and number of epochs!\n",
+    "task_id": 182
+}
+{
+    "snippet": "from sklearn.ensemble import ExtraTreesClassifier\net = ExtraTreesClassifier(n_estimators=1000, class_weight='balanced')\n",
+    "intent": "Probemos ahora un Extra Tree.\n",
+    "task_id": 183
+}
+{
+    "snippet": "model.fit(points)\n",
+    "intent": "**Step 4:** Use the `.fit()` method of `model` to fit the model to the array of points `points`.\n",
+    "task_id": 184
+}
+{
+    "snippet": "parameters = {'C' : [0.001, 0.1, 1, 10, 100], 'penalty' : ['l1', 'l2']}\nlr_model = model_performance(GridSearchCV(LogisticRegression(random_state=42), param_grid=parameters, cv=skf), cv=True)\n",
+    "intent": "Without any optimization, we can predict patients who will convert to AD with 89% accuracy. Now, the classifier will be optimized.\n",
+    "task_id": 185
+}
+{
+    "snippet": "model_b = sm.OLS.from_formula(\"SalePrice ~ scale(OverallQual) + scale(OverallCond) + scale(GrLivArea) + scale(I(GrLivArea**2)) + scale(I(GrLivArea**3)) + scale(KitchenQual) + scale(GarageCars) + scale(BsmtQual) + scale(YearBuilt) + C(Neighborhood) + C(MSZoning)\", data=df)\nresult_b = model_b.fit()\nprint(result_b.summary())\n",
+    "intent": "$$ y = OQ + OC + GA + GA^2 + GA^3 + KQ  + GC + BQ + YB + Category $$\n",
+    "task_id": 186
+}
+{
+    "snippet": "kmeans.fit(college_data.drop('Private', axis=1))\n",
+    "intent": "**Fit the model to all the data except for the Private label.**\n",
+    "task_id": 187
+}
+{
+    "snippet": "model.fit(X_train,Y_train,validation_data=(X_val,Y_val), epochs=20)\n",
+    "intent": "- Optimize `model` on `X_train` and `Y_train`\n",
+    "task_id": 188
+}
+{
+    "snippet": "if USE_PRETRAINED:\n    with open('pretrained/xgb_grid_search_eta_50.pkl', 'rb') as f:\n        grid = pickle.load(f)\nelse:      \n    xgb_param_grid = {'eta':[0.5,0.4,0.3,0.2,0.1,0.075,0.05,0.04,0.03]}\n    grid = GridSearchCV(XGBoostRegressor(num_boost_round=50, gamma=0.2, max_depth=8, min_child_weight=6,\n                                         colsample_bytree=0.6, subsample=0.9),\n                        param_grid=xgb_param_grid, cv=5, scoring=mae_scorer)\n    grid.fit(train_x, train_y.values)\n",
+    "intent": "First, we plot different learning rates for a simpler model (50 trees):\n",
+    "task_id": 189
+}
+{
+    "snippet": "g = Graph()\n",
+    "intent": "<p>\n<strong>z = Ax +b </strong><br/>\nA = 10 <br/>\nb = 1 <br/>\nz = 10x + 1 where x is a placeholder <br/>\n</p>\n",
+    "task_id": 190
+}
+{
+    "snippet": "session = tf.Session(graph=linreg_graph)\nsession.run(init)\n",
+    "intent": "We start off by initializeing the Variables:\n",
+    "task_id": 191
+}
+{
+    "snippet": "train_model(\n    learning_rate=0.00002,\n    steps=500,\n    batch_size=5\n)\n",
+    "intent": "Click below for one possible solution.\n",
+    "task_id": 192
+}
+{
+    "snippet": "hidden_neurons = 200\nmodel = Sequential()\nmodel.add(LSTM(hidden_neurons, input_shape=(input_len, num_chars)))\nmodel.add(Dense(num_chars, activation='softmax'))\nprint(model.summary())\n",
+    "intent": "Here we will make the RNN model.\n",
+    "task_id": 193
+}
+{
+    "snippet": "activations = model.run_graph([image], [\n    (\"input_image\",        model.keras_model.get_layer(\"input_image\").output),\n    (\"res4w_out\",          model.keras_model.get_layer(\"res4w_out\").output),  \n    (\"rpn_bbox\",           model.keras_model.get_layer(\"rpn_bbox\").output),\n    (\"roi\",                model.keras_model.get_layer(\"ROI\").output),\n])\n",
+    "intent": "In some cases it helps to look at the output from different layers and visualize them to catch issues and odd patterns.\n",
+    "task_id": 194
+}
+{
+    "snippet": "sz=375\ntfms = tfms_from_model(arch, sz, aug_tfms=augs, crop_type=CropType.NO)\ndata = ImageClassifierData.from_csv(PATH, 'train_crop', f'{PATH}train_int.csv', test_name='test',\n                                      val_idxs=val_idxs, tfms=tfms, bs=bs)\n",
+    "intent": "Now another training iteration with 340x340 images\n",
+    "task_id": 195
+}
+{
+    "snippet": "model2_ridge = lm.Ridge(fit_intercept=False).fit(X, y)\n",
+    "intent": "Fit the model (by default, $\\alpha$ = 1).\n",
+    "task_id": 196
+}
+{
+    "snippet": "tree2 = tree.DecisionTreeClassifier(max_depth=2, min_samples_leaf=50)\ntree2.fit(X, y)\n",
+    "intent": "Train a decision tree by limiting:\n* the maximum number of questions (depth)\n* the minimum number of samples in each leaf\n",
+    "task_id": 197
+}
+{
+    "snippet": "model = get_model(sentences)\n",
+    "intent": "The following code cell takes a while to complete.\n",
+    "task_id": 198
+}
+{
+    "snippet": "logreg_parameters = {\n    'penalty':['l1','l2'],\n    'C':np.logspace(-5,1,50),\n    'solver':['liblinear']\n}\nmodel_gridsearch = LogisticRegression()\nselector_gridsearch = GridSearchCV(model_gridsearch, logreg_parameters, cv = 5)\nselector_gridsearch.fit(X_train2, y_train)\n",
+    "intent": "- Use the provided parameter grid. Feel free to add if you like (such as n_jobs).\n- Use 5-fold cross-validation.\n",
+    "task_id": 199
+}
+{
+    "snippet": "naive_bayes_model = naive_bayes.MultinomialNB()\n",
+    "intent": "Instantiate the Naive Bayes predictor from scikit-learn with the training data. \n",
+    "task_id": 200
+}
+{
+    "snippet": "tf.logging.set_verbosity(tf.logging.INFO)\nshutil.rmtree('taxi_trained', ignore_errors=True) \nmodel = tf.contrib.learn.DNNRegressor(hidden_units=[32, 8, 2],\n      feature_columns=make_feature_cols(), model_dir='taxi_trained')\nmodel.fit(input_fn=make_input_fn(df_train), steps=100);\n",
+    "intent": "<h3> Deep Neural Network regression </h3>\n",
+    "task_id": 201
+}
+{
+    "snippet": "l = lbl.fit(train['disable_communication'])\ntrain['disable_communication'] = l.transform(train['disable_communication'])\ntest['disable_communication'] = l.transform(test['disable_communication'])\n",
+    "intent": "disable_communication is a categorical variable and so we are encode it\n",
+    "task_id": 202
+}
+{
+    "snippet": "model_1Dconv_w_d = Sequential()\nks = 5\nmodel_1Dconv_w_d.add(Convolution1D(filters=32, kernel_size=ks, padding='causal', dilation_rate=1, input_shape=(128, 1)))\nmodel_1Dconv_w_d.add(Convolution1D(filters=32, kernel_size=ks, padding='causal', dilation_rate=2))\nmodel_1Dconv_w_d.add(Convolution1D(filters=32, kernel_size=ks, padding='causal', dilation_rate=4))\nmodel_1Dconv_w_d.add(Convolution1D(filters=32, kernel_size=ks, padding='causal', dilation_rate=8))\nmodel_1Dconv_w_d.add(Dense(1))\nmodel_1Dconv_w_d.add(Lambda(slice, arguments={'slice_length':look_ahead}))\nmodel_1Dconv_w_d.compile(optimizer='adam', loss='mean_squared_error')\nmodel_1Dconv_w_d.summary()\n",
+    "intent": "Here we define a Neural network with 1D convolutions and \"causal\" padding, this time with dilation rate, so we are able to look back longer in time.\n",
+    "task_id": 203
+}
+{
+    "snippet": "svc = svm.SVC(kernel='poly',C=1, degree=2, probability=True).fit(X_training,y_training)\nsvc.score(X_training,y_training)\n",
+    "intent": "To show that Support Vector are actually quality data. We turn back to Polynomial Kernel degree 2.\n",
+    "task_id": 204
+}
+{
+    "snippet": "test_input = [[0.25, 0.15]]\ngraph=tf.Graph()\nwith tf.Session() as session:\n    tf.global_variables_initializer().run(session=session)\n    output = \n    print(output[0]) \n",
+    "intent": "As with the previous example, we can use `session.run()` to execute this computation graph, and use a `feed_dict` to feed in our input:\n",
+    "task_id": 205
+}
+{
+    "snippet": "add = tf.add(5, 2) \nsub = tf.sub(10, 4) \nmul = tf.mul(2, 5)  \ndiv = tf.div(10, 5) \nwith tf.Session() as sess:\n    output = [sess.run(add), sess.run(sub), sess.run(mul), \n              sess.run(div)]\n    print(output)\n",
+    "intent": "It also works if you feed it only `{a: 'hi'}`, i.e. the relevant placeholder value(s).\n",
+    "task_id": 206
+}
+{
+    "snippet": "best_et_reg = ExtraTreesRegressor(n_estimators=75,\n                                  max_depth=max_depth,\n                                  n_jobs=-1,\n                                  random_state=18)\n",
+    "intent": "We recall that we did this tuning with `n_estimators=75`.\n",
+    "task_id": 207
+}
+{
+    "snippet": "deep_model = Sequential()\ndeep_model.add(Dense(units=6, activation='relu', input_dim=32))\ndeep_model.add(Dense(units=6, activation='relu'))\ndeep_model.add(Dense(units=2, activation='softmax'))\n",
+    "intent": "For this network, we simply add an additional hidden layer of 6 nodes\n",
+    "task_id": 208
+}
+{
+    "snippet": "lr.fit(pm2_regr.dropna().iloc[:, :-1], pm2_regr.dropna().iloc[:, -1])\nlr.score(pm2_regr.dropna().iloc[:, :-1], pm2_regr.dropna().iloc[:, -1])\n",
+    "intent": "Dropping all rows with at least 1 NA:\n",
+    "task_id": 209
+}
+{
+    "snippet": "bagg_lr = BaggingClassifier(lr)\n",
+    "intent": "There is no improvement and the results are way worse than before, let's try bagging:\n",
+    "task_id": 210
+}
+{
+    "snippet": "reset_graph()\nmy_second_graph = tf.get_default_graph()\nx = tf.Variable(3, name=\"x\")\ny = tf.Variable(4, name=\"y\")\nf = x*x*y + y + 2\nwith tf.Session() as sess:\n    x.initializer.run()\n    y.initializer.run()\n    result = f.eval()\nprint(result)\n",
+    "intent": "Now try this second graph:\n",
+    "task_id": 211
+}
+{
+    "snippet": "n = _\nkmeans = KMeans(n_clusters=n)\n",
+    "intent": "Agora podemos iniciar o algoritmo de clustering.\n",
+    "task_id": 212
+}
+{
+    "snippet": "grid = GridSearchCV(SVC(),param_grid,refit=True,verbose=2)\n",
+    "intent": "** Create a GridSearchCV object and fit it to the training data.**\n",
+    "task_id": 213
+}
+{
+    "snippet": "from sklearn.neighbors import KNeighborsRegressor\nk = 25 \nneigh = KNeighborsRegressor(n_neighbors=k)\n",
+    "intent": "Now let's build the KNN model.  \n",
+    "task_id": 214
+}
+{
+    "snippet": "grid_search = GridSearchCV(svc,param_grid=param_grid,n_jobs=-1,verbose = 3,refit=True)\ngrid_search.fit(X_train,y_train)\n",
+    "intent": "** Create a GridSearchCV object and fit it to the training data.**\n",
+    "task_id": 215
+}
+{
+    "snippet": "b_fit = cluster.KMeans(n_clusters=2).fit(b_data)\nplot_clusters(b_data, b_fit)\n",
+    "intent": "Let's use KMeans to fit the three other (b,c,d) 2D datasets with `n_clusters=2` and generate similar plots. Which fits give the expected results?\n",
+    "task_id": 216
+}
+{
+    "snippet": "from keras.models import Sequential\nfrom keras.layers import Dense, Activation\nmodel = Sequential()\nmodel.add(Dense(20, input_dim=1000))\nmodel.add(Activation('relu'))\nmodel.add(Dense(2))\nmodel.add(Activation('sigmoid'))\nmodel.compile(optimizer='Adam', loss='categorical_crossentropy', metrics=['accuracy'])\n",
+    "intent": "Build a model here using sequential. Feel free to experiment with different layers and sizes! Also, experiment adding dropout to reduce overfitting.\n",
+    "task_id": 217
+}
+{
+    "snippet": "deep_model = Sequential()\ndeep_model.add(Dense(units=6, activation='relu', input_dim=4))\ndeep_model.add(Dense(units=6, activation='relu'))\ndeep_model.add(Dense(units=2, activation='softmax'))\n",
+    "intent": "For this network, we simply add an additional hidden layer of 6 nodes\n",
+    "task_id": 218
+}
+{
+    "snippet": "scaler.fit(data.drop('TARGET CLASS',axis=1))\n",
+    "intent": "** Fit scaler to the features.**\n",
+    "task_id": 219
+}
+{
+    "snippet": "lr.fit(titanic_temp[['Pclass']], titanic_temp.Survived)\n",
+    "intent": "Errm, predicting based on age doesn't work\n",
+    "task_id": 220
+}
+{
+    "snippet": "Xtrain = X[:1000,:]\nytrain = y[:1000]\nXtest = X[1000:,:]\nytest = y[1000:]\ndigits_rf = RandomForestClassifier(n_estimators=200, criterion='entropy')\ndigits_rf.fit(Xtrain,ytrain);\n",
+    "intent": "Let's identify the misclassified images.\n",
+    "task_id": 221
+}
+{
+    "snippet": "x = tf.placeholder(tf.float32, [None, 784]) \ny = tf.placeholder(tf.float32, [None, 10]) \nW = tf.Variable(tf.zeros([784, 10]))\nb = tf.Variable(tf.zeros([10]))\npred = tf.nn.softmax(tf.matmul(x, W) + b) \n",
+    "intent": "Network definition.\n",
+    "task_id": 222
+}
+{
+    "snippet": "def get_embed(input_data, vocab_size, embed_dim):\n    embedding = tf.Variable(tf.random_uniform((vocab_size, embed_dim), -1, 1))\n    embed     = tf.nn.embedding_lookup(embedding, input_data)\n    return embed\ntests.test_get_embed(get_embed)\n",
+    "intent": "Apply embedding to `input_data` using TensorFlow.  Return the embedded sequence.\n",
+    "task_id": 223
+}
+{
+    "snippet": "knn =KNeighborsClassifier(n_neighbors=1)\n",
+    "intent": "**Create a KNN model instance with n_neighbors=1**\n",
+    "task_id": 224
+}
+{
+    "snippet": "from sklearn.ensemble import RandomForestClassifier\nrfc = RandomForestClassifier(n_estimators=500)\nrfc.fit(X_train, y_train)\n",
+    "intent": "Now its time to train our model!\n**Create an instance of the RandomForestClassifier class and fit it to our training data from the previous step.**\n",
+    "task_id": 225
+}
+{
+    "snippet": "model_sigmoid = Sequential()\nmodel_sigmoid.add(Dense(512, activation='sigmoid', input_shape=(input_dim,)))\nmodel_sigmoid.add(Dense(128, activation='sigmoid'))\nmodel_sigmoid.add(Dense(output_dim, activation='softmax'))\nmodel_sigmoid.summary()\n",
+    "intent": " <h3>  MLP + Sigmoid activation + SGDOptimizer </h3>\n",
+    "task_id": 226
+}
+{
+    "snippet": "import tensorflow as tf\nfrom keras.backend.tensorflow_backend import set_session\nconfig = tf.ConfigProto()\nconfig.gpu_options.allow_growth = True\nconfig.log_device_placement = True\nsess = tf.Session(config=config)\nset_session(sess)\n",
+    "intent": "<img src=\"../Pics/MLSb-T.png\" width=\"160\">\n<br><br>\n<center><u><H1>Text Classification with Universal Sentence Encoder-localhost</H1></u></center>\n",
+    "task_id": 227
+}
+{
+    "snippet": "deep_model = Sequential()\ndeep_model.add(Dense(units=6, activation='relu', input_dim=20))\ndeep_model.add(Dense(units=6, activation='relu'))\ndeep_model.add(Dense(units=2, activation='softmax'))\n",
+    "intent": "For this network, we simply add an additional hidden layer of 6 nodes\n",
+    "task_id": 228
+}
+{
+    "snippet": "model.fit(X_train, y_train, validation_data=(X_test, y_test), epochs=5, batch_size=100)\n",
+    "intent": "Use your X_test, y_test from the `train_test_split` step for the `validation_data` parameter.\n",
+    "task_id": 229
+}
+{
+    "snippet": "lr = LinearRegression()\nlr.fit(Xstd, baseball.age.values)\nprint 'Intercept:', lr.intercept_\nprint 'Coefs:', lr.coef_\n",
+    "intent": "**Build a linear regression predicting age from the standardized height and weight data. Interpret the coefficients.**\n",
+    "task_id": 230
+}
+{
+    "snippet": "weights = {\n        'wc1': tf.Variable(tf.random_normal([5, 5, 1, 32])),\n        'wd1': tf.Variable(tf.random_normal([7*7*128, 1024])),\n        'out': tf.Variable(tf.random_normal([1024, n_classes]))\n        }\nbiases = {\n        'bc1': tf.Variable(tf.random_normal([32])),\n        'bd1': tf.Variable(tf.random_normal([1024])),\n        'out': tf.Variable(tf.random_normal([n_classes]))\n        }\n",
+    "intent": "<a id=\"define-network-paramters-that-will-be-fit\"></a>\n",
+    "task_id": 231
+}
+{
+    "snippet": "ag = AgglomerativeClustering(n_clusters=2)\nag.fit(X)\npredicted_labels = ag.labels_\n",
+    "intent": "Next we'll ask `AgglomerativeClustering` to return back two clusters for Iris:\n",
+    "task_id": 232
+}
+{
+    "snippet": "toyregr_skl = linear_model.LinearRegression()\nresults_skl = toyregr_skl.fit(x_train,y_train)\nbeta0_skl = toyregr_skl.intercept_\nbeta1_skl = toyregr_skl.coef_[0]\nprint(\"(beta0, beta1) = (%f, %f)\" %(beta0_skl, beta1_skl))\n",
+    "intent": "Below is the code for sklearn.\n",
+    "task_id": 233
+}
+{
+    "snippet": "epochs = 10\nbatch_size = 512\nmodel.fit(x_train, y_train, \n          epochs=epochs, \n          batch_size=batch_size,\n          validation_data=(x_test, y_test), \n          verbose=2)\n",
+    "intent": "Run the model here. Experiment with different batch_size, and number of epochs!\n",
+    "task_id": 234
+}
+{
+    "snippet": "m.fit(df_raw.drop('SalePrice', axis=1), df_raw.SalePrice)\n",
+    "intent": "Below `m.fit` will fail with \n*ValueError: could not convert string to float: 'Conventional'*\nas the data is not yet ready...\n",
+    "task_id": 235
+}
+{
+    "snippet": "net = nn.Sequential(\n    nn.Linear(28*28, 100),\n    nn.ReLU(),\n    nn.Linear(100, 100),\n    nn.ReLU(),\n    nn.Linear(100, 10),\n    nn.LogSoftmax()\n).cuda()\n",
+    "intent": "We will begin with the highest level abstraction: using a neural net defined by PyTorch's `Sequential` class.  \n",
+    "task_id": 236
+}
+{
+    "snippet": "from sklearn.linear_model import LinearRegression\nregressor = LinearRegression()\nregressor.fit(X_train, y_train)\n",
+    "intent": "Then we can built our regression model:\n",
+    "task_id": 237
+}
+{
+    "snippet": "from torchvision import datasets, transforms\nfrom torch import nn, optim\ntrain_data = datasets.MNIST('../data', train=True, download=True,\n                   transform=transforms.ToTensor())\ntrain_loader = torch.utils.data.DataLoader(train_data,\n                                           batch_size=batch_size, shuffle=True, **{})\nVAE_MNIST = VAE(fc1_dims=fc1_dims, fc21_dims=fc21_dims, fc22_dims=fc22_dims, fc3_dims=fc3_dims, fc4_dims=fc4_dims)\noptimizer = optim.Adam(VAE_MNIST.parameters(), lr=lr)\nfor epoch in range(1, epochs + 1):\n    train(epoch, train_loader, VAE_MNIST, optimizer)\n",
+    "intent": "Run the box below to train the model using the hyperparameters you entered above.\n",
+    "task_id": 238
+}
+{
+    "snippet": "_x = np.array([1, 2, 3], np.int32)\n_y = np.array([4, 5, 6], np.int32)\n_z = np.array([7, 8, 9], np.int32)\nx = tf.convert_to_tensor(_x)\ny = tf.convert_to_tensor(_y)\nz = tf.convert_to_tensor(_y)\n",
+    "intent": "Q8. Add x, y, and z element-wise.\n",
+    "task_id": 239
+}
+{
+    "snippet": "_x = np.array([1., 2., 3.], np.float32)\nx = tf.convert_to_tensor(_x)\n",
+    "intent": "Q17. Compute $e^x$, element-wise.\n",
+    "task_id": 240
+}
+{
+    "snippet": "_x = np.array([10, 20, 30], np.int32)\n_y = np.array([2, 3, 7], np.int32)\nx = tf.convert_to_tensor(_x)\ny = tf.convert_to_tensor(_y)\nout1 = tf.mod(x, y)\nout2 = x % y\nprint(out1.eval())\nassert np.array_equal(out1.eval(), out2.eval())\n_out = _x % _y\nassert np.array_equal(out1.eval(), _out)\n",
+    "intent": "Q6. Get the remainder of x / y element-wise.\n",
+    "task_id": 241
+}
+{
+    "snippet": "_x = np.array([[1, 2], [3, 4]])\n_y = np.array([[1, 2], [1, 2]])\nx = tf.convert_to_tensor(_x)\ny = tf.convert_to_tensor(_y)\nout = tf.pow(x, y)\nprint(out.eval())\n_out = np.power(_x, _y)\nassert np.array_equal(out.eval(), _out) \n",
+    "intent": "Q17. Compute $x^y$, element-wise.\n",
+    "task_id": 242
+}
+{
+    "snippet": "_X= np.random.rand(1, 2, 3, 4)\nX = tf.convert_to_tensor(_X)\n",
+    "intent": "Q6. Transpose the last two dimensions of X.\n",
+    "task_id": 243
+}
+{
+    "snippet": "_X = np.array(\n[[1, 0, 0, 0],\n [0, 2, 0, 0],\n [0, 0, 3, 0],\n [0, 0, 0, 4]])\nX = tf.convert_to_tensor(_X)\nout = tf.diag_part(X)\nprint(out.eval())\n_out = np.diag(_X)\nassert np.array_equal(out.eval(), _out)\n",
+    "intent": "Q2. Extract the diagonal of X.\n",
+    "task_id": 244
+}
+{
+    "snippet": "_X = np.array([[1,2,3], [4,5,6]])\nX = tf.convert_to_tensor(_X)\n",
+    "intent": "Q1. Compute the cumulative sum of X along the second axis.\n",
+    "task_id": 245
+}
+{
+    "snippet": "_X = np.arange(1, 10).reshape(3, 3)\nX = tf.convert_to_tensor(_X)\n",
+    "intent": "Q11. Return the elements of X, if X < 4, otherwise X*10.\n",
+    "task_id": 246
+}
+{
+    "snippet": "_X = np.array(\n    [[1,2,3,4], \n     [-1,-2,-3,-4], \n     [-10,-20,-30,-40],\n     [10,20,30,40]])\nX = tf.convert_to_tensor(_X)\nout = tf.unsorted_segment_sum(X, [1, 0, 1, 0], 2)\nprint(out.eval())\n",
+    "intent": "Q8. Compute the sum along the second and fourth and \nthe first and third elements of X separately in the order.\n",
+    "task_id": 247
+}
+{
+    "snippet": "from keras.models import Sequential\nmodel = Sequential()\n",
+    "intent": "We first need to create a sequential model\n",
+    "task_id": 248
+}
+{
+    "snippet": "tf.reset_default_graph()\nx = tf.constant([1, 1, 2, 2, 2, 3], tf.float32)\n",
+    "intent": "Q06. Compute half the L2 norm of `x` without the sqrt.\n",
+    "task_id": 249
+}
+{
+    "snippet": "tf.reset_default_graph()\nx = tf.constant([0, 2, 1, 3, 4], tf.int32)\nembedding = tf.constant([0, 0.1, 0.2, 0.3, 0.4], tf.float32)\noutput = tf.nn.embedding_lookup(embedding, x)\nwith tf.Session() as sess:\n    print(sess.run(output))\n",
+    "intent": "Q9. Map tensor `x` to the embedding.\n",
+    "task_id": 250
+}
+{
+    "snippet": "_X = np.arange(1, 11).reshape([2, 5])\nX = tf.convert_to_tensor(_X)\nout = tf.split(X, 5, axis=1) \nprint([each.eval() for each in out])\ncomp = np.array_split(_X, 5, 1) \nassert np.allclose([each.eval() for each in out], comp)\n",
+    "intent": "Q16. Let X be a tensor of<br/>\n[[ 1  2  3  4  5]<br />\n [ 6  7  8  9  10]].<br />\nSplit X into 5 same-sized tensors along the second dimension.\n",
+    "task_id": 251
+}
+{
+    "snippet": "V = tf.Variable(tf.truncated_normal([1, 10]))\nW = ...\ninit_op = tf.global_variables_initializer()\nwith tf.Session() as sess:\n    sess.run(init_op) \n    _V, _W = sess.run([V, W])\n    print(_V)\n    print(_W)\n    assert np.array_equiv(_V * 2.0, _W)\n",
+    "intent": "Q3-4. Complete this code.\n",
+    "task_id": 252
+}
+{
+    "snippet": "w1 = tf.Variable(1.0)\nw2 = tf.Variable(2.0)\nw3 = tf.Variable(3.0)\nout = w1 + w2 + w3\ninit_op = tf.global_variables_initializer()\nwith tf.Session() as sess:\n    sess.run(init_op) \n    print(sess.run(out))\n",
+    "intent": "Q2. Complete this code.\n",
+    "task_id": 253
+}
+{
+    "snippet": "with tf.Session() as sess:\n    ones = tf.ones(shape=[2,3])\n    print(sess.run(ones))\n    assert np.allclose(sess.run(ones), np.ones([2, 3]))\n",
+    "intent": "Q3. Create a tensor of shape [2, 3] with all elements set to one.\n",
+    "task_id": 254
+}
+{
+    "snippet": "y_pred = tf.nn.softmax(layer_fc2)\n",
+    "intent": "Apply softmax to the final fully connected layer.\n",
+    "task_id": 255
+}
+{
+    "snippet": "old_alex_graph = tf.Graph()\nwith old_alex_graph.as_default():\n    saver = tf.train.import_meta_graph(\"../week_06/saved_models/alexnet.meta\")\n",
+    "intent": "Now, let's bring back in the AlexNet we (possibly struggled) to create last week.\n",
+    "task_id": 256
+}
+{
+    "snippet": "fake_breakout_x,fake_breakout_y = create_fake_linear(100, 3.2, 4.2, 10)\n",
+    "intent": "1\\. Create a new pair of fake $x$ and $y$ that is 100 long called `fake_breakout_x` and `fake_breakout_y`, with `a=3.2`, `b=4.2` and `noise_sd=10`. \n",
+    "task_id": 257
+}
+{
+    "snippet": "from keras.layers import Dense\nnumber_inputs = 3\nnumber_hidden_nodes = 4\nmodel.add(Dense(units=number_hidden_nodes,\n                activation='relu', input_dim=number_inputs))\n",
+    "intent": "Next, we add our first layer. This layer requires you to specify both the number of inputs and the number of nodes that you want in the hidden layer.\n",
+    "task_id": 258
+}
+{
+    "snippet": "model.fit(X_train, y_train, validation_data=(X_test, y_test), epochs=10, batch_size=100)\n",
+    "intent": "Use your X_test, y_test from the `train_test_split` step for the `validation_data` parameter.\n",
+    "task_id": 259
+}
+{
+    "snippet": "value = torch.Tensor(np.array(train_w2v_set))\ntext = Variable(value)   \nencoder_values, decoder_values = model(text)\n",
+    "intent": "We will convert training dataset first into a torch tensor, and form a differentiable Variable.\n",
+    "task_id": 260
+}
+{
+    "snippet": "architecture = resnet34\ntransformer = tfms_from_model(architecture, sz=32, max_zoom=1.1)\ndata = ImageClassifierData.from_arrays(path=data_path, \n                                       trn=(X_train, y_train), \n                                       val=(X_val, y_val),\n                                       test=(X_test),\n                                       bs=64,\n                                       classes=class_names,\n                                       tfms=transformer)\n",
+    "intent": "Basic model, built from lesson 1. Names and arguments are explicit to facilitate understanding\n",
+    "task_id": 261
+}
+{
+    "snippet": "def activation(X):\n    return np.tanh(X)\n",
+    "intent": "We'll use $\\tanh$ activations for our hidden units, so let's define that real quick:\n",
+    "task_id": 262
+}
+{
+    "snippet": "param_test4 = {\n    'subsample':[i/10.0 for i in range(6,10)],\n    'colsample_bytree':[i/10.0 for i in range(6,10)]\n}\ngsearch4 = GridSearchCV(estimator = XGBClassifier( learning_rate =0.1, n_estimators=177, max_depth=4,\n                                        min_child_weight=6, gamma=0, subsample=0.8, colsample_bytree=0.8,\n                                        objective= 'binary:logistic', nthread=4, scale_pos_weight=1,seed=27), \n                       param_grid = param_test4, scoring='roc_auc',n_jobs=4,iid=False, cv=5)\ngsearch4.fit(train[predictors],train[target])\n",
+    "intent": "Tune subsample and colsample_bytree\n",
+    "task_id": 263
+}
+{
+    "snippet": "model.fit(X, y)\nprint(model)\n",
+    "intent": "Next, we fit the model to our data using the fit method.\n",
+    "task_id": 264
+}
+{
+    "snippet": "criterion = ClassNLLCriterion()\nnet = Sequential()\nnet.add(Linear(2, 4))\nnet.add(ReLU())\nnet.add(Linear(4, 2))\nnet.add(SoftMax())\nprint net\n",
+    "intent": "Define a **logistic regression** for debugging. \n",
+    "task_id": 265
+}
+{
+    "snippet": "model.fit(x_train, y_train, epochs=1000, batch_size=50, verbose=0)\n",
+    "intent": "Run the model here. Experiment with different batch_size, and number of epochs!\n",
+    "task_id": 266
+}
+{
+    "snippet": "from keras import regularizers\nmodel = Sequential()\nmodel.add(Dense(512, activation='relu', input_dim=1000, kernel_regularizer=regularizers.l2(0.01)))\nmodel.add(Dropout(0.5))\nmodel.add(Dense(256, activation='relu', kernel_regularizer=regularizers.l2(0.01)))\nmodel.add(Dropout(0.3))\nmodel.add(Dense(num_classes, activation='softmax'))\nmodel.summary()\nmodel.compile(loss = 'categorical_crossentropy', optimizer='adam', metrics=['accuracy'])\n",
+    "intent": "Build a model here using sequential. Feel free to experiment with different layers and sizes! Also, experiment adding dropout to reduce overfitting.\n",
+    "task_id": 267
+}
+{
+    "snippet": "deep_model = Sequential()\ndeep_model.add(Dense(units=6, activation='relu', input_dim=2))\ndeep_model.add(Dense(units=6, activation='relu'))\ndeep_model.add(Dense(units=2, activation='softmax'))\n",
+    "intent": "For this network, we simply add an additional hidden layer of 6 nodes\n",
+    "task_id": 268
+}
+{
+    "snippet": "def init_weights(shape):\n    init_random_dist = tf.truncated_normal(shape, stddev=0.1)\n    return tf.Variable(init_random_dist)\n",
+    "intent": "Function to help intialize random weights for fully connected or convolutional layers.\n",
+    "task_id": 269
+}
+{
+    "snippet": "from tensorflow.keras.layers import Dense\nfrom tensorflow.keras.models import Sequential\ndef create_model():\n    model = Sequential()\n    model.add(Dense(6, input_dim=4, kernel_initializer='normal', activation='relu'))\n    model.add(Dense(1, kernel_initializer='normal', activation='sigmoid'))\n    model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])\n    return model\n",
+    "intent": "Now set up an actual MLP model using Keras:\n",
+    "task_id": 270
+}
+{
+    "snippet": "mlpc = MLPClassifier([30, 10], max_iter = 1000)\nparameters = {'activation':['relu', 'logistic', 'identity']}\ngcnnc = GridSearchCV(mlpc, parameters, cv=4)\ngcnnc.fit(...)\nresults = gcnnc.cv_results_\nprint(results['mean_test_score'])\n",
+    "intent": "*First, Lets confirm which activation function works the best for classification. Is the difference as significant as for the regression problem?*\n",
+    "task_id": 271
+}
+{
+    "snippet": "from keras.models import load_model\nmodel.save('my_model.h5')\nmodel2 = load_model('my_model.h5')\n",
+    "intent": "It is really important to be able to reload the model after you've been training it for hours on end (usually). So save the model.\n",
+    "task_id": 272
+}
+{
+    "snippet": "from sklearn.neighbors import KNeighborsClassifier\nmodel = KNeighborsClassifier(n_neighbors=3)\n",
+    "intent": "Then, we can create a KNN model and specify the parameter `k`. Create a model with `k = 3`.\n",
+    "task_id": 273
+}
+{
+    "snippet": "detection_graph = load_graph(SSD_GRAPH_FILE)\nimage_tensor = detection_graph.get_tensor_by_name('image_tensor:0')\ndetection_boxes = detection_graph.get_tensor_by_name('detection_boxes:0')\ndetection_scores = detection_graph.get_tensor_by_name('detection_scores:0')\ndetection_classes = detection_graph.get_tensor_by_name('detection_classes:0')\n",
+    "intent": "Below we load the graph and extract the relevant tensors using [`get_tensor_by_name`](https://www.tensorflow.org/api_docs/python/tf/Graph\n",
+    "task_id": 274
+}
+{
+    "snippet": "result = smf.logit(formula='default_yes ~ balance + income', data=default).fit()\nresult.summary()\n",
+    "intent": "Computing stand errors of coefficents of logistic regression using bootstrap\n",
+    "task_id": 275
+}
+{
+    "snippet": "grid_search = GridSearchCV(lr, parameters, n_jobs=-1, scoring='roc_auc', cv=skf)\ngrid_search = grid_search.fit(X, y)\ngrid_search.best_estimator_\n",
+    "intent": "**Answer:** 2.\n**Solution:**\n",
+    "task_id": 276
+}
+{
+    "snippet": "knn.fit(X, y)\n",
+    "intent": "<b>Step3:</b> Fit the model with the data (aka 'model training')\n- Model is learning the relationship between X and y\n- Occours in-place\n",
+    "task_id": 277
+}
+{
+    "snippet": "multi_lin_model = sklearn.linear_model.LinearRegression()\n",
+    "intent": "We start again by creating a [```LinearRegression```](http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html\n",
+    "task_id": 278
+}
+{
+    "snippet": "net = tf.layers.max_pooling2d(inputs=net, pool_size=2, strides=2)\n",
+    "intent": "We now do the max-pooling on the output of the convolutional layer.\n",
+    "task_id": 279
+}
+{
+    "snippet": "logreg_parameters = {\n    'penalty':['l1','l2'],\n    'C':np.logspace(-5,1,50),\n    'solver':['liblinear']\n}\ngs = GridSearchCV(lr_model, logreg_parameters, verbose=False, cv=5)\ngs.fit(X, y)\n",
+    "intent": "- Use the provided parameter grid. Feel free to add if you like (such as n_jobs).\n- Use 5-fold cross-validation.\n",
+    "task_id": 280
+}
+{
+    "snippet": "kmeans.fit(df.drop('Private', axis=1)) \n",
+    "intent": "**Fit the model to all the data except for the Private label.**\n",
+    "task_id": 281
+}
+{
+    "snippet": "from keras.models import Sequential\nfrom keras.layers import Embedding, LSTM, Dense\nmodel = Sequential()\nmodel.add(Embedding(10000,64))\nmodel.add(LSTM(64))\nmodel.add(Dense(1, activation='sigmoid'))\nmodel.summary()\n",
+    "intent": "i) [2 point] Now built a LSTM model by replacing the simple RNN layter in the above model with a LSTM layer. Print a summary of the LSTM model.\n",
+    "task_id": 282
+}
+{
+    "snippet": "clf = tree.DecisionTreeClassifier(criterion='entropy', max_depth=3, random_state=0)\nclf.fit(X_train, y_train)\n",
+    "intent": "Any difference if we use entropy instead of gini as the split criteria?\n",
+    "task_id": 283
+}
+{
+    "snippet": "encoder_embedding = Embedding(input_dim=num_words,\n                              output_dim=embedding_size,\n                              name='encoder_embedding')\n",
+    "intent": "This is the embedding-layer.\n",
+    "task_id": 284
+}
+{
+    "snippet": "import tensorflow as tf\nconfig = tf.ConfigProto()\nconfig.log_device_placement = True\nsess = tf.Session(config=config)\nprint(config,\"\\n\",sess)\n",
+    "intent": "* Use *log_device_placement=True*. This tells placer to log msg whenever a node is \"placed\".\n",
+    "task_id": 285
+}
+{
+    "snippet": "def linear_model(img):\n    return ylogits, NCLASSES\n",
+    "intent": "Let's start with a very simple linear classifier. All our models will have this basic interface -- they will take an image and return logits.\n",
+    "task_id": 286
+}
+{
+    "snippet": "knn = KNeighborsRegressor(n_neighbors=3, weights='distance')\nknn_bag = BaggingRegressor(knn, n_estimators=20)\nknn_boost = AdaBoostRegressor(knn, n_estimators=100)\n",
+    "intent": "Armed with this we can now try bagging and boosting. For this we need the Bagging regressor - I take the very simple approach used earlier.\n",
+    "task_id": 287
+}
+{
+    "snippet": "from keras.layers import Dense\nnumber_inputs = 3\nnumber_hidden_nodes = 4\nmodel.add(Dense(units=number_hidden_nodes,\n                activation='relu',\n                input_dim = number_inputs))\n",
+    "intent": "Next, we add our first layer. This layer requires you to specify both the number of inputs and the number of nodes that you want in the hidden layer.\n",
+    "task_id": 288
+}
+{
+    "snippet": "regr = linear_model.LinearRegression()\nregr.fit(X_tr,y_tr)\n",
+    "intent": "Fit the model on the training data.\n",
+    "task_id": 289
+}
+{
+    "snippet": "from sklearn.model_selection import GridSearchCV\ngrid = {'n_neighbors': np.arange(1,50)}\nknn = KNeighborsClassifier()\nknn_cv = GridSearchCV(knn, grid, cv=3) \nknn_cv.fit(x,y)\nprint(\"Tuned hyperparameter k: {}\".format(knn_cv.best_params_)) \nprint(\"Best score: {}\".format(knn_cv.best_score_))\n",
+    "intent": "We only need is one line code that is GridSearchCV\ngrid: K is from 1 to 50(exclude)\n",
+    "task_id": 290
+}
+{
+    "snippet": "gboost = GradientBoostingRegressor(n_estimators=3000, learning_rate=0.05, max_depth=4, max_features='sqrt',\n                                   min_samples_leaf=15, min_samples_split=10, loss='huber', random_state=5)\nscore = cv_evaluation(gboost)\nprint('Gradient Boosting Score: {:.4f}'.format(score.mean()))\n",
+    "intent": "* **Gradient Boosting Regression**:\n",
+    "task_id": 291
+}
+{
+    "snippet": "model_random_forest_100trees.fit(X_text_train_tfidf, yelp_data_final_update['Review_category_cool_notcool'])\n",
+    "intent": "Random Forest for cool not cool:\n",
+    "task_id": 292
+}
+{
+    "snippet": "from sklearn.feature_extraction.text import TfidfVectorizer\nnew_docs = ['He watches basketball and baseball', 'Julie likes to play basketball', 'Jane loves to play baseball']\nnew_term_freq_matrix = tfidf_vectorizer.transform(new_docs)\nprint tfidf_vectorizer.vocabulary_\nprint new_term_freq_matrix.todense()\n",
+    "intent": "And we can fit new observations into this vocabulary space like so:\n",
+    "task_id": 293
+}
+{
+    "snippet": "train_sizes, train_scores, valid_scores = learning_curve(LogisticRegression(), X4, y4,)\n",
+    "intent": "Age and positive nodes are both negatively correlated with survival while operation year is positively correlate.\n",
+    "task_id": 294
+}
+{
+    "snippet": "from sklearn.svm import SVC \nclf = SVC(kernel='linear')\nclf.fit(X, y)\n",
+    "intent": "Now we'll fit a Support Vector Machine Classifier to these points:\n",
+    "task_id": 295
+}
+{
+    "snippet": "lstm_size = 128\nnum_layers = 2\nlstm = tf.contrib.rnn.BasicLSTMCell(lstm_size)\ndrop = tf.contrib.rnn.DropoutWrapper(lstm, output_keep_prob=0.5)\nenc_cell = tf.contrib.rnn.MultiRNNCell([drop] * num_layers)\n",
+    "intent": "This is just going to be a regular LSTM cell with some dropout. Also, we'll be using the embedding from above to feed the input to this unit\n",
+    "task_id": 296
+}
+{
+    "snippet": "with tf.Session() as sess:\n    saver.restore(sess, '/tmp/mlp_regression.ckpt')\n    preds = sess.run(y_pred, feed_dict={X: X_test})\n    print(sess.run(loss, feed_dict={X: X_test, y: y_test}))\n",
+    "intent": "Load the saved model and make predictions on the test set.\n",
+    "task_id": 297
+}
+{
+    "snippet": "deep_model = Sequential()\ndeep_model.add(Dense(units = 6,\n                     activation = 'relu',\n                     input_dim = 2))\ndeep_model.add(Dense(units = 6,\n                     activation = 'relu'))\ndeep_model.add(Dense(units = 2,\n                activation = 'softmax'))\n",
+    "intent": "For this network, we simply add an additional hidden layer of 6 nodes\n",
+    "task_id": 298
+}
+{
+    "snippet": "svm1 = SVC( kernel = \"linear\", C = 1.0, random_state = 0 )\nsvm2 = SGDClassifier( loss = \"hinge\" ) \nsvm1.fit( x_train_sd, y_train )\n",
+    "intent": "Use `SGDClassifier` for online learning, which scales better with large dataset.\n",
+    "task_id": 299
+}
+{
+    "snippet": "logmodel = LogisticRegression()\nlogmodel.fit(X_train, y_train)\n",
+    "intent": "** Train and fit a logistic regression model on the training set.**\n",
+    "task_id": 300
+}
+{
+    "snippet": "age=baseball.age.values\nfrom sklearn import linear_model\nclf = linear_model.LinearRegression()\nclf.fit(Xstd,baseball.age.values)\nprint 'Intercept:', clf.intercept_\nprint 'Coefs:', clf.coef_\n",
+    "intent": "**Build a linear regression predicting age from the standardized height and weight data. Interpret the coefficients.**\n",
+    "task_id": 301
+}
+{
+    "snippet": "lda = models.LdaModel(corpus, num_topics=6, \n                            update_every=2,\n                            id2word=dictionary, \n                            chunksize=15, \n                            passes=10)\nlda.show_topics()\n",
+    "intent": "The LDA model can be built immediately:\n",
+    "task_id": 302
+}
+{
+    "snippet": "x = T.vector(\"x\")\ny = T.vector(\"y\")\nw = theano.shared(1., name=\"w\")\nb = theano.shared(0., name=\"b\")\nprint(\"Initial model:\", w.get_value(), b.get_value())\n",
+    "intent": "We first declare Theano symbolic variables:\n",
+    "task_id": 303
+}
+{
+    "snippet": "missing = np.isnan(y)\nmod = LogisticRegression()\nmod.fit(X[~missing], y[~missing])\n",
+    "intent": "Next, we create a `LogisticRegression` model, and fit it using the non-missing observations.\n",
+    "task_id": 304
+}
+{
+    "snippet": "cifar_model.add(Conv2D(filters=64, kernel_size=(5,5), activation='relu'))\ncifar_model.add(Activation('relu'))\n",
+    "intent": "**(f)** Add another ``Conv2D`` layer identical to the others except with 64 filters instead of 32. Add another ``relu`` activation layer.\n",
+    "task_id": 305
+}
+{
+    "snippet": "def conv2d(x,W):\n    return tf.nn.conv2d(x, W, strides=[1, 1, 1, 1], padding='SAME')\n",
+    "intent": "There are already a function in TF to perform the convolution.  \nWe are going to create a wrapper aourn it that sets the parameters for us\n",
+    "task_id": 306
+}
+{
+    "snippet": "X_extra = np.hstack((X, np.sqrt(X[:, [0]]**2 + X[:, [1]]**2)))\nplot_learning_curve(LinearSVC(C=0.25), \"LinearSVC(C=0.25) + distance feature\", \n                    X_extra, y, ylim=(0.8, 1.2),\n                    train_sizes=np.linspace(.1, 1.0, 5))\n",
+    "intent": "Ways to decrease underfitting:\n * **use more or better features** (the distance from the origin should help!)\n",
+    "task_id": 307
+}
+{
+    "snippet": "model.fit(...\n",
+    "intent": "Then we fit our model using the the total request rate and cpu.\n",
+    "task_id": 308
+}
+{
+    "snippet": "regression = linear_model.LinearRegression()\n",
+    "intent": "LinearRegression object of Sklearn is capable of creating Polynomial functions\n",
+    "task_id": 309
+}
+{
+    "snippet": "ridge = Ridge(random_state=17, alpha=0.1)\n",
+    "intent": "**Train the same Ridge with all available data, make predictions for the test set and form a submission file.**\n",
+    "task_id": 310
+}
+{
+    "snippet": "model = Sequential()\nmodel.add(Dense(10, input_dim=4, activation='relu'))\nmodel.add(Dense(20, activation='relu'))\nmodel.add(Dense(10, activation='relu'))\nmodel.add(Dense(1, activation='sigmoid'))\nmodel.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])\n",
+    "intent": "** Create an object called classifier which is a DNNClassifier from learn. Set it to have 2 classes and a [10,20,10] hidden unit layer structure:**\n",
+    "task_id": 311
+}
+{
+    "snippet": "X = tf.placeholder(tf.float32, shape=(None,), name=\"x\")\nY = tf.placeholder(tf.float32, shape=(None,), name=\"y\")\nw = tf.Variable([0., 0.], name=\"parameter\", trainable=True)\ny_model = tf.sigmoid(-(w[1] * X + w[0]))\n",
+    "intent": "Create our parameters and placeholders for X and Y to feed them with the data above:\n",
+    "task_id": 312
+}
+{
+    "snippet": "def cluster_posts(weights, n_clusters=5):\n    laplacian = sparse.csgraph.laplacian(weights, normed=True, use_out_degree=True)\n    laplacian = sparse.csr_matrix(laplacian)\n    eigenvalues, eigenvectors = sparse.linalg.eigsh(laplacian, k=n_clusters, which = 'SA')\n    kmeans = KMeans(n_clusters=n_clusters, random_state=0).fit(eigenvectors)\n    cluster_labels = kmeans.labels_\n    return [cluster_labels, eigenvectors[:,1:3], eigenvalues]\n",
+    "intent": "The following function clusters topics using Laplacian Graph Eigendecomposition:\n",
+    "task_id": 313
+}
+{
+    "snippet": "G = graphs.Graph(W_sparse)\nG.compute_laplacian('normalized')\nlaplacian = G.L\n",
+    "intent": "Compute the graph Laplacian\n",
+    "task_id": 314
+}
+{
+    "snippet": "plot_model(model_mlp_multi, X_train, y_train, (X_valid, y_valid))\n",
+    "intent": "The learning procedure gitters a lot.\nLet's look at the decision surface\n",
+    "task_id": 315
+}
+{
+    "snippet": "net = ModelTorch()\nnet.add(Linear(X.shape[1], 64))\nnet.add(BatchMeanSubtraction())\nnet.add(ELU())\nnet.add(Linear(64, y.shape[1]))\nnet.add(SoftMax())\nnet.compile(ClassNLLCriterion(), nesterov, {\"learning_rate\": 0.05, \"momentum\": 0.6}, accuracy=True)\nnp.random.seed(21)\nhist_BN = net.fit(X, y, iteration_hist=True, epochs=5)\n",
+    "intent": "Batch Mean Subtraction\n",
+    "task_id": 316
+}
+{
+    "snippet": "inp_bench = Input(shape=(X_train.shape[1],), name=\"input_a\")\ndnn_bench = Dense(**config)(inp_bench)\ndnn_bench = Dense(**config)(dnn_bench)\ndnn_bench = Dense(**config)(dnn_bench)\ndnn_bench = Dense(**config)(dnn_bench)\ndnn_bench = Dense(**config)(dnn_bench)\ndnn_bench = Dense(units=10, activation=\"softmax\")(dnn_bench)\n",
+    "intent": "Let's benchmark our model against the same model but trained from scratch on the same 500 examples per class dataset\n",
+    "task_id": 317
+}
+{
+    "snippet": "multi_lin_model.fit(\n",
+    "intent": "Next fit the model on the data:\n",
+    "task_id": 318
+}
+{
+    "snippet": "model_column_twolayers.summary()\n",
+    "intent": "Let\"s take a look at our final model now:\n",
+    "task_id": 319
+}
+{
+    "snippet": "model_lstm = Sequential()\nmodel_lstm.add(LSTM(6, input_shape=(look_back, 1)))\nmodel_lstm.add(Dense(horizont))\n",
+    "intent": "We have very few data. So we need to build very simple model not tot overfit\n",
+    "task_id": 320
+}
+{
+    "snippet": "sess = tf.Session()\nprint(sess.run(node3))\n",
+    "intent": "Values are now available:\n",
+    "task_id": 321
+}
+{
+    "snippet": "mglearn.plots.plot_dbscan()\n",
+    "intent": "* Density-Based Spatial Clustering of Applications with Noise.\n* It does not require the user to set the number of clusters a priori.\n",
+    "task_id": 322
+}
+{
+    "snippet": "from sklearn import tree\ndtc = tree.DecisionTreeClassifier(max_depth = 5)\ndtc.fit(X_train,y_train)\ndtc.score(X_test,y_test)\n",
+    "intent": "7) Train a Decision Tree classifier with maximum depth 5 and plot the decision tree. How does performance compare?\n",
+    "task_id": 323
+}
+{
+    "snippet": "theta_suff_avp,_ =\\\nstructure_perceptron.estimate_perceptron(training_set,\n                                         features.word_suff_feats,\n                                         tagger_base.classifier_tagger,\n                                         20,\n                                         all_tags)\n",
+    "intent": "The cell below takes 50 seconds to run on my laptop.\n",
+    "task_id": 324
+}
+{
+    "snippet": "L = tf.nn.conv2d(X, W, strides=[1,2,2,1], padding='SAME')\nL\n",
+    "intent": "* Must have strides[0] = strides[3] = 1\n* 28+2(Padding)-3(kernel size)+1 = 28\n* 32 = the number of filters\n",
+    "task_id": 325
+}
+{
+    "snippet": "shared_weights = theano.shared(np.random.rand(64))\ninput_X = T.matrix()\ninput_y = T.ivector()\n",
+    "intent": "Firstly, let's try initialize the weights randomly.\n",
+    "task_id": 326
+}
+{
+    "snippet": "model = Sequential()\nmodel.add(LSTM(50, activation='relu', \n               input_shape=(n_steps, n_features) \n              ))\nmodel.add(Dense(1))\nmodel.compile(optimizer='adam', loss='mse')\n",
+    "intent": "A Vanilla LSTM is an LSTM model that has a single hidden layer of LSTM units, and an output layer used to make a prediction.\n",
+    "task_id": 327
+}
+{
+    "snippet": "simple_lin_model.fit(total_page_views_M, cpu_usage)\n",
+    "intent": "Then we fit our model using the the total request rate and cpu. The coefficients found are automatically stored in the ```simple_lin_model``` object.\n",
+    "task_id": 328
+}
+{
+    "snippet": "learning_curve = trainModel('lenet_dropout_075', {'X_train' : preProcessDataSet(X_train), 'y_train' : y_train, \n                            'X_valid' : preProcessDataSet(X_valid), 'y_valid' : y_valid }, \n           epochs = 10, batch_size = 128, train_keep_prob_fc = 0.75, \n           rate = 0.001, model_func = Net_1)\nbuildLearningCurve(learning_curve)\n",
+    "intent": "Lets try to add dropout to default LeNet model and see if accuracy will increase. Keep propapility is 0.75\n",
+    "task_id": 329
+}
+{
+    "snippet": "km2 = KMeans(n_clusters=2,init='k-means++',n_init=10,max_iter=300,random_state = 0)\nfit =km2.fit(set1)\n",
+    "intent": "------------------------------------------------\n",
+    "task_id": 330
+}
+{
+    "snippet": "knn = KNeighborsClassifier()\nparam_dict = {\n    'n_neighbors':range(1,11),\n    'weights':['distance', 'uniform'],\n}\ngsk = GridSearchCV(knn, param_dict, cv=3).fit(X_train, Y_train)\n",
+    "intent": "At least have number of neighbors and weights in your parameters dictionary.\n",
+    "task_id": 331
+}
+{
+    "snippet": "loader = DataLoader()\ny = np.zeros([len(loader.yes_image_name) + len(loader.no_image_name)])\ny[0:len(loader.yes_image_name)] = 1\nallfeatures = None\nwith open ('allfeatures.file','rb') as file:\n    allfeatures = pickle.load(file)\nclassifier = svm.SVC(probability=True) \nclassifier.fit(allfeatures, y)\nprint(\"Training SVM Done.\")\n",
+    "intent": "You may skip the following two steps if you have downloaded svmmodel.file\n",
+    "task_id": 332
+}
+{
+    "snippet": "import tensorflow as tf\nhello_constant = tf.constant('Hello World!')\nwith tf.Session() as sess:\n    output = sess.run(hello_constant)\n    print(output)\n",
+    "intent": "Simple \"Hello World!\" TensorFlow test\n",
+    "task_id": 333
+}
+{
+    "snippet": "def try_out():\n  with tf.Session() as sess:\n    fn = read_dataset(tf.estimator.ModeKeys.EVAL, \n                    {'input_path': 'data', 'batch_size': 4, 'nitems': 5668, 'nusers': 82802})\n    feats, _ = fn()\n    print(feats['input_rows'].eval())\n    print(feats['input_rows'].eval())\ntry_out()\n",
+    "intent": "This code is helpful in developing the input function. You don't need it in production.\n",
+    "task_id": 334
+}
+{
+    "snippet": "model = DecisionTreeClassifier()\ndepth_parm = np.arange(1, 12, 1)\nnum_samples_parm = np.arange(5,95,10)\nparameters = {'max_depth' : depth_parm,\n             'min_samples_leaf' : num_samples_parm}\nclf = GridSearchCV(model, parameters, cv=10)\nclf.fit(X_train,y_train)\nprint(clf.score(X_test, y_test))\n",
+    "intent": "First, consider a decision tree, doing a grid search over hyperparameters.\n",
+    "task_id": 335
+}
+{
+    "snippet": "y_1 = activation(torch.mm(features, W1) + B1)\ny_2 = activation(torch.mm(y_1, W2) + B2)\nprint(y_2)\n",
+    "intent": "> **Exercise:** Calculate the output for this multi-layer network using the weights `W1` & `W2`, and the biases, `B1` & `B2`. \n",
+    "task_id": 336
+}
+{
+    "snippet": "def gen(Z, w,  w2, w3, wx):\n    h = relu(batchnorm(T.dot(Z,w)))\n    h2 = relu(batchnorm(T.dot(h,w2)))\n    h2 = h2.reshape((h2.shape[0], ngf*2, 7, 7))\n    h3 = relu(batchnorm(trconv(h2,w3, output_shape=(None,None,7,7),filter_size=(5,5),subsample=(2, 2), border_mode=(2, 2))))\n    x = sigmoid(trconv(h3,wx, output_shape=(None, None, 14, 14),\n                                   filter_size=(5, 5), subsample=(2, 2), border_mode=(2, 2)))\n    return x\n",
+    "intent": "**Problem 4 (1pt)** Implement generator by plugging in the hidden variables and weights. Hint: if the sizes mismatched, theano will complain.\n",
+    "task_id": 337
+}
+{
+    "snippet": "m_true = 0.5\nb_true = 0.25\nnp.random.seed(23)\ndef theModel(xmin=0, xmax = 1, num=20):\n    sigma = 0.1\n    x = np.linspace(xmin, xmax, num)\n    y = b_true + m_true * x - sigma * np.random.randn(len(x))\n    return(x, y)\nx, y = theModel(num = 50)\n",
+    "intent": "Just as in the $\\texttt{intro2pp-bm}$ notebook we will first generate some data from a linear model.\n",
+    "task_id": 338
+}
+{
+    "snippet": "from sklearn.neighbors import KNeighborsClassifier\nmodel = KNeighborsClassifier(n_neighbors=4, algorithm='brute').fit(train, train_labels)\n",
+    "intent": "Next, as before, we fit a model to the training data:\n",
+    "task_id": 339
+}
+{
+    "snippet": "W = tf.Variable(tf.zeros([784,10]))\nb = tf.Variable(tf.zeros([10]))\n",
+    "intent": "<center><h2>Variables</h2></center>\n",
+    "task_id": 340
+}
+{
+    "snippet": "log.fit(X_train,y_train)\n",
+    "intent": "** Train and fit a logistic regression model on the training set.**\n",
+    "task_id": 341
+}
+{
+    "snippet": "import numpy as np\nrnd_data = np.random.multivariate_normal([0, 0], [[3, 4], [5, 6]], 1000)\nprint(rnd_data.shape)\nwhitened_data, whitening_matrix = whiten(rnd_data)\nassert(np.allclose(np.identity(2), np.cov(whitened_data)))\nprint(\"Passed\")\n",
+    "intent": "Identity covariance test:\n",
+    "task_id": 342
+}
+{
+    "snippet": "detection_graph = load_graph(FASTER_RCNN_GRAPH_FILE)\nimage_tensor = detection_graph.get_tensor_by_name('image_tensor:0')\ndetection_boxes = detection_graph.get_tensor_by_name('detection_boxes:0')\ndetection_scores = detection_graph.get_tensor_by_name('detection_scores:0')\ndetection_classes = detection_graph.get_tensor_by_name('detection_classes:0')\n",
+    "intent": "Below we load the graph and extract the relevant tensors using [`get_tensor_by_name`](https://www.tensorflow.org/api_docs/python/tf/Graph\n",
+    "task_id": 343
+}
+{
+    "snippet": "def make_model(y=0.):\n    gamma = 1.\n    theta = pm.Normal('$\\theta$', mu=0., tau=1., value=0.)\n    @pm.stochastic(observed=True)\n    def likelihood(value=y, gamma=gamma, theta=theta):\n        return gamma * pm.normal_like(value, theta, 1.)\n    return locals()\n",
+    "intent": "All, right. Now, let's program this thing in pysmc and compare the results.\nWe start with the model:\n",
+    "task_id": 344
+}
+{
+    "snippet": "scaler.fit(dataframe.drop('TARGET CLASS',axis=1))\n",
+    "intent": "** Fit scaler to the features.**\n",
+    "task_id": 345
+}
+{
+    "snippet": "from sklearn.preprocessing import PolynomialFeatures\nX = mammals.loc[:, ['body']]\npf = PolynomialFeatures(degree=3, include_bias=False)\npf.fit(X)\npf.transform(X)\n",
+    "intent": "**sklearn has a \"transformer\" that generates polynomial terms**\n",
+    "task_id": 346
+}
+{
+    "snippet": "test_acc = []\nfor i in range(1, X_tsc.shape[0]+1):\n    knn = KNeighborsClassifier(n_neighbors=i)\n    knn.fit(X_tsc, y_train)\n    test_acc.append(knn.score(X_vsc, y_val))\n",
+    "intent": "- Store the test accuracy in a list.\n- Plot the test accuracy vs. the number of neighbors.\n",
+    "task_id": 347
+}
+{
+    "snippet": "model.fit(\n    trainvectors, \n    Y_train, \n    batch_size=128, \n    nb_epoch=20, \n    verbose=2 \n)\n",
+    "intent": "Now we can invoke the **fit** method of the network, which will perform the training process. It is done as follows\n",
+    "task_id": 348
+}
+{
+    "snippet": "X = df.values\nkm = KMeans(n_clusters=15).fit(X)\nkm.labels_\n",
+    "intent": "Cool we ended up with 15 dark spots.\n",
+    "task_id": 349
+}
+{
+    "snippet": "def get_embed(input_data, vocab_size, embed_dim):\n    embedded_input = tf.Variable(tf.truncated_normal((vocab_size, embed_dim), stddev=.01))\n    embedded_input = tf.nn.embedding_lookup(embedded_input, input_data)\n    return embedded_input\ntests.test_get_embed(get_embed)\n",
+    "intent": "Apply embedding to `input_data` using TensorFlow.  Return the embedded sequence.\n",
+    "task_id": 350
+}
+{
+    "snippet": "model = Sequential()\n",
+    "intent": "Create an empty MLP, i.e. empty linear stack of layers\n",
+    "task_id": 351
+}
+{
+    "snippet": "vgg_model.add(Dense(1000, activation='softmax'))\n",
+    "intent": "Finally a softmax layer to predict the categories. There are 1000 categories and hence 1000 neurons.\n",
+    "task_id": 352
+}
+{
+    "snippet": "saver = tf.train.Saver()\nwith tf.Session() as sess:\n    saver.restore(sess, tf.train.latest_checkpoint('checkpoints-softmax'))\n    feed = {x: train_x,\n            y: train_y}\n    out = sess.run(tf.nn.softmax(logits), feed_dict=feed)\n    out_train_y =sess.run(tf.argmax(out, axis=1))\n    label_train_y = sess.run(tf.argmax(train_y, axis=1))\n    test_los,test_acc = sess.run([cost,accuracy], feed_dict=feed)\n    print(\"Train accuracy: {:.4f}%\".format(test_acc*100))\n",
+    "intent": "show the lowest confidence for correct output\nshow the highest confidence for wrong output\nBUT keep the number of correct prediction at 95%\n",
+    "task_id": 353
+}
+{
+    "snippet": "def SpectralClustering(X):\n    return \n",
+    "intent": "**Part C**: Complete the function `SpectralClustering` to return an indicator vector `z` corresponding to the cluster assignments. \n",
+    "task_id": 354
+}
+{
+    "snippet": "outputs, state = tf.nn.dynamic_rnn(cells, x_one_hot, initial_state=initial_state)\n",
+    "intent": "* **Output**: This is the actual output from LSTM cell.\n* **State**: This is a output from LSTM cell that pass to next time step.\n",
+    "task_id": 355
+}
+{
+    "snippet": "from keras.models import load_model\nmodel = load_model('cats_and_dogs_small_2.h5')\nmodel.summary()  \n",
+    "intent": "Intermediate activations\n",
+    "task_id": 356
+}
+{
+    "snippet": "clf = sklearn.neighbors.KNeighborsClassifier(gs.best_params_['n_neighbors'])\nclf.fit(X_train, Y_train)\nprint clf.score(X_train, Y_train)\nprint clf.score(X_test, Y_test)\n",
+    "intent": "Test the performance of our tuned KNN classifier on the test set.\n",
+    "task_id": 357
+}
+{
+    "snippet": "model = Sequential()\nmodel.add(Dense(100, input_shape=(784,)))\nmodel.add(Activation('relu'))\nmodel.add(Dense(10))\nmodel.add(Activation('softmax'))\n",
+    "intent": "This boils down to defining the network as\n",
+    "task_id": 358
+}
+{
+    "snippet": "sparse_matrix = tf.sparse.SparseTensor(dense_shape=[3,3], indices=[[0,0],[1,1],[2,2]], values=[1,1,1])\nsparse_matrix.values\n",
+    "intent": "** tf.SparseTensor ** - A sparse representation Tensor\nFor sparse Tensors, a more efficient representation is `tf.SparseTensor`.\n",
+    "task_id": 359
+}
+{
+    "snippet": "lr_atemp = LinearRegression()\nX = bikes.loc[:, ['atemp']]\nlr_atemp.fit(X, y)\n",
+    "intent": "- Create another `LinearRegression` instance that is fit using `atemp` only, and print the coefficients.\n",
+    "task_id": 360
+}
+{
+    "snippet": "model = LogisticRegression()\nmodel.fit(X, y)\nprint model.coef_\n",
+    "intent": "__What can we do with an estimator?__ \nInference!\n",
+    "task_id": 361
+}
+{
+    "snippet": "from neon.models import Model\nmlp = Model(layers=layers)\nfrom neon.callbacks.callbacks import Callbacks\ncallbacks = Callbacks(mlp, train_set, output_file=args.output_file,\n                      progress_bar=True)\nmlp.fit(train_set, optimizer=optimizer, num_epochs=args.epochs, cost=cost,\n        callbacks=callbacks)\n",
+    "intent": "Model class contains all aspect of the neural network, architecture, cost function, optimizers; it exposes a `fit` that is used to train the network.\n",
+    "task_id": 362
+}
+{
+    "snippet": "gridsearchcv = GridSearchCV(SVC(), param_grid, refit = True, verbose = 3)\n",
+    "intent": "** Create a GridSearchCV object and fit it to the training data.**\n",
+    "task_id": 363
+}
+{
+    "snippet": "svc2 = svm.LinearSVC(C=100, loss='hinge', max_iter=1000)\nsvc2.fit(data[['X1', 'X2']], data['y'])\nsvc2.score(data[['X1', 'X2']], data['y'])\n",
+    "intent": "It appears that it mis-classified the outlier.  Let's see what happens with a larger value of C, again using `.score`:\n",
+    "task_id": 364
+}
+{
+    "snippet": "def inception(image, reuse):\n    preprocessed = tf.multiply(tf.subtract(tf.expand_dims(image, 0), 0.5), 2.0)\n    arg_scope = nets.inception.inception_v3_arg_scope(weight_decay=0.0)\n    with slim.arg_scope(arg_scope):\n        logits, _ = nets.inception.inception_v3(\n            preprocessed, 1001, is_training=False, reuse=reuse)\n        logits = logits[:,1:] \n        probs = tf.nn.softmax(logits) \n    return logits, probs\nlogits, probs = inception(image, reuse=False)\n",
+    "intent": "Next, we load the Inception v3 model.\n",
+    "task_id": 365
+}
+{
+    "snippet": "su =  SuperLearnerClassifier()\nsu.fit(X_train, y_train)\n",
+    "intent": "Train a Super Learner Classifier using the prepared dataset\n",
+    "task_id": 366
+}
+{
+    "snippet": "import numpy as np\nnp.random.seed(0)\nx = np.random.random(size=(15, 1))\ny = 3 * x.flatten() + 2 + np.random.randn(15)\ny.shape\n",
+    "intent": "To demonstrate the use of simple linear regression with sci-kit learn, we will first create sample data in the form of NumPy arrays.\n",
+    "task_id": 367
+}
+{
+    "snippet": "model = make_pipeline(PolynomialFeatures(degree=5), RandomForestRegressor(n_estimators=60, min_samples_split=1))\nmodel.fit(Xtrain, ytrain)\n",
+    "intent": "Create, fit, tune and predict using the `RandomForestRegression` model here:\n",
+    "task_id": 368
+}
+{
+    "snippet": "model_param_values = pickle.load(open('blvc_googlenet.pkl'))['param values']\nlasagne.layers.set_all_param_values(cnn_output_layer, model_param_values)\n",
+    "intent": "Load the pretrained weights into the network\n",
+    "task_id": 369
+}
+{
+    "snippet": "net = Sequential()\nnet.add(Linear(2, 4))\nnet.add(ReLU())\nnet.add(Linear(4, 2))\nnet.add(SoftMax())\n",
+    "intent": "Define a **logistic regression** for debugging. \n",
+    "task_id": 370
+}
+{
+    "snippet": "def negative_log_likelihood(X, y, w):\n    m = sigmoid(X.dot(w))\n    nll = -1*(np.dot(y, np.log(m+1e-15))+np.dot(1-y,np.log(1-m+1e-15)))\n    return nll\n",
+    "intent": "As defined in Eq. 33\n",
+    "task_id": 371
+}
+{
+    "snippet": "def get_embed(input_data, vocab_size, embed_dim):\n    inputs = tf.contrib.layers.embed_sequence(input_data,vocab_size,embed_dim)\n    return inputs\ntests.test_get_embed(get_embed)\n",
+    "intent": "Apply embedding to `input_data` using TensorFlow.  Return the embedded sequence.\n",
+    "task_id": 372
+}
+{
+    "snippet": "W_conv2 = weight_variable([5, 5, 32, 64])\nb_conv2 = bias_variable([64])\nh_conv2 = tf.nn.relu(conv2d(h_pool1, W_conv2) + b_conv2)\nh_pool2 = max_pool_2x2(h_conv2)\n",
+    "intent": "In order to build a deep network, we stack several layers of this type. The\nsecond layer will have 64 features for each 5x5 patch.\n",
+    "task_id": 373
+}
+{
+    "snippet": "polynomial_features = PolynomialFeatures(degree=15)\nlinear_regression = LinearRegression()\nlinear_regression = ElasticNet(alpha=0.001)\npipeline = Pipeline([(\"polynomial_features\", polynomial_features),\n                     (\"linear_regression\", linear_regression)])\npipeline.fit(X[:, np.newaxis], y)\n",
+    "intent": "Here, we're building linear polynomial models of degrees 2, 4 and 15.\n",
+    "task_id": 374
+}
+{
+    "snippet": "from sklearn.tree import DecisionTreeClassifier\nclf= DecisionTreeClassifier(random_state=42)\nclf.fit(training_inputs, training_classes)\n",
+    "intent": "Now create a DecisionTreeClassifier and fit it to your training data.\n",
+    "task_id": 375
+}
+{
+    "snippet": "tf.reset_default_graph()\nbatch_size = 32\nwith tf.device('/cpu:0'):\n    real_images, _, _ = data_provider.provide_data(\n        'train', batch_size, MNIST_DATA_DIR)\ncheck_real_digits = tfgan.eval.image_reshaper(\n    real_images[:20,...], num_cols=10)\nvisualize_digits(check_real_digits)\n",
+    "intent": "<a id='unconditional_input'></a>\n",
+    "task_id": 376
+}
+{
+    "snippet": "from sklearn.grid_search import GridSearchCV\nfrom sklearn.neighbors import KNeighborsClassifier as KNN\nfrom sklearn.metrics import roc_auc_score\nparams = {'n_neighbors': arange(1, 200, 5)}\ngrid_searcher = GridSearchCV(KNN(),\\\n                             params, cv=5, scoring='roc_auc', n_jobs=3)\ngrid_searcher.fit(X_train, y_train)\nprint grid_searcher.best_score_\nprint grid_searcher.best_estimator_\n",
+    "intent": "Use 5-fold crossvalidation for finding optimal K in KNN\n",
+    "task_id": 377
+}
+{
+    "snippet": "model = make_pipeline(PolynomialFeatures(degree=1), Ridge(alpha=0.001))\nmodel.fit(Xtrain, ytrain)\n",
+    "intent": "Create, fit, tune and predict using the `Ridge` model here:\n",
+    "task_id": 378
+}
+{
+    "snippet": "def get_embed(input_data, vocab_size, embed_dim):\n    embedding = tf.Variable(tf.random_normal([vocab_size, embed_dim], stddev = 0.1), name = 'embedding')\n    embed = tf.nn.embedding_lookup(embedding, input_data, name = 'embed')\n    return embed\ntests.test_get_embed(get_embed)\n",
+    "intent": "Apply embedding to `input_data` using TensorFlow.  Return the embedded sequence.\n",
+    "task_id": 379
+}
+{
+    "snippet": "lm = LinearRegression()\nlm.fit(X_train, y_train)\n",
+    "intent": "d) Train model on training data, and make predictions on testing data\n",
+    "task_id": 380
+}
+{
+    "snippet": "def get_embed(input_data, vocab_size, embed_dim):\n    embeddings = tf.Variable(tf.random_uniform([vocab_size, embed_dim]))\n    embed = tf.nn.embedding_lookup(embeddings, input_data)\n    return embed\ntests.test_get_embed(get_embed)\n",
+    "intent": "Apply embedding to `input_data` using TensorFlow.  Return the embedded sequence.\n",
+    "task_id": 381
+}
+{
+    "snippet": "housingModel = createCompileFitModel(X_train, y_train, learning_rate=0.008)\n",
+    "intent": "Let's try different learning rate\n",
+    "task_id": 382
+}
+{
+    "snippet": "feature_columns = boston.feature_names\nregressor = learn.DNNRegressor( feature_columns=None,\n                               hidden_units=[13, 13, 10],\n                              model_dir = '/tmp/tf/')\nregressor.fit(X_train, y_train, steps=5000, batch_size=1)\n",
+    "intent": "<h1>Building a [13,13,10] Neural Net</h1>\n<br />\n",
+    "task_id": 383
+}
+{
+    "snippet": "result = tf.nn.in_top_k([[0.1, 0.4, 0.3, 0.2, 0.5]], [4], 1)\nwith tf.Session() as s:\n    print(result.eval())\n",
+    "intent": "**Specifying how to evaluate the model**\n",
+    "task_id": 384
+}
+{
+    "snippet": "from skater.model import InMemoryModel\nmlp_model = InMemoryModel(model.predict_proba, input_formatter = texts_to_vectors)\nmlp_model(['hello'])\n",
+    "intent": "* We'll use Skater/Lime with ipywidgets to explore how our model generates predictions.\n* Model needs to output probabilities to get good results.\n",
+    "task_id": 385
+}
+{
+    "snippet": "from sklearn.svm import SVC\nsvc1 = SVC()\n",
+    "intent": "Now its time to train a Support Vector Machine Classifier. \n**Call the SVC() model from sklearn and fit the model to the training data.**\n",
+    "task_id": 386
+}
+{
+    "snippet": "X=tf.placeholder(shape=(4,2),dtype=tf.float32,name='input')\ny=tf.placeholder(shape=(4,1),dtype=tf.float32,name='output')\nW=tf.Variable([[1],[1]],dtype=tf.float32,name='weights')\nb=tf.Variable([0],dtype=tf.float32,name='bias')\n",
+    "intent": "we create our objects\n",
+    "task_id": 387
+}
+{
+    "snippet": "def PolynomialRegression(model, degree=2, **kwargs):\n    return make_pipeline(PolynomialFeatures(degree), model(**kwargs))\nlinear_param_grid = {\n    'polynomialfeatures__degree': np.arange(4),\n    'linearregression__fit_intercept': [True, False],\n    'linearregression__normalize': [True, False]\n}\nlinear_grid = GridSearchCV(PolynomialRegression(LinearRegression), linear_param_grid, cv=7)\nlinear_grid.fit(X, y)\nprint(linear_grid.best_params_)\n",
+    "intent": "Create, fit, tune and predict using the `LinearRegression` model here:\n",
+    "task_id": 388
+}
+{
+    "snippet": "sess = tf.Session()\nsess.run(tf.global_variables_initializer())\ntrain_summary_writer = tf.summary.FileWriter('./summaries/', sess.graph)\n",
+    "intent": "Running the session\n",
+    "task_id": 389
+}
+{
+    "snippet": "km = KMeans(random_state = 324,n_clusters = 2)\nres_g = km.fit(data3_g)\ndata3_g.groupby(res_g.labels_).count()\n",
+    "intent": "** From the result above, I will use KMeans into k = 2 clusters**\n",
+    "task_id": 390
+}
+{
+    "snippet": "biases = {\n    'hidden_layer': tf.Variable(tf.random_normal([n_hidden_layer])),\n    'out': tf.Variable(tf.random_normal([n_classes]))\n}\n",
+    "intent": "Each of the multiple hidden layers require its own weight and bias.\n",
+    "task_id": 391
+}
+{
+    "snippet": "NB_credit_mod = GaussianNB() \nNB_credit_mod.fit(X_train, y_train)\n",
+    "intent": "The code in the cell below defines a naive Bayes model object and then fits the model to the training data. Execute this code:\n",
+    "task_id": 392
+}
+{
+    "snippet": "c = sklearn.ensemble.BaggingClassifier(base_estimator=sklearn.tree.DecisionTreeClassifier(max_depth=1))\ncv = sklearn.cross_validation.StratifiedKFold(y, n_folds=10, shuffle=True, random_state=123456)\n",
+    "intent": "What about with \"decision stumps\" (aka one-R)?\n",
+    "task_id": 393
+}
+{
+    "snippet": "model.fit(X_train, Y_train, batch_size=32, nb_epoch=10, verbose=1)\n",
+    "intent": "Fit model on training data\n",
+    "task_id": 394
+}
+{
+    "snippet": "x = torch.tensor([1., 2., 3.])\ny = torch.tensor([4., 5., 6.])\nz = x + y\nprint(z)\n",
+    "intent": "Operations with Tensors\n~~~~~~~~~~~~~~~~~~~~~~~\nYou can operate on tensors in the ways you would expect.\n",
+    "task_id": 395
+}
+{
+    "snippet": "from sklearn.tree import DecisionTreeClassifier\ngrid_dt = GridSearchCV(estimator=DecisionTreeClassifier(),\n                    param_grid={'min_samples_leaf': [3, 4, 5],\n                                'max_depth': [None, 1,3,5,7,9,10,11,12,13]\n                               },\n                    scoring=\"accuracy\",\n                    cv=10,\n                    return_train_score=True)\ngrid_dt.fit(X_train, y_train);\n",
+    "intent": "<b> 1.4.3 Decision Tree Classifier\n",
+    "task_id": 396
+}
+{
+    "snippet": "from sklearn.neighbors import KNeighborsClassifier\nmodel = KNeighborsClassifier(n_neighbors=1)\n",
+    "intent": "Next we choose a model and hyperparameters:\n",
+    "task_id": 397
+}
+{
+    "snippet": "rforest_param_grid = {\n    'polynomialfeatures__degree': np.arange(4),\n    'randomforestregressor__n_estimators': np.arange(50, 100, 5)\n}\nrforest_grid = GridSearchCV(PolynomialRegression(RandomForestRegressor), rforest_param_grid, cv=5,\\\n                            verbose=1, n_jobs=3)\nrforest_grid.fit(X, y)\nprint(rforest_grid.best_params_)\n",
+    "intent": "Create, fit, tune and predict using the `RandomForestRegression` model here:\n",
+    "task_id": 398
+}
+{
+    "snippet": "sagemaker = boto3.Session().client(service_name='sagemaker') \njob_name = tuner.latest_tuning_job.job_name\nprint(job_name)\nsagemaker.describe_hyper_parameter_tuning_job(\n    HyperParameterTuningJobName=job_name)['HyperParameterTuningJobStatus']\n",
+    "intent": "Let's just run a quick check of the tuning job status to make sure it started successfully. \n",
+    "task_id": 399
+}
+{
+    "snippet": "lin_reg = LinearRegression()\nlin_reg.fit(train_set, train_labels)\n",
+    "intent": "Now that we have our data in the correct form, we pass in the `train_set` and `train_labels` into the `fit` method to train the model.\n",
+    "task_id": 400
+}
+{
+    "snippet": "ols.fit(X_train, y_train)\nprint(\"R^2 for training set:\", ols.score(X_train, y_train))\nprint('-'*50)\nprint(\"R^2 for test set:\", ols.score(X_test, y_test))\n",
+    "intent": "- Do multiple linear regression with new data set.\n- Report the coefficient of determination from the training and testing sets.\n",
+    "task_id": 401
+}
+{
+    "snippet": "scaler.fit(X)\n",
+    "intent": "** Fit scaler to the features.**\n",
+    "task_id": 402
+}
+{
+    "snippet": "def conv_block(x, filters, k_size, strides=(1,1), padding='same', act='relu'):\n    x = l.Conv2D(filters, k_size, strides=strides, padding=padding, activation=act)(x)\n    return l.BatchNormalization()(x)\n",
+    "intent": "First, we'll build a conv block. This is simply a Conv2D layer, followed by bn and a relu activation.\n",
+    "task_id": 403
+}
+{
+    "snippet": "gradient_boosting_regressor = GradientBoostingRegressor(n_estimators=200, learning_rate=0.1,max_depth=1,\n                                                        random_state=0,\n                                loss='ls',max_features=1,subsample=.5)\n",
+    "intent": "Gradient Boosting Model\n---\n",
+    "task_id": 404
+}
+{
+    "snippet": "rforest = RandomForestClassifier(n_estimators=1000)\n",
+    "intent": "Now its time to train our model!\n**Create an instance of the RandomForestClassifier class and fit it to our training data from the previous step.**\n",
+    "task_id": 405
+}
+{
+    "snippet": "def get_embed(input_data, vocab_size, embed_dim):\n    embedding = tf.Variable(tf.random_uniform((vocab_size,embed_dim),-1,1))\n    return tf.nn.embedding_lookup(embedding,input_data)\ntests.test_get_embed(get_embed)\n",
+    "intent": "Apply embedding to `input_data` using TensorFlow.  Return the embedded sequence.\n",
+    "task_id": 406
+}
+{
+    "snippet": "def get_embed(input_data, vocab_size, embed_dim):\n    embedding = tf.Variable(tf.random_uniform((vocab_size,embed_dim),-1,1))\n    embed = tf.nn.embedding_lookup(embedding ,input_data)\n    return embed\ntests.test_get_embed(get_embed)\n",
+    "intent": "Apply embedding to `input_data` using TensorFlow.  Return the embedded sequence.\n",
+    "task_id": 407
+}
+{
+    "snippet": "ridge_param_grid = {\n    'polynomialfeatures__degree': np.arange(4),\n    'ridge__fit_intercept': [True, False],\n    'ridge__normalize': [True, False],\n    'ridge__alpha': np.linspace(0.01, 0.5, num=5)\n}\nridge_grid = GridSearchCV(PolynomialRegression(Ridge), ridge_param_grid, cv=7, verbose=1)\nridge_grid.fit(X, y)\nprint(ridge_grid.best_params_)\n",
+    "intent": "Create, fit, tune and predict using the `Ridge` model here:\n",
+    "task_id": 408
+}
+{
+    "snippet": "rfc = RandomForestClassifier()\n",
+    "intent": "Now its time to train our model!\n**Create an instance of the RandomForestClassifier class and fit it to our training data from the previous step.**\n",
+    "task_id": 409
+}
+{
+    "snippet": "from sklearn.grid_search import GridSearchCV\nn_estimators = range(90,100)\nmax_depth = [1, 2, 3, 4, 5]\nsubsample = [0.8, 0.9, 1.0]\ngbc = GradientBoostingClassifier()\nparam_grid = dict(n_estimators=n_estimators, max_depth=max_depth, subsample=subsample)\ngrid = GridSearchCV(gbc, param_grid, cv=cv)\ngrid.fit(X, y)\n",
+    "intent": "Take the best model and try to improve it using grid search.\n",
+    "task_id": 410
+}
+{
+    "snippet": "model = Sequential([\n    Embedding(vocab_size, 32, input_length=seq_len),\n    Flatten(),\n    Dense(100, activation='relu'),\n    Dropout(0.7),\n    Dense(1, activation='sigmoid')])\n",
+    "intent": "Note:\n    - Input: Review containing 500 words, output: 1/0 (positive/negative)\n    - Input layer = Embedding: IP = 500, OP = 500x32\n",
+    "task_id": 411
+}
+{
+    "snippet": "plot_KMeans(X, centroids, labels)\n",
+    "intent": "  * Plot de data, centroids en labels.\n  * Wat gebeurt er als je het algoritme meerdere keren draait? Worden altijd dezelfde zes clusters gevonden?\n",
+    "task_id": 412
+}
+{
+    "snippet": "perceptron.fit(X_pairs,y_and)\n",
+    "intent": "  * Train de perceptron op `X_pairs` met `y_and` als target.\n",
+    "task_id": 413
+}
+{
+    "snippet": "noClusters = 30\nkm = KMeans(n_clusters=noClusters, init='k-means++', n_init=10, max_iter=300, tol=1e-04, random_state=0)\n",
+    "intent": "Uit de plot blijkt niet een direct een knik. Een hogere waarde voor k lijkt een beter resultaat op te leveren. Vanwege rekentijd kies ik k=30.\n",
+    "task_id": 414
+}
+{
+    "snippet": "rn = sklearn.neighbors.RadiusNeighborsRegressor()\nrn.fit(table[['sq__ft']],table['price'])\n",
+    "intent": "Radius Neighbors Regressor\n",
+    "task_id": 415
+}
+{
+    "snippet": "pf = PolynomialFeatures(degree=7, include_bias=False)\npf.fit(X)\nX7 = pf.transform(X)\nlr_boston7 = LinearRegression()\nlr_boston7.fit(X7, y)\n",
+    "intent": "- Create a linear regression model for MEDV against DIS with polynomial terms for DIS up to and including degree seven.\n",
+    "task_id": 416
+}
+{
+    "snippet": "gs3 = GridSearchCV(LogisticRegression(),\n                  logreg_parameters,\n                  cv=5,\n                  scoring='average_precision')\ngs3.fit(X_train, y_train)\n",
+    "intent": "`'average_precision'` will optimize parameters for area under the precision-recall curve instead of for accuracy.\n",
+    "task_id": 417
+}
+{
+    "snippet": "model.fit(x,y,epochs=50);\n",
+    "intent": "Now that we have specified the model and how we want to train it, calling the [`fit`](https://keras.io/models/sequential/\n",
+    "task_id": 418
+}
+{
+    "snippet": "def conv_layer(prev_layer, layer_depth, is_training):\n    strides = 2 if layer_depth % 3 == 0 else 1\n    conv_layer = tf.layers.conv2d(prev_layer, layer_depth*4, 3, strides, 'same', activation=None, use_bias=False)\n    conv_layer = tf.layers.batch_normalization(conv_layer, training=is_training)\n    conv_layer = tf.nn.relu(conv_layer)\n    return conv_layer\n",
+    "intent": "Modified `conv_layer` to add batch normalization to the convolutional layers it creates. \n",
+    "task_id": 419
+}
+{
+    "snippet": "nb.fit(X_test,y_test)\n",
+    "intent": "**Now fit nb using the training data.**\n",
+    "task_id": 420
+}
+{
+    "snippet": "model.fit(X_train_indices, Y_train_oh, epochs=50, batch_size=32, shuffle=True)\n",
+    "intent": "Fit the Keras model on `X_train_indices` and `Y_train_oh`. We will use `epochs = 50` and `batch_size = 32`.\n",
+    "task_id": 421
+}
+{
+    "snippet": "indeces = [2,27, 64]\nlogistic = LogisticRegression().fit(training_data[:,indeces],training_data[:,-1])\nvalidation_error = logistic.score(validation_data[:,indeces], validation_data[:,-1]) \ntest_error = logistic.score(test_data[:,indeces], test_data[:,-1]) \ndisplay(str.format(\"{} training samples : validation error = {}, test error = {}\",training_data.shape[0], validation_error, test_error))\n",
+    "intent": "ind_var5 -> 27 <br>\nind_var30 -> 64 <br>\nvar15 -> 2 (categorical?)\n",
+    "task_id": 422
+}
+{
+    "snippet": "km4 = KMeans(n_clusters=4)\nkm4.fit(data)\nlabels = km4.labels_\ncents4 = km4.cluster_centers_\npd.value_counts(labels)\n",
+    "intent": "What cluster value should we set?\n",
+    "task_id": 423
+}
+{
+    "snippet": "model = Sequential()\nmodel.add(Dense(100, activation='relu', input_shape=(n_cols,)))\nmodel.add(Dense(100, activation='relu'))\nmodel.add(Dense(1))\nmodel.compile(optimizer=\"adam\", loss = \"mean_squared_error\")\n",
+    "intent": "Restart the model from the beginning.\n",
+    "task_id": 424
+}
+{
+    "snippet": "V = df[[\"valence\"]]\nlr_V = LogisticRegression()\nlr_V.fit(V, y);\n",
+    "intent": "Train model using one feature: \"valence\"\n",
+    "task_id": 425
+}
+{
+    "snippet": "test_models = [LinearRegression(), Ridge(alpha=10), Lasso(alpha=10)]\nscores = [analyze_performance(my_model, X, y_sample) for my_model in test_models]\n",
+    "intent": "Let's incorpoate polynomial degrees a few degrees with the regularized models.\n",
+    "task_id": 426
+}
+{
+    "snippet": "sm = pystan.StanModel(model_code=LDA_STAN)\nfit = sm.vb(data=data, iter=10000, algorithm=\"meanfield\", elbo_samples=100, grad_samples=20, seed=42, verbose=True)\nprint(fit)\n",
+    "intent": "Run the STAN model now. The VB version will be faster, as usual, and if you're running this in the class, this may be important. \n",
+    "task_id": 427
+}
+{
+    "snippet": "model = Sequential()\nmodel.add(Dense(1, input_dim=1, kernel_initializer='zeros', bias_initializer='zeros'))\nmodel.compile(loss='mean_squared_error', optimizer=SGD(lr=0.01, momentum=0.1))\nprint('Training...')\nhistory = saveWeightsCallback()\nmodel.fit(x,y,epochs=100, callbacks=[history], verbose=0, batch_size=32);\nprint('Done!')\n",
+    "intent": "Now we train the model, passing the newly created callback as argument to the `fit` method.\n",
+    "task_id": 428
+}
+{
+    "snippet": "def conv2d(x, W):\n  return tf.nn.conv2d(x, W, strides=[1, 1, 1, 1], padding='SAME')\ndef max_pool_2x2(x):\n  return tf.nn.max_pool(x, ksize=[1, 2, 2, 1],\n                        strides=[1, 2, 2, 1], padding='SAME')\n",
+    "intent": "I will explain what the next functions are doing.\n",
+    "task_id": 429
+}
+{
+    "snippet": "v = []\nfor i in range(len(x1)):\n    vi = []\n    for j in range(len(w)):\n        vij = pulp.LpVariable('v_%d%d' % (i, j), cat=pulp.LpBinary)\n        vi.append(vij)\n    v.append(vi)\n",
+    "intent": "Secondary decision variables = do we associate point $i$ with cluster $j$?\n",
+    "task_id": 430
+}
+{
+    "snippet": "pipeline.fit(X_train,y_train)\n",
+    "intent": "**Now fit the pipeline to the training data. we cant use the same training data as the data is being vectorised\n",
+    "task_id": 431
+}
+{
+    "snippet": "conv_layer = tf.nn.conv2d(input,weight,strides=[1,2,2,1],padding=\"SAME\")\nconv_layer = tf.nn.bias_add(conv_layer,bias)\nconv_layer = tf.nn.relu(conv_layer)\nconv_layer = tf.nn.max_pool(conv_layer,ksize=[1,2,2,1],\n                           strides = [1,2,2,1],padding=\"SAME\")\n",
+    "intent": "* Function -- **tf.nn.max_pool()**\n",
+    "task_id": 432
+}
+{
+    "snippet": "model.fit(x_train, y_train, epochs=100, batch_size=50)\n",
+    "intent": "Run the model here. Experiment with different batch_size, and number of epochs!\n",
+    "task_id": 433
+}
+{
+    "snippet": "activations = tf.nn.relu(pre_activations)\noutputs = snt.Linear(output_size=1)(activations)\noutputs\n",
+    "intent": "To complete our model, we apply a ReLU non-linearity and add a final linear layer with just 1 output.\n",
+    "task_id": 434
+}
+{
+    "snippet": "from keras.layers import Dense\nnumber_inputs = 3\nnumber_hidden_nodes = 4\nmodel.add(Dense(units=number_hidden_nodes,\n                activation='relu',\n                input_dim = number_inputs))\n",
+    "intent": "Next, we add our first layer. This layer requires you to specify both the number of inputs and the number of nodes that you want in the hidden layer.\n",
+    "task_id": 435
+}
+{
+    "snippet": "def conv_net(x, dropout):\n    conv1 = conv2d(x, wc1, bc1, SC1, PC1)\n    conv1 = max_pool2d(conv1, P1, SP1)\n    conv2 = conv2d(conv1, wc2, bc2, SC2, PC2)\n    conv2 = max_pool2d(conv2, P2, SP2)\n    fc1 = tf.reshape(conv2, [-1, FC1_in])\n    fc1 = affine_relu_dropout(fc1, wfc1, bfc1, dropout)\n    out = tf.add(tf.matmul(fc1, wout), bout)\n    return out\n",
+    "intent": "We are ready to build our first conv-net\n",
+    "task_id": 436
+}
+{
+    "snippet": "grid = GridSearchCV(SVC(), param_grid, refit=True, verbose=2)\ngrid.fit(X_train, y_train)\n",
+    "intent": "** Create a GridSearchCV object and fit it to the training data.**\n",
+    "task_id": 437
+}
+{
+    "snippet": "model = base_model()\ntb = TensorBoard(log_dir='./logs/initial_setting')\nhistory = model.fit(X_train, y_train, validation_data=(X_test, y_test), epochs=15, batch_size=1024, callbacks=[tb])\n",
+    "intent": "Now that we defined the architecture, we can train it with the following cell.\n",
+    "task_id": 438
+}
+{
+    "snippet": "from sklearn.model_selection import GridSearchCV\nmodel = linear_model.LinearRegression()\nparameters = {'fit_intercept':[True,False], 'normalize':[True,False], 'copy_X':[True, False]}\ngrid = GridSearchCV(model,parameters, cv=None)\ngrid.fit(X_train, y_train)\n",
+    "intent": "GridSearch Visualization\n",
+    "task_id": 439
+}
+{
+    "snippet": "knn.fit(np.array(X_train), np.ravel(y_train))\n",
+    "intent": "Based on the above, this model is showing bias and could be improved with feature engineering \n",
+    "task_id": 440
+}
+{
+    "snippet": "final_estimator = SGDClassifier(alpha=0.75, average=False, class_weight='balanced',\n       early_stopping=False, epsilon=0.1, eta0=0.0, fit_intercept=True,\n       l1_ratio=0.15, learning_rate='optimal', loss='hinge', max_iter=100,\n       n_iter=None, n_iter_no_change=5, n_jobs=None, penalty='l2',\n       power_t=0.5, shuffle=True, tol=0.001,\n       validation_fraction=0.1, verbose=1, warm_start=False, random_state = 22)\n",
+    "intent": "Creating Final Model \n",
+    "task_id": 441
+}
+{
+    "snippet": "model1 = load_model(save_model_name, custom_objects={'my_iou_metric': my_iou_metric})\ninput_x = model1.layers[0].input\noutput_layer = model1.layers[-1].input\nmodel = Model(input_x, output_layer)\nc = optimizers.Adam(lr = 0.005)\nmodel.compile(loss=lovasz_loss, optimizer=c, metrics=[my_iou_metric_2])\n",
+    "intent": "Then the default threshod for pixel prediction is 0 instead of 0.5, as in my_iou_metric_2.\n",
+    "task_id": 442
+}
+{
+    "snippet": "model.fit(df[iris.feature_names], df.species)\n",
+    "intent": "Fit the classifier with the iris data:\n",
+    "task_id": 443
+}
+{
+    "snippet": "from sklearn.dummy import DummyClassifier\ndcl= DummyClassifier('most_frequent')\ndcl.fit(X_tr,y_tr)\nprint('The baseline classifier (predict most frequent class) would achieve a \\\nclassification accuracy score of: {:.3f}'.format(dcl.score(X_val, y_val)))\n",
+    "intent": "*Your answer goes here*  \n",
+    "task_id": 444
+}
+{
+    "snippet": "def h_of_theta(theta, X):\n    transposed_theta = theta[:, None]\n    return sigmoid(X.dot(transposed_theta))\n",
+    "intent": "$g(\\theta^Tx)$ expressed as:\n",
+    "task_id": 445
+}
+{
+    "snippet": "scaler.fit(dataframe.drop('TARGET CLASS', axis = 1))\n",
+    "intent": "** Fit scaler to the features.**\n",
+    "task_id": 446
+}
+{
+    "snippet": "dtree = DecisionTreeClassifier()\n",
+    "intent": "**Erstelle eine Instanz des DecisionTreeClassifier() namens dtree und fitte die Trainingsdaten darauf.**\n",
+    "task_id": 447
+}
+{
+    "snippet": "model = base_model()\ntb = TensorBoard(log_dir='./logs/final_model')\nestop = EarlyStopping(monitor='val_acc', patience=5)\nmodel.fit(X_train, y_train, validation_data=(X_test, y_test), epochs=50, batch_size=1024, callbacks=[tb, estop])\n",
+    "intent": "Choose the best one and train longer. Here we also use [early stopping](https://en.wikipedia.org/wiki/Early_stopping\n",
+    "task_id": 448
+}
+{
+    "snippet": "probs = np.array([0.2, 0.5, 0.8, 0.9, 0.1, 0.75])\npreds = threshold(probs, thres=.7)\npreds\n",
+    "intent": "Here's an example of using the threshold and profit_functions\n",
+    "task_id": 449
+}
+{
+    "snippet": "from sklearn.naive_bayes import GaussianNB\nnb = GaussianNB()\nnb.fit(train_df[colnames], train_df['target'])\nnb.score(test_df[colnames], test_df['target'])\n",
+    "intent": "Exercise: Build a GaussianNB model using sklearn, and estimate the accuracy on the test set.\n",
+    "task_id": 450
+}
+{
+    "snippet": "from sklearn.model_selection import GridSearchCV\nfrom sklearn.linear_model import LogisticRegression\nparamgrid=dict(C=[0.001, 0.1, 1, 10, 100])\ncf=LogisticRegression()\ngrid = GridSearchCV(cf, paramgrid,cv=10)\ngrid.fit(Xlr, ylr)\n",
+    "intent": "<h1><center>GridSearchCV!</center></h1>\n",
+    "task_id": 451
+}
+{
+    "snippet": "y_pred = tf.layers.dense(out, n_classes, activation=None)\n",
+    "intent": "Finally we pass this output through another layer with output size `n_classes`. This step is necessary to get our predictions.\n",
+    "task_id": 452
+}
+{
+    "snippet": "reset_tf()\nN_PIXELS= 28 * 28\nBATCH_SIZE = 100\nLEARNING_RATE = 0.5\nx = tf.placeholder(tf.float32, [None, N_PIXELS], name=\"pixels\")\ny_labels = tf.placeholder(tf.float32, [None, 10], name=\"labels\")\nW = tf.Variable(tf.zeros([N_PIXELS, 10]), name=\"weights\")\nb = tf.Variable(tf.zeros([10]), name=\"biases\")\ny = tf.matmul(x, W) + b\n",
+    "intent": "The linear model is very similar to before, but it now has an output of dimension 10, instead of 1.\n",
+    "task_id": 453
+}
+{
+    "snippet": "skipgram = Sequential()\nskipgram.add(Embedding(input_dim=V, output_dim=dim, init='glorot_uniform', input_length=1))\nskipgram.add(Reshape((dim, )))\nskipgram.add(Dense(input_dim=dim, output_dim=V, activation='softmax'))\nSVG(model_to_dot(skipgram, show_shapes=True).create(prog='dot', format='svg'))\n",
+    "intent": "- Lastly, we create the (shallow) network!\n",
+    "task_id": 454
+}
+{
+    "snippet": "ln.fit(X_train, y_train)\n",
+    "intent": "** Train/fit lm on the training data.**\n",
+    "task_id": 455
+}
+{
+    "snippet": "with tf.variable_scope('layer1'):\n    w = tf.get_variable('v', shape=[2, 3], initializer=my_initializer)\n    print w.name\nwith tf.variable_scope('layer2'):\n    w = tf.get_variable('v', shape=[2, 3], initializer=my_initializer)\n    print w.name\n",
+    "intent": "`tf.variable_scope(scope_name)` manages namespaces for names passed to `tf.get_variable`.\n",
+    "task_id": 456
+}
+{
+    "snippet": "IcebergModel = Iceberg_model((75,75,3))\n",
+    "intent": "For  creating the model we provide the shape of each training data (75,75,3) .\n",
+    "task_id": 457
+}
+{
+    "snippet": "p = Perceptron()\np.train(X_shuffled,y_shuffled,10000,verbose=False)\n",
+    "intent": "Try to get as high an accuracy as possible.\n",
+    "task_id": 458
+}
+{
+    "snippet": "model = DecisionTreeClassifier()\npredictor_var = ['Credit_History','Gender','Married','Education']\nclassification_model(model,df,predictor_var,outcome_var)\n",
+    "intent": "https://www.analyticsvidhya.com/blog/2016/04/complete-tutorial-tree-based-modeling-scratch-in-python/\n",
+    "task_id": 459
+}
+{
+    "snippet": "def build_basic_model(shape, neurons):\n    model = Sequential()\n    model.add(LSTM(neurons[0], input_shape=(shape[0], shape[1]), return_sequences=True))\n    model.add(LSTM(neurons[1], input_shape=(shape[0], shape[1]), return_sequences=False))\n    model.add(Dense(neurons[2],activation='linear'))\n    model.compile(loss='mse',optimizer='adam', metrics=['accuracy'])\n    model.summary()\n    return model\n",
+    "intent": "**Design a basic LSTM model**\n",
+    "task_id": 460
+}
+{
+    "snippet": "def build_linear_regression_model_basic(X, y):\n    linear_mdl = linear_model.LinearRegression()  \n    linear_mdl.fit(X, y)  \n    return linear_mdl\n",
+    "intent": "   **Design the Benchmark Regression Model **\n",
+    "task_id": 461
+}
+{
+    "snippet": "iso = manifold.Isomap(n_neighbors=6, n_components=2)\niso.fit(X)\nmanifold_data = iso.transform(X)\nplot_clustering(manifold_data[indices], X[indices], y_num, title='ISOMAP')\n",
+    "intent": "**Excerise 3:** Apply ISOMAP on the data\n",
+    "task_id": 462
+}
+{
+    "snippet": "def get_embed(input_data, vocab_size, embed_dim):\n    embedding = tf.Variable(tf.random_uniform((vocab_size, embed_dim), minval=-1, maxval=1)) \n    embed = tf.nn.embedding_lookup(embedding, input_data)\n    return embed\ntests.test_get_embed(get_embed)\n",
+    "intent": "Apply embedding to `input_data` using TensorFlow.  Return the embedded sequence.\n",
+    "task_id": 463
+}
+{
+    "snippet": "model.fit(X_train, y_train)\n",
+    "intent": "You're now ready to train the model. Write and run the following line:\n`model.fit(X_train, y_train)`\n",
+    "task_id": 464
+}
+{
+    "snippet": "linreg.fit(x_train,y_train)\n",
+    "intent": "Now, apply the training set to the predictive model using the fit() function.\n",
+    "task_id": 465
+}
+{
+    "snippet": "lr = hmm.MultinomialHMM(n_components=2) \nX = shampoo_transitions.Direction.values.reshape(-1,1) \nlr.fit(X)\n",
+    "intent": "Next we create a Multinomial HMM. This one is used for strictly categorical variables, we you don't have a continous distribution.\n",
+    "task_id": 466
+}
+{
+    "snippet": "model.fit(x_train, y_train, batch_size=100, epochs=10, verbose=1)\n",
+    "intent": "Run the model here. Experiment with different batch_size, and number of epochs!\n",
+    "task_id": 467
+}
+{
+    "snippet": "DIVISIBILITY_NUMBER = 7\nmodel_div7 = build_model()\nmodel_div7.summary()\n",
+    "intent": "Let's try divisibility by 7 first.\n",
+    "task_id": 468
+}
+{
+    "snippet": "clf_petal = cluster.KMeans(init='k-means++', n_clusters=3, random_state=33)\nclf_petal.fit(X_train4[:,2:4])\n",
+    "intent": "Repeat the experiment, using petal dimensions\n",
+    "task_id": 469
+}
+{
+    "snippet": "from sklearn.model_selection import GridSearchCV\nmodel_dt = GridSearchCV(dt_classifier, param_grid, cv=3, iid=False, return_train_score=True)\nmodel_dt.fit(X_train, y_train);\n",
+    "intent": "Then we can implement the grid search and fit our model according to the best parameters.\n",
+    "task_id": 470
+}
+{
+    "snippet": "clf = LogisticRegression().fit(bX_train, by_train)\nprint('Balanced training accuracy:', clf.score(bX_test, by_test))\nprint('Balanced testing accuracy:', clf.score(bX_test, by_test))\nprint('Overall test accuracy:', clf.score(X_test, y_test))\n",
+    "intent": "**Now to see how the data will fit using logistic regression using all the provided features**\n",
+    "task_id": 471
+}
+{
+    "snippet": "from sklearn.model_selection import GridSearchCV\nparam_grid = {\n    'polynomialfeatures__degree': np.arange(5),\n    'linearregression__fit_intercept': [True, False],\n    'linearregression__normalize': [True, False]\n}\ngrid = GridSearchCV(PolynomialRegression(), param_grid, cv=7)\ngrid.fit(X, y)\ngrid.best_params_\n",
+    "intent": "We can use grid search to find a good model; we can vary a couple of other hyperparameters too:\n",
+    "task_id": 472
+}
+{
+    "snippet": "Feature_Name=[]\nFeature_Rsq=[]\nfor name in list(X):\n    lr.fit(X_train[[name]], y_train)\n    lr.score(X_test[[name]], y_test)\n    Feature_Rsq.append(lr.score(X_test[[name]], y_test))\n",
+    "intent": "We can calculate the R^2 for every feature:   \n",
+    "task_id": 473
+}
+{
+    "snippet": "from sklearn.linear_model import LogisticRegression\nlr = LogisticRegression()\nlr.fit(X_train, y_train)\n",
+    "intent": "Train the logistic regression model\n",
+    "task_id": 474
+}
+{
+    "snippet": "dummy_classifier = DummyClassifier(strategy=\"most_frequent\")\ndummy_classifier.fit(X_tr,y_tr )\nprint('The baseline classifier (most frequent) would achieve a classification accuracy score of: {:.3f}'.\n      format(dummy_classifier.score(X_val,y_val)))\n",
+    "intent": "*Your answer goes here*\nAssuming that all points were labelled as 0 in \"is_person\" is the simplest classification way.\n",
+    "task_id": 475
+}
+{
+    "snippet": "print(x_train.shape)\nmodel.fit(x_train ,y_train, epochs = 10, batch_size = 18, verbose = 2)\n",
+    "intent": "Run the model here. Experiment with different batch_size, and number of epochs!\n",
+    "task_id": 476
+}
+{
+    "snippet": "sess = tf.Session()\n",
+    "intent": "A session places a graph onto a computation device and provides methods to execute it.\n",
+    "task_id": 477
+}
+{
+    "snippet": "def sampling(args):\n    z_mean, z_log_var = args\n    epsilon = K.random_normal(shape=(K.shape(z_mean)[0], latent_dim),\n                              mean=0., stddev=1.)\n    return z_mean + K.exp(z_log_var) * epsilon\nz = layers.Lambda(sampling)([z_mean, z_log_var])\n",
+    "intent": "We'll do our sampling in the latent space via a special 'Lambda' layer, which is Keras' general layer for housing a function.\n",
+    "task_id": 478
+}
+{
+    "snippet": "tree_mod = DecisionTreeClassifier(max_depth=6, min_samples_leaf=5)\ntree_mod.fit(X_train, y_train)\nprint('Training Accuracy:', tree_mod.score(X_train, y_train))\nprint('Testing Accuracy:', tree_mod.score(X_test, y_test))\n",
+    "intent": "You will be asked to specifty two parameters for the decision tree model: `max_depth` and `min_samples_leaf`. These values will be provided to you.\n",
+    "task_id": 479
+}
+{
+    "snippet": "dummyInput = np.ones(len(y))[np.newaxis].T\nlr = LinearRegression().fit(dummyInput, y)\n",
+    "intent": "<font color=\"red\"> Good </font>\n",
+    "task_id": 480
+}
+{
+    "snippet": "model.fit(x_train, y_train)\n",
+    "intent": "** Train/fit lm on the training data.**\n",
+    "task_id": 481
+}
+{
+    "snippet": "from sklearn.model_selection import GridSearchCV\nprint('Processing GridSearch. Please hold for the next available set of outputs.\\n')\ngd_parameters = {   }\nrf = RandomForestClassifier(random_state=42)\ngd_model = GridSearchCV(rf, gd_parameters, n_jobs = -1, cv=10)\nprint(gd_model.best_params_)\nprint(gd_model.best_score_)\n",
+    "intent": "You can find parameter options here: http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html\n",
+    "task_id": 482
+}
+{
+    "snippet": "lr = LogisticRegression(penalty='l2')\ncv = cross_validation(lr, X_under, Y_under , n_splits=5,init_chunk_size = 100, chunk_spacings = 10, average = \"binary\")\ncv.validate_for_holdout_set(X_holdout, Y_holdout)\ncv.plot_learning_curve()\n",
+    "intent": "Regularization: Rigde \n",
+    "task_id": 483
+}
+{
+    "snippet": "sm = SMOTE(kind='regular')\nX_smote, Y_smote= sm.fit_sample(X_train, Y_train)\nlr = LogisticRegression()\ncv = cross_validation(lr, X_smote, Y_smote , n_splits=5, init_chunk_size = 100, chunk_spacings = 10, average = \"binary\")\ncv.validate_for_holdout_set(X_holdout, Y_holdout)\ncv.plot_learning_curve()\n",
+    "intent": "Regularization: Ridge\n",
+    "task_id": 484
+}
+{
+    "snippet": "my_model = XGBRegressor(n_estimators=1000, learning_rate=0.05)\nmy_model.fit(train_X, train_y, early_stopping_rounds=5, \n             eval_set=[(test_X, test_y)], verbose=False)\n",
+    "intent": "*Step 4: Evaluate Regressors*\n",
+    "task_id": 485
+}
+{
+    "snippet": "from sklearn.cluster import KMeans\nkm_out = KMeans(n_clusters = 2, n_init = 20, random_state = 2).fit(x)\n",
+    "intent": "We now perform K-means clustering with `K = 2`:\n",
+    "task_id": 486
+}
+{
+    "snippet": "param_grid_nc = {'metric': ['euclidean','manhattan'],'shrink_threshold':[0.05,0.1,0.5,0.75]}\ngrid_nc_kfold_sfl = GridSearchCV(NearestCentroid(), param_grid_nc,cv=cv_sfl,return_train_score=True)\ngrid_nc_kfold_sfl.fit(x_train, y_train)\n",
+    "intent": "**Comparison of best parameter values with/without random seed:**\n",
+    "task_id": 487
+}
+{
+    "snippet": "multi_lin_model = linear_model.LinearRegression()\n",
+    "intent": "We start again by creating a [```LinearRegression```](http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html\n",
+    "task_id": 488
+}
+{
+    "snippet": "weightdistribution(net.state_dict()['layer2.0.weight'].cpu().numpy().flatten())\nweightdistribution(net.state_dict()['fc1.weight'].cpu().numpy().flatten())\nweightdistribution(net.state_dict()['fc2.weight'].cpu().numpy().flatten())\n",
+    "intent": "<b>Visualizing the weight distributions with the regularized loss</b>\n",
+    "task_id": 489
+}
+{
+    "snippet": "from sklearn.linear_model import LinearRegression\nfrom sklearn.cross_validation import KFold\npredictors = [\"Pclass\", \"Sex\", \"Age\",\"SibSp\", \"Parch\", \"Fare\",\n              \"Embarked\",\"NlengthD\", \"FsizeD\", \"Title\",\"Deck\"]\ntarget=\"Survived\"\nalg = LinearRegression()\nkf = KFold(titanic.shape[0], n_folds=3, random_state=1)\npredictions = []\n",
+    "intent": "Predict Survival\n================\n",
+    "task_id": 490
+}
+{
+    "snippet": "from keras.models import Sequential\nfrom keras.layers import Dense\ndef create_fc_nn():\n    model = Sequential()\n    model.add(Dense(num_pixels, input_dim=num_pixels, init='normal', activation='relu'))\n    model.add(Dense(num_classes, init='normal', activation='softmax'))\n    model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])\n    return model\nmodel = create_fc_nn()\nmodel.fit(X_train, Y_train, validation_data=(X_val, Y_val), nb_epoch=10, batch_size=200, verbose=2)\n",
+    "intent": "Use Fc NN as a baseline model\n",
+    "task_id": 491
+}
+{
+    "snippet": "model=Sequential([\n        GRU(n_hidden, return_sequences=True, input_shape=(cs, vocab_size),\n                  activation='relu'),\n        TimeDistributed(Dense(vocab_size, activation='softmax')),\n    ])\nmodel.compile(loss='categorical_crossentropy', optimizer=Adam())\n",
+    "intent": "Identical to the last keras rnn, but a GRU!\n",
+    "task_id": 492
+}
+{
+    "snippet": "lm_inp2 = Input(shape=(2048,))\nlm2 = Model(lm_inp2, Dense(ndim)(lm_inp2))\n",
+    "intent": "To improve things, let's fine tune more layers.\n",
+    "task_id": 493
+}
+{
+    "snippet": "from keras.models import Model\ninputs = Input(shape=(1000,))\nx = Dense(512, activation='relu')(inputs)\nx = Dropout(.5)(x)\npredictions = Dense(2, activation='softmax')(x)\nmodel = Model(inputs=inputs, outputs=predictions)\nmodel.compile(optimizer='rmsprop',\n              loss='categorical_crossentropy',\n              metrics=['accuracy'])\n",
+    "intent": "Build a model here using sequential. Feel free to experiment with different layers and sizes! Also, experiment adding dropout to reduce overfitting.\n",
+    "task_id": 494
+}
+{
+    "snippet": "sess = tf.Session(config=config)\n",
+    "intent": "$$x_{n+1} = x_n - \\frac{f(x_n)}{f'(x_n)}$$\nExample 1: find root for \n$$f(x) = x^2 - sin(x)$$\n$$f'(x) = 2x - cos(x)$$\n",
+    "task_id": 495
+}
+{
+    "snippet": "def _sigmoid(x):\n    return 1.0/(1.0+np.exp(-x))\n",
+    "intent": "**This basic neural net framework can learn MNIST**\n",
+    "task_id": 496
+}
+{
+    "snippet": "P = _sigmoid(C)\n",
+    "intent": "**Step 5: Feed this through a sigmoid:**\n",
+    "task_id": 497
+}
+{
+    "snippet": "simple_lin_model.fit(total_request_rate_M, cpu)\n",
+    "intent": "Then we fit our model using the the total request rate and cpu. The coefficients found are automatically stored in the ```simple_lin_model``` object.\n",
+    "task_id": 498
+}
+{
+    "snippet": "tf.reset_default_graph()\nn_his = 400\nn_vis = 4\ntf.reset_default_graph()\nvar_history = tf.get_variable(\"var_history\", \n                              dtype=np.float32, \n                              initializer=np.array([range(0,400)], \"float32\")) \nvar_history_shift = tf.get_variable(\"var_history_shift\", \n                              dtype=np.float32, shape=(1, n_his-n_vis)) \n",
+    "intent": "running tf.variable.assign several times is quite ineficcient since every time tf_variable.assign is called the graph grows.\n",
+    "task_id": 499
+}
+{
+    "snippet": "knn = KNeighborsClassifier()\nX = fruit['color_score'].reshape(-1,1)\ny = fruit['fruit_name']\nk = [i for i in range(2, 10, 2)]\nparams = [{'n_neighbors': k }]\ngrid_search = GridSearchCV(lasso, params, cv = 5)\ngrid_search.fit(X, y)\n",
+    "intent": "Generate a model to classify the fruit data using our train/test split protocol and a grid search for the appropriate number of $k$ means.\n",
+    "task_id": 500
+}
+{
+    "snippet": "model = Sequential()\nmodel.add(Dense(50, activation='relu', input_dim=3000))\nmodel.add(Dropout(.5))\nmodel.add(Dense(5, activation='relu', input_dim=3000))\nmodel.add(Dropout(.5))\nmodel.add(Dense(2, activation='softmax'))\n",
+    "intent": "Build a model here using sequential. Feel free to experiment with different layers and sizes! Also, experiment adding dropout to reduce overfitting.\n",
+    "task_id": 501
+}
+{
+    "snippet": "knn.fit(X_train,y_train)\n",
+    "intent": "Fit this KNN model to the training data.\n",
+    "task_id": 502
+}
+{
+    "snippet": "max_degree = 11\nnoise_level = 0.5\nlinearized_model_dataframe = models.random_linearized_model(noise_level,max_degree,\n                                               x_range=[-1,1],\n                                               x_mode='linspace', N=1000)\nsns.lmplot(data=linearized_model_dataframe,\n           x='x',y='y',\n            lowess=True,\n           line_kws={'color':'k','linewidth':4});\n",
+    "intent": "The cells below will generate data from linearized and nonlinear models. Run them both several times.\n",
+    "task_id": 503
+}
+{
+    "snippet": "def get_embed(input_data, vocab_size, embed_dim):\n    embeddings = tf.Variable(tf.random_uniform([vocab_size, embed_dim], -1, 1))\n    embed = tf.nn.embedding_lookup(embeddings, input_data)\n    return embed\ntests.test_get_embed(get_embed)\n",
+    "intent": "Apply embedding to `input_data` using TensorFlow.  Return the embedded sequence.\n",
+    "task_id": 504
+}
+{
+    "snippet": "from sklearn.ensemble import GradientBoostingClassifier\ngbt = GradientBoostingClassifier()\ngbt.fit(X_train, y_train)\n",
+    "intent": "Gradient Boosted Trees\n",
+    "task_id": 505
+}
+{
+    "snippet": "def plot_top_k(alpha, label='pos', k=10):\n    positive_words = [w for (w,y) in alpha.keys() if y == label]\n    sorted_positive_words = sorted(positive_words, key=lambda w:-alpha[w,label])[:k]\n    util.plot_bar_graph([alpha[w,label] for w in sorted_positive_words],sorted_positive_words,rotation=45)\n",
+    "intent": "The per-class word distributions $\\balpha$:\n",
+    "task_id": 506
+}
+{
+    "snippet": "clf1 = LogisticRegression(intercept_scaling=1).fit(X, y)\n",
+    "intent": "2\\. Fit `LogisticRegression` with `gym_hours` and `email_hours` as features and `data_scientist` as the response.\n",
+    "task_id": 507
+}
+{
+    "snippet": "simple_lin_model.fit(total_page_views_2D, cpu_usage)\n",
+    "intent": "Then we fit our model using the the total request rate and cpu. The coefficients found are automatically stored in the ```simple_lin_model``` object.\n",
+    "task_id": 508
+}
+{
+    "snippet": "model = RandomForestClassifier().fit(features, target)\n",
+    "intent": "Train the model using the best data available (in the case of the Titanic you'd use all the data)\n",
+    "task_id": 509
+}
+{
+    "snippet": "df_train = X_train.copy()\ndf_train[\"log_marketcap\"] = y_train\ndf_train.head()\nmod = smf.ols(formula='log_marketcap ~ log_revenue + log_employees  + log_assets', data=df_train).fit()\nprint(\"log_revenue \tlog_employees \tlog_assets \")\nprint(mod.params.values[1:])\n",
+    "intent": "**Linear regression (to compare)**\n",
+    "task_id": 510
+}
+{
+    "snippet": "lm = smf.ols(formula='speed ~ temp', data = df).fit()\nprint (lm.summary())\n",
+    "intent": "The R-squared is 0.011 which is small, so it seems 'Visibility' has no correlation to 'speed'.\n",
+    "task_id": 511
+}
+{
+    "snippet": "model = Sequential()\nmodel.add(Dense(32, activation='tanh', input_shape=(x_train.shape[1],)))\nmodel.add(Dropout(.2))\nmodel.add(Dense(100, activation='relu'))\nmodel.add(Dropout(.2))\nmodel.add(Dense(2, activation='softmax'))\nmodel.compile(loss = 'categorical_crossentropy', optimizer='adam', metrics=['accuracy'])\nmodel.summary()\n",
+    "intent": "Build a model here using sequential. Feel free to experiment with different layers and sizes! Also, experiment adding dropout to reduce overfitting.\n",
+    "task_id": 512
+}
+{
+    "snippet": "from sklearn.linear_model import LogisticRegression\nlgr=LogisticRegression()\n",
+    "intent": "** Train and fit a logistic regression model on the training set.**\n",
+    "task_id": 513
+}
+{
+    "snippet": "input_text = Input(shape=(None,),dtype='int32', name='text')\nembeded_text = layers.Embedding(64, text_vocab_size)(input_text)\nencoded_text = layers.LSTM(32)(embeded_text)\n",
+    "intent": "**Defining input for input text**\n",
+    "task_id": 514
+}
+{
+    "snippet": "full_drop = tf.nn.dropout(full_layer,keep_prob=hold_prob)\n",
+    "intent": "** Now create the dropout layer with tf.nn.dropout, remember to pass in your hold_prob placeholder. **\n",
+    "task_id": 515
+}
+{
+    "snippet": "_x = np.array([1, 3, 0, -1, -3])\nx = tf.convert_to_tensor(_x)\ntf.sign(x).eval()\n",
+    "intent": "Q11. Compute an element-wise indication of the sign of x, element-wise.\n",
+    "task_id": 516
+}
+{
+    "snippet": "_x = np.array([-np.pi, np.pi, np.pi/2])\nx = tf.convert_to_tensor(_x)\nprint(tf.sin(x).eval())\nprint(tf.cos(x).eval())\nprint(tf.tan(x).eval())\n",
+    "intent": "Q21. Compuete the sine, cosine, and tangent of x, element-wise.\n",
+    "task_id": 517
+}
+{
+    "snippet": "optimized_model = grid_search.best_estimator_.fit(bank_features_train, bank_labels_train)\n",
+    "intent": "Use the best estimator from your grid search. Score it using the function from problem 6. Save your answer in `tuned_score`.\n",
+    "task_id": 518
+}
+{
+    "snippet": "_X = np.array(\n    [[1,2,3,4], \n     [-1,-2,-3,-4], \n     [-10,-20,-30,-40],\n     [10,20,30,40]])\nX = tf.convert_to_tensor(_X)\ntf.unsorted_segment_sum(X,[0,1,0,1],2).eval()\n",
+    "intent": "Q8. Compute the sum along the second and fourth and \nthe first and third elements of X separately in the order.\n",
+    "task_id": 519
+}
+{
+    "snippet": "def dense_to_sparse(tensor):\n    indices = tf.where(tf.not_equal(tensor, 0))\n    return tf.SparseTensor(indices=indices,\n                           values=tf.gather_nd(tensor, indices)-1,  \n                           dense_shape=tf.to_int64(tf.shape(tensor)))\nprint(dense_to_sparse(x).eval())\n",
+    "intent": "Q3. Let's write a custom function that converts a SparseTensor to Tensor. Complete it.\n",
+    "task_id": 520
+}
+{
+    "snippet": "sess= tf.Session()\nprint(sess.run(z))\n",
+    "intent": "Now let's create a session and let's evaluate the graph\n",
+    "task_id": 521
+}
+{
+    "snippet": "def run_evaluation(x1_, x2_):\n    sess = tf.Session()\n    print(sess.run(result, feed_dict = {x1: x1_, x2: x2_}))\n    sess.close()\n",
+    "intent": "Or you can write a function that creates a session, evaluates a node, and then close it.\n",
+    "task_id": 522
+}
+{
+    "snippet": "sess4, ch4 = run_linear_model(1e-2, 15000, x, y, True)\n",
+    "intent": "Graphically you cannot see any difference... Let's try to train the network longer.\n",
+    "task_id": 523
+}
+{
+    "snippet": "model = Sequential()\nmodel.add(Dense(256, activation='relu', input_shape = (1000,)))\nmodel.add(Dropout(0.2))\nmodel.add(Dense(32, activation='relu'))\nmodel.add(Dense(2, activation = 'sigmoid'))\nmodel.compile(loss = 'binary_crossentropy', optimizer = 'adam', metrics = ['accuracy'])\nmodel.summary()\n",
+    "intent": "Build a model here using sequential. Feel free to experiment with different layers and sizes! Also, experiment adding dropout to reduce overfitting.\n",
+    "task_id": 524
+}
+{
+    "snippet": "log_model = LogisticRegression(random_state = 17)\nstart = time.time()\nlog_model.fit(train_x, train_y)\nprint(\"Training took {} seconds\".format(round(time.time() - start)))\nstart = time.time()\nscore_model(log_model)\nprint(\"\\nScoring took {} seconds\".format(round(time.time() - start)))\n",
+    "intent": "<a id=\"log_model\"></a>\n",
+    "task_id": 525
+}
+{
+    "snippet": "model = RandomForestRegressor()\nmodel.fit(train_x[:10000], train_y[:10000])\nNUM_FEATS = 3000\nfeats = sorted(list(zip(model.feature_importances_, train_x.columns)))\nfeats = list(list(zip(*feats[-NUM_FEATS:]))[1])\ntrain_x_f = train_x[feats]\ntest_x_f  = test_x[feats]\n",
+    "intent": "FIXME: run PCA here\n",
+    "task_id": 526
+}
+{
+    "snippet": "from sklearn.linear_model import LogisticRegression\nlr = LogisticRegression()\nlr.fit(features_array, target)\n",
+    "intent": "Let's try `LogisticRegression` from sklearn:\n",
+    "task_id": 527
+}
+{
+    "snippet": "torch.manual_seed(123)\nbaseline = torch.nn.Sequential(\n    torch.nn.Linear(1, 20),\n    torch.nn.ReLU(),\n    torch.nn.Linear(20, 25),\n    torch.nn.ReLU(),\n    torch.nn.Linear(25, 1),\n)\ntorch.save(baseline.state_dict(), 'baseline.pth')\n",
+    "intent": "Create (and save) the baseline model to use:\n",
+    "task_id": 528
+}
+{
+    "snippet": "lstm_cell = tf.contrib.rnn.BasicLSTMCell(n_hidden, forget_bias=1.0)\n",
+    "intent": "Lets define a lstm cell with tensorflow\n",
+    "task_id": 529
+}
+{
+    "snippet": "cur_w = np.zeros([visibleUnits, hiddenUnits], np.float32)\ncur_vb = np.zeros([visibleUnits], np.float32)\ncur_hb = np.zeros([hiddenUnits], np.float32)\nprv_w = np.zeros([visibleUnits, hiddenUnits], np.float32)\nprv_vb = np.zeros([visibleUnits], np.float32)\nprv_hb = np.zeros([hiddenUnits], np.float32)\nsess = tf.Session()\nsess.run(tf.global_variables_initializer())\n",
+    "intent": "We also have to initialize our variables. Thankfully, NumPy has a handy `zeros` function for this. We use it like so:\n",
+    "task_id": 530
+}
+{
+    "snippet": "rfc = RandomForestClassifier()\nrfc.fit(X_tsvd, y_train)\n",
+    "intent": "At this point, we can move forward with modeling on our new sparse matrix of data:\n",
+    "task_id": 531
+}
+{
+    "snippet": "lm=LinearRegression()\n",
+    "intent": "** Use model_selection.train_test_split from sklearn to split the data into training and testing sets. Set test_size=0.3 and random_state=101**\n",
+    "task_id": 532
+}
+{
+    "snippet": "bos_2 = bos[(bos['PRICE'] < 50) & (bos['CRIM'] < 40) & (bos['RM'] > 4)]\nbos_3_mod2 = ols('PRICE ~ CRIM + RM + PTRATIO', bos_2).fit()\nprint(bos_3_mod2.summary())\n",
+    "intent": "**Remove the outliers and high leverage points from your model and run the regression again. How do the results change?**\n",
+    "task_id": 533
+}
+{
+    "snippet": "param_grid = [\n               {'n_neighbors': list(range(1, 50, 5))}\n]\nmy_tuned_model = GridSearchCV(neighbors.KNeighborsClassifier(), param_grid, cv=cv_folds, verbose = 2)\nmy_tuned_model.fit(X_train_plus_valid, y_train_plus_valid)\nprint(\"Best parameters set found on development set:\")\nprint(my_tuned_model.best_params_)\nmodel_tuned_params_list[\"Tuned kNN\"] = my_tuned_model.best_params_\nprint(my_tuned_model.best_score_)\n",
+    "intent": "Choose parameters using a grid search\n",
+    "task_id": 534
+}
+{
+    "snippet": "from sklearn import linear_model\nlr = linear_model.LogisticRegression()\nlr.fit(X_train, Y_train)\n",
+    "intent": "You can import a Logistic Regression Classifier by using the following codes:\n",
+    "task_id": 535
+}
+{
+    "snippet": "with pm.Model() as model:\n",
+    "intent": "[**PYMC3**](https://pymc-devs.github.io/pymc3/api.html) docs will be useful throughout this lab.\n",
+    "task_id": 536
+}
+{
+    "snippet": "model2 = Sequential()\nmodel2.add(Dense(512, activation='relu', input_dim=1000))\nmodel2.add(Dropout(0.5))\nmodel2.add(Dense(num_classes, activation='softmax'))\nmodel2.summary()\nmodel2.compile(loss='categorical_crossentropy',\n              optimizer='rmsprop',\n              metrics=['accuracy'])\n",
+    "intent": "Below is the model that Udacity provided that solves the threshold that they set, which was accuracy > 85% of the testing set. \n",
+    "task_id": 537
+}
+{
+    "snippet": "n_hidden = 25\ngen = np.random.RandomState(seed=123)\nW1 = Tensor(gen.normal(size=(1, n_hidden)))\nb1 = Tensor(gen.normal(size=n_hidden))\nW2 = Tensor(gen.normal(size=(n_hidden, 1)))\nb2 = Tensor(gen.normal(size=(1,)))\n",
+    "intent": "Next declare the model parameters, with values initialized from a unit Gaussian distribution:\n",
+    "task_id": 538
+}
+{
+    "snippet": "nsample=2000\nwith pm.Model() as model:\n    pm.glm.GLM.from_formula('y ~ x', data) \n    start = pm.find_MAP() \n    step = pm.NUTS(scaling=start) \n    trace = pm.sample(nsample, step, start=start, progressbar=True, njobs=4) \nlines = {var:trace[var].mean() for var in trace.varnames}\npm.traceplot(trace, lines=lines)\n",
+    "intent": "Repeat the earlier analysis and learn the variance of the data\n",
+    "task_id": 539
+}
+{
+    "snippet": "y = df['Class']\nX = df.drop('Class', axis = 1)\nscaler.fit(X)\n",
+    "intent": "**Fit scaler to the features.**\n",
+    "task_id": 540
+}
+{
+    "snippet": "mush_X = mush_df.iloc[:,1:]\nmush_y = mush_df.class_p\nmush_dt = tree.DecisionTreeClassifier()\nmush_dt.fit(mush_X, mush_y)\nmush_dt.score(mush_X, mush_y)\n",
+    "intent": "* Create a decision tree to model whether a mushroom is poisonous. What is the score?\n* What are the most important features?\n",
+    "task_id": 541
+}
+{
+    "snippet": "from sklearn.linear_model import LogisticRegression\nlogmodel = LogisticRegression()\nlogmodel.fit(X_train,y_train)\n",
+    "intent": "** Train and fit a logistic regression model on the training set.**\n",
+    "task_id": 542
+}
+{
+    "snippet": "def get_embed(input_data, vocab_size, embed_dim):\n    embedding_matrix = tf.Variable(tf.random_uniform((vocab_size,embed_dim),-1,1))\n    word_emb = tf.nn.embedding_lookup(embedding_matrix, input_data)\n    return word_emb\ntests.test_get_embed(get_embed)\n",
+    "intent": "Apply embedding to `input_data` using TensorFlow.  Return the embedded sequence.\n",
+    "task_id": 543
+}
+{
+    "snippet": "import sklearn.cross_validation\nkf = sklearn.cross_validation.KFold(n=len(irisdf), n_folds=3, shuffle=True, random_state=1234)\nfor train, test in kf:\n    clf3 = lm.LogisticRegression(penalty='l1', C=1e100).fit(irisdf.iloc[train][['sep_wid', 'pet_wid']], irisdf.iloc[train]['target'])\n    print clf3.coef_, clf3.score(irisdf.iloc[test][['sep_wid', 'pet_wid']], irisdf.iloc[test]['target'])\n",
+    "intent": "Accuracy measure number correctly predicted over total number of observations.\n",
+    "task_id": 544
+}
+{
+    "snippet": "linereg = LinearRegression()\nlinereg.fit(Xn, shots)\ny = shots\nlinereg.score(Xn,y)\n",
+    "intent": "---\nCross-validate the $R^2$ of a linear regression model with 10 cross-validation folds.\nHow does it perform?\n",
+    "task_id": 545
+}
+{
+    "snippet": "m = ols('PRICE ~ PTRATIO',bos).fit()\nprint('Coefficient:', lm.coef_)\nprint('Intercept:', lm.intercept_)\n",
+    "intent": "<b> Fit a linear regression model using only the 'PTRATIO'\n",
+    "task_id": 546
+}
+{
+    "snippet": "xgb_rmodel = xgb.XGBRegressor().fit(boston['data'], boston['target'])\n",
+    "intent": "Zbudujmy prosty model XGBoosta.\n",
+    "task_id": 547
+}
+{
+    "snippet": "valid = df.dropna().copy()\nnumeric_features = valid.select_dtypes(include=[np.number]).columns.tolist()\nfit = cluster.KMeans(n_clusters=3).fit(valid[numeric_features])\nvalid['cluster'] = fit.labels_\nfor i in range(fit.n_clusters):\n    print(f'Assigned {np.count_nonzero(fit.labels_ == i)} / {len(valid)} samples to cluster {i}.')\n",
+    "intent": "Find the best assignment to 3 clusters using Kmeans (or change the value of `n_clusters` below to something more appropriate):\n",
+    "task_id": 548
+}
+{
+    "snippet": "train_model(X_train, y_train, X_val, y_val)\nmake_predictions(X_iris, y_iris)\n",
+    "intent": "Lets run our train our model and test it out using the `train_model` and `make_predictions` functions we defined above:\n",
+    "task_id": 549
+}
+{
+    "snippet": "model_RAND   = compile_keras_sequential_model(model_layers_RAND, \"RAND\")\nmodel_LAST   = compile_keras_sequential_model(model_layers_LAST, \"LAST\")\nmodel_LAST2  = compile_keras_sequential_model(model_layers_LAST2, \"LAST2\")\nmodel_LINEAR = compile_keras_sequential_model(model_layers_LINEAR, \"LINEAR\")\nmodel_DNN    = compile_keras_sequential_model(model_layers_DNN, \"DNN\")\nmodel_CNN    = compile_keras_sequential_model(model_layers_CNN, \"CNN\")\n",
+    "intent": "<a name=\"benchmark\"></a>\nBenchmark all the algorithms. This takes a while (approx. 10 min).\n",
+    "task_id": 550
+}
+{
+    "snippet": "k = 2 \nkmeans = KMeans(n_clusters = k) \nkmeans.fit(X);\ncentroids = kmeans.cluster_centers_ \nlabels = kmeans.labels_ \n",
+    "intent": "k-means divides the data points into k clusters. We begin with k=2.\n",
+    "task_id": 551
+}
+{
+    "snippet": "a = torch.Tensor([[1, 2, 3], [4, 5, 6]])\nb = torch.Tensor([[1, 2, 3], [4, 5, 6]]).double()\ntry:\n    print(a + b)\nexcept Exception as e:\n    print(type(e))\n    print(e)\n",
+    "intent": "`pytorch` is **really** strict about using the right data type:\n",
+    "task_id": 552
+}
+{
+    "snippet": "X_train_var = Variable(torch.Tensor(X_train).type(dtype))\nY_train_var = Variable(torch.Tensor(Y_train).type(dtype).long())\nX_test_var = Variable(torch.Tensor(X_test).type(dtype))\nY_test_var = Variable(torch.Tensor(Y_test).type(dtype).long())\nX_train_var.size()\n",
+    "intent": "Finally, let's wrap the data into PyTorch Variables:\n",
+    "task_id": 553
+}
+{
+    "snippet": "def get_embed(input_data, vocab_size, embed_dim):\n    input_embedding = tf.Variable(tf.truncated_normal((vocab_size, embed_dim), stddev = 0.01))\n    embedded_sequence = tf.nn.embedding_lookup(input_embedding, input_data) \n    return embedded_sequence\ntests.test_get_embed(get_embed)\n",
+    "intent": "Apply embedding to `input_data` using TensorFlow.  Return the embedded sequence.\n",
+    "task_id": 554
+}
+{
+    "snippet": "model_gbrA = ensemble.GradientBoostingRegressor()\nmodel_gbrB = ensemble.GradientBoostingRegressor()\nmodel_gbrC = ensemble.GradientBoostingRegressor()\nmodel_gbrD = ensemble.GradientBoostingRegressor()\nmodel_gbrE = ensemble.GradientBoostingRegressor()\n",
+    "intent": "- Gradient Boosting Regressor\n",
+    "task_id": 555
+}
+{
+    "snippet": "rf = RandomForestRegressor(n_estimators=10, n_jobs=-1, min_samples_leaf=100)\n",
+    "intent": "The minimum number of sample is each leaf.\n",
+    "task_id": 556
+}
+{
+    "snippet": "from sklearn.ensemble import RandomForestClassifier\nrfc = RandomForestClassifier(n_estimators = 100)\nrfc.fit(X_train, y_train)\n",
+    "intent": "Now let's compare the decision tree model to a random forest.\n",
+    "task_id": 557
+}
+{
+    "snippet": "RF = RandomForestClassifier(n_jobs = -1, n_estimators = 10, min_samples_leaf=10, max_depth=10)\n",
+    "intent": "Fitting optimal Random Forest:\n",
+    "task_id": 558
+}
+{
+    "snippet": "reset_graph()\nsaver = ??\ntheta = ??\nwith tf.Session() as sess:\n    saver.restore(sess, \"./tmp/my_model_final.ckpt\")  \n    best_theta_restored = theta.eval() \nbest_theta_restored\n",
+    "intent": "Restoring a model without the graph\n",
+    "task_id": 559
+}
+{
+    "snippet": "from sklearn.cluster import KMeans\nkm = KMeans(n_clusters=20)\nkm.fit(fit_vect)\n",
+    "intent": "Start with KMeans clustering, but feel free to try out other clustering methods afterwards\n",
+    "task_id": 560
+}
+{
+    "snippet": "errors = ??\nbst_n_estimators = np.??(errors)\ngbrt_best = GradientBoostingRegressor(max_depth=2,n_estimators=bst_n_estimators, random_state=42)\ngbrt_best.fit(X_train, y_train)\n",
+    "intent": "make an errors list containing mean squared error at each stage of training (use gbrt.staged_predict())\n",
+    "task_id": 561
+}
+{
+    "snippet": "from tensorflow.python.framework import ops\nops.reset_default_graph()\ng = tf.get_default_graph()\n[op.name for op in tf.get_default_graph().get_operations()]\nX = tf.placeholder(tf.float32, name='X')\nh = linear(X, 2, 10)\n[op.name for op in tf.get_default_graph().get_operations()]\n",
+    "intent": "Let's now take a look at what the tensorflow graph looks like when we create this type of connection:\n",
+    "task_id": 562
+}
+{
+    "snippet": "nb_utils.show_graph(net['graph_def'])\n",
+    "intent": "Let's take a look at the network:\n",
+    "task_id": 563
+}
+{
+    "snippet": "cells = tf.nn.rnn_cell.BasicLSTMCell(num_units=n_cells, state_is_tuple=True)\n",
+    "intent": "Now we'll create our recurrent layer composed of LSTM cells.\n",
+    "task_id": 564
+}
+{
+    "snippet": "for input_example_batch, target_example_batch in dataset.take(1): \n  example_batch_predictions = model(input_example_batch)\n  print(example_batch_predictions.shape, \"\n",
+    "intent": "We can also quickly check the dimensionality of our output, using a sequence length of 100. Note that the model can be run on inputs of any length.\n",
+    "task_id": 565
+}
+{
+    "snippet": "model.fit(X, y)\n",
+    "intent": "Now lets apply the model to our data, we can do this by calling model.fit() \n",
+    "task_id": 566
+}
+{
+    "snippet": "rf_best = RandomForestClassifier(criterion='gini', class_weight='balanced', n_jobs=-1, \n                                 n_estimators=rf_cv.best_params_['n_estimators'],\n                                 min_samples_split=rf_cv.best_params_['min_samples_split'], \n                                 max_depth=rf_cv.best_params_['max_depth'])\nrf_best.fit(x_train, y_train)Now, we can find the score in the test dataset.\n",
+    "intent": "With the best parameters, we can re-fit another RF object with those values.\n",
+    "task_id": 567
+}
+{
+    "snippet": "def gen_model(data, formula):\n    with pm.Model() as model_glm:\n        pm.glm.GLM.from_formula(formula, data)\n    return model_glm\n",
+    "intent": "Complete the function *gen_model* by creating general linear model (GLM) using the formula and data passed in.\n",
+    "task_id": 568
+}
+{
+    "snippet": "km = KMeans(n_clusters = 5, random_state = 1337) \nkm.fit(X)\n",
+    "intent": "Initialise a [k-means clustering](http://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html\n",
+    "task_id": 569
+}
+{
+    "snippet": "def gaussian_rbf(us, lam=1):\n    return lambda x: np.array([np.exp(-np.linalg.norm(x - u)**2 / lam**2) for u in us])\nnum_basis = 20\nnp.random.seed(42)\nrbf_features = gaussian_rbf(Xmc[np.random.choice(range(len(Xmc)), num_basis, replace=False),:])\nPhimc = np.array([rbf_features(x) for x in Xmc])\nlr_rbf = linear_model.LogisticRegression(multi_class=\"multinomial\",solver=\"lbfgs\")\nlr_rbf.fit(Phimc,Ymc)\n",
+    "intent": "To capture the non-linear structure we randomly sample 20 data points and create an RBF feature centered at that point.\n",
+    "task_id": 570
+}
+{
+    "snippet": "def build_cell(num_units):     \n    lstm = tf.contrib.rnn.BasicLSTMCell(num_units)     \n    return lstm  \n",
+    "intent": "* We construct two layer RNN with LSTM cells\n",
+    "task_id": 571
+}
+{
+    "snippet": "loss_value, grads = grad(model, features, labels)\nprint(\"Step: {}, Initial Loss: {}\".format(global_step.numpy(),\n                                          loss_value.numpy()))\noptimizer.apply_gradients(zip(grads, model.trainable_variables), global_step)\nprint(\"Step: {},         Loss: {}\".format(global_step.numpy(),\n                                          loss(model, features, labels).numpy()))\n",
+    "intent": "We'll use this to calculate a single optimization step:\n",
+    "task_id": 572
+}
+{
+    "snippet": "logit_batch = model(image_batch).numpy()\nprint(\"min logit:\", logit_batch.min())\nprint(\"max logit:\", logit_batch.max())\nprint()\nprint(\"Shape:\", logit_batch.shape)\n",
+    "intent": "Now it produces outputs of the expected shape:\n",
+    "task_id": 573
+}
+{
+    "snippet": "param_grid = {'C': [0.001,0.01,1,10, 100]}\nlogistic = GridSearchCV(LogisticRegression(),param_grid, cv=10)\n",
+    "intent": "Logistic_regression is linear model and widely used in classification problems. This is our first model.\n",
+    "task_id": 574
+}
+{
+    "snippet": "NB1 = GaussianNB()\nX1 = news_A.drop(['class'],axis=1)\ny1  = news_A['class']\nNB1.fit(X1,y1)\nNB1.score(X1,y1)\n",
+    "intent": "Fit a Gaussian Naive Bayes model to the original dataset A (including the outliers). Display the classification accuracy on the training dataset.\n",
+    "task_id": 575
+}
+{
+    "snippet": "from sklearn.linear_model import LogisticRegression\nlogreg = LogisticRegression()\nctree = tree.DecisionTreeClassifier(random_state=1, max_depth=2)\n",
+    "intent": "** metrics.roc_auc_score(y_test, probs)\n",
+    "task_id": 576
+}
+{
+    "snippet": "m_svm = SVR()\nm_svm.fit(X=X, y=sample['charges'])\n",
+    "intent": "Fit support vector regression as before.\n",
+    "task_id": 577
+}
+{
+    "snippet": "clf = LogisticRegression(random_state=123, tol=1e-8).fit(X_train, y_train)\n",
+    "intent": "Let's fit the Logistic Regression on our training data.\n",
+    "task_id": 578
+}
+{
+    "snippet": "batch_size = 100\nn_epochs = 10\ntraining = model.fit(traindata,trainlabels,\n                     nb_epoch=n_epochs,\n                     batch_size=batch_size,\n                      validation_data=(testdata, testlabels),\n                     verbose=1)\n",
+    "intent": "In this step we will train the network and also define the number of epochs and batch size for training.\n",
+    "task_id": 579
+}
+{
+    "snippet": "from sklearn.neural_network import MLPClassifier\nprint MLPClassifier()\n",
+    "intent": "<center>\n<img src=\"https://www.analyticsvidhya.com/wp-content/uploads/2016/03/2.-ann-structure.jpg\" width=\"500\">\n</center>\n",
+    "task_id": 580
+}
+{
+    "snippet": "kM = KMeans(n_clusters=2)\n",
+    "intent": "** Create an instance of a K Means model with 2 clusters.**\n",
+    "task_id": 581
+}
+{
+    "snippet": "estim_array = np.array( range(10,150, 1 ))\nscores = np.zeros(estim_array.shape)\nfor i , estim in enumerate(estim_array):\n    bagg = ensemble.BaggingClassifier(n_estimators = estim , oob_score = True)\n    model = bagg.fit(xTrain, yTrain)\n    scores[i] = model.oob_score_\n",
+    "intent": "<font color= 'blue'>\n</font>\n<br>\n<br>\n** 1. Bagging:**\n<br>\n",
+    "task_id": 582
+}
+{
+    "snippet": "model = Sequential()\nmodel.add(Dense(512, input_dim=1000))\nmodel.add(Activation('relu'))\nmodel.add(Dropout(0.5))\nmodel.add(Dense(2))\nmodel.add(Activation('softmax'))\nmodel.summary()\nmodel.compile(loss=\"categorical_crossentropy\", optimizer=\"adam\", metrics = [\"accuracy\"])\n",
+    "intent": "Build a model here using sequential. Feel free to experiment with different layers and sizes! Also, experiment adding dropout to reduce overfitting.\n",
+    "task_id": 583
+}
+{
+    "snippet": "gird_search = GridSearchCV(SVC(),param_grid, verbose = 1, refit= True)\n",
+    "intent": "** Create a GridSearchCV object and fit it to the training data.**\n",
+    "task_id": 584
+}
+{
+    "snippet": "lm.fit(X, bos.PRICE)\nprint(lm.intercept_)\n",
+    "intent": "***\nThe `lm.fit()` function estimates the coefficients the linear regression using least squares. \n",
+    "task_id": 585
+}
+{
+    "snippet": "from distutils.version import LooseVersion\nimport warnings\nimport tensorflow as tf\nfrom tensorflow.python.layers.core import Dense\nif not tf.test.gpu_device_name():\n    warnings.warn('No GPU found. Please use a GPU to train your neural network.')\nelse:\n    print('Default GPU Device: {}'.format(tf.test.gpu_device_name()))\nassert LooseVersion(tf.__version__) >= LooseVersion('1.1'), 'Please use TensorFlow version 1.1 or newer'\nprint('TensorFlow Version: {}'.format(tf.__version__))\n",
+    "intent": "This will check to make sure you have the correct version of TensorFlow and access to a GPU\n",
+    "task_id": 586
+}
+{
+    "snippet": "b_size = [32,64,128]\nhistory_runs = []\nfor b in b_size:\n    print(f'Training on batchsize {b}')\n    history_runs.append(model.fit(X_train, Y_train, epochs=20, batch_size=b, \n                                  shuffle=True, validation_data=(X_test,Y_test), callbacks=[early_stopping]))\n",
+    "intent": "Now to to see how different hyperparameters affect the network:\n",
+    "task_id": 587
+}
+{
+    "snippet": "model = Sequential()\nmodel.add(Dense(512, activation='relu', input_dim=1000))\nmodel.add(Dropout(0.5))\nmodel.add(Dense(num_classes, activation='softmax'))\nmodel.summary()\nmodel.compile(loss='categorical_crossentropy',\n              optimizer='rmsprop',\n              metrics=['accuracy'])\n",
+    "intent": "Build a model here using sequential. Feel free to experiment with different layers and sizes! Also, experiment adding dropout to reduce overfitting.\n",
+    "task_id": 588
+}
+{
+    "snippet": "D = tf.convert_to_tensor(np.array([[1., 2., 3.], \n                                   [-3., -7., -1.], \n                                   [0., 5., -2.]]))\nprint(sess.run(D))\n",
+    "intent": "Create matrix from np array:\n",
+    "task_id": 589
+}
+{
+    "snippet": "naiveB = KNeighborsRegressor(n_neighbors=50)\n",
+    "intent": "**Create an instance of DecisionTreeClassifier() called dtree and fit it to the training data.**\n",
+    "task_id": 590
+}
+{
+    "snippet": "print(scaler.fit(df.drop('TARGET CLASS', axis=1)))\n",
+    "intent": "** Fit scaler to the features.**\n",
+    "task_id": 591
+}
+{
+    "snippet": "model.fit(df.drop('Private', axis=1))\n",
+    "intent": "**Fit the model to all the data except for the Private label.**\n",
+    "task_id": 592
+}
+{
+    "snippet": "model = baseline_model()\n",
+    "intent": "Let us build the model.\n",
+    "task_id": 593
+}
+{
+    "snippet": "model = models.ldamodel.LdaModel(corpus = corpus, num_topics = 20, id2word = id2word, passes = 10)\n",
+    "intent": "(Check https://radimrehurek.com/gensim/models/ldamodel as needed)\n",
+    "task_id": 594
+}
+{
+    "snippet": "model = keras.Sequential()\nmodel.add(keras.layers.Conv1D(filters=18, kernel_size=3, strides=1, padding='same', activation='relu', input_shape=X_train[0].shape))\nmodel.add(keras.layers.MaxPooling1D(pool_size=2, padding='valid'))\nmodel.add(keras.layers.Flatten())\nmodel.add(keras.layers.Dense(y_train[0].shape[0], activation='relu'))\nprint(model.summary())  \n",
+    "intent": "You will want to use\nSee for examples on creating Keras modelshttps://github.com/keras-team/keras/blob/master/examples/mnist_cnn.py\n",
+    "task_id": 595
+}
+{
+    "snippet": "hist = model.fit(x_train, y_train,\n          batch_size=100,\n          epochs=50,\n          validation_data=(x_test, y_test), \n          verbose=2)\n",
+    "intent": "Run the model here. Experiment with different batch_size, and number of epochs!\n",
+    "task_id": 596
+}
+{
+    "snippet": "x = tf.placeholder(shape=[None,13],dtype=tf.float32, name='x-input')\nx_n = tf.layers.batch_normalization(x, training=True)\ny_ = tf.placeholder(shape=[None],dtype=tf.float32, name='y-input')\n",
+    "intent": "Define input data placeholders\n",
+    "task_id": 597
+}
+{
+    "snippet": "hist = model.fit(x_train, y_train,\n          batch_size=32,\n          epochs=10,\n          validation_data=(x_test, y_test), \n          verbose=2)\n",
+    "intent": "Run the model here. Experiment with different batch_size, and number of epochs!\n",
+    "task_id": 598
+}
+{
+    "snippet": "features_flat = features.flatten()\nleakyrelu = np.zeros(features_flat.shape)\nfor xi in range(0,len(features_flat)):\n    if features_flat[xi] <=0:\n        leakyrelu[xi] = 0.01*features_flat[xi]\n    else:\n        leakyrelu[xi]=features_flat[xi]\nleakyrelu = np.reshape(leakyrelu,features.shape)\nprint('Leaky ReLU activation maps\\n',leakyrelu)\n",
+    "intent": "leaky ReLu with negative slope coefficient = 0.01\n",
+    "task_id": 599
+}
+{
+    "snippet": "lr = LinearRegression()\ntype(lr)\n",
+    "intent": "**Step 2:** \"Instantiate\" the \"estimator\"\n- \"Estimator\" is scikit-learn's term for \"model\"\n- \"Instantiate\" means \"make an instance of\"\n",
+    "task_id": 600
+}
+{
+    "snippet": "model_svc = grid.best_estimator_\nmodel_svc.fit(X_train, y_train)\n",
+    "intent": "Tomemos el mejor estimador y re-entremos el modelo en el dataset completo:\n",
+    "task_id": 601
+}
+{
+    "snippet": "model.fit(x_train, y_train, epochs=5, batch_size=100, verbose=2, validation_data=(x_test, y_test))\n",
+    "intent": "Run the model here. Experiment with different batch_size, and number of epochs!\n",
+    "task_id": 602
+}
+{
+    "snippet": "from sklearn import svm, datasets\nC = 1.0\nsvc = svm.SVC(kernel='poly', C=C).fit(X, y)\n",
+    "intent": "Now we'll use linear SVC to partition our graph into clusters:\n",
+    "task_id": 603
+}
+{
+    "snippet": "from sklearn.linear_model import LogisticRegression\nlr = LogisticRegression()\nlr.fit(features_train, target_train)\n",
+    "intent": "Let's start with a simple model from sklearn, namely `LogisticRegression`:\n",
+    "task_id": 604
+}
+{
+    "snippet": "model = keras.models.load_model('../data/keras_cnn_model.h5')\nwith open(\"../data/keras_cnn_history.p\", \"rb\") as f:\n    history = pickle.load(f)\n",
+    "intent": "Load model and history:\n",
+    "task_id": 605
+}
+{
+    "snippet": "combined = keras.models.Model([noise, img_class], [valid, labels])\ncombined.compile(\n    loss=['binary_crossentropy', 'sparse_categorical_crossentropy'],\n    optimizer=optimizer\n)\n",
+    "intent": "The combined model  (stacked generator and discriminator) takes\nnoise as input => generates images => determines validity \n",
+    "task_id": 606
+}
+{
+    "snippet": "for _ in range(4):\n    with tf.Session(config=tf.ConfigProto(device_count = {'GPU': 0})) as sess:\n        mdl.init.run()\n        with tf.variable_scope(\"H\", reuse=True):\n            w = tf.get_variable(\"kernel\")\n            print(w.eval(session=sess))\n",
+    "intent": "We can evaluate a tensor with multiple init just to see the reproductibility\n",
+    "task_id": 607
+}
+{
+    "snippet": "with tf.Session() as sess:\n    result = sess.run(matrix_multi)\n    print(result)\n",
+    "intent": "Now run the session to perform the Operation:\n",
+    "task_id": 608
+}
+{
+    "snippet": "attn_repeat_layer = RepeatVector(max_len_input, name='attn_repeat_layer')\nattn_concat_layer = Concatenate(axis=-1, name='attn_concat_layer')\nattn_dense1 = Dense(10, activation='tanh', name='attn_weights_dense_1')\nattn_dense2 = Dense(1, activation=softmax_over_time, name='attn_weights_dense_2')\nattn_dot = Dot(axes=1,name='attn_dot_layer')\n",
+    "intent": "<img src='../images/attention_computation.png' style=\"width:500px;height:500px;\"/>\n",
+    "task_id": 609
+}
+{
+    "snippet": "0.125*np.identity(3)\n",
+    "intent": "Matrix objects act sensibly when multiplied by scalars:\n",
+    "task_id": 610
+}
+{
+    "snippet": "print(np.identity(16)[0:1]) \n",
+    "intent": "state : np.identity(16)[s1:s1+1] \n",
+    "task_id": 611
+}
+{
+    "snippet": "from sklearn.linear_model import LinearRegression\nX_test=np.array([90, 106, 105, 115, 113]).reshape(-1,1)\nY_test=np.array([103, 131, 85, 99, 144]).reshape(-1,1)\nmodel=LinearRegression()\nfitted_model=model.fit(X_train,Y_train)\nr_square = fitted_model.score(X_test,Y_test)\nprint ('The R-squared metric is',r_square)\n",
+    "intent": "|Xi|Yi|\n|:--:|:-------------------------------:|\n|90|103|\n|106|131|\n|105|85|\n|115|99|\n|113|144|\n",
+    "task_id": 612
+}
+{
+    "snippet": "from sklearn.cluster import KMeans\nn_clusters=3\nkm = KMeans(n_clusters,random_state=1)\nkm.fit(features[['mpg','disp']])\n",
+    "intent": "Cluster two of the variables of your choice. Choose K based on your plots and the behavior of the data\n",
+    "task_id": 613
+}
+{
+    "snippet": "model=DecisionTreeClassifier()\n",
+    "intent": "**Create an instance of DecisionTreeClassifier() called dtree and fit it to the training data.**\n",
+    "task_id": 614
+}
+{
+    "snippet": "from keras.layers import Dropout\nmodel_reg = Sequential()\nmodel_reg.add(Dense(10, activation='relu', input_shape=(dimData,)))\nmodel_reg.add(Dropout(0.5))\nmodel_reg.add(Dense(10, activation='relu'))\nmodel_reg.add(Dropout(0.5))\nmodel_reg.add(Dense(nClasses, activation='softmax'))\n",
+    "intent": "Temos um caso claro de Overfitting. Para combater, aplicaremos **dropout**\n",
+    "task_id": 615
+}
+{
+    "snippet": "from sklearn.linear_model import LogisticRegression\nlogres = LogisticRegression()\nlogres.fit(x_train,y_train)\nprint(\"Best score: {:.2f}\".format(logres.score(x_test,y_test)))\n",
+    "intent": "<b>Logistic Regression</b>\nAt first, logistic regression is shown. This algorithm showed a relatively low score of 0.75 of the tests to be correct.\n",
+    "task_id": 616
+}
+{
+    "snippet": "def get_embed(input_data, vocab_size, embed_dim):\n    embedded_input = tf.Variable(tf.truncated_normal((vocab_size, embed_dim), stddev=0.01))\n    return tf.nn.embedding_lookup(embedded_input, input_data)\ntests.test_get_embed(get_embed)\n",
+    "intent": "Apply embedding to `input_data` using TensorFlow.  Return the embedded sequence.\n",
+    "task_id": 617
+}
+{
+    "snippet": "scaler.fit(data.drop('Class',axis=1))\n",
+    "intent": "**Fit scaler to the features.**\n",
+    "task_id": 618
+}
+{
+    "snippet": "dt = tree.DecisionTreeClassifier()\ndt\n",
+    "intent": "<img src=\"images/iris_scatter.png\" height=\"500\" width=\"500\">\n",
+    "task_id": 619
+}
+{
+    "snippet": "approx = pm.fit(model=model, n=5000)\n",
+    "intent": "We can use the same model with ADVI as follows. \n",
+    "task_id": 620
+}
+{
+    "snippet": "best_model_name = None\nLR_model = models[best_model_name].fit(X_train,y_train)\nprint(\"Train score: \", LR_model.score(X_train,y_train))\nprint(\"Test score: \", LR_model.score(X_test, y_test))\n",
+    "intent": "After chossing the best scoring CV model we fit it on the entire training set and then evaluate it on the test set.\n",
+    "task_id": 621
+}
+{
+    "snippet": "from sklearn.ensemble import RandomForestClassifier\nclf = RandomForestClassifier(n_estimators=100)\n",
+    "intent": "Create the random forest object:\n",
+    "task_id": 622
+}

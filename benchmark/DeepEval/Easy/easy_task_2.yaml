@@ -1,0 +1,8 @@
+Requirement: "Please assist me in creating a deep learning model for image classification. 
+  The input data shape is 224x224x3. The model will include two sequential feature 
+  extraction layers, each consisting of a convolutional layer followed by average 
+  pooling. This is followed by three additional convolutional layers and another
+  average pooling layer to reduce the dimensionality of the feature maps. After flattening
+  the feature maps, the model will process them through two fully connected layers,
+  each accompanied by a dropout layer to mitigate overfitting. Finally, the model
+  will output classification probabilities via a softmax layer with 1,000 neurons."

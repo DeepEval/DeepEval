@@ -1,0 +1,14 @@
+Requirement: "Please help me generate a deep learning model for image classification. 
+  The input data set is: CIFAR-10. The model consists of two blocks. Block 1 first 
+  splits the input into three groups by encapsulating tf.split within Lambda layer, 
+  each of which extracts features through separable convolutional layers with different
+  kernel sizes (1x1, 3x3, 5x5), and employs batch normalization to enhance model performance.
+  The outputs of the three groups are then concatenated together. block 2 includes four
+  parallel branches. Path 1 processes the input through a 1x1 convolution; Path 2 first
+  performs 3x3 average pooling, followed by a 1x1 convolution; Path 3, based on a 1x1 
+  convolution, splits into two sub-paths that use 1x3 and 3x1 convolutions respectively,
+  and then concatenates the results; Path 4, after a 1x1 convolution, uses a 3x3 convolution,
+  and then splits into two sub-paths that use 1x3 and 3x1 convolutions respectively, followed
+  by concatenation. Finally, the outputs of these four paths are concatenated to form a 
+  comprehensive multi-channel feature map. After the above processing, the final classification
+  result is output through a flattening layer and a fully connected layer."

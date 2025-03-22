@@ -1,0 +1,9 @@
+Requirement: "Please help me generate a deep learning model for image classification. 
+  The input data set is: CIFAR-10. The model first passes the input through a 1x1 initial
+  convolutional layer, then through three separate branches. Branch 1 extracts local features
+  through a 3x3 convolutional layer. The second and third branches both sequentially pass
+  through a max pooling layer for downsampling, reducing the feature map size, followed by 
+  a 3x3 convolutional layer, and then an upsampling layer to restore to the original size.
+  Subsequently, the outputs of all branches are fused together through concatenation and 
+  passed through another 1x1 convolutional layer. Finally, the output is passed through 
+  three fully connected layers to produce a 10-class classification result."

@@ -1,0 +1,6 @@
+Requirement: "Please assist me in creating a deep learning model for image classification. 
+  The shape of input data is (32, 32, 64).The model begins by compressing the input channels
+  with a 1x1 convolutional layer. It then expands the features through two parallel convolutional
+  layers, applying 1x1 and 3x3 convolutions, and concatenates the results. Finally, the output
+  feature map is flattened into a one-dimensional vector and passed through two fully connected
+  layers to produce the classification results."

@@ -1,0 +1,6 @@
+Requirement: "Please assist me in creating a deep learning model for image classification
+  using the MNIST dataset. The model should start with two sequential layers comprising 
+  a convolutional layer followed by a max pooling layer, followed by an additional 
+  convolutional layer. After these layers, the feature maps will be flattened into a 
+  one-dimensional vector. This vector will then be processed by two fully connected 
+  layers to produce the final classification results."

@@ -1,0 +1,11 @@
+Requirement: "Please assist me in developing a deep learning model for image classification
+  using the CIFAR-10 dataset. The model consists of two main blocks: the first block processes
+  the input through four parallel branches: a 1x1 convolution, a 3x3 convolution, a 5x5 
+  convolution,and a 3x3 max pooling operation. These branches are designed to extract diverse
+  features from the input, and their outputs are concatenated to form a unified feature 
+  representation. The second block tasks the first block's output as input and it reduces the 
+  dimensionality of the feature maps using global average pooling. The pooled features are 
+  then passed through two fully connected layers, generating weights whose size is the same 
+  as the channels of block 2's input. These weights are then reshaped to match the input's 
+  shape and multiplied element-wise with the input feature map. The resulting feature map is
+  then processed by a final fully connected layer to produce the output probability distribution."

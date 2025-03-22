@@ -1,0 +1,7 @@
+Requirement: "Please assist me in creating a deep learning model for image classification
+  using the MNIST dataset. The architecture includes both a main path and a branch path. 
+  The main path consists of two blocks, each featuring a ReLU and a separable convolutional
+  layer, followed by a max pooling layer. The branch path employs a 1x1 convolutional layer
+  to match the output dimensions of the main and branch paths. Finally,the outputs from both
+  paths are summed, followed by a flattening layer and a fully connected layer to generate 
+  the final probability distribution."
