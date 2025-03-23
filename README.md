@@ -33,7 +33,7 @@ Ensure you're using the right setup and following the proper directory structure
 1. Repository Setup
 Clone the repository and install necessary dependencies:
 ```
-$ git clone https://github.com/maxy-635/DeepEval.git
+$ git clone https://github.com/DeepEval/DeepEval.git
 ```
 2. Path
 To set up the project, you need to add the project directory to your `PYTHONPATH`. You can do this by running the following command:
