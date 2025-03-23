@@ -6,14 +6,14 @@ a correct task implementation, serving as a reference for evaluating the generat
 
 ## Promptings:
 We adapt four prompting methods to LLMs, as seen in ```./prompts/deepeval```. all promptings use the same example, randomly selected from DeepEval, to ensure a fair comparison.<br>
-• Zero-shot Prompting [11] directly provides our task require
+• Zero-shot Prompting directly provides our task require
 ment to the LLMs without examples.<br>
-• One-shot Prompting [11] includes an example with the form
+• One-shot Prompting includes an example with the form
 of <example task, example code> pair.<br>
-• One-shot Chain-of-Thought Prompting (oneshot-cot prompting) [57]
+• One-shot Chain-of-Thought Prompting (oneshot-cot prompting)
 is a variant of one-shot prompting that generates a chain-of-thought
 (CoT) for the example task. The prompting includes one example with the form of <example task, CoT, example code> triple.<br>
-• Few-shot Prompting [9] includes multiple examples with the
+• Few-shot Prompting includes multiple examples with the
 form of <example task, example code> pairs.
 ## Studied LLMs
 | Type       | Model                                   | Size | Team     | Source | Access method   |
