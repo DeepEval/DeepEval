@@ -40,21 +40,23 @@ As shown in the following figure, for RQ4, we evaluate the dynamic behavior of L
 
 <img src="evaluation/dynamic_checking/presentation/RQ4.png" width="500"/><br>
 
-<font size="4">For a comprehensive exploration of the findings, additional results and detailed analyses are presented in the subsequent sections of this paper.</font>
+<font size="4">For a comprehensive exploration of the findings, additional results and detailed analyses are presented in the subsequent sections of our paper.</font>
 
 ## Usage
 Ensure you're using the right setup and following the proper directory structure to seamlessly evaluate deep learning code generation with our tool.
 ### 🛠️ Setup
-1. Repository Setup:
-clone the repository and install necessary dependencies:
+#### 1. Repository Setup
+Please clone the repository and install necessary dependencies:
 ```
 git clone https://github.com/DeepEval/DeepEval.git
 ```
-2. Path: to set up the project, you need to add the project directory to your `PYTHONPATH`. You can do this by running the following command:
+#### 2. Adding to Python's Module Path
+To set up the project, you need to add the project directory to your `PYTHONPATH`. You can do this by running the following command:
 ```bash
 export PYTHONPATH=$PYTHONPATH:/your_local_path/DeepEval
 ```
-3. Code Generation: follow below steps to prepare environment and direct LLMs to generate code.
+#### Code Generation
+Please follow below steps to prepare environment and direct LLMs to generate code. <br>Note: to configure the benchmarks (DeepEval, HumanEval, and MLEval), their corresponding promptings, and the LLMs' id, please specify these details within the `run_hf.sh` and `run_api.sh`.
    | Step                    | Command                             |
    | ------------------------| -------------------------------------- |
    | 1. Create Environment   | `conda create -n DeepEval python=3.10` |
@@ -62,18 +64,56 @@ export PYTHONPATH=$PYTHONPATH:/your_local_path/DeepEval
    | 3. Install Dependencies | `conda install environment_deepeval.yml`|
    | 4. Run HuggingFace Model| `bash run_hf.sh`                       |
    | 5. Run OpenAI Model     | `bash run_api.sh`                      |   
-2. Code Evaluation: follow below steps to prepare environment and evaluate code.
-   | Benchmark                     | Environment Configuration                          |Command |
+#### Code Evaluation
+Please follow below steps to prepare environment and evaluate the generated code by LLMs.<br> 
+Note 1: to ensure reproducibility and avoid library conflicts due to the diversity of generated code, we have prepared three distinct environments, each corresponding to one of the benchmarks: DeepEval, HumanEval, and MLEval.<br>
+Note 2: To address false positives from Pylint, such as the message "Unable to import 'tensorflow.keras.layers'" (as reported in [issue1](https://github.com/microsoft/vscode-python/issues/10598) and [issue2](https://github.com/tensorflow/tensorflow/issues/26813)), we have developed a specialized plugin. Before running `python evaluation/static_checking/syntatic_checking_main.py`, install the plugin using the following command: `pip install evaluation/static_checking/plugin`.
+   
+- #### ​**DeepEval**
+- Environment Configuration:
+   ```bash
+   conda create -n DeepEval python=3.10
+   conda activate DeepEval
+   conda install environment_deepeval.yml
+- ​Command:
+  ```python
+  python evaluation/static_checking/syntatic_checking_main.py   # RQ2
+  python evaluation/semantic_checking/semantic_checking_main.py   # RQ3
+  python evaluation/dynamic_checking/dynamic_checking_deepeval_main.py   # RQ1 and RQ4
+---
+
+- #### ​**HumanEval**
+- ​Environment Configuration:
+  ```bash
+   conda create -n HumanEval python=3.10
+   conda activate HumanEval
+   conda install environment_humaneval.yml
+   ```
+- ​Command:
+   ```python
+   python evaluation/dynamic_checking/dynamic_checking_humaneval_main.py   # RQ1
+---
+
+- #### ​**MLEval**
+- ​Environment Configuration:
+  ```bash
+   conda create -n MLEval python=3.10
+   conda activate MLEval
+   conda install environment_mleval.yml
+   ```
+- ​Command:
+  ```python
+  python evaluation/dynamic_checking/dynamic_checking_mleval_main.py   # RQ1
+  ```
+
+<!-- | Benchmark                     | Environment Configuration                          |Command |
    | ------------------------| -------------------------------------- |----|
-   | DeepEval |1.`conda create -n DeepEval python=3.10`<br>2.`conda activate DeepEval`<br>3.`conda install environment_deepeval.yml`|`python syntatic_checking_main.py` (RQ2);<br>`python semantic_checking_main.py` (RQ3);<br>`dynamic_checking_deepeval_main.py` (RQ1 and RQ4)|
+   | DeepEval |1.`conda create -n DeepEval python=3.10`<br>2.`conda activate DeepEval`<br>3.`conda install environment_deepeval.yml`|`python syntatic_checking_main.py` (RQ2);<br>`python semantic_checking_main.py` (RQ3);<br>`python dynamic_checking_deepeval_main.py` (RQ1 and RQ4)|
    | HumanEval | 1.`conda create -n HumanEval python=3.10`<br>2.`conda activate HumanEval`<br>3.`conda install environment_humaneval.yml`<br>|`python dynamic_checking_humaneval_main.py` (RQ1)|
-   | MLEval  | 1.`conda create -n MLEval python=3.10`<br>2.`conda activate MLEval`<br>3.`conda install environment_mleval.yml`<br>|`dynamic_checking_mleval_main.py` (RQ1)|
-
-   Note: To address false positives from Pylint, such as the message "Unable to import 'tensorflow.keras.layers'" (as reported in [issue1](https://github.com/microsoft/vscode-python/issues/10598) and [issue2](https://github.com/tensorflow/tensorflow/issues/26813)), we have developed a specialized plugin. Before running `python syntatic_checking_main.py`, install the plugin using the following command: `pip install evaluation/static_checking/plugin`.
-
+   | MLEval  | 1.`conda create -n MLEval python=3.10`<br>2.`conda activate MLEval`<br>3.`conda install environment_mleval.yml`<br>|`dynamic_checking_mleval_main.py` (RQ1)| -->
 ## Implementation Details
 As listed as follows, we adhere to the specified experimental settings throughout the process. Finally, 1200 DL programs are generated for each LLM under four different promptings on 100 DL code generation tasks in DeepEval.
-| Parameter Name         | Value or Description                                                     |
+| Parameter         | Configuration                                                     |
 |------------------------|--------------------------------------------------------------------------|
 | Sampling Method        | Nucleus Sampling                      |
 | Temperature            | 0.8                                   |
