@@ -1,4 +1,4 @@
-# How Do Large Language Models Perform in Deep Learning Code Generation? A Benchmark and Empirical Study
+# How Do Large Language Models Perform in Deep Learning Code Generation? An Empirical Study
 DeepEval is the first deep learning code generation benchmark described in the paper "How Do Large Language Models Perform in Deep Learning Code Generation? A Benchmark and Empirical Study". 
 ## Benchmark
 DeepEval is constructed munally and saved the YAML format in ```./benchmark/DeepEval```. DeepEval consists of 100 DL programming tasks, each associated with a *Requirement* and a *Reference Code*. The *Requirement* provides a detailed task requirement. The *Reference Code* is
