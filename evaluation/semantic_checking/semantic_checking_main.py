@@ -23,10 +23,7 @@ class FunctionalityChecking:
         task_name = ref_pyfile.split('/')[-1].split('.')[0]
         ref_api_call_sets, ref_api_sequences, _ = self.ReviseExtractCodeMain.main_single_pyfile(ref_pyfile)
 
-        api_set_sim_recall_list, api_set_sim_precision_list, api_set_sim_f1_list = [], [], []
-        api_set_sim_overlap_list, api_set_sim_jaccard_list, api_set_sim_dice_list = [], [], []
-        
-        api_seqs_sim_recall_list, api_seqs_sim_precision_list, api_seqs_sim_f1_list = [], [], []
+        api_set_sim_list, api_seqs_sim_list = [], []
         valid_pyfiles = 0
 
         for gen_pyfile in gen_pyfiles:
@@ -45,19 +42,15 @@ class FunctionalityChecking:
                         )
                                                                
                         if any(value != 0 for value in api_sets_similarity_dict.values()): 
-                            api_set_sim_recall_list.append(api_sets_similarity_dict['ReCall'])
-                            api_set_sim_precision_list.append(api_sets_similarity_dict['Precision'])
-                            api_set_sim_f1_list.append(api_sets_similarity_dict['F1_Score'])
+                            api_set_sim_list.append(api_sets_similarity_dict['similarity'])
                     else:
                         print("Failed in processing:", "API sets is []")  
 
                     if gen_api_sequences != []:
-                        api_seqs_sim_dict = self.APISequenceSetsSimilarity.matrix_api_seq_similarity(reference=ref_api_sequences,candidate=gen_api_sequences)
+                        api_seqs_sim_dict = self.APISequenceSetsSimilarity.matrix_api_seq_similarity(reference=ref_api_sequences,   candidate=gen_api_sequences)
                         
                         if any(value != 0 for value in api_seqs_sim_dict.values()):
-                            api_seqs_sim_recall_list.append(api_seqs_sim_dict['ReCall'])
-                            api_seqs_sim_precision_list.append(api_seqs_sim_dict['Precision'])
-                            api_seqs_sim_f1_list.append(api_seqs_sim_dict['F1_Score'])
+                            api_seqs_sim_list.append(api_seqs_sim_dict['similarity'])
                     else:
                         print("Failed in processing:", "API sequenses is []") 
 
@@ -73,14 +66,15 @@ class FunctionalityChecking:
             mean = sum(data_list) / valid_files if valid_files != 0 else 0
             return mean
 
-        result_dict = {'task_name': task_name,
-                    'result':
-                        {'api_sets_similarity_recall': mean_of_similarity_list(api_set_sim_recall_list,valid_pyfiles),
-                        'api_sets_similarity_precision': mean_of_similarity_list(api_set_sim_precision_list,valid_pyfiles),
-                        'api_sets_similarity_f1': mean_of_similarity_list(api_set_sim_f1_list,valid_pyfiles),
-                        'api_seq_sets_similarity_recall': mean_of_similarity_list(api_seqs_sim_recall_list,valid_pyfiles),
-                        'api_seq_sets_similarity_precision': mean_of_similarity_list(api_seqs_sim_precision_list,valid_pyfiles),
-                        'api_seq_sets_similarity_f1': mean_of_similarity_list(api_seqs_sim_f1_list,valid_pyfiles)},
+        result_dict = {'benchmark_name': benchmark_name,
+                        'result':
+                        {
+                            'api_sets_similarity': mean_of_similarity_list(api_set_sim_list,valid_pyfiles),
+                            'valid data of api_sets_similarity': len(api_set_sim_list),
+                            'api_seq_sets_similarity': mean_of_similarity_list(api_seqs_sim_list,valid_pyfiles),
+                            'valid data of api_seq_sets_similarity': len(api_seqs_sim_list)
+                        },
+                        'valid pyfiles': valid_pyfiles,
                         }
 
         return result_dict
@@ -89,7 +83,6 @@ class FunctionalityChecking:
 
         get_all_files = GetAllFiles(ref_pyfiles_path, '.py')
         ref_pyfiles = get_all_files.get_all_files_in_directory()
-
 
         pd_cols = []
         average_row = []
@@ -102,13 +95,12 @@ class FunctionalityChecking:
 
                     result_dict = self.main_single_task(ref_pyfile, gen_pyfiles)
                     col = {
-                        'Task': result_dict['task_name'],
-                        'API Set Similarity ReCall': round(100 * result_dict['result']['api_sets_similarity_recall'], 2),
-                        'API Set Similarity Precision':round(100 * result_dict['result']['api_sets_similarity_precision'], 2),
-                        'API Set Similarity F1_Score': round(100 * result_dict['result']['api_sets_similarity_f1'], 2),
-                        'API Seqs Similarity ReCall': round(100 * result_dict['result']['api_seq_sets_similarity_recall'],2),
-                        'API Seqs Similarity Precision': round(100 * result_dict['result']['api_seq_sets_similarity_precision'],2),
-                        'API Seqs Similarity F1_Score': round(100 * result_dict['result']['api_seq_sets_similarity_f1'], 2),
+                        'Benchmark': result_dict['benchmark_name'],
+                        'API Set Similarity': round(100 * result_dict['result']['api_sets_similarity'], 2),
+                        'Valid APISet Data': result_dict['result']['valid data of api_sets_similarity'],
+                        'API Seqs Similarity': round(100 * result_dict['result']['api_seq_sets_similarity'], 2),
+                        'Valid APISeqs Data': result_dict['result']['valid data of api_seq_sets_similarity'],
+                        'Valid Pyfiles': result_dict['valid pyfiles'],
                     }
                     pd_cols.append(col)
 
