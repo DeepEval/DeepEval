@@ -1,0 +1,74 @@
+class TicTacToe:
+    """
+    The class represents a game of Tic-Tac-Toe and its functions include making a move on the board, checking for a winner, and determining if the board is full.
+    """
+
+    def __init__(self, N=3):
+        """
+        Initialize a 3x3 game board with all empty spaces and current symbol player, default is 'X'.
+        """
+        self.board = [[' ' for _ in range(N)] for _ in range(N)]
+        self.current_player = 'X'
+        self.N = N  # Store the size of the board
+
+    def make_move(self, row, col):
+        """
+        Place the current player's mark at the specified position on the board and switch the mark.
+        :param row: int, the row index of the position
+        :param col: int, the column index of the position
+        :return: bool, indicating whether the move was successful or not
+        """
+        if 0 <= row < self.N and 0 <= col < self.N and self.board[row][col] == ' ':
+            self.board[row][col] = self.current_player
+            self.current_player = 'O' if self.current_player == 'X' else 'X'
+            return True
+        return False
+
+    def check_winner(self):
+        """
+        Check if there is a winner on the board in rows, columns and diagonals three directions
+        :return: str or None, the mark of the winner ('X' or 'O'), or None if there is no winner yet
+        """
+        # Check rows and columns
+        for i in range(self.N):
+            if self.board[i][0] == self.board[i][1] == self.board[i][2] != ' ':
+                return self.board[i][0]
+            if self.board[0][i] == self.board[1][i] == self.board[2][i] != ' ':
+                return self.board[0][i]
+
+        # Check diagonals
+        if self.board[0][0] == self.board[1][1] == self.board[2][2] != ' ':
+            return self.board[0][0]
+        if self.board[0][2] == self.board[1][1] == self.board[2][0] != ' ':
+            return self.board[0][2]
+
+        return None  # No winner yet
+
+    def is_board_full(self):
+        """
+        Check if the game board is completely filled.
+        :return: bool, indicating whether the game board is full or not
+        """
+        for row in self.board:
+            if ' ' in row:
+                return False
+        return True
+
+
+# Test cases
+if __name__ == "__main__":
+    # Create an instance of TicTacToe
+    ttt = TicTacToe()
+
+    # Test make_move method
+    print(ttt.make_move(1, 1))  # Expected: True
+    print(ttt.current_player)    # Expected: 'O'
+
+    # Test check_winner method
+    moves = [(1, 0), (2, 0), (1, 1), (2, 1), (1, 2)]
+    for move in moves:
+        ttt.make_move(move[0], move[1])
+    print(ttt.check_winner())     # Expected: 'X'
+
+    # Test is_board_full method
+    print(ttt.is_board_full())     # Expected: False
