@@ -1,11 +1,15 @@
 # How Do Large Language Models Perform in Deep Learning Code Generation? An Empirical Study
-DeepEval is the first deep learning code generation benchmark described in the paper "How Do Large Language Models Perform in Deep Learning Code Generation? An Empirical Study". 
+This is the implementation repository of our research paper, "How Do Large Language Models Perform in Deep Learning Code Generation? An Empirical Study", currently under review at TOSEM.
+<p align="left">
+    <!-- <a href="https://arxiv.org/abs/2212.14834"><img src="https://img.shields.io/badge/arXiv-2212.14834-b31b1b.svg"> -->
+    <a href="https://doi.org/10.5281/zenodo.17100625"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.17100625.svg"> </a>
+</p>
+
 ## Benchmark
-DeepEval is constructed munally and saved the YAML format in ```./benchmark/DeepEval```. DeepEval consists of 100 DL programming tasks, each associated with a *Requirement* and a *Reference Code*. The *Requirement* provides a detailed task requirement. The *Reference Code* is
-a correct task implementation, serving as a reference for evaluating the generated code.
+DeepEval is constructed and saved the YAML format in ```./benchmark/DeepEval```. DeepEval consists of 100 DL programming tasks, each associated with a *Requirement* and a *Reference Code*. The *Requirement* provides a detailed task requirement. The *Reference Code* is a correct task implementation, serving as a reference for evaluating the generated code.
 
 ## Promptings:
-We adapt four prompting methods to LLMs, as detailed in ```./prompts/deepeval```. All promptings use the same example, randomly selected from DeepEval, to ensure a fair comparison.<br>
+We employ four prompting methods to LLMs on DeepEval, as detailed in ```./prompts/deepeval```.<br>
 • Zero-shot prompting directly provides our task requirement to the LLMs without examples.<br>
 • One-shot prompting includes an example with the form of <example task, example code> pair.<br>
 • One-shot Chain-of-Thought prompting (oneshot-cot prompting) is a variant of one-shot prompting that generates a chain-of-thought
@@ -24,7 +28,7 @@ We adapt four prompting methods to LLMs, as detailed in ```./prompts/deepeval```
 |            | CodeGemma-7B-Instruct                   | 7B   | Google   | Open   | HuggingFace     |
 ## Results:
 ### RQ1: Benchmark Effectiveness: *How effective is DeepEval in benchmarking the ability of LLMs on DL code generation tasks?*
-As shown in the following figure, for RQ1, we employ zero-shot prompting for code generation across DeepEval, HumanEval, and MLEval, measuring performance with *Code Executability Rate*.
+As shown in the following figure, for RQ1, we employ zero-shot prompting for code generation across HumanEval, ClassEval, MLEval and DeepEval, measuring performance with *Code Executability Rate*.
 
 <img src="evaluation/dynamic_checking/presentation/RQ1.png" width="500"/> <br>
 ### RQ2: Code Syntax: *How do LLMs perform in generating DL code regarding static behavior?*
@@ -36,9 +40,20 @@ As shown in the following figure, for RQ3, we assess the semantic similarity of 
 
 <img src="evaluation/semantic_checking/presentation/RQ3.png" width="600"/><br>
 ### RQ4: Code Executability: *How do LLMs perform in generating DL code regarding dynamic behavior?*
-As shown in the following figure, for RQ4, we evaluate the dynamic behavior of LLM-generated 1200 DL programs for each LLM on DeepEval with *Code Executability Rate*. 
+As shown in the following table, for RQ4, we evaluate the dynamic behavior of LLM-generated 1200 DL programs for each LLM on DeepEval with *Code Executability Rate*. 
 
-<img src="evaluation/dynamic_checking/presentation/RQ4.png" width="500"/><br>
+| LLMs              | Zero-shot | One-shot | #Change  | Oneshot-cot | #Change  | &Change | Few-shot | #Change  |
+|-------------------|-----------|----------|----------|-------------|----------|---------|----------|----------|
+| CodeLlama-7B      | 15.15     | 22.15    | ↑46.19   | 23.67       | ↑56.22   | ↑6.86   | 21.02    | ↑38.73   |
+| Llama-3.1-8B      | 21.33     | 32.33    | ↑51.57   | 32.00       | ↑50.02   | ↓1.02   | 34.00    | ↑59.40   |
+| CodeGemma-7B      | 30.30     | 27.18    | ↓10.30   | 29.87       | ↓1.419   | ↑9.90   | 37.58    | ↑24.03   |
+| Gemma-2-9B        | 21.00     | 30.67    | ↑46.05   | 29.67       | ↑41.24   | ↓3.26   | 33.00    | ↑57.14   |
+| DeepSeekCoder-2-16B | 35.67    | 42.33    | ↑18.67   | 43.33       | ↑21.47   | ↑2.36   | 47.49    | ↑33.14   |
+| DeepSeek-2-16B    | 20.00     | 21.33    | ↑6.650   | 21.00       | ↑5.000   | ↓1.55   | 23.33    | ↑16.65   |
+| GPT-4o-mini       | 51.33     | 69.67    | ↑35.73   | 64.00       | ↑24.64   | ↑8.14   | 68.33    | ↑33.12   |
+| GPT-4o            | 79.26*    | 83.67*   | ↑5.564   | 81.00*      | ↑2.612   | ↓2.80   | 79.00*   | ↓0.328   |
+| **Average**       | **34.26** | **41.17**| **↑25.02** | **40.61**  | **↑24.98** | –     | **42.97*** | **↑32.73** |
+
 
 <font size="4">For a comprehensive exploration of the findings, additional results and detailed analyses are presented in the subsequent sections of our paper.</font>
 
@@ -94,6 +109,18 @@ Note 2: To address false positives from Pylint, such as the message "Unable to i
    python evaluation/dynamic_checking/dynamic_checking_humaneval_main.py   # RQ1
 ---
 
+- #### ​**ClassEval**
+- ​Environment Configuration:
+  ```bash
+   conda create -n ClassEval python=3.10
+   conda activate ClassEval
+   conda install environment_classeval.yml
+   ```
+- ​Command:
+   ```python
+   python evaluation/dynamic_checking/dynamic_checking_classeval_main.py   # RQ1
+---
+
 - #### ​**MLEval**
 - ​Environment Configuration:
   ```bash
@@ -125,9 +152,27 @@ As listed as follows, we adhere to the specified experimental settings throughou
 If you would like to contribute to DeepEval, please fork the repository and submit a pull request. We welcome all contributions!
 
 ## License
-
 This repository is under [MIT](https://github.com/FudanSELab/ClassEval/blob/master/LICENSE) license. But the data is distributes through [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/) license.
 
+## Cite
+Please cite our tool if this work is helpful to you:
+
+```bibtex
+@misc{DeepEval,
+  author       = {Xiangyue Ma and
+                  Xiaoting Du and
+                  Chenglong Li and
+                  Jiangtao Meng and
+                  Xiaoke Fang and
+                  Wenjie Ding and
+                  Zheng Zheng},
+  title        = {Artifacts for "How Do Large Language Models Perform in Deep Learning Code Generation? An Empirical Study"},
+  year         = {2025},
+  publisher    = {Zenodo},
+  doi          = {10.5281/zenodo.17100625},
+  url          = {https://doi.org/10.5281/zenodo.17100625}
+}
+```
 <!-- ## Contact
 
 For any questions or inquiries, please contact the project maintainer at [xiangy_ma@buaa.edu.cn)](xiangy_ma@buaa.edu.cn)). -->
