@@ -130,7 +130,7 @@ class APISequenceSetsSimilarity(SeqBasedSimilarity):
             m = len(reference)
             n = len(candidate)
             if m != 0 and n != 0:
-                recall_matrix, precision_matrix, f1score_matrix = np.zeros((m, n)), np.zeros((m, n)), np.zeros((m, n))
+                similarity_matrix = np.zeros((m, n))
                 for i in range(m):
                     for j in range(n):
                         if self.metric == 'edit_distance':

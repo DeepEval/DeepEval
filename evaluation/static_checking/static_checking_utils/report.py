@@ -94,5 +94,3 @@ class Report:
                 message_counts_socre.update(total_counts)
 
         return message_counts_socre
-
-

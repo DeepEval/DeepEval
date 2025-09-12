@@ -1,8 +1,3 @@
-from utils.getallfiles import GetAllFiles
-from utils.extract_humaneval_text import extract_text
-from utils.read_json_benchmark import read_classeval
-
-
 class ClassEvalPromptDesigner:
     """
     a class to design the prompt for the classeval task.

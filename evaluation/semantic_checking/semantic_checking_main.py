@@ -20,7 +20,7 @@ class FunctionalityChecking:
 
     def main_single_task(self, ref_pyfile, gen_pyfiles):
         global api_sets_similarity_dict, api_seqs_sim_dict
-        task_name = ref_pyfile.split('/')[-1].split('.')[0]
+        benchmark_name = ref_pyfile.split('/')[-1].split('.')[0]
         ref_api_call_sets, ref_api_sequences, _ = self.ReviseExtractCodeMain.main_single_pyfile(ref_pyfile)
 
         api_set_sim_list, api_seqs_sim_list = [], []
@@ -106,7 +106,7 @@ class FunctionalityChecking:
 
         output_data = pd.DataFrame(pd_cols)
         for col in output_data.columns:
-            if col not in ['Task']:
+            if col not in ['Benchmark']:
                 average_row.append(output_data[col].mean())
             else:
                 average_row.append('Average')
@@ -142,8 +142,9 @@ if __name__ == '__main__':
     COMMENROOTPATH = "/your_local_path/DeepEval/" 
     save_flag = {"save_result":True}
 
-    similarity_metric = {'api_set_similarity': 'set_based',
-                        'api_seq_similarity': 'rouge_l'}
+    similarity_metric = {'api_set_similarity': 'dice', # 'bleu'
+                        'api_seq_similarity': 'edit_distance', # 'edit_distance','bleu', 'rouge_l'
+                        }
 
     promptings = ["zeroshot", "oneshot", "oneshotcot", "fewshot"]
     benchmark = "DeepEval"
