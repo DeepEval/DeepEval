@@ -7,7 +7,7 @@ from tabulate import tabulate
 from utils.df2excel import DataFrame2Excel
 from utils.getallfiles import GetAllFiles
 from utils.count_code_lines import count_code_lines
-from my_compile_utils.get_task_name import get_task_name
+from dynamic_checking_utils.get_task_name import get_task_name
 
 class Validation:
     """
@@ -49,16 +49,16 @@ class Validation:
 
         return verifications
 
-    def main(self, promptings, llms, experiment_batch):
+    def main(self, promptings, llms):
         global df_data, pd_rows
         for llm in llms:
             dfs_last_row ,dfs_last_col = [], []
             for prompting in promptings:
                 
-                code_path = os.path.join(common_root_path, f'response/ClassEval/{llm}/{prompting}/{experiment_batch}')
+                code_path = os.path.join(common_root_path, f'response/ClassEval/{llm}')
                 verifications = self.batch_compile_codes(code_path)
 
-                save_json_path = os.path.join(common_root_path,f"evaluation/dynamic_checking/baselines/ClassEval/{llm}/{experiment_batch}/{prompting}.json")
+                save_json_path = os.path.join(common_root_path,f"evaluation/dynamic_checking/report/ClassEval_new/{llm}/{prompting}.json")
 
                 if not os.path.exists(os.path.dirname(save_json_path)):
                     os.makedirs(os.path.dirname(save_json_path))
@@ -69,7 +69,7 @@ class Validation:
                 count_dict_list = []
 
                 for task_name in tasks_names: 
-                    count_dict = {"Benchmark": task_name, "success": 0, "failed": 0, "main_entry": 0, "valid_pyfiles": 0, "rate(%)": 0}
+                    count_dict = {"Benchmark": task_name, "success": 0, "failed": 0, "valid_pyfiles": 0, "rate(%)": 0}
                     valid_pyfiles = 0
                     for pyfile in os.listdir(os.path.join(code_path, task_name)):
                         if pyfile.endswith('.py'):
@@ -82,11 +82,12 @@ class Validation:
                                 count_dict["success"] += 1
                             else:
                                 count_dict["failed"] += 1
-                            if item["main_entry"] == 'exist':
-                                count_dict["main_entry"] += 1
 
                     count_dict["valid_pyfiles"] = valid_pyfiles
-                    count_dict["rate(%)"] = '-'
+                    if valid_pyfiles != 0:
+                        count_dict["rate(%)"] = 100 * count_dict["success"] / valid_pyfiles
+                    else:
+                        count_dict["rate(%)"] = 0
 
                     count_dict_list.append(count_dict)
 
@@ -99,17 +100,21 @@ class Validation:
                 total_rate = 100 * (total_valid_pyfiles - total_failed)/ total_valid_pyfiles
 
                 df_data.loc[df_data['Benchmark'] == 'Total', 'rate(%)'] = total_rate
+                total_row = df_data.iloc[-1].copy()
+                total_row['Benchmark'] = str(prompting)
+                dfs_last_row.append(total_row)
 
-                print(tabulate(df_data, headers='keys', tablefmt='grid'))
-                save_result_excel_path = os.path.join(common_root_path,
-                            f"evaluation/dynamic_checking/baselines/ClassEval/{llm}/{llm}_{experiment_batch}.xlsx")
-                DataFrame2Excel(df_data, save_result_excel_path).df2excel(sheet_name=prompting)
+            summary_df = pd.DataFrame(dfs_last_row)
+            summary_df.reset_index(drop=True, inplace=True)
+            save_result_excel_path = os.path.join(common_root_path,
+                        f"evaluation/dynamic_checking/report/ClassEval_new/{llm}/{llm}.xlsx")
 
-            print(f"Dynamic Checking for {llm} {experiment_batch} is finished.")
+            DataFrame2Excel(summary_df, save_result_excel_path).df2excel(sheet_name='summary')
+            print(f"Dynamic Checking for {llm} is finished.")
 
 
 if __name__ == '__main__':
-    common_root_path = "/your_local_path/DeepEval"
+    common_root_path = "/Users/maxy/Documents/文档资料/个人资料/我的成果/DeepEval-artifacts/source_code/DeepEval_DeepEval/DeepEval"
     promptings = ['classeval']
 
     llms = ["gpt_4o",
@@ -122,4 +127,4 @@ if __name__ == '__main__':
             "meta_llama_3_1_8b_instruct"]
 
     compile_validation = Validation()
-    compile_validation.main(promptings, llms)
+    compile_validation.main(promptings, ["gpt_4o"])

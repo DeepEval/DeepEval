@@ -2,7 +2,6 @@ import os
 import json
 import pandas as pd
 import subprocess
-from tabulate import tabulate
 from dynamic_checking_utils.get_task_name import get_task_name
 from utils.df2excel import DataFrame2Excel
 from utils.getallfiles import GetAllFiles
@@ -55,7 +54,7 @@ class Validation:
 
             for prompting in promptings:
                 
-                code_path = os.path.join(common_root_path, f'response/HumanEval/{llm}/{prompting}')
+                code_path = os.path.join(common_root_path, f'response/HumanEval/{llm}')
                 verifications = self.batch_compile_codes(code_path)
 
                 save_json_path = os.path.join(common_root_path,f"evaluation/dynamic_checking/report/HumanEval/{llm}/{prompting}.json")
@@ -100,7 +99,6 @@ class Validation:
                 Total['Benchmark'] = 'Total'
                 df_data = pd.concat([df_data, Total.to_frame().T], ignore_index=True)
                 total_success = df_data.loc[df_data['Benchmark'] == 'Total', 'success'].values[0]
-
                 total_rate = 100 * total_success / df_data.loc[df_data['Benchmark'] == 'Total', 'valid_pyfiles']
 
                 df_data.loc[df_data['Benchmark'] == 'Total', 'rate(%)'] = total_rate 
