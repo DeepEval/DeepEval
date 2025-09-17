@@ -58,7 +58,7 @@ class Validation:
                 code_path = os.path.join(common_root_path, f'response/ClassEval/{llm}')
                 verifications = self.batch_compile_codes(code_path)
 
-                save_json_path = os.path.join(common_root_path,f"evaluation/dynamic_checking/report/ClassEval_new/{llm}/{prompting}.json")
+                save_json_path = os.path.join(common_root_path,f"evaluation/dynamic_checking/report/ClassEval/{llm}/{prompting}.json")
 
                 if not os.path.exists(os.path.dirname(save_json_path)):
                     os.makedirs(os.path.dirname(save_json_path))
@@ -107,14 +107,14 @@ class Validation:
             summary_df = pd.DataFrame(dfs_last_row)
             summary_df.reset_index(drop=True, inplace=True)
             save_result_excel_path = os.path.join(common_root_path,
-                        f"evaluation/dynamic_checking/report/ClassEval_new/{llm}/{llm}.xlsx")
+                        f"evaluation/dynamic_checking/report/ClassEval/{llm}/{llm}.xlsx")
 
             DataFrame2Excel(summary_df, save_result_excel_path).df2excel(sheet_name='summary')
             print(f"Dynamic Checking for {llm} is finished.")
 
 
 if __name__ == '__main__':
-    common_root_path = "/Users/maxy/Documents/文档资料/个人资料/我的成果/DeepEval-artifacts/source_code/DeepEval_DeepEval/DeepEval"
+    common_root_path = "/your_local_path/DeepEval"
     promptings = ['classeval']
 
     llms = ["gpt_4o",
