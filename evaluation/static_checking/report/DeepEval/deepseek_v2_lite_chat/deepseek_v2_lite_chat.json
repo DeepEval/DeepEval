@@ -1,0 +1,58 @@
+{
+  "deepseek_v2_lite_chat": {
+    "summary": {
+      "convention": {
+        "trailing-whitespace": 6136,
+        "line-too-long": 2743,
+        "invalid-name": 2167,
+        "missing-function-docstring": 1234,
+        "missing-final-newline": 1189,
+        "missing-module-docstring": 1189,
+        "missing-class-docstring": 2,
+        "consider-using-f-string": 2,
+        "wrong-import-position": 2,
+        "ungrouped-imports": 1,
+        "superfluous-parens": 1
+      },
+      "warning": {
+        "unused-import": 1770,
+        "redefined-outer-name": 838,
+        "unused-variable": 565,
+        "reimported": 65,
+        "unnecessary-lambda": 22,
+        "unreachable": 13,
+        "unused-argument": 6,
+        "redefined-builtin": 4,
+        "arguments-renamed": 2,
+        "arguments-differ": 2,
+        "attribute-defined-outside-init": 2,
+        "unspecified-encoding": 1,
+        "shadowed-import": 1,
+        "cell-var-from-loop": 1,
+        "self-assigning-variable": 1,
+        "unbalanced-tuple-unpacking": 1
+      },
+      "error": {
+        "undefined-variable": 838,
+        "no-member": 112,
+        "no-value-for-parameter": 44,
+        "return-outside-function": 43,
+        "unexpected-keyword-arg": 33,
+        "no-name-in-module": 29,
+        "import-error": 19,
+        "used-before-assignment": 11,
+        "syntax-error": 11,
+        "not-callable": 7,
+        "too-many-function-args": 5,
+        "function-redefined": 5
+      },
+      "refactor": {
+        "too-many-locals": 194,
+        "super-with-arguments": 3,
+        "too-many-arguments": 1,
+        "unnecessary-comprehension": 1
+      },
+      "fatal": {}
+    }
+  }
+}

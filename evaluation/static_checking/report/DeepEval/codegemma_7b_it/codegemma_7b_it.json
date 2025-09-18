@@ -1,0 +1,44 @@
+{
+  "codegemma_7b_it": {
+    "summary": {
+      "convention": {
+        "line-too-long": 4869,
+        "invalid-name": 1868,
+        "missing-function-docstring": 1315,
+        "missing-module-docstring": 1190,
+        "missing-final-newline": 1188,
+        "trailing-whitespace": 1009,
+        "ungrouped-imports": 2
+      },
+      "warning": {
+        "unused-import": 1279,
+        "bad-indentation": 926,
+        "redefined-outer-name": 147,
+        "unused-variable": 133,
+        "unnecessary-lambda": 103,
+        "unused-argument": 11,
+        "reimported": 6,
+        "cell-var-from-loop": 3,
+        "redefined-builtin": 1
+      },
+      "error": {
+        "undefined-variable": 639,
+        "no-name-in-module": 27,
+        "no-member": 23,
+        "no-value-for-parameter": 12,
+        "unexpected-keyword-arg": 8,
+        "used-before-assignment": 3,
+        "return-outside-function": 1,
+        "import-error": 1,
+        "syntax-error": 1
+      },
+      "refactor": {
+        "too-many-locals": 171,
+        "too-many-arguments": 10,
+        "too-many-statements": 3,
+        "no-else-return": 1
+      },
+      "fatal": {}
+    }
+  }
+}

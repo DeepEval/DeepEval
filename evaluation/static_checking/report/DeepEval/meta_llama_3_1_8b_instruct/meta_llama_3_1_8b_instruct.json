@@ -1,0 +1,48 @@
+{
+  "meta_llama_3_1_8b_instruct": {
+    "summary": {
+      "convention": {
+        "trailing-whitespace": 5082,
+        "line-too-long": 5022,
+        "invalid-name": 1775,
+        "missing-final-newline": 1196,
+        "missing-module-docstring": 1196,
+        "missing-function-docstring": 1063,
+        "ungrouped-imports": 33,
+        "wrong-import-position": 6,
+        "consider-using-f-string": 1,
+        "wrong-import-order": 1,
+        "import-outside-toplevel": 1,
+        "useless-import-alias": 1,
+        "superfluous-parens": 1
+      },
+      "warning": {
+        "unused-import": 942,
+        "redefined-outer-name": 197,
+        "unused-variable": 169,
+        "unnecessary-lambda": 19,
+        "reimported": 17,
+        "unused-argument": 5,
+        "self-assigning-variable": 2
+      },
+      "error": {
+        "undefined-variable": 335,
+        "no-name-in-module": 19,
+        "no-member": 13,
+        "import-error": 7,
+        "no-value-for-parameter": 4,
+        "syntax-error": 4,
+        "used-before-assignment": 4,
+        "function-redefined": 2,
+        "return-outside-function": 1,
+        "unexpected-keyword-arg": 1
+      },
+      "refactor": {
+        "too-many-locals": 119,
+        "unnecessary-comprehension": 4,
+        "consider-using-from-import": 2
+      },
+      "fatal": {}
+    }
+  }
+}

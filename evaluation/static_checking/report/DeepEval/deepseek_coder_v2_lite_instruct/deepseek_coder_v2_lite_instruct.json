@@ -1,0 +1,39 @@
+{
+  "deepseek_coder_v2_lite_instruct": {
+    "summary": {
+      "convention": {
+        "trailing-whitespace": 5731,
+        "line-too-long": 3399,
+        "invalid-name": 1973,
+        "missing-function-docstring": 1213,
+        "missing-final-newline": 1196,
+        "missing-module-docstring": 1196,
+        "superfluous-parens": 1
+      },
+      "warning": {
+        "unused-import": 1277,
+        "redefined-outer-name": 248,
+        "unused-variable": 86,
+        "reimported": 9,
+        "cell-var-from-loop": 7,
+        "redefined-builtin": 2,
+        "unused-argument": 1
+      },
+      "error": {
+        "undefined-variable": 108,
+        "unexpected-keyword-arg": 31,
+        "no-value-for-parameter": 31,
+        "no-member": 4,
+        "syntax-error": 3,
+        "used-before-assignment": 1,
+        "function-redefined": 1
+      },
+      "refactor": {
+        "too-many-locals": 129,
+        "no-else-return": 1,
+        "inconsistent-return-statements": 1
+      },
+      "fatal": {}
+    }
+  }
+}

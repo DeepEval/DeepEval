@@ -1,0 +1,44 @@
+{
+  "gemma_2_9b_it": {
+    "summary": {
+      "convention": {
+        "line-too-long": 3457,
+        "invalid-name": 2996,
+        "trailing-whitespace": 2929,
+        "missing-function-docstring": 1200,
+        "missing-final-newline": 1199,
+        "missing-module-docstring": 1199,
+        "missing-class-docstring": 2
+      },
+      "warning": {
+        "bad-indentation": 1339,
+        "unused-import": 481,
+        "unused-variable": 39,
+        "unnecessary-lambda": 31,
+        "redefined-outer-name": 14,
+        "unused-argument": 4,
+        "reimported": 2,
+        "wildcard-import": 1,
+        "cell-var-from-loop": 1,
+        "arguments-differ": 1,
+        "self-assigning-variable": 1
+      },
+      "error": {
+        "undefined-variable": 346,
+        "no-value-for-parameter": 28,
+        "unexpected-keyword-arg": 26,
+        "no-name-in-module": 21,
+        "no-member": 14,
+        "import-error": 7,
+        "syntax-error": 1
+      },
+      "refactor": {
+        "too-many-locals": 108,
+        "super-with-arguments": 2,
+        "unnecessary-comprehension": 2,
+        "too-few-public-methods": 1
+      },
+      "fatal": {}
+    }
+  }
+}

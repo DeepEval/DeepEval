@@ -1,0 +1,49 @@
+{
+  "codellama_7b_instruct_hf": {
+    "summary": {
+      "convention": {
+        "line-too-long": 3135,
+        "invalid-name": 2389,
+        "missing-final-newline": 1186,
+        "missing-module-docstring": 1186,
+        "missing-function-docstring": 1129,
+        "trailing-whitespace": 331,
+        "import-outside-toplevel": 8,
+        "wrong-import-position": 5,
+        "ungrouped-imports": 2,
+        "wrong-import-order": 1,
+        "superfluous-parens": 1,
+        "consider-using-f-string": 1
+      },
+      "warning": {
+        "unused-import": 1365,
+        "unused-variable": 228,
+        "reimported": 40,
+        "redefined-outer-name": 26,
+        "unnecessary-lambda": 7,
+        "unreachable": 2,
+        "unused-argument": 1
+      },
+      "error": {
+        "undefined-variable": 1243,
+        "no-name-in-module": 110,
+        "import-error": 34,
+        "no-member": 17,
+        "return-outside-function": 11,
+        "no-value-for-parameter": 9,
+        "unexpected-keyword-arg": 6,
+        "used-before-assignment": 5,
+        "syntax-error": 4,
+        "not-callable": 3,
+        "too-many-function-args": 2,
+        "redundant-keyword-arg": 1,
+        "function-redefined": 1
+      },
+      "refactor": {
+        "too-many-locals": 149,
+        "too-many-statements": 2
+      },
+      "fatal": {}
+    }
+  }
+}

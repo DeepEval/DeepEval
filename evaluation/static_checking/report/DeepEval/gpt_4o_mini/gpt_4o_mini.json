@@ -1,0 +1,28 @@
+{
+  "gpt_4o_mini": {
+    "summary": {
+      "convention": {
+        "line-too-long": 3187,
+        "trailing-whitespace": 2217,
+        "missing-function-docstring": 1262,
+        "invalid-name": 1211,
+        "missing-final-newline": 1200,
+        "missing-module-docstring": 1200,
+      },
+      "warning": {
+        "unused-import": 793,
+        "redefined-outer-name": 309,
+        "unused-variable": 18
+      },
+      "error": {
+        "undefined-variable": 28,
+        "unexpected-keyword-arg": 1,
+        "no-value-for-parameter": 1
+      },
+      "refactor": {
+        "too-many-locals": 191
+      },
+      "fatal": {}
+    }
+  }
+}

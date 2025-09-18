@@ -1,0 +1,32 @@
+{
+  "gpt_4o": {
+    "summary": {
+      "convention": {
+        "trailing-whitespace": 5069,
+        "line-too-long": 3484,
+        "invalid-name": 1251,
+        "missing-function-docstring": 1242,
+        "missing-final-newline": 1199,
+        "missing-module-docstring": 1199,
+        "ungrouped-imports": 1
+      },
+      "warning": {
+        "unused-import": 297,
+        "redefined-outer-name": 233,
+        "unused-variable": 23,
+        "reimported": 1,
+        "unnecessary-lambda": 1,
+        "unused-argument": 1
+      },
+      "error": {
+        "undefined-variable": 13,
+        "unexpected-keyword-arg": 3,
+        "no-value-for-parameter": 3
+      },
+      "refactor": {
+        "too-many-locals": 152
+      },
+      "fatal": {}
+    }
+  }
+}
