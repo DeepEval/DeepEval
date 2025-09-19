@@ -169,8 +169,8 @@ Please cite our tool if this work is helpful to you:
   title        = {Artifacts for "How Do Large Language Models Perform in Deep Learning Code Generation? An Empirical Study"},
   year         = {2025},
   publisher    = {Zenodo},
-  doi          = {10.5281/zenodo.17100625},
-  url          = {https://doi.org/10.5281/zenodo.17100625}
+  doi          = {10.5281/zenodo.17100624},
+  url          = {https://doi.org/10.5281/zenodo.17100624}
 }
 ```
 <!-- ## Contact
