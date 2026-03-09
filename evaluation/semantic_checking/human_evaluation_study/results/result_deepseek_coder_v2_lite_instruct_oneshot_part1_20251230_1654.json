@@ -1,0 +1,79 @@
+{
+  "ts_ms": 1767084857306,
+  "client_ip": "240e:441:5510:268c:8dc1:f226:fc51:178f",
+  "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0",
+  "surveyFile": "survey_deepseek_coder_v2_lite_instruct_oneshot_part1.json",
+  "meta": {
+    "href": "https://zestful-unexpansible-bayleigh.ngrok-free.dev/index_htmls/index_deepseek_coder_v2_lite_instruct_oneshot_part1.html",
+    "ts": "2025-12-30T08:56:08.098Z"
+  },
+  "data": {
+    "annotator_email": "wanxh@aircas.ac.cn",
+    "annotator_name": "xiaohui wan",
+    "rating_easy_task_15": {
+      "semantic_correctness": 4,
+      "reasons": [
+        "Incorrect API Selection"
+      ],
+      "generated_code_id": "generated_code_1.py"
+    },
+    "rating_easy_task_14": {
+      "semantic_correctness": 4,
+      "reasons": [
+        "Incorrect Model Structure"
+      ],
+      "generated_code_id": "generated_code_1.py"
+    },
+    "rating_easy_task_1": {
+      "semantic_correctness": 5,
+      "generated_code_id": "generated_code_1.py"
+    },
+    "rating_medium_task_30": {
+      "semantic_correctness": 4,
+      "reasons": [
+        "Incorrect API Ordering"
+      ],
+      "generated_code_id": "generated_code_1.py"
+    },
+    "rating_medium_task_35": {
+      "semantic_correctness": 5,
+      "generated_code_id": "generated_code_1.py"
+    },
+    "rating_medium_task_33": {
+      "semantic_correctness": 4,
+      "reasons": [
+        "Incorrect API Selection"
+      ],
+      "generated_code_id": "generated_code_1.py"
+    },
+    "rating_medium_task_1": {
+      "semantic_correctness": 4,
+      "reasons": [
+        "Incorrect API Ordering"
+      ],
+      "generated_code_id": "generated_code_1.py"
+    },
+    "rating_medium_task_15": {
+      "semantic_correctness": 4,
+      "reasons": [
+        "Redundant API Call"
+      ],
+      "generated_code_id": "generated_code_1.py"
+    },
+    "rating_medium_task_28": {
+      "semantic_correctness": 4,
+      "reasons": [
+        "Redundant API Call",
+        "Incorrect API Ordering"
+      ],
+      "generated_code_id": "generated_code_2.py"
+    },
+    "rating_medium_task_23": {
+      "semantic_correctness": 4,
+      "reasons": [
+        "Unclear Semantic Failure"
+      ],
+      "generated_code_id": "generated_code_1.py"
+    }
+  }
+}

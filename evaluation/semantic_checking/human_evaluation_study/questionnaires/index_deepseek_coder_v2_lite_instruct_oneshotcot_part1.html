@@ -1,0 +1,572 @@
+<!doctype html>
+<html lang="zh">
+
+<head>
+  <!-- Prism Theme + Line Numbers (template-like) -->
+  <link rel="stylesheet" href="https://unpkg.com/prismjs/themes/prism.css">
+  <!-- <link rel="stylesheet" href="https://unpkg.com/prismjs/themes/prism-tomorrow.css"> -->
+  <link rel="stylesheet" href="https://unpkg.com/prismjs/plugins/line-numbers/prism-line-numbers.css">
+  <!-- Monospace webfont for code (consistent across machines) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <script src="https://unpkg.com/prismjs/prism.js"></script>
+  <script src="https://unpkg.com/prismjs/components/prism-python.min.js"></script>
+  <script src="https://unpkg.com/prismjs/plugins/line-numbers/prism-line-numbers.min.js"></script>
+
+  <meta charset="utf-8" />
+  <!-- Disable HTML caching (helps when distributing survey pages) -->
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>A Questionnaire for Evaluating Semantic Correctness of LLM-Generated Code</title>
+
+  <link href="https://unpkg.com/survey-core/survey-core.min.css" rel="stylesheet" />
+  <script src="https://unpkg.com/survey-core/survey.core.min.js"></script>
+  <script src="https://unpkg.com/survey-js-ui/survey-js-ui.min.js"></script>
+
+  <script>
+    // === 扩展 Prism Python：高亮 DL / Keras API ===
+    if (window.Prism && Prism.languages && Prism.languages.python) {
+      Prism.languages.insertBefore('python', 'function', {
+        'dl-api': {
+          pattern: /\b(?:Conv1D|Conv2D|Conv3D|SeparableConv2D|DepthwiseConv2D|MaxPooling1D|MaxPooling2D|MaxPooling3D|AveragePooling1D|AveragePooling2D|AveragePooling3D|GlobalAveragePooling1D|GlobalAveragePooling2D|GlobalMaxPooling2D|Flatten|Dense|Dropout|BatchNormalization|LayerNormalization|Activation|ReLU|LeakyReLU|PReLU|ELU|Softmax|Add|Subtract|Multiply|Average|Concatenate|Input|InputLayer|Model|Sequential|Embedding|Masking|Reshape|Permute|RepeatVector|UpSampling1D|UpSampling2D|UpSampling3D|ZeroPadding1D|ZeroPadding2D|ZeroPadding3D|Cropping1D|Cropping2D|Cropping3D|add|subtract|multiply|average|maximum|minimum|concatenate|dot|tf\.nn\.(?:relu|relu6|leaky_relu|elu|selu|gelu|softmax|log_softmax|sigmoid|tanh|conv1d|conv2d|conv3d|depthwise_conv2d|separable_conv2d|max_pool|max_pool2d|avg_pool|avg_pool2d|batch_normalization|dropout))\b/,
+          alias: 'class-name'
+        }
+      });
+    }
+  </script>
+
+  <style>
+    /* === 全局基础 === */
+    body {
+      margin: 0;
+      font-size: 10px;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+    }
+
+    .wrap {
+      max-width: 1500px;
+      margin: 0 auto;
+      padding: 18px;
+    }
+
+    /* === Survey 顶部布局：标题 + 进度条 + 页面内容 === */
+    .sd-body {
+      padding-top: 8px !important;
+    }
+
+    .sd-header {
+      padding-top: 2px !important;
+      padding-bottom: 2px !important;
+      margin-bottom: 2px !important;
+    }
+
+    .sd-title {
+      margin-top: 0 !important;
+      margin-bottom: 2px !important;
+      font-size: 25px !important;   /* 👈 改这里 */
+      font-weight: 800 !important;
+      line-height: 1.25;
+    }
+
+    .sd-progress {
+      padding-top: 0 !important;
+      padding-bottom: 4px !important;
+      margin-bottom: 0 !important;
+    }
+
+    .sd-progress__bar,
+    .sd-progress__container {
+      height: 12px !important;
+    }
+
+    .sd-progress__text {
+      margin-top: 0 !important;
+      padding-top: 0 !important;
+    }
+
+    .sd-html h4 {
+      font-family: system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    /* === Task Requirement 说明框 === */
+    .task-box {
+      background: #f9fafb;
+      border: 3px solid #629ffa;
+      border-radius: 8px;
+      padding: 6px 8px;
+      margin: 8px 0 12px 0;
+      font-family: 'Times New Roman', Times, serif !important;
+      font-size: 20px !important;;
+      line-height: 1.5;
+      font-weight: 600 !important;
+      color: #03852a !important;
+    }
+    /* #c69c04 !important; */
+    /* === 题目、矩阵、打分圆圈的紧凑设置 === */
+    .sd-question,
+    .sd-row {
+      margin-top: 5px !important;
+      margin-bottom: 5px !important;
+    }
+
+    /* ===== Matrix：更合理的紧凑布局（拆分三类元素） ===== */
+    /* 1) 中间打分单元格（radio 区）保持紧凑 */
+    .sd-matrix__cell:not(.sd-matrix__cell--row-text) {
+      padding-top: 2px !important;
+      padding-bottom: 2px !important;
+    }
+
+    /* 2) 上方 1–5 列标题：更小、更紧凑 */
+    .sd-matrix__header-cell {
+      padding-top: 2px !important;
+      padding-bottom: 4px !important;
+      font-size: 10px !important;     /* 让 1–5 标题变小 */
+      font-weight: 500 !important;
+      line-height: 1.25 !important;
+      color: #374151;
+      white-space: pre-line !important;
+    }
+
+    /* 3) 左侧 Likert Scale（row label）：更大更突出 + 适配 padding */
+    .sd-matrix__cell--row-text {
+      padding-top: 6px !important;
+      padding-bottom: 6px !important;
+      padding-right: 12px !important;
+
+      white-space: normal;
+      line-height: 1 !important;
+
+      font-size: 45px !important;     /* 让 “Likert Scale” 变大 */
+      font-weight: 900 !important;
+      color: #111827;
+    }
+
+    /* （可选）进一步压缩行高度 */
+    .sd-matrix__row {
+      height: auto !important;
+      min-height: unset !important;
+    }
+    .sd-question--matrix .sd-item__decorator {
+      transform: scale(1);
+      transform-origin: center center;
+    }
+
+    /* === 代码对比：布局 === */
+    /* 默认：单栏 */
+    .code-compare {
+      display: block;
+    }
+
+    /* 点击后：双栏对比 */
+    .code-compare.is-compare {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 16px;
+      align-items: stretch;
+    }
+
+    /* Reference 面板默认不显示 */
+    .code-panel.ref {
+      display: none;
+    }
+
+    /* 双栏模式下显示 Reference 面板 */
+    .code-compare.is-compare .code-panel.ref {
+      display: flex; /* 你原本 code-panel 用 flex-direction: column */
+    }
+
+    .code-panel {
+      border: 3px solid #629ffa;
+      border-radius: 16px;
+      padding: 12px;
+      background: white;
+
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .code-panel h4 {
+      margin: 0 0 8px 0;
+    }
+
+    /* === Prism 代码块：借鉴模板的排版风格（更可读） === */
+    /* 关键：字号/行高/字体只在 pre 上定义，code/行号全部继承 */
+    pre {
+      -webkit-text-size-adjust: 100%;
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+      font-variant: tabular-nums;
+      font-feature-settings: 'tnum', 'tnum';
+      box-sizing: border-box;
+
+      font-size: 8px !important;
+      /* ✅ 建议 12~14；你原来 10px 会偏小 */
+      line-height: 1.5;
+      font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, Courier, monospace;
+
+      margin-top: 0;
+      margin-bottom: 0;
+      display: block;
+
+      overflow: auto;
+      overflow-x: auto;
+      padding: 0.75em 1em;
+
+      color: rgb(51, 51, 51);
+      background: rgb(248, 248, 248);
+      border-radius: 12px;
+
+      max-height: 600px;
+      /* 仍然限制最大高度，避免太长 */
+    }
+
+    /* code 不再单独设字号，避免和行号不一致 */
+    pre code,
+    code[class*="language-"] {
+      white-space: pre;
+      /* 保持原格式 */
+    }
+
+    /* Prism 行号：字号/行高继承，保证与代码一致 */
+    pre.line-numbers {
+      padding-left: 3.8em;
+      /* 官方推荐 */
+    }
+
+    pre.line-numbers .line-numbers-rows>span {
+      font-size: inherit !important;
+      line-height: inherit !important;
+    }
+
+    /* 让 pre 在 panel 内部自动撑满剩余高度（左右底部对齐） */
+    .code-panel pre {
+      flex: 1;
+      max-height: none !important;
+      /* 由 panel 控制，不用固定 600px */
+      overflow: auto;
+    }
+
+    /* === Prism 高亮颜色增强 */
+
+    /* DL API（Conv2D / Dense 等） */
+    pre[class*="language-"] .token.dl-api,
+    code[class*="language-"] .token.dl-api {
+      color: #0454b0;
+      /* 偏蓝，学术感强 */
+      font-weight: 700;
+    }
+
+    pre[class*="language-"] .token.keyword,
+    code[class*="language-"] .token.keyword {
+      color: #0466f8 !important;
+    }
+
+    /* 函数名（token function）：*/
+    pre[class*="language-"] .token.function,
+    code[class*="language-"] .token.function {
+      color: #860123 !important;
+      font-weight: 750;
+    }
+
+    /* 字符串（token string）*/
+    pre[class*="language-"] .token.string,
+    code[class*="language-"] .token.string {
+      color: #2f7a00 !important;
+    }
+
+    /* 数字（token number） */
+    pre[class*="language-"] .token.number,
+    code[class*="language-"] .token.number {
+      color: #ab0384 !important;
+    }
+
+    /* SurveyJS 会对 .sd-html span 应用正文字体，而 Prism 的 token 也是 span */
+
+    /* ✅ 终极兜底：SurveyJS 的 html 题里 Prism token 是 span，必须强制全体使用等宽代码字体 */
+    .sd-html pre[class*="language-"] *,
+    .sd-html code[class*="language-"],
+    .sd-html code[class*="language-"] * {
+      font-family: "JetBrains Mono", Menlo, Monaco, Consolas, "Andale Mono", "Ubuntu Mono", monospace !important;
+      font-size: inherit !important;
+      /* 建议 14，更像 demo；你想小一点可改 13 */
+      line-height: 1.5 !important;
+      font-weight: 450;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: geometricPrecision;
+      font-variant-ligatures: none;
+      font-feature-settings: "liga" 0, "calt" 0;
+    }
+
+    /* ✅ 单独控制代码块字号（不会被兜底规则覆盖） */
+    .sd-html pre[class*="language-"] {
+      font-size: 10px !important;  /* 需要更小就改 10.5px / 10px */
+    }
+
+    /* ===============================
+   SurveyJS 背景统一为纯白
+   =============================== */
+
+    /* 整个 Survey 根容器 */
+    .sd-root-modern,
+    .sd-container-modern,
+    .sd-body {
+      background: #ffffff !important;
+    }
+
+    /* 每一页（page）背景 */
+    .sd-page {
+      background: #ffffff !important;
+    }
+
+    /* 问题容器（防止卡片灰底） */
+    .sd-question {
+      background: transparent !important;
+    }
+
+    /* Matrix / Comment 等块级问题 */
+    .sd-element {
+      background: transparent !important;
+    }
+
+    /* 如果你开启了 panel/card 样式 */
+    .sd-panel {
+      background: #ffffffc3 !important;
+      box-shadow: none !important;
+      /* 去掉阴影，更学术 */
+    }
+
+    /* ===============================
+    强制覆盖 Prism 默认淡黄色背景
+    改为浅浅蓝（学术 / GitHub 风格）
+    =============================== */
+
+    /* 只作用于 SurveyJS HTML 题中的 Prism 代码块 */
+    .sd-html pre[class*="language-"] {
+      background-color: #ecf4fd !important;
+      /* ⭐ 浅蓝 */
+      border: 1px solid #d0e2f2 !important;
+    }
+
+    /* code 本身不要再有背景 */
+    .sd-html pre[class*="language-"] code {
+      background: transparent !important;
+    }
+
+    /* 行号区域背景保持一致 */
+    .sd-html pre.line-numbers .line-numbers-rows {
+      background-color: #eaf2fb !important;
+      border-right: 1px solid #c6dbef;
+    }
+
+    /* 行号颜色稍微压低，突出代码 */
+    .sd-html pre.line-numbers .line-numbers-rows>span {
+      color: #6b7c93 !important;
+    }
+
+    /* ===============================
+    清除 operator / punctuation 的白色背景
+    让它与代码块背景完全一致
+    =============================== */
+    .sd-html pre[class*="language-"] .token.operator,
+    .sd-html pre[class*="language-"] .token.punctuation {
+      background: transparent !important;
+      box-shadow: none !important;
+    }
+
+    /* 整个 matrix 块上下更紧 */
+    .sd-question.sd-question--matrix {
+      margin-top: 2px !important;
+      margin-bottom: 2px !important;
+    }
+
+    /* matrix 行高度压缩 */
+    .sd-matrix__row {
+      height: auto !important;
+    }
+
+    /* 单元格 padding 进一步缩小 */
+    .sd-matrix__cell,
+    .sd-matrix__header-cell {
+      padding-top: 1px !important;
+      padding-bottom: 1px !important;
+    }
+
+    /* 左侧 row 文本（Semantic Accuracy）行高 */
+    .sd-matrix__cell--row-text {
+      line-height: 1 !important;
+    }
+
+    /* 单选按钮整体再紧一点 */
+    .sd-item {
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+
+    /* radio 圆圈垂直居中 */
+    .sd-item__control {
+      align-items: center !important;
+    }
+
+    /* ===============================
+   SurveyJS Previous / Next 按钮样式
+   =============================== */
+
+    /* 按钮本体 */
+    .sd-navigation__button,
+    .sd-btn {
+      font-weight: 700 !important;
+      /* ✅ 文字加粗 */
+      border: 3px solid #10b981 !important;
+      /* ✅ 绿色边框（与你现有 Next 色一致） */
+      border-radius: 10px !important;
+      background: #ffffff !important;
+      /* 白底 */
+      color: #10b981 !important;
+      /* 绿色文字 */
+      padding: 12px 32px !important;
+      font-size: 30px !important;
+      box-shadow: 1px !important;
+    }
+
+    /* hover 效果 */
+    .sd-navigation__button:hover,
+    .sd-btn:hover {
+      background: #ecfdf5 !important;
+      /* 极浅绿 hover */
+      border-color: #059669 !important;
+      color: #059669 !important;
+    }
+
+    /* disabled 状态（第一页/最后一页） */
+    .sd-navigation__button:disabled {
+      opacity: 0.4 !important;
+      cursor: not-allowed !important;
+    }
+
+    /* Next 按钮固定右下角（不依赖导航容器） */
+    .sd-navigation__next-btn,
+    .sd-btn.sd-navigation__next-btn {
+      position: fixed !important;
+      right: 24px !important;
+      bottom: 24px !important;
+      z-index: 9999 !important;
+    }
+
+    /* 更稳：header cell 内所有文本都按 \n 换行显示 */
+    .sd-matrix__header-cell,
+    .sd-matrix__header-cell * {
+      white-space: pre-line !important;
+    }
+
+    .code-panel__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+
+    .code-panel__header h4 {
+      margin: 0; /* 覆盖你原来的 h4 margin */
+    }
+
+    /* === Code panel body/footer: move toggle button to bottom-right === */
+    .code-panel__body{
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      min-height: 0; /* allow inner pre to scroll */
+    }
+
+    .code-panel__footer{
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 8px;
+    }
+
+    .toggle-ref-btn{
+      border: 2px solid #629ffa;
+      background: #f9fafb;
+      border-radius: 10px;
+      padding: 4px 4px !important;
+      cursor: pointer;
+      font-size: 10px !important;
+      white-space: nowrap;
+    }
+    .toggle-ref-btn:hover{ background:#eef4ff; }
+
+    /* ===== Reasons checkbox: 2 rows x 4 cols =====
+       Your rendered DOM shows the question wrapper has `data-name="reason_..."`.
+       In this SurveyJS version, the choices are direct children of
+       `fieldset.sd-selectbase`, and each item has `sv-q-col-1` which forces 1-column.
+       We therefore:
+       1) grid the fieldset
+       2) override sv-q-col-1 width constraints
+       Target both `.reason-grid` (if provided) AND `[data-name^="reason_"]` (always present).
+    */
+    .reason-grid fieldset.sd-selectbase,
+    [data-name^="reason_"] fieldset.sd-selectbase {
+      display: grid !important;
+      grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+      column-gap: 28px !important;
+      row-gap: 18px !important;
+      align-items: start;
+    }
+
+    /* 🔥 key: disable SurveyJS column system that enforces single-column */
+    .reason-grid .sv-q-col-1,
+    [data-name^="reason_"] .sv-q-col-1 {
+      /* SurveyJS column system may force items to span full row via grid-column */
+      grid-column: auto !important;
+      grid-row: auto !important;
+
+      /* Some themes use flex-basis/max-width to enforce 1 column */
+      flex: 0 0 auto !important;
+      max-width: none !important;
+      width: auto !important;
+    }
+
+    /* Prevent each item from forcing full width */
+    .reason-grid .sd-selectbase__item,
+    .reason-grid .sd-item,
+    [data-name^="reason_"] .sd-selectbase__item,
+    [data-name^="reason_"] .sd-item {
+      width: auto !important;
+      max-width: none !important;
+    }
+
+    /* Bolder labels */
+    .reason-grid .sd-item__control-label,
+    [data-name^="reason_"] .sd-item__control-label {
+      font-weight: 600 !important;
+      line-height: 1.25 !important;
+    }
+
+    /* Slightly enlarge checkbox decorator */
+    .reason-grid .sd-item__decorator,
+    [data-name^="reason_"] .sd-item__decorator {
+      transform: scale(1.1) !important;
+      transform-origin: center center;
+    }
+
+  </style>
+
+</head>
+
+<body data-survey-json="survey_deepseek_coder_v2_lite_instruct_oneshotcot_part1.json">
+  <div class="wrap">
+    <div id="surveyContainer"></div>
+    <div class="footer" id="status"></div>
+  </div>
+
+  <!-- Set survey via URL: index.html?survey=survey_xxx.json  OR by setting <body data-survey-json="survey_xxx.json"> -->
+  <script src="../index_template.js"></script>
+</body>
+
+</html>

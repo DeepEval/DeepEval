@@ -1,0 +1,71 @@
+{
+  "surveyFile": "survey_gpt_4o_zeroshot_part1.json",
+  "meta": {
+    "href": "https://zestful-unexpansible-bayleigh.ngrok-free.dev/index_htmls/index_gpt_4o_zeroshot_part1.html",
+    "ts": "2025-12-31T04:45:39.432Z"
+  },
+  "data": {
+    "annotator_name": "杜晓婷",
+    "annotator_email": "duxiaoting@bupt.edu.cn",
+    "rating_easy_task_12": {
+      "semantic_correctness": 3,
+      "reasons": [
+        "Incorrect Model Structure",
+        "Incorrect API Ordering"
+      ],
+      "generated_code_id": "generated_code_1.py"
+    },
+    "rating_easy_task_7": {
+      "semantic_correctness": 4,
+      "reasons": [
+        "Redundant API Call"
+      ],
+      "generated_code_id": "generated_code_1.py"
+    },
+    "rating_easy_task_5": {
+      "semantic_correctness": 5,
+      "generated_code_id": "generated_code_1.py"
+    },
+    "rating_medium_task_7": {
+      "semantic_correctness": 3,
+      "reasons": [
+        "Incorrect Feature Merging",
+        "Incorrect Model Structure"
+      ],
+      "generated_code_id": "generated_code_1.py"
+    },
+    "rating_medium_task_29": {
+      "semantic_correctness": 4,
+      "reasons": [
+        "Redundant API Call"
+      ],
+      "generated_code_id": "generated_code_1.py"
+    },
+    "rating_medium_task_22": {
+      "semantic_correctness": 5,
+      "generated_code_id": "generated_code_1.py"
+    },
+    "rating_medium_task_18": {
+      "semantic_correctness": 5,
+      "generated_code_id": "generated_code_1.py"
+    },
+    "rating_medium_task_13": {
+      "semantic_correctness": 4,
+      "reasons": [
+        "Incorrect Model Structure"
+      ],
+      "generated_code_id": "generated_code_1.py"
+    },
+    "rating_medium_task_26": {
+      "semantic_correctness": 5,
+      "generated_code_id": "generated_code_1.py"
+    },
+    "rating_medium_task_3": {
+      "semantic_correctness": 3,
+      "reasons": [
+        "Incorrect Feature Merging"
+      ],
+      "generated_code_id": "generated_code_2.py"
+    }
+  }
+}

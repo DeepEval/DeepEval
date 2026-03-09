@@ -1,0 +1,78 @@
+{
+  "ts_ms": 1767106485117,
+  "client_ip": "1.203.169.100",
+  "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36 Edg/143.0.0.0",
+  "surveyFile": "survey_gpt_4o_mini_zeroshot_part1.json",
+  "meta": {
+    "href": "https://zestful-unexpansible-bayleigh.ngrok-free.dev/index_htmls/index_gpt_4o_mini_zeroshot_part1.html",
+    "ts": "2025-12-30T14:54:37.509Z"
+  },
+  "data": {
+    "annotator_email": "lihaotian08@buaa.edu.cn",
+    "annotator_name": "Li Haotian",
+    "rating_easy_task_5": {
+      "semantic_correctness": 5,
+      "generated_code_id": "generated_code_1.py"
+    },
+    "rating_easy_task_11": {
+      "semantic_correctness": 4,
+      "reasons": [
+        "Redundant API Call"
+      ],
+      "generated_code_id": "generated_code_1.py"
+    },
+    "rating_easy_task_8": {
+      "semantic_correctness": 4,
+      "reasons": [
+        "Redundant API Call"
+      ],
+      "generated_code_id": "generated_code_1.py"
+    },
+    "rating_medium_task_13": {
+      "semantic_correctness": 4,
+      "reasons": [
+        "Redundant API Call"
+      ],
+      "generated_code_id": "generated_code_3.py"
+    },
+    "rating_medium_task_29": {
+      "semantic_correctness": 4,
+      "reasons": [
+        "Redundant API Call"
+      ],
+      "generated_code_id": "generated_code_1.py"
+    },
+    "rating_medium_task_2": {
+      "semantic_correctness": 4,
+      "reasons": [
+        "Incorrect API Selection"
+      ],
+      "generated_code_id": "generated_code_1.py"
+    },
+    "rating_medium_task_3": {
+      "semantic_correctness": 4,
+      "reasons": [
+        "Redundant API Call"
+      ],
+      "generated_code_id": "generated_code_2.py"
+    },
+    "rating_medium_task_23": {
+      "semantic_correctness": 5,
+      "generated_code_id": "generated_code_2.py"
+    },
+    "rating_medium_task_24": {
+      "semantic_correctness": 4,
+      "reasons": [
+        "Redundant API Call"
+      ],
+      "generated_code_id": "generated_code_2.py"
+    },
+    "rating_medium_task_30": {
+      "semantic_correctness": 4,
+      "reasons": [
+        "Missing API Call"
+      ],
+      "generated_code_id": "generated_code_1.py"
+    }
+  }
+}

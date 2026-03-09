@@ -1,0 +1,66 @@
+{
+  "ts_ms": 1767152100978,
+  "client_ip": "124.133.52.190",
+  "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36 Edg/143.0.0.0",
+  "surveyFile": "survey_gpt_4o_oneshotcot_part1.json",
+  "meta": {
+    "href": "https://zestful-unexpansible-bayleigh.ngrok-free.dev/index_htmls/index_gpt_4o_oneshotcot_part1.html",
+    "ts": "2025-12-31T03:34:51.839Z"
+  },
+  "data": {
+    "annotator_name": "Zhou Xinyi",
+    "annotator_email": "xinyi_zhou@buaa.edu.cn",
+    "rating_easy_task_6": {
+      "semantic_correctness": 5,
+      "generated_code_id": "generated_code_1.py"
+    },
+    "rating_easy_task_7": {
+      "semantic_correctness": 5,
+      "generated_code_id": "generated_code_1.py"
+    },
+    "rating_easy_task_10": {
+      "semantic_correctness": 4,
+      "reasons": [
+        "Incorrect API Selection"
+      ],
+      "generated_code_id": "generated_code_1.py"
+    },
+    "rating_medium_task_16": {
+      "semantic_correctness": 5,
+      "generated_code_id": "generated_code_1.py"
+    },
+    "rating_medium_task_3": {
+      "semantic_correctness": 4,
+      "reasons": [
+        "Missing API Call"
+      ],
+      "generated_code_id": "generated_code_1.py"
+    },
+    "rating_medium_task_15": {
+      "semantic_correctness": 4,
+      "reasons": [
+        "Incorrect API Ordering"
+      ],
+      "generated_code_id": "generated_code_1.py"
+    },
+    "rating_medium_task_20": {
+      "semantic_correctness": 5,
+      "generated_code_id": "generated_code_1.py"
+    },
+    "rating_medium_task_24": {
+      "semantic_correctness": 5,
+      "generated_code_id": "generated_code_1.py"
+    },
+    "rating_medium_task_18": {
+      "semantic_correctness": 5,
+      "generated_code_id": "generated_code_1.py"
+    },
+    "rating_medium_task_11": {
+      "semantic_correctness": 4,
+      "reasons": [
+        "Redundant API Call"
+      ],
+      "generated_code_id": "generated_code_1.py"
+    }
+  }
+}

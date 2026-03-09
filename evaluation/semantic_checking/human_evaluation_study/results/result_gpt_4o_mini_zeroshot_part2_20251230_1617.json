@@ -1,0 +1,60 @@
+{
+  "ts_ms": 1767082675138,
+  "client_ip": "2001:da8:203:bbbb:c316:252b:f2c3:1de7",
+  "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36",
+  "surveyFile": "survey_gpt_4o_mini_zeroshot_part2.json",
+  "meta": {
+    "href": "https://zestful-unexpansible-bayleigh.ngrok-free.dev/index_htmls/index_gpt_4o_mini_zeroshot_part2.html",
+    "ts": "2025-12-30T08:17:46.912Z"
+  },
+  "data": {
+    "annotator_email": "mengjiangtao@buaa.edu.cn",
+    "annotator_name": "Meng Jiangtao",
+    "rating_hard_task_40": {
+      "semantic_correctness": 5,
+      "generated_code_id": "generated_code_1.py"
+    },
+    "rating_hard_task_46": {
+      "semantic_correctness": 4,
+      "reasons": [
+        "Incorrect API Selection"
+      ],
+      "generated_code_id": "generated_code_2.py"
+    },
+    "rating_hard_task_29": {
+      "semantic_correctness": 5,
+      "generated_code_id": "generated_code_3.py"
+    },
+    "rating_hard_task_15": {
+      "semantic_correctness": 4,
+      "reasons": [
+        "Incorrect Model Structure"
+      ],
+      "generated_code_id": "generated_code_1.py"
+    },
+    "rating_hard_task_42": {
+      "semantic_correctness": 5,
+      "generated_code_id": "generated_code_3.py"
+    },
+    "rating_hard_task_26": {
+      "semantic_correctness": 5,
+      "generated_code_id": "generated_code_2.py"
+    },
+    "rating_hard_task_30": {
+      "semantic_correctness": 5,
+      "generated_code_id": "generated_code_1.py"
+    },
+    "rating_hard_task_14": {
+      "semantic_correctness": 5,
+      "generated_code_id": "generated_code_1.py"
+    },
+    "rating_hard_task_25": {
+      "semantic_correctness": 5,
+      "generated_code_id": "generated_code_3.py"
+    },
+    "rating_hard_task_36": {
+      "semantic_correctness": 5,
+      "generated_code_id": "generated_code_1.py"
+    }
+  }
+}

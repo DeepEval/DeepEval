@@ -1,0 +1,831 @@
+{
+  "title": "A Human Evaluation Study on the Semantic Correctness of LLM-Generated Code",
+  "progressBarType": "pages",
+  "showProgressBar": "top",
+  "firstPageIsStarted": true,
+  "showQuestionNumbers": "off",
+  "lazyRendering": true,
+  "pages": [
+    {
+      "name": "annotator_info",
+      "elements": [
+        {
+          "type": "html",
+          "name": "annotator_info_header",
+          "html": "<h4>Please provide your information:</h4>"
+        },
+        {
+          "type": "text",
+          "name": "annotator_name",
+          "title": "Name",
+          "isRequired": true,
+          "placeHolder": "Your name",
+          "width": "50%"
+        },
+        {
+          "type": "text",
+          "name": "annotator_email",
+          "title": "Email",
+          "inputType": "email",
+          "isRequired": true,
+          "placeHolder": "name@example.com",
+          "startWithNewLine": false,
+          "width": "50%"
+        }
+      ]
+    },
+    {
+      "name": "task_easy_task_1",
+      "elements": [
+        {
+          "type": "html",
+          "name": "stim_easy_task_1",
+          "html": "<h4>Task Requirement</h4>\n        <div class=\"task-box\">Please assist me in creating a deep learning model for image classification using the MNIST dataset. The model should start with two sequential layers comprising a convolutional layer followed by a max pooling layer, followed by an additional convolutional layer. After these layers, the feature maps will be flattened into a one-dimensional vector. This vector will then be processed by two fully connected layers to produce the final classification results.</div>\n\n        <div class=\"code-compare\" data-task-id=\"easy_task_1\">\n        <!-- Left: Generated (always visible) -->\n        <div class=\"code-panel gen\">\n            <div class=\"code-panel__header\">\n            <h4>Generated Code by LLMs</h4>\n            </div>\n\n            <div class=\"code-panel__body\">\n            <pre class=\"line-numbers\"><code class=\"language-python\">import keras\nfrom keras.layers import Input, Conv2D, MaxPooling2D, Flatten, Dense\n\ndef dl_model():\n    input_layer = Input(shape=(28, 28, 1))\n\n    # First convolutional layer followed by max pooling\n    conv1 = Conv2D(filters=32, kernel_size=(3, 3), strides=(1, 1), padding=&#x27;same&#x27;, activation=&#x27;relu&#x27;)(input_layer)\n    pool1 = MaxPooling2D(pool_size=(2, 2), strides=(2, 2), padding=&#x27;same&#x27;)(conv1)\n\n    # Second convolutional layer\n    conv2 = Conv2D(filters=64, kernel_size=(3, 3), strides=(1, 1), padding=&#x27;same&#x27;, activation=&#x27;relu&#x27;)(pool1)\n\n    # Flattening the feature maps into a one-dimensional vector\n    flatten_layer = Flatten()(conv2)\n\n    # Fully connected layers\n    dense1 = Dense(units=128, activation=&#x27;relu&#x27;)(flatten_layer)\n    output_layer = Dense(units=10, activation=&#x27;softmax&#x27;)(dense1)\n\n    # Creating the model\n    model = keras.Model(inputs=input_layer, outputs=output_layer)\n\n    return model</code></pre>\n            </div>\n\n            <!-- Bottom-right: toggle reference button -->\n            <div class=\"code-panel__footer\">\n            <button type=\"button\"\n                    class=\"toggle-ref-btn\"\n                    data-toggle-ref>\n                Compare with Reference\n            </button>\n            </div>\n        </div>\n\n        <!-- Right: Reference (hidden until toggled) -->\n        <div class=\"code-panel ref\" aria-hidden=\"true\">\n            <h4>Reference Code</h4>\n            <pre class=\"line-numbers\"><code class=\"language-python\">from keras.models import Model\nfrom keras.layers import Input, Conv2D, MaxPooling2D, Flatten, Dense\n\ndef dl_model():\n\n    input_layer = Input(shape=(28, 28, 1))\n    conv_1 = Conv2D(filters=6, kernel_size=(5, 5), activation=&#x27;tanh&#x27;, padding=&#x27;valid&#x27;)(input_layer)\n    pool_1 = MaxPooling2D(pool_size=(2, 2),strides=(2, 2))(conv_1)\n    conv_2 = Conv2D(filters=16, kernel_size=(5, 5), activation=&#x27;tanh&#x27;, padding=&#x27;valid&#x27;)(pool_1)\n    pool_2 = MaxPooling2D(pool_size=(2, 2),strides=(2, 2))(conv_2)\n\n    flatten = Flatten()(pool_2)\n    dense_1 = Dense(units=120, activation=&#x27;tanh&#x27;)(flatten)\n    dense_2 = Dense(units=84, activation=&#x27;tanh&#x27;)(dense_1)\n    output_layer = Dense(units=10, activation=&#x27;softmax&#x27;)(dense_2)\n\n    model = Model(inputs=input_layer, outputs=output_layer)\n\n    return model\n    </code></pre>\n        </div>\n        </div>"
+        },
+        {
+          "type": "text",
+          "name": "meta_selected_candidate_easy_task_1",
+          "visible": false,
+          "readOnly": true,
+          "defaultValue": "generated_code_1.py"
+        },
+        {
+          "type": "matrix",
+          "name": "rating_easy_task_1",
+          "title": "Please rate the semantic correctness of the generated code with respect to the task requirement.",
+          "isAllRowRequired": true,
+          "columns": [
+            {
+              "value": 1,
+              "text": "1  \nCompletely Incorrect"
+            },
+            {
+              "value": 2,
+              "text": "2  \nMostly Incorrect"
+            },
+            {
+              "value": 3,
+              "text": "3  \nPartially Correct"
+            },
+            {
+              "value": 4,
+              "text": "4  \nMostly Correct"
+            },
+            {
+              "value": 5,
+              "text": "5  \nPerfectly Correct"
+            }
+          ],
+          "rows": [
+            {
+              "value": "semantic_correctness",
+              "text": "Likert Scale"
+            }
+          ]
+        },
+        {
+          "type": "checkbox",
+          "name": "reason_easy_task_1",
+          "title": "Please specify the factor(s) that contributed to the decrease in semantic correctness (multiple selections allowed).",
+          "choices": [
+            "Incorrect API Selection",
+            "Missing API Call",
+            "Redundant API Call",
+            "Incorrect API Ordering",
+            "Incorrect Feature Merging",
+            "Incorrect Model Structure",
+            "Unclear Semantic Failure"
+          ],
+          "visibleIf": "{rating_easy_task_1.semantic_correctness} notempty and {rating_easy_task_1.semantic_correctness} < 5",
+          "requiredIf": "{rating_easy_task_1.semantic_correctness} notempty and {rating_easy_task_1.semantic_correctness} < 5",
+          "cssClasses": {
+            "root": "reason-grid"
+          }
+        },
+        {
+          "type": "comment",
+          "name": "comment_easy_task_1",
+          "title": "Notes (optional)",
+          "placeHolder": "Please try to describe the characteristics of the unclear semantic failure, if any.",
+          "rows": 1,
+          "isRequired": false
+        }
+      ]
+    },
+    {
+      "name": "task_easy_task_7",
+      "elements": [
+        {
+          "type": "html",
+          "name": "stim_easy_task_7",
+          "html": "<h4>Task Requirement</h4>\n        <div class=\"task-box\">I need assistance in creating a deep learning model for image classification using the MNIST dataset. The model consists of a main path and a branch path. In the main path, the input first passes through two &lt;convolution,dropout&gt; blocks to gradually increase the feature width. This is followed by another convolutional layer to restore the number of channels. The branch path connects directly to the input. The outputs from both paths are combined through an addition operation. Finally,a flattening layer and a fully connected layer produce the final classification probabilities.</div>\n\n        <div class=\"code-compare\" data-task-id=\"easy_task_7\">\n        <!-- Left: Generated (always visible) -->\n        <div class=\"code-panel gen\">\n            <div class=\"code-panel__header\">\n            <h4>Generated Code by LLMs</h4>\n            </div>\n\n            <div class=\"code-panel__body\">\n            <pre class=\"line-numbers\"><code class=\"language-python\">import keras\nfrom keras.layers import Input, Conv2D, Dropout, Add, Flatten, Dense\n\ndef dl_model():\n    input_layer = Input(shape=(28, 28, 1))\n\n    # Main path\n    conv1 = Conv2D(filters=32, kernel_size=(3, 3), strides=(1, 1), padding=&#x27;same&#x27;, activation=&#x27;relu&#x27;)(input_layer)\n    dropout1 = Dropout(0.25)(conv1)\n\n    conv2 = Conv2D(filters=64, kernel_size=(3, 3), strides=(1, 1), padding=&#x27;same&#x27;, activation=&#x27;relu&#x27;)(dropout1)\n    dropout2 = Dropout(0.25)(conv2)\n\n    conv3 = Conv2D(filters=1, kernel_size=(3, 3), strides=(1, 1), padding=&#x27;same&#x27;, activation=&#x27;relu&#x27;)(dropout2)\n\n    # Branch path\n    branch_path = input_layer\n\n    # Combine paths\n    combined = Add()([conv3, branch_path])\n\n    flatten_layer = Flatten()(combined)\n    output_layer = Dense(units=10, activation=&#x27;softmax&#x27;)(flatten_layer)\n\n    model = keras.Model(inputs=input_layer, outputs=output_layer)\n\n    return model</code></pre>\n            </div>\n\n            <!-- Bottom-right: toggle reference button -->\n            <div class=\"code-panel__footer\">\n            <button type=\"button\"\n                    class=\"toggle-ref-btn\"\n                    data-toggle-ref>\n                Compare with Reference\n            </button>\n            </div>\n        </div>\n\n        <!-- Right: Reference (hidden until toggled) -->\n        <div class=\"code-panel ref\" aria-hidden=\"true\">\n            <h4>Reference Code</h4>\n            <pre class=\"line-numbers\"><code class=\"language-python\">from keras.models import Model\nfrom keras.layers import Input, Conv2D, Dropout, Add, Flatten, Dense\n\ndef dl_model():\n\n    input_layer = Input(shape=(28,28,1))\n\n    conv1 = Conv2D(filters=64, kernel_size=(3, 3), strides=(1, 1), padding=&#x27;same&#x27;, activation=&#x27;relu&#x27;)(input_layer)\n    dropout1 = Dropout(rate=0.5)(conv1)\n    conv2 = Conv2D(filters=128, kernel_size=(3, 3), strides=(1, 1), padding=&#x27;same&#x27;, activation=&#x27;relu&#x27;)(dropout1)\n    dropout2 = Dropout(rate=0.5)(conv2)\n    conv3 = Conv2D(filters=input_layer.shape[-1], kernel_size=(3, 3), strides=(1, 1), padding=&#x27;same&#x27;, activation=&#x27;relu&#x27;)(dropout2)\n    main_path = conv3\n\n    added = Add()([main_path, input_layer])\n\n    flatten = Flatten()(added)\n    output_layer = Dense(units=10, activation=&#x27;softmax&#x27;)(flatten)\n\n    model = Model(inputs=input_layer, outputs=output_layer)\n\n    return model</code></pre>\n        </div>\n        </div>"
+        },
+        {
+          "type": "text",
+          "name": "meta_selected_candidate_easy_task_7",
+          "visible": false,
+          "readOnly": true,
+          "defaultValue": "generated_code_1.py"
+        },
+        {
+          "type": "matrix",
+          "name": "rating_easy_task_7",
+          "title": "Please rate the semantic correctness of the generated code with respect to the task requirement.",
+          "isAllRowRequired": true,
+          "columns": [
+            {
+              "value": 1,
+              "text": "1  \nCompletely Incorrect"
+            },
+            {
+              "value": 2,
+              "text": "2  \nMostly Incorrect"
+            },
+            {
+              "value": 3,
+              "text": "3  \nPartially Correct"
+            },
+            {
+              "value": 4,
+              "text": "4  \nMostly Correct"
+            },
+            {
+              "value": 5,
+              "text": "5  \nPerfectly Correct"
+            }
+          ],
+          "rows": [
+            {
+              "value": "semantic_correctness",
+              "text": "Likert Scale"
+            }
+          ]
+        },
+        {
+          "type": "checkbox",
+          "name": "reason_easy_task_7",
+          "title": "Please specify the factor(s) that contributed to the decrease in semantic correctness (multiple selections allowed).",
+          "choices": [
+            "Incorrect API Selection",
+            "Missing API Call",
+            "Redundant API Call",
+            "Incorrect API Ordering",
+            "Incorrect Feature Merging",
+            "Incorrect Model Structure",
+            "Unclear Semantic Failure"
+          ],
+          "visibleIf": "{rating_easy_task_7.semantic_correctness} notempty and {rating_easy_task_7.semantic_correctness} < 5",
+          "requiredIf": "{rating_easy_task_7.semantic_correctness} notempty and {rating_easy_task_7.semantic_correctness} < 5",
+          "cssClasses": {
+            "root": "reason-grid"
+          }
+        },
+        {
+          "type": "comment",
+          "name": "comment_easy_task_7",
+          "title": "Notes (optional)",
+          "placeHolder": "Please try to describe the characteristics of the unclear semantic failure, if any.",
+          "rows": 1,
+          "isRequired": false
+        }
+      ]
+    },
+    {
+      "name": "task_easy_task_3",
+      "elements": [
+        {
+          "type": "html",
+          "name": "stim_easy_task_3",
+          "html": "<h4>Task Requirement</h4>\n        <div class=\"task-box\">Please help me generate a deep learning model for image classification. The input data set is: MNIST.The model first extracts features through two &lt;convolution, convolution, max pooling&gt; blocks, followed by two &lt;convolution,convolution, convolution, max pooling&gt; blocks to further refine the features. Finally,the feature maps will be flattened and passed through three fully connected layers to produce the classification results.</div>\n\n        <div class=\"code-compare\" data-task-id=\"easy_task_3\">\n        <!-- Left: Generated (always visible) -->\n        <div class=\"code-panel gen\">\n            <div class=\"code-panel__header\">\n            <h4>Generated Code by LLMs</h4>\n            </div>\n\n            <div class=\"code-panel__body\">\n            <pre class=\"line-numbers\"><code class=\"language-python\">import keras\nfrom keras.layers import Input, Conv2D, MaxPooling2D, Flatten, Dense, Dropout\n\ndef dl_model():\n    input_layer = Input(shape=(28, 28, 1))\n\n    # First block: &lt;convolution, convolution, max pooling&gt;\n    conv1_1 = Conv2D(filters=32, kernel_size=(3, 3), activation=&#x27;relu&#x27;, padding=&#x27;same&#x27;)(input_layer)\n    conv1_2 = Conv2D(filters=32, kernel_size=(3, 3), activation=&#x27;relu&#x27;, padding=&#x27;same&#x27;)(conv1_1)\n    pool1 = MaxPooling2D(pool_size=(2, 2), strides=(2, 2))(conv1_2)\n\n    # Second block: &lt;convolution, convolution, max pooling&gt;\n    conv2_1 = Conv2D(filters=64, kernel_size=(3, 3), activation=&#x27;relu&#x27;, padding=&#x27;same&#x27;)(pool1)\n    conv2_2 = Conv2D(filters=64, kernel_size=(3, 3), activation=&#x27;relu&#x27;, padding=&#x27;same&#x27;)(conv2_1)\n    pool2 = MaxPooling2D(pool_size=(2, 2), strides=(2, 2))(conv2_2)\n\n    # Third block: &lt;convolution, convolution, convolution, max pooling&gt;\n    conv3_1 = Conv2D(filters=128, kernel_size=(3, 3), activation=&#x27;relu&#x27;, padding=&#x27;same&#x27;)(pool2)\n    conv3_2 = Conv2D(filters=128, kernel_size=(3, 3), activation=&#x27;relu&#x27;, padding=&#x27;same&#x27;)(conv3_1)\n    conv3_3 = Conv2D(filters=128, kernel_size=(3, 3), activation=&#x27;relu&#x27;, padding=&#x27;same&#x27;)(conv3_2)\n    pool3 = MaxPooling2D(pool_size=(2, 2), strides=(2, 2))(conv3_3)\n\n    # Fourth block: &lt;convolution, convolution, convolution, max pooling&gt;\n    conv4_1 = Conv2D(filters=256, kernel_size=(3, 3), activation=&#x27;relu&#x27;, padding=&#x27;same&#x27;)(pool3)\n    conv4_2 = Conv2D(filters=256, kernel_size=(3, 3), activation=&#x27;relu&#x27;, padding=&#x27;same&#x27;)(conv4_1)\n    conv4_3 = Conv2D(filters=256, kernel_size=(3, 3), activation=&#x27;relu&#x27;, padding=&#x27;same&#x27;)(conv4_2)\n    pool4 = MaxPooling2D(pool_size=(2, 2), strides=(2, 2))(conv4_3)\n\n    # Flatten the feature maps\n    flatten_layer = Flatten()(pool4)\n\n    # Fully connected layers\n    dense1 = Dense(units=512, activation=&#x27;relu&#x27;)(flatten_layer)\n    dropout1 = Dropout(0.5)(dense1)  # Dropout for regularization\n    dense2 = Dense(units=256, activation=&#x27;relu&#x27;)(dropout1)\n    dropout2 = Dropout(0.5)(dense2)  # Dropout for regularization\n    output_layer = Dense(units=10, activation=&#x27;softmax&#x27;)(dropout2)\n\n    model = keras.Model(inputs=input_layer, outputs=output_layer)\n\n    return model</code></pre>\n            </div>\n\n            <!-- Bottom-right: toggle reference button -->\n            <div class=\"code-panel__footer\">\n            <button type=\"button\"\n                    class=\"toggle-ref-btn\"\n                    data-toggle-ref>\n                Compare with Reference\n            </button>\n            </div>\n        </div>\n\n        <!-- Right: Reference (hidden until toggled) -->\n        <div class=\"code-panel ref\" aria-hidden=\"true\">\n            <h4>Reference Code</h4>\n            <pre class=\"line-numbers\"><code class=\"language-python\">from keras.models import Model\nfrom keras.layers import Input, Conv2D, MaxPooling2D, Flatten, Dense\n\ndef dl_model():\n\n    input_layer = Input(shape=(28,28,1))\n    conv_1 = Conv2D(filters=64, kernel_size=(3, 3), padding=&#x27;same&#x27;, activation=&#x27;relu&#x27;)(input_layer)\n    conv_2 = Conv2D(filters=64, kernel_size=(3, 3), padding=&#x27;same&#x27;, activation=&#x27;relu&#x27;)(conv_1)\n    pool_1 = MaxPooling2D(pool_size=(2, 2), strides=(2, 2))(conv_2)\n\n    conv_3 = Conv2D(filters=128, kernel_size=(3, 3), padding=&#x27;same&#x27;, activation=&#x27;relu&#x27;)(pool_1)\n    conv_4 = Conv2D(filters=128, kernel_size=(3, 3), padding=&#x27;same&#x27;, activation=&#x27;relu&#x27;)(conv_3)\n    pool_2 = MaxPooling2D(pool_size=(2, 2), strides=(2, 2))(conv_4)\n\n    conv_5 = Conv2D(filters=256, kernel_size=(3, 3), padding=&#x27;same&#x27;, activation=&#x27;relu&#x27;)(pool_2)\n    conv_6 = Conv2D(filters=256, kernel_size=(3, 3), padding=&#x27;same&#x27;, activation=&#x27;relu&#x27;)(conv_5)\n    conv_7 = Conv2D(filters=256, kernel_size=(3, 3), padding=&#x27;same&#x27;, activation=&#x27;relu&#x27;)(conv_6)\n    pool_3 = MaxPooling2D(pool_size=(2, 2), strides=(2, 2))(conv_7)\n\n    conv_8 = Conv2D(filters=512, kernel_size=(3, 3), padding=&#x27;same&#x27;, activation=&#x27;relu&#x27;)(pool_3)\n    conv_9 = Conv2D(filters=512, kernel_size=(3, 3), padding=&#x27;same&#x27;, activation=&#x27;relu&#x27;)(conv_8)\n    conv_10 = Conv2D(filters=512, kernel_size=(3, 3), padding=&#x27;same&#x27;, activation=&#x27;relu&#x27;)(conv_9)\n    pool_4 = MaxPooling2D(pool_size=(2, 2), strides=(2, 2))(conv_10)\n\n    flatten = Flatten()(pool_4)\n    dense_1 = Dense(units=4096, activation=&#x27;relu&#x27;)(flatten)\n    dense_2 = Dense(units=4096, activation=&#x27;relu&#x27;)(dense_1)\n    output_layer = Dense(units=1000, activation=&#x27;softmax&#x27;)(dense_2)\n\n    model = Model(inputs=input_layer, outputs=output_layer)\n\n    return model</code></pre>\n        </div>\n        </div>"
+        },
+        {
+          "type": "text",
+          "name": "meta_selected_candidate_easy_task_3",
+          "visible": false,
+          "readOnly": true,
+          "defaultValue": "generated_code_1.py"
+        },
+        {
+          "type": "matrix",
+          "name": "rating_easy_task_3",
+          "title": "Please rate the semantic correctness of the generated code with respect to the task requirement.",
+          "isAllRowRequired": true,
+          "columns": [
+            {
+              "value": 1,
+              "text": "1  \nCompletely Incorrect"
+            },
+            {
+              "value": 2,
+              "text": "2  \nMostly Incorrect"
+            },
+            {
+              "value": 3,
+              "text": "3  \nPartially Correct"
+            },
+            {
+              "value": 4,
+              "text": "4  \nMostly Correct"
+            },
+            {
+              "value": 5,
+              "text": "5  \nPerfectly Correct"
+            }
+          ],
+          "rows": [
+            {
+              "value": "semantic_correctness",
+              "text": "Likert Scale"
+            }
+          ]
+        },
+        {
+          "type": "checkbox",
+          "name": "reason_easy_task_3",
+          "title": "Please specify the factor(s) that contributed to the decrease in semantic correctness (multiple selections allowed).",
+          "choices": [
+            "Incorrect API Selection",
+            "Missing API Call",
+            "Redundant API Call",
+            "Incorrect API Ordering",
+            "Incorrect Feature Merging",
+            "Incorrect Model Structure",
+            "Unclear Semantic Failure"
+          ],
+          "visibleIf": "{rating_easy_task_3.semantic_correctness} notempty and {rating_easy_task_3.semantic_correctness} < 5",
+          "requiredIf": "{rating_easy_task_3.semantic_correctness} notempty and {rating_easy_task_3.semantic_correctness} < 5",
+          "cssClasses": {
+            "root": "reason-grid"
+          }
+        },
+        {
+          "type": "comment",
+          "name": "comment_easy_task_3",
+          "title": "Notes (optional)",
+          "placeHolder": "Please try to describe the characteristics of the unclear semantic failure, if any.",
+          "rows": 1,
+          "isRequired": false
+        }
+      ]
+    },
+    {
+      "name": "task_medium_task_7",
+      "elements": [
+        {
+          "type": "html",
+          "name": "stim_medium_task_7",
+          "html": "<h4>Task Requirement</h4>\n        <div class=\"task-box\">Please assist me in creating a deep learning model for image classification using the CIFAR-10 dataset. The model consists of three sequential convolutional layers, each processing the output of the previous layer. The outputs of the first two convolutional layers are added with the output of the third convolutional layer. Simultaneously, a separate convolutional layer processes the input directly. The added outputs from all paths are then passed through two fully connected layers for classification.</div>\n\n        <div class=\"code-compare\" data-task-id=\"medium_task_7\">\n        <!-- Left: Generated (always visible) -->\n        <div class=\"code-panel gen\">\n            <div class=\"code-panel__header\">\n            <h4>Generated Code by LLMs</h4>\n            </div>\n\n            <div class=\"code-panel__body\">\n            <pre class=\"line-numbers\"><code class=\"language-python\">import keras\nfrom keras.layers import Input, Conv2D, Add, Flatten, Dense\n\ndef dl_model():\n    input_layer = Input(shape=(32, 32, 3))  # CIFAR-10 images are 32x32 with 3 color channels\n\n    # First convolutional layer\n    conv1 = Conv2D(filters=32, kernel_size=(3, 3), strides=(1, 1), padding=&#x27;same&#x27;, activation=&#x27;relu&#x27;)(input_layer)\n\n    # Second convolutional layer\n    conv2 = Conv2D(filters=32, kernel_size=(3, 3), strides=(1, 1), padding=&#x27;same&#x27;, activation=&#x27;relu&#x27;)(conv1)\n\n    # Third convolutional layer\n    conv3 = Conv2D(filters=64, kernel_size=(3, 3), strides=(1, 1), padding=&#x27;same&#x27;, activation=&#x27;relu&#x27;)(conv2)\n\n    # Direct path with a separate convolutional layer\n    direct_conv = Conv2D(filters=64, kernel_size=(1, 1), strides=(1, 1), padding=&#x27;same&#x27;, activation=&#x27;relu&#x27;)(input_layer)\n\n    # Adding outputs from the first two layers with the output of the third layer\n    added_output = Add()([conv2, conv3, direct_conv])\n\n    # Flattening the output\n    flatten_layer = Flatten()(added_output)\n\n    # Fully connected layers\n    dense1 = Dense(units=128, activation=&#x27;relu&#x27;)(flatten_layer)\n    output_layer = Dense(units=10, activation=&#x27;softmax&#x27;)(dense1)  # 10 classes for CIFAR-10\n\n    # Constructing the model\n    model = keras.Model(inputs=input_layer, outputs=output_layer)\n\n    return model</code></pre>\n            </div>\n\n            <!-- Bottom-right: toggle reference button -->\n            <div class=\"code-panel__footer\">\n            <button type=\"button\"\n                    class=\"toggle-ref-btn\"\n                    data-toggle-ref>\n                Compare with Reference\n            </button>\n            </div>\n        </div>\n\n        <!-- Right: Reference (hidden until toggled) -->\n        <div class=\"code-panel ref\" aria-hidden=\"true\">\n            <h4>Reference Code</h4>\n            <pre class=\"line-numbers\"><code class=\"language-python\">from keras.models import Model\nfrom keras.layers import Input, Conv2D, Add, Dense\n\n\ndef dl_model():\n\n    input_layer = Input(shape=(32, 32, 3))\n\n    conv1 = Conv2D(filters=32, kernel_size=(3, 3), strides=(1, 1), padding=&#x27;same&#x27;)(input_layer)\n    conv2 = Conv2D(filters=32, kernel_size=(3, 3), strides=(1, 1), padding=&#x27;same&#x27;)(conv1)\n    conv3 = Conv2D(filters=32, kernel_size=(3, 3), strides=(1, 1), padding=&#x27;same&#x27;)(conv2)\n\n    main_path = Add()([conv1,conv2,conv3])\n\n    branch_path = Conv2D(filters=32, kernel_size=(3, 3), strides=(1, 1), padding=&#x27;same&#x27;,activation=&#x27;relu&#x27;)(input_layer)\n\n    added = Add()([main_path,branch_path])\n\n    dense = Dense(units=128, activation=&#x27;relu&#x27;)(added)\n    output_layer = Dense(units=10, activation=&#x27;softmax&#x27;)(dense)\n\n    model = Model(inputs=input_layer, outputs=output_layer)\n\n    return model</code></pre>\n        </div>\n        </div>"
+        },
+        {
+          "type": "text",
+          "name": "meta_selected_candidate_medium_task_7",
+          "visible": false,
+          "readOnly": true,
+          "defaultValue": "generated_code_1.py"
+        },
+        {
+          "type": "matrix",
+          "name": "rating_medium_task_7",
+          "title": "Please rate the semantic correctness of the generated code with respect to the task requirement.",
+          "isAllRowRequired": true,
+          "columns": [
+            {
+              "value": 1,
+              "text": "1  \nCompletely Incorrect"
+            },
+            {
+              "value": 2,
+              "text": "2  \nMostly Incorrect"
+            },
+            {
+              "value": 3,
+              "text": "3  \nPartially Correct"
+            },
+            {
+              "value": 4,
+              "text": "4  \nMostly Correct"
+            },
+            {
+              "value": 5,
+              "text": "5  \nPerfectly Correct"
+            }
+          ],
+          "rows": [
+            {
+              "value": "semantic_correctness",
+              "text": "Likert Scale"
+            }
+          ]
+        },
+        {
+          "type": "checkbox",
+          "name": "reason_medium_task_7",
+          "title": "Please specify the factor(s) that contributed to the decrease in semantic correctness (multiple selections allowed).",
+          "choices": [
+            "Incorrect API Selection",
+            "Missing API Call",
+            "Redundant API Call",
+            "Incorrect API Ordering",
+            "Incorrect Feature Merging",
+            "Incorrect Model Structure",
+            "Unclear Semantic Failure"
+          ],
+          "visibleIf": "{rating_medium_task_7.semantic_correctness} notempty and {rating_medium_task_7.semantic_correctness} < 5",
+          "requiredIf": "{rating_medium_task_7.semantic_correctness} notempty and {rating_medium_task_7.semantic_correctness} < 5",
+          "cssClasses": {
+            "root": "reason-grid"
+          }
+        },
+        {
+          "type": "comment",
+          "name": "comment_medium_task_7",
+          "title": "Notes (optional)",
+          "placeHolder": "Please try to describe the characteristics of the unclear semantic failure, if any.",
+          "rows": 1,
+          "isRequired": false
+        }
+      ]
+    },
+    {
+      "name": "task_medium_task_27",
+      "elements": [
+        {
+          "type": "html",
+          "name": "stim_medium_task_27",
+          "html": "<h4>Task Requirement</h4>\n        <div class=\"task-box\">Please help me create a deep learning model for image classification using the CIFAR-10 dataset. The model features two parallel convolutional branches with convolutional kernels of varying sizes (3x3 and 5x5 respectively) to extract features, which are combined through addition. Following this, a global average pooling layer compresses the features, leading into two fully connected layers that apply a softmax function to generate attention weights. The output of each branch is multiplied by its corresponding weight and added to produce the final weighted output. Lastly, a fully connected layer delivers the probability distribution across the 10 classes.</div>\n\n        <div class=\"code-compare\" data-task-id=\"medium_task_27\">\n        <!-- Left: Generated (always visible) -->\n        <div class=\"code-panel gen\">\n            <div class=\"code-panel__header\">\n            <h4>Generated Code by LLMs</h4>\n            </div>\n\n            <div class=\"code-panel__body\">\n            <pre class=\"line-numbers\"><code class=\"language-python\">import keras\nfrom keras.layers import Input, Conv2D, GlobalAveragePooling2D, Dense, Add, Multiply\nfrom keras.models import Model\n\ndef dl_model():\n    input_layer = Input(shape=(32, 32, 3))\n\n    # First branch with 3x3 convolution\n    branch1 = Conv2D(filters=32, kernel_size=(3, 3), strides=(1, 1), padding=&#x27;same&#x27;, activation=&#x27;relu&#x27;)(input_layer)\n\n    # Second branch with 5x5 convolution\n    branch2 = Conv2D(filters=32, kernel_size=(5, 5), strides=(1, 1), padding=&#x27;same&#x27;, activation=&#x27;relu&#x27;)(input_layer)\n\n    # Combine branches using addition\n    combined = Add()([branch1, branch2])\n\n    # Global average pooling\n    pooled = GlobalAveragePooling2D()(combined)\n\n    # Fully connected layers\n    dense1 = Dense(units=128, activation=&#x27;relu&#x27;)(pooled)\n    dense2 = Dense(units=64, activation=&#x27;relu&#x27;)(dense1)\n\n    # Attention weights for each branch\n    attention_weights = Dense(units=2, activation=&#x27;softmax&#x27;)(dense2)\n\n    # Split the attention weights\n    branch1_weight = attention_weights[:, 0]\n    branch2_weight = attention_weights[:, 1]\n\n    # Multiply each branch output by its corresponding attention weight\n    weighted_branch1 = Multiply()([branch1, branch1_weight])\n    weighted_branch2 = Multiply()([branch2, branch2_weight])\n\n    # Combine the weighted outputs\n    final_output = Add()([weighted_branch1, weighted_branch2])\n\n    # Fully connected layer for final classification\n    output_layer = Dense(units=10, activation=&#x27;softmax&#x27;)(final_output)\n\n    # Create the model\n    model = Model(inputs=input_layer, outputs=output_layer)\n\n    return model</code></pre>\n            </div>\n\n            <!-- Bottom-right: toggle reference button -->\n            <div class=\"code-panel__footer\">\n            <button type=\"button\"\n                    class=\"toggle-ref-btn\"\n                    data-toggle-ref>\n                Compare with Reference\n            </button>\n            </div>\n        </div>\n\n        <!-- Right: Reference (hidden until toggled) -->\n        <div class=\"code-panel ref\" aria-hidden=\"true\">\n            <h4>Reference Code</h4>\n            <pre class=\"line-numbers\"><code class=\"language-python\">from keras.models import Model\nfrom keras.layers import Input, Conv2D, GlobalAveragePooling2D, Dense, Softmax, Multiply, Add\n\ndef dl_model():\n\n    input_layer = Input(shape=(32, 32, 3))\n\n    branch1 = Conv2D(filters=64, kernel_size=(3, 3), strides=(1, 1), padding=&#x27;same&#x27;,activation=&#x27;relu&#x27;)(input_layer)\n    branch2 = Conv2D(filters=64, kernel_size=(5, 5), strides=(1, 1), padding=&#x27;same&#x27;,activation=&#x27;relu&#x27;)(input_layer)\n    add_brancher = Add()([branch1, branch2])\n\n    global_pool = GlobalAveragePooling2D()(add_brancher)\n    dense = Dense(units=64, activation=&#x27;relu&#x27;)(global_pool)\n    dense = Dense(units=64, activation=&#x27;relu&#x27;)(dense)\n\n    attention_weights = Softmax()(dense)\n    weighted_branch1 = Multiply()([branch1, attention_weights])\n    weighted_branch2 = Multiply()([branch2, attention_weights])\n\n    added = Add()([weighted_branch1, weighted_branch2])\n    output_layer = Dense(units=10, activation=&#x27;softmax&#x27;)(added)\n\n    model = Model(inputs=input_layer, outputs=output_layer)\n\n    return model</code></pre>\n        </div>\n        </div>"
+        },
+        {
+          "type": "text",
+          "name": "meta_selected_candidate_medium_task_27",
+          "visible": false,
+          "readOnly": true,
+          "defaultValue": "generated_code_1.py"
+        },
+        {
+          "type": "matrix",
+          "name": "rating_medium_task_27",
+          "title": "Please rate the semantic correctness of the generated code with respect to the task requirement.",
+          "isAllRowRequired": true,
+          "columns": [
+            {
+              "value": 1,
+              "text": "1  \nCompletely Incorrect"
+            },
+            {
+              "value": 2,
+              "text": "2  \nMostly Incorrect"
+            },
+            {
+              "value": 3,
+              "text": "3  \nPartially Correct"
+            },
+            {
+              "value": 4,
+              "text": "4  \nMostly Correct"
+            },
+            {
+              "value": 5,
+              "text": "5  \nPerfectly Correct"
+            }
+          ],
+          "rows": [
+            {
+              "value": "semantic_correctness",
+              "text": "Likert Scale"
+            }
+          ]
+        },
+        {
+          "type": "checkbox",
+          "name": "reason_medium_task_27",
+          "title": "Please specify the factor(s) that contributed to the decrease in semantic correctness (multiple selections allowed).",
+          "choices": [
+            "Incorrect API Selection",
+            "Missing API Call",
+            "Redundant API Call",
+            "Incorrect API Ordering",
+            "Incorrect Feature Merging",
+            "Incorrect Model Structure",
+            "Unclear Semantic Failure"
+          ],
+          "visibleIf": "{rating_medium_task_27.semantic_correctness} notempty and {rating_medium_task_27.semantic_correctness} < 5",
+          "requiredIf": "{rating_medium_task_27.semantic_correctness} notempty and {rating_medium_task_27.semantic_correctness} < 5",
+          "cssClasses": {
+            "root": "reason-grid"
+          }
+        },
+        {
+          "type": "comment",
+          "name": "comment_medium_task_27",
+          "title": "Notes (optional)",
+          "placeHolder": "Please try to describe the characteristics of the unclear semantic failure, if any.",
+          "rows": 1,
+          "isRequired": false
+        }
+      ]
+    },
+    {
+      "name": "task_medium_task_17",
+      "elements": [
+        {
+          "type": "html",
+          "name": "stim_medium_task_17",
+          "html": "<h4>Task Requirement</h4>\n        <div class=\"task-box\">Please assist me in creating a deep learning model for image classification using the CIFAR-10 dataset. The model begins by obtaining the shape of the input layer and reshaping the input tensor into three groups, targeting a shape of (height, width, groups, channels_per_group), where groups=3 and channels_per_group=channels/groups. Next, the model swaps the third and fourth dimensions using a permutation operation to enable channel shuffling. The tensor is then reshaped back to its original input shape. Finally, the output is passed through a fully connected layer with a softmax activation for classification.</div>\n\n        <div class=\"code-compare\" data-task-id=\"medium_task_17\">\n        <!-- Left: Generated (always visible) -->\n        <div class=\"code-panel gen\">\n            <div class=\"code-panel__header\">\n            <h4>Generated Code by LLMs</h4>\n            </div>\n\n            <div class=\"code-panel__body\">\n            <pre class=\"line-numbers\"><code class=\"language-python\">import keras\nimport tensorflow as tf\nfrom keras.layers import Input, Reshape, Permute, Dense, Flatten\nfrom keras.models import Model\n\ndef dl_model():\n    input_layer = Input(shape=(32, 32, 3))  # CIFAR-10 images are 32x32 pixels with 3 color channels (RGB)\n\n    # Reshape input tensor to (height, width, groups, channels_per_group)\n    # Here, groups=3 and channels_per_group=1 (since each RGB channel will be treated as a separate group)\n    reshaped = Reshape(target_shape=(32, 32, 3, 1))(input_layer)\n\n    # Permute the dimensions to swap the channels and groups\n    # From (height, width, groups, channels_per_group) to (height, width, channels_per_group, groups)\n    permuted = Permute((0, 1, 3, 2))(reshaped)\n\n    # Reshape back to original input shape\n    reshaped_back = Reshape(target_shape=(32, 32, 3))(permuted)\n\n    # Flatten the tensor before passing it to the fully connected layer\n    flatten = Flatten()(reshaped_back)\n\n    # Fully connected layer with softmax activation for classification\n    output_layer = Dense(units=10, activation=&#x27;softmax&#x27;)(flatten)  # CIFAR-10 has 10 classes\n\n    # Construct the model\n    model = Model(inputs=input_layer, outputs=output_layer)\n\n    return model</code></pre>\n            </div>\n\n            <!-- Bottom-right: toggle reference button -->\n            <div class=\"code-panel__footer\">\n            <button type=\"button\"\n                    class=\"toggle-ref-btn\"\n                    data-toggle-ref>\n                Compare with Reference\n            </button>\n            </div>\n        </div>\n\n        <!-- Right: Reference (hidden until toggled) -->\n        <div class=\"code-panel ref\" aria-hidden=\"true\">\n            <h4>Reference Code</h4>\n            <pre class=\"line-numbers\"><code class=\"language-python\">from keras.models import Model\nfrom keras.layers import Input, Reshape, Permute, Dense\n\ndef dl_model():\n\n    input_layer = Input(shape=(32, 32, 3))\n\n    batchsize, height, width, channels = input_layer.shape\n    groups = 3\n    channels_per_group = channels // groups\n    x = Reshape(target_shape=(height, width, groups, channels_per_group))(input_layer)\n    x = Permute(dims=(1, 2, 4, 3))(x)\n    x = Reshape(target_shape=(height, width, channels))(x)\n\n    output_layer = Dense(units=10, activation=&#x27;softmax&#x27;)(x)\n\n    model = Model(inputs=input_layer, outputs=output_layer)\n\n    return model</code></pre>\n        </div>\n        </div>"
+        },
+        {
+          "type": "text",
+          "name": "meta_selected_candidate_medium_task_17",
+          "visible": false,
+          "readOnly": true,
+          "defaultValue": "generated_code_1.py"
+        },
+        {
+          "type": "matrix",
+          "name": "rating_medium_task_17",
+          "title": "Please rate the semantic correctness of the generated code with respect to the task requirement.",
+          "isAllRowRequired": true,
+          "columns": [
+            {
+              "value": 1,
+              "text": "1  \nCompletely Incorrect"
+            },
+            {
+              "value": 2,
+              "text": "2  \nMostly Incorrect"
+            },
+            {
+              "value": 3,
+              "text": "3  \nPartially Correct"
+            },
+            {
+              "value": 4,
+              "text": "4  \nMostly Correct"
+            },
+            {
+              "value": 5,
+              "text": "5  \nPerfectly Correct"
+            }
+          ],
+          "rows": [
+            {
+              "value": "semantic_correctness",
+              "text": "Likert Scale"
+            }
+          ]
+        },
+        {
+          "type": "checkbox",
+          "name": "reason_medium_task_17",
+          "title": "Please specify the factor(s) that contributed to the decrease in semantic correctness (multiple selections allowed).",
+          "choices": [
+            "Incorrect API Selection",
+            "Missing API Call",
+            "Redundant API Call",
+            "Incorrect API Ordering",
+            "Incorrect Feature Merging",
+            "Incorrect Model Structure",
+            "Unclear Semantic Failure"
+          ],
+          "visibleIf": "{rating_medium_task_17.semantic_correctness} notempty and {rating_medium_task_17.semantic_correctness} < 5",
+          "requiredIf": "{rating_medium_task_17.semantic_correctness} notempty and {rating_medium_task_17.semantic_correctness} < 5",
+          "cssClasses": {
+            "root": "reason-grid"
+          }
+        },
+        {
+          "type": "comment",
+          "name": "comment_medium_task_17",
+          "title": "Notes (optional)",
+          "placeHolder": "Please try to describe the characteristics of the unclear semantic failure, if any.",
+          "rows": 1,
+          "isRequired": false
+        }
+      ]
+    },
+    {
+      "name": "task_medium_task_15",
+      "elements": [
+        {
+          "type": "html",
+          "name": "stim_medium_task_15",
+          "html": "<h4>Task Requirement</h4>\n        <div class=\"task-box\">Please assist me in creating a deep learning model for image classification using the CIFAR-10 dataset. The model begins with a convolutional layer, followed by batch normalization and ReLU activation, to extract initial features. Next,it compresses these feature maps using global average pooling and two fully connected layers, adjusting their dimensions to be same as the channels of the initial features. The output is then reshaped to match the size of the initial feature and multiplied with the initial features to generate weighted feature maps, which are subsequently concatenated with the input layer. Finally, the model reduces dimensionality and downsamples the feature using 1x1 convolution and average pooling, culminating in a single fully connected layer that outputs the classification results.</div>\n\n        <div class=\"code-compare\" data-task-id=\"medium_task_15\">\n        <!-- Left: Generated (always visible) -->\n        <div class=\"code-panel gen\">\n            <div class=\"code-panel__header\">\n            <h4>Generated Code by LLMs</h4>\n            </div>\n\n            <div class=\"code-panel__body\">\n            <pre class=\"line-numbers\"><code class=\"language-python\">import keras\nimport tensorflow as tf\nfrom keras.layers import Input, Conv2D, BatchNormalization, ReLU, GlobalAveragePooling2D, Dense, Reshape, Multiply, Concatenate, AveragePooling2D\n\ndef dl_model():\n    input_layer = Input(shape=(32, 32, 3))  # CIFAR-10 images are 32x32 with 3 color channels\n\n    # Initial Convolutional Layer\n    conv_layer = Conv2D(filters=32, kernel_size=(3, 3), padding=&#x27;same&#x27;)(input_layer)\n    batch_norm = BatchNormalization()(conv_layer)\n    relu_activation = ReLU()(batch_norm)\n\n    # Global Average Pooling\n    pooled_output = GlobalAveragePooling2D()(relu_activation)\n\n    # Two Fully Connected Layers\n    dense1 = Dense(units=32, activation=&#x27;relu&#x27;)(pooled_output)\n    dense2 = Dense(units=32, activation=&#x27;relu&#x27;)(dense1)\n\n    # Reshape to match the initial feature map dimensions\n    reshaped_output = Reshape((1, 1, 32))(dense2)  # Reshaping to (1, 1, 32)\n\n    # Multiply with the initial feature maps to generate weighted feature maps\n    weighted_features = Multiply()([relu_activation, reshaped_output])\n\n    # Concatenate with the input layer\n    concatenated = Concatenate()([input_layer, weighted_features])\n\n    # Dimensionality reduction and downsampling\n    conv_final = Conv2D(filters=64, kernel_size=(1, 1), padding=&#x27;same&#x27;)(concatenated)\n    pooled_final = AveragePooling2D(pool_size=(2, 2), strides=(2, 2))(conv_final)\n\n    # Final Fully Connected Layer for Classification\n    flatten_output = Flatten()(pooled_final)\n    output_layer = Dense(units=10, activation=&#x27;softmax&#x27;)(flatten_output)  # 10 classes for CIFAR-10\n\n    # Create the model\n    model = keras.Model(inputs=input_layer, outputs=output_layer)\n\n    return model</code></pre>\n            </div>\n\n            <!-- Bottom-right: toggle reference button -->\n            <div class=\"code-panel__footer\">\n            <button type=\"button\"\n                    class=\"toggle-ref-btn\"\n                    data-toggle-ref>\n                Compare with Reference\n            </button>\n            </div>\n        </div>\n\n        <!-- Right: Reference (hidden until toggled) -->\n        <div class=\"code-panel ref\" aria-hidden=\"true\">\n            <h4>Reference Code</h4>\n            <pre class=\"line-numbers\"><code class=\"language-python\">from keras.models import Model\nfrom keras.layers import Input, BatchNormalization, ReLU, Conv2D, GlobalAveragePooling2D, Dense, Reshape, Multiply, Concatenate, AveragePooling2D\n\n\ndef dl_model():\n\n    input_layer = Input(shape=(32, 32, 3))\n\n    growth_rate = 3\n    initial_conv = BatchNormalization()(input_layer)\n    initial_conv = ReLU()(initial_conv)\n    initial_conv = Conv2D(filters=input_layer.shape[-1]*growth_rate, kernel_size=(3, 3), padding=&#x27;same&#x27;)(initial_conv)\n\n    input_channels = initial_conv.shape[-1]\n    squeeze = GlobalAveragePooling2D()(initial_conv)\n    excitation = Dense(units=input_channels // 3, activation=&#x27;relu&#x27;)(squeeze)\n    excitation = Dense(units=input_channels, activation=&#x27;sigmoid&#x27;)(excitation)\n    excitation = Reshape(target_shape=(1, 1, input_channels))(excitation)\n    scaled = Multiply()([initial_conv, excitation])\n    se_output = Concatenate()([input_layer, scaled])\n\n    transition = Conv2D(filters=se_output.shape[-1], kernel_size=(1, 1), strides=(1, 1), padding=&#x27;same&#x27;)(se_output)\n    transition = AveragePooling2D(pool_size=(2, 2), strides=(2, 2))(transition)\n\n    output_layer = Dense(units=10, activation=&#x27;softmax&#x27;)(transition)\n\n    model = Model(inputs=input_layer, outputs=output_layer)\n\n    return model</code></pre>\n        </div>\n        </div>"
+        },
+        {
+          "type": "text",
+          "name": "meta_selected_candidate_medium_task_15",
+          "visible": false,
+          "readOnly": true,
+          "defaultValue": "generated_code_1.py"
+        },
+        {
+          "type": "matrix",
+          "name": "rating_medium_task_15",
+          "title": "Please rate the semantic correctness of the generated code with respect to the task requirement.",
+          "isAllRowRequired": true,
+          "columns": [
+            {
+              "value": 1,
+              "text": "1  \nCompletely Incorrect"
+            },
+            {
+              "value": 2,
+              "text": "2  \nMostly Incorrect"
+            },
+            {
+              "value": 3,
+              "text": "3  \nPartially Correct"
+            },
+            {
+              "value": 4,
+              "text": "4  \nMostly Correct"
+            },
+            {
+              "value": 5,
+              "text": "5  \nPerfectly Correct"
+            }
+          ],
+          "rows": [
+            {
+              "value": "semantic_correctness",
+              "text": "Likert Scale"
+            }
+          ]
+        },
+        {
+          "type": "checkbox",
+          "name": "reason_medium_task_15",
+          "title": "Please specify the factor(s) that contributed to the decrease in semantic correctness (multiple selections allowed).",
+          "choices": [
+            "Incorrect API Selection",
+            "Missing API Call",
+            "Redundant API Call",
+            "Incorrect API Ordering",
+            "Incorrect Feature Merging",
+            "Incorrect Model Structure",
+            "Unclear Semantic Failure"
+          ],
+          "visibleIf": "{rating_medium_task_15.semantic_correctness} notempty and {rating_medium_task_15.semantic_correctness} < 5",
+          "requiredIf": "{rating_medium_task_15.semantic_correctness} notempty and {rating_medium_task_15.semantic_correctness} < 5",
+          "cssClasses": {
+            "root": "reason-grid"
+          }
+        },
+        {
+          "type": "comment",
+          "name": "comment_medium_task_15",
+          "title": "Notes (optional)",
+          "placeHolder": "Please try to describe the characteristics of the unclear semantic failure, if any.",
+          "rows": 1,
+          "isRequired": false
+        }
+      ]
+    },
+    {
+      "name": "task_medium_task_33",
+      "elements": [
+        {
+          "type": "html",
+          "name": "stim_medium_task_33",
+          "html": "<h4>Task Requirement</h4>\n        <div class=\"task-box\">Please assist me in creating a deep learning model for image classification using the CIFAR-10 dataset. The model will process the input image by splitting it into three channel groups by encapsulating tf.split within Lambda layer. Each group will undergo feature extraction through separable convolutional layers of varying sizes (1x1, 3x3, and 5x5). The outputs from these three groups will be concatenated and then passed through three fully connected layer to produce the final probability outputs.</div>\n\n        <div class=\"code-compare\" data-task-id=\"medium_task_33\">\n        <!-- Left: Generated (always visible) -->\n        <div class=\"code-panel gen\">\n            <div class=\"code-panel__header\">\n            <h4>Generated Code by LLMs</h4>\n            </div>\n\n            <div class=\"code-panel__body\">\n            <pre class=\"line-numbers\"><code class=\"language-python\">import keras\nimport tensorflow as tf\nfrom keras.layers import Input, DepthwiseConv2D, Flatten, Concatenate, Dense, Lambda\n\ndef dl_model():\n    input_layer = Input(shape=(32, 32, 3))  # CIFAR-10 images are 32x32 with 3 color channels\n\n    # Split the input into three channel groups\n    inputs_groups = Lambda(lambda x: tf.split(value=x, num_or_size_splits=3, axis=-1))(input_layer)\n\n    # Feature extraction with separable convolutions\n    conv1 = DepthwiseConv2D(kernel_size=(1, 1), strides=(1, 1), padding=&#x27;same&#x27;, activation=&#x27;relu&#x27;)(inputs_groups[0])\n    conv2 = DepthwiseConv2D(kernel_size=(3, 3), strides=(1, 1), padding=&#x27;same&#x27;, activation=&#x27;relu&#x27;)(inputs_groups[1])\n    conv3 = DepthwiseConv2D(kernel_size=(5, 5), strides=(1, 1), padding=&#x27;same&#x27;, activation=&#x27;relu&#x27;)(inputs_groups[2])\n\n    # Concatenate the outputs from the three groups\n    concatenated = Concatenate()([conv1, conv2, conv3])\n\n    # Flatten the concatenated output\n    flatten = Flatten()(concatenated)\n\n    # Fully connected layers\n    dense1 = Dense(units=256, activation=&#x27;relu&#x27;)(flatten)\n    dense2 = Dense(units=128, activation=&#x27;relu&#x27;)(dense1)\n    output_layer = Dense(units=10, activation=&#x27;softmax&#x27;)(dense2)  # CIFAR-10 has 10 classes\n\n    # Create the model\n    model = keras.Model(inputs=input_layer, outputs=output_layer)\n\n    return model</code></pre>\n            </div>\n\n            <!-- Bottom-right: toggle reference button -->\n            <div class=\"code-panel__footer\">\n            <button type=\"button\"\n                    class=\"toggle-ref-btn\"\n                    data-toggle-ref>\n                Compare with Reference\n            </button>\n            </div>\n        </div>\n\n        <!-- Right: Reference (hidden until toggled) -->\n        <div class=\"code-panel ref\" aria-hidden=\"true\">\n            <h4>Reference Code</h4>\n            <pre class=\"line-numbers\"><code class=\"language-python\">import tensorflow as tf\nfrom keras.models import Model\nfrom keras.layers import Input, Lambda, SeparableConv2D, Concatenate, Dense\n\ndef dl_model():\n\n    input_layer = Input(shape=(32, 32, 3))\n    inputs_groups = Lambda(function=lambda x: tf.split(value=x, num_or_size_splits=3, axis=-1))(input_layer)\n\n    conv1 = SeparableConv2D(filters=64, kernel_size=(1, 1), strides=(1, 1), padding=&#x27;same&#x27;, activation=&#x27;relu&#x27;)(inputs_groups[0])\n    conv2 = SeparableConv2D(filters=64, kernel_size=(3, 3), strides=(1, 1), padding=&#x27;same&#x27;, activation=&#x27;relu&#x27;)(inputs_groups[1])\n    conv3 = SeparableConv2D(filters=64, kernel_size=(5, 5), strides=(1, 1), padding=&#x27;same&#x27;, activation=&#x27;relu&#x27;)(inputs_groups[2])\n    output_tensor = Concatenate()([conv1, conv2, conv3])\n\n    dense1 = Dense(units=10, activation=&#x27;softmax&#x27;)(output_tensor)\n    dense2 = Dense(units=10, activation=&#x27;softmax&#x27;)(dense1)\n    output_layer = Dense(units=10, activation=&#x27;softmax&#x27;)(dense2)\n\n    model = Model(inputs=input_layer, outputs=output_layer)\n\n    return model</code></pre>\n        </div>\n        </div>"
+        },
+        {
+          "type": "text",
+          "name": "meta_selected_candidate_medium_task_33",
+          "visible": false,
+          "readOnly": true,
+          "defaultValue": "generated_code_1.py"
+        },
+        {
+          "type": "matrix",
+          "name": "rating_medium_task_33",
+          "title": "Please rate the semantic correctness of the generated code with respect to the task requirement.",
+          "isAllRowRequired": true,
+          "columns": [
+            {
+              "value": 1,
+              "text": "1  \nCompletely Incorrect"
+            },
+            {
+              "value": 2,
+              "text": "2  \nMostly Incorrect"
+            },
+            {
+              "value": 3,
+              "text": "3  \nPartially Correct"
+            },
+            {
+              "value": 4,
+              "text": "4  \nMostly Correct"
+            },
+            {
+              "value": 5,
+              "text": "5  \nPerfectly Correct"
+            }
+          ],
+          "rows": [
+            {
+              "value": "semantic_correctness",
+              "text": "Likert Scale"
+            }
+          ]
+        },
+        {
+          "type": "checkbox",
+          "name": "reason_medium_task_33",
+          "title": "Please specify the factor(s) that contributed to the decrease in semantic correctness (multiple selections allowed).",
+          "choices": [
+            "Incorrect API Selection",
+            "Missing API Call",
+            "Redundant API Call",
+            "Incorrect API Ordering",
+            "Incorrect Feature Merging",
+            "Incorrect Model Structure",
+            "Unclear Semantic Failure"
+          ],
+          "visibleIf": "{rating_medium_task_33.semantic_correctness} notempty and {rating_medium_task_33.semantic_correctness} < 5",
+          "requiredIf": "{rating_medium_task_33.semantic_correctness} notempty and {rating_medium_task_33.semantic_correctness} < 5",
+          "cssClasses": {
+            "root": "reason-grid"
+          }
+        },
+        {
+          "type": "comment",
+          "name": "comment_medium_task_33",
+          "title": "Notes (optional)",
+          "placeHolder": "Please try to describe the characteristics of the unclear semantic failure, if any.",
+          "rows": 1,
+          "isRequired": false
+        }
+      ]
+    },
+    {
+      "name": "task_medium_task_35",
+      "elements": [
+        {
+          "type": "html",
+          "name": "stim_medium_task_35",
+          "html": "<h4>Task Requirement</h4>\n        <div class=\"task-box\">Please help me create a deep learning model for image classification using the CIFAR-10 dataset. The model employs two stages of convolution and max pooling for downsampling, enabling multi-level feature extraction.These features are then processed through additional convolutional and dropout layers. To restore spatial information, the model integrates two sets of convolutions with upsampling using skip connections to the corresponding convolutional layers. Finally, it produces probability outputs for 10 categories through a 1x1 convolutional layer.</div>\n\n        <div class=\"code-compare\" data-task-id=\"medium_task_35\">\n        <!-- Left: Generated (always visible) -->\n        <div class=\"code-panel gen\">\n            <div class=\"code-panel__header\">\n            <h4>Generated Code by LLMs</h4>\n            </div>\n\n            <div class=\"code-panel__body\">\n            <pre class=\"line-numbers\"><code class=\"language-python\">import keras\nfrom keras.layers import Input, Conv2D, MaxPooling2D, UpSampling2D, Concatenate, Dropout, Flatten, Dense\n\ndef dl_model():\n    input_layer = Input(shape=(32, 32, 3))  # CIFAR-10 images are 32x32 with 3 color channels\n\n    # First stage of convolutions and max pooling\n    conv1 = Conv2D(filters=32, kernel_size=(3, 3), padding=&#x27;same&#x27;, activation=&#x27;relu&#x27;)(input_layer)\n    conv1 = Conv2D(filters=32, kernel_size=(3, 3), padding=&#x27;same&#x27;, activation=&#x27;relu&#x27;)(conv1)\n    pool1 = MaxPooling2D(pool_size=(2, 2), strides=(2, 2))(conv1)\n\n    # Second stage of convolutions and max pooling\n    conv2 = Conv2D(filters=64, kernel_size=(3, 3), padding=&#x27;same&#x27;, activation=&#x27;relu&#x27;)(pool1)\n    conv2 = Conv2D(filters=64, kernel_size=(3, 3), padding=&#x27;same&#x27;, activation=&#x27;relu&#x27;)(conv2)\n    pool2 = MaxPooling2D(pool_size=(2, 2), strides=(2, 2))(conv2)\n\n    # Additional convolutional layers\n    conv3 = Conv2D(filters=128, kernel_size=(3, 3), padding=&#x27;same&#x27;, activation=&#x27;relu&#x27;)(pool2)\n    conv3 = Conv2D(filters=128, kernel_size=(3, 3), padding=&#x27;same&#x27;, activation=&#x27;relu&#x27;)(conv3)\n    dropout = Dropout(0.5)(conv3)\n\n    # Upsampling with skip connections\n    upsample1 = UpSampling2D(size=(2, 2))(dropout)\n    skip1 = Concatenate()([upsample1, conv2])\n    conv4 = Conv2D(filters=64, kernel_size=(3, 3), padding=&#x27;same&#x27;, activation=&#x27;relu&#x27;)(skip1)\n    conv4 = Conv2D(filters=64, kernel_size=(3, 3), padding=&#x27;same&#x27;, activation=&#x27;relu&#x27;)(conv4)\n\n    upsample2 = UpSampling2D(size=(2, 2))(conv4)\n    skip2 = Concatenate()([upsample2, conv1])\n    conv5 = Conv2D(filters=32, kernel_size=(3, 3), padding=&#x27;same&#x27;, activation=&#x27;relu&#x27;)(skip2)\n    conv5 = Conv2D(filters=32, kernel_size=(3, 3), padding=&#x27;same&#x27;, activation=&#x27;relu&#x27;)(conv5)\n\n    # Final output layer with 1x1 convolution\n    output_layer = Conv2D(filters=10, kernel_size=(1, 1), activation=&#x27;softmax&#x27;)(conv5)\n\n    # Flatten to prepare for classification\n    flatten_layer = Flatten()(output_layer)\n\n    # Create the model\n    model = keras.Model(inputs=input_layer, outputs=flatten_layer)\n\n    return model</code></pre>\n            </div>\n\n            <!-- Bottom-right: toggle reference button -->\n            <div class=\"code-panel__footer\">\n            <button type=\"button\"\n                    class=\"toggle-ref-btn\"\n                    data-toggle-ref>\n                Compare with Reference\n            </button>\n            </div>\n        </div>\n\n        <!-- Right: Reference (hidden until toggled) -->\n        <div class=\"code-panel ref\" aria-hidden=\"true\">\n            <h4>Reference Code</h4>\n            <pre class=\"line-numbers\"><code class=\"language-python\">from keras.models import Model\nfrom keras.layers import Input, Conv2D, MaxPooling2D, Dropout, UpSampling2D, Add\n\ndef dl_model():\n\n    input_layer = Input(shape=(32, 32, 3))\n\n    conv1 = Conv2D(filters=64, kernel_size=(3, 3), strides=(1, 1), padding=&#x27;same&#x27;, activation=&#x27;relu&#x27;)(input_layer)\n    pool1 = MaxPooling2D(pool_size=(2, 2), strides=(2, 2))(conv1)\n\n    conv2 = Conv2D(filters=256, kernel_size=(3, 3), strides=(1, 1), padding=&#x27;same&#x27;, activation=&#x27;relu&#x27;)(pool1)\n    pool2 = MaxPooling2D(pool_size=(2, 2), strides=(2, 2))(conv2)\n\n    conv3 = Conv2D(filters=512, kernel_size=(3, 3), strides=(1, 1), padding=&#x27;same&#x27;, activation=&#x27;relu&#x27;)(pool2)\n    dropped = Dropout(rate=0.3)(conv3)\n\n    conv3 = Conv2D(filters=256, kernel_size=(1, 1), strides=(1, 1), padding=&#x27;same&#x27;, activation=&#x27;relu&#x27;)(dropped)\n    up4 = UpSampling2D(size=(2, 2))(conv3)\n    up4 = Add()([conv2, up4])\n\n    conv5 = Conv2D(filters=64, kernel_size=(1, 1), strides=(1, 1),padding=&#x27;same&#x27;, activation=&#x27;relu&#x27;)(up4)\n    up5 = UpSampling2D(size=(2, 2))(conv5)\n    up5 = Add()([conv1, up5])\n\n    output_layer = Conv2D(filters=10, kernel_size=(1, 1), activation=&#x27;softmax&#x27;)(up5)\n\n    model = Model(inputs=input_layer, outputs=output_layer)\n\n    return model</code></pre>\n        </div>\n        </div>"
+        },
+        {
+          "type": "text",
+          "name": "meta_selected_candidate_medium_task_35",
+          "visible": false,
+          "readOnly": true,
+          "defaultValue": "generated_code_1.py"
+        },
+        {
+          "type": "matrix",
+          "name": "rating_medium_task_35",
+          "title": "Please rate the semantic correctness of the generated code with respect to the task requirement.",
+          "isAllRowRequired": true,
+          "columns": [
+            {
+              "value": 1,
+              "text": "1  \nCompletely Incorrect"
+            },
+            {
+              "value": 2,
+              "text": "2  \nMostly Incorrect"
+            },
+            {
+              "value": 3,
+              "text": "3  \nPartially Correct"
+            },
+            {
+              "value": 4,
+              "text": "4  \nMostly Correct"
+            },
+            {
+              "value": 5,
+              "text": "5  \nPerfectly Correct"
+            }
+          ],
+          "rows": [
+            {
+              "value": "semantic_correctness",
+              "text": "Likert Scale"
+            }
+          ]
+        },
+        {
+          "type": "checkbox",
+          "name": "reason_medium_task_35",
+          "title": "Please specify the factor(s) that contributed to the decrease in semantic correctness (multiple selections allowed).",
+          "choices": [
+            "Incorrect API Selection",
+            "Missing API Call",
+            "Redundant API Call",
+            "Incorrect API Ordering",
+            "Incorrect Feature Merging",
+            "Incorrect Model Structure",
+            "Unclear Semantic Failure"
+          ],
+          "visibleIf": "{rating_medium_task_35.semantic_correctness} notempty and {rating_medium_task_35.semantic_correctness} < 5",
+          "requiredIf": "{rating_medium_task_35.semantic_correctness} notempty and {rating_medium_task_35.semantic_correctness} < 5",
+          "cssClasses": {
+            "root": "reason-grid"
+          }
+        },
+        {
+          "type": "comment",
+          "name": "comment_medium_task_35",
+          "title": "Notes (optional)",
+          "placeHolder": "Please try to describe the characteristics of the unclear semantic failure, if any.",
+          "rows": 1,
+          "isRequired": false
+        }
+      ]
+    },
+    {
+      "name": "task_medium_task_14",
+      "elements": [
+        {
+          "type": "html",
+          "name": "stim_medium_task_14",
+          "html": "<h4>Task Requirement</h4>\n        <div class=\"task-box\">Please assist me in creating a deep learning model for image classification using the CIFAR-10 dataset. The model will include three sequential blocks, each comprising a convolutional layer, a batch normalization layer, and a ReLU activation function to extract image features. These blocks will produce three separate output paths, each corresponding to one block&#x27;s output. Additionally, a parallel branch of convolutional layers will process the input directly. The outputs from all paths will be added, and the aggregated result will pass through two fully connected layers for classification.</div>\n\n        <div class=\"code-compare\" data-task-id=\"medium_task_14\">\n        <!-- Left: Generated (always visible) -->\n        <div class=\"code-panel gen\">\n            <div class=\"code-panel__header\">\n            <h4>Generated Code by LLMs</h4>\n            </div>\n\n            <div class=\"code-panel__body\">\n            <pre class=\"line-numbers\"><code class=\"language-python\">import keras\nfrom keras.layers import Input, Conv2D, BatchNormalization, ReLU, Add, Flatten, Dense\nfrom keras.models import Model\n\ndef dl_model():\n    input_layer = Input(shape=(32, 32, 3))  # CIFAR-10 images are 32x32 RGB images\n\n    # Block 1\n    conv1 = Conv2D(filters=32, kernel_size=(3, 3), padding=&#x27;same&#x27;)(input_layer)\n    norm1 = BatchNormalization()(conv1)\n    relu1 = ReLU()(norm1)\n\n    # Block 2\n    conv2 = Conv2D(filters=64, kernel_size=(3, 3), padding=&#x27;same&#x27;)(relu1)\n    norm2 = BatchNormalization()(conv2)\n    relu2 = ReLU()(norm2)\n\n    # Block 3\n    conv3 = Conv2D(filters=128, kernel_size=(3, 3), padding=&#x27;same&#x27;)(relu2)\n    norm3 = BatchNormalization()(conv3)\n    relu3 = ReLU()(norm3)\n\n    # Parallel branch\n    parallel_conv = Conv2D(filters=64, kernel_size=(3, 3), padding=&#x27;same&#x27;)(input_layer)\n    parallel_norm = BatchNormalization()(parallel_conv)\n    parallel_relu = ReLU()(parallel_norm)\n\n    # Adding outputs of all paths\n    added_output = Add()([relu1, relu2, relu3, parallel_relu])\n\n    # Flatten and Fully Connected Layers\n    flatten = Flatten()(added_output)\n    dense1 = Dense(units=256, activation=&#x27;relu&#x27;)(flatten)\n    dense2 = Dense(units=10, activation=&#x27;softmax&#x27;)(dense1)  # CIFAR-10 has 10 classes\n\n    model = Model(inputs=input_layer, outputs=dense2)\n\n    return model</code></pre>\n            </div>\n\n            <!-- Bottom-right: toggle reference button -->\n            <div class=\"code-panel__footer\">\n            <button type=\"button\"\n                    class=\"toggle-ref-btn\"\n                    data-toggle-ref>\n                Compare with Reference\n            </button>\n            </div>\n        </div>\n\n        <!-- Right: Reference (hidden until toggled) -->\n        <div class=\"code-panel ref\" aria-hidden=\"true\">\n            <h4>Reference Code</h4>\n            <pre class=\"line-numbers\"><code class=\"language-python\">from keras.models import Model\nfrom keras.layers import Input, Conv2D, BatchNormalization, ReLU, Add, Dense\n\n\ndef dl_model():\n\n    input_layer = Input(shape=(32, 32, 3))\n\n    def block(input_tensor):\n\n        conv = Conv2D(filters=32, kernel_size=(3, 3), strides=(1, 1), padding=&#x27;same&#x27;)(input_tensor)\n        normal = BatchNormalization()(conv)\n        output_tensor = ReLU()(normal)\n\n        return output_tensor\n\n    main_path_1 = block(input_tensor=input_layer)\n    main_path_2 = block(input_tensor=main_path_1)\n    main_path_3 = block(input_tensor=main_path_2)\n\n    branch_path = Conv2D(filters=32, kernel_size=(3, 3), strides=(1, 1), padding=&#x27;same&#x27;,activation=&#x27;relu&#x27;)(input_layer)\n    added = Add()([main_path_1,main_path_2,main_path_3,branch_path])\n\n    dense = Dense(units=128, activation=&#x27;relu&#x27;)(added)\n    output_layer = Dense(units=10, activation=&#x27;softmax&#x27;)(dense)\n\n    model = Model(inputs=input_layer, outputs=output_layer)\n\n    return model</code></pre>\n        </div>\n        </div>"
+        },
+        {
+          "type": "text",
+          "name": "meta_selected_candidate_medium_task_14",
+          "visible": false,
+          "readOnly": true,
+          "defaultValue": "generated_code_3.py"
+        },
+        {
+          "type": "matrix",
+          "name": "rating_medium_task_14",
+          "title": "Please rate the semantic correctness of the generated code with respect to the task requirement.",
+          "isAllRowRequired": true,
+          "columns": [
+            {
+              "value": 1,
+              "text": "1  \nCompletely Incorrect"
+            },
+            {
+              "value": 2,
+              "text": "2  \nMostly Incorrect"
+            },
+            {
+              "value": 3,
+              "text": "3  \nPartially Correct"
+            },
+            {
+              "value": 4,
+              "text": "4  \nMostly Correct"
+            },
+            {
+              "value": 5,
+              "text": "5  \nPerfectly Correct"
+            }
+          ],
+          "rows": [
+            {
+              "value": "semantic_correctness",
+              "text": "Likert Scale"
+            }
+          ]
+        },
+        {
+          "type": "checkbox",
+          "name": "reason_medium_task_14",
+          "title": "Please specify the factor(s) that contributed to the decrease in semantic correctness (multiple selections allowed).",
+          "choices": [
+            "Incorrect API Selection",
+            "Missing API Call",
+            "Redundant API Call",
+            "Incorrect API Ordering",
+            "Incorrect Feature Merging",
+            "Incorrect Model Structure",
+            "Unclear Semantic Failure"
+          ],
+          "visibleIf": "{rating_medium_task_14.semantic_correctness} notempty and {rating_medium_task_14.semantic_correctness} < 5",
+          "requiredIf": "{rating_medium_task_14.semantic_correctness} notempty and {rating_medium_task_14.semantic_correctness} < 5",
+          "cssClasses": {
+            "root": "reason-grid"
+          }
+        },
+        {
+          "type": "comment",
+          "name": "comment_medium_task_14",
+          "title": "Notes (optional)",
+          "placeHolder": "Please try to describe the characteristics of the unclear semantic failure, if any.",
+          "rows": 1,
+          "isRequired": false
+        }
+      ]
+    }
+  ],
+  "allowHtml": true,
+  "llm_code_selection": {
+    "easy_task_1": "generated_code_1.py",
+    "easy_task_7": "generated_code_1.py",
+    "easy_task_3": "generated_code_1.py",
+    "medium_task_7": "generated_code_1.py",
+    "medium_task_27": "generated_code_1.py",
+    "medium_task_17": "generated_code_1.py",
+    "medium_task_15": "generated_code_1.py",
+    "medium_task_33": "generated_code_1.py",
+    "medium_task_35": "generated_code_1.py",
+    "medium_task_14": "generated_code_3.py"
+  }
+}

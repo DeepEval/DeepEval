@@ -1,0 +1,51 @@
+{
+  "surveyFile": "survey_gpt_4o_oneshotcot_part2.json",
+  "meta": {
+    "href": "https://zestful-unexpansible-bayleigh.ngrok-free.dev/index_htmls/index_gpt_4o_oneshotcot_part2.html",
+    "ts": "2025-12-30T08:00:12.748Z"
+  },
+  "data": {
+    "annotator_email": "li-j-yun@qq.com",
+    "annotator_name": "李鋆",
+    "rating_hard_task_29": {
+      "semantic_correctness": 5,
+      "generated_code_id": "generated_code_1.py"
+    },
+    "rating_hard_task_23": {
+      "semantic_correctness": 5,
+      "generated_code_id": "generated_code_1.py"
+    },
+    "rating_hard_task_30": {
+      "semantic_correctness": 5,
+      "generated_code_id": "generated_code_1.py"
+    },
+    "rating_hard_task_17": {
+      "semantic_correctness": 5,
+      "generated_code_id": "generated_code_1.py"
+    },
+    "rating_hard_task_18": {
+      "semantic_correctness": 5,
+      "generated_code_id": "generated_code_1.py"
+    },
+    "rating_hard_task_20": {
+      "semantic_correctness": 5,
+      "generated_code_id": "generated_code_1.py"
+    },
+    "rating_hard_task_31": {
+      "semantic_correctness": 5,
+      "generated_code_id": "generated_code_2.py"
+    },
+    "rating_hard_task_11": {
+      "semantic_correctness": 5,
+      "generated_code_id": "generated_code_1.py"
+    },
+    "rating_hard_task_46": {
+      "semantic_correctness": 5,
+      "generated_code_id": "generated_code_1.py"
+    },
+    "rating_hard_task_21": {
+      "semantic_correctness": 5,
+      "generated_code_id": "generated_code_1.py"
+    }
+  }
+}

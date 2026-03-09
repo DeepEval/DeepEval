@@ -1,0 +1,77 @@
+{
+  "ts_ms": 1767166309384,
+  "client_ip": "43.239.95.43",
+  "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36",
+  "surveyFile": "survey_deepseek_coder_v2_lite_instruct_zeroshot_part1.json",
+  "meta": {
+    "href": "https://zestful-unexpansible-bayleigh.ngrok-free.dev/index_htmls/index_deepseek_coder_v2_lite_instruct_zeroshot_part1.html",
+    "ts": "2025-12-31T07:31:41.684Z"
+  },
+  "data": {
+    "annotator_email": "lzh123698745@buaa.edu.cn",
+    "annotator_name": "zhihao liu",
+    "rating_easy_task_2": {
+      "semantic_correctness": 5,
+      "generated_code_id": "generated_code_1.py"
+    },
+    "rating_easy_task_9": {
+      "semantic_correctness": 5,
+      "generated_code_id": "generated_code_1.py"
+    },
+    "rating_easy_task_14": {
+      "semantic_correctness": 4,
+      "reasons": [
+        "Redundant API Call",
+        "Incorrect Feature Merging"
+      ],
+      "generated_code_id": "generated_code_3.py"
+    },
+    "rating_medium_task_18": {
+      "semantic_correctness": 5,
+      "generated_code_id": "generated_code_1.py"
+    },
+    "rating_medium_task_33": {
+      "semantic_correctness": 4,
+      "reasons": [
+        "Incorrect API Selection",
+        "Redundant API Call"
+      ],
+      "generated_code_id": "generated_code_2.py"
+    },
+    "rating_medium_task_30": {
+      "semantic_correctness": 5,
+      "generated_code_id": "generated_code_3.py"
+    },
+    "rating_medium_task_35": {
+      "semantic_correctness": 2,
+      "reasons": [
+        "Redundant API Call",
+        "Missing API Call",
+        "Incorrect API Selection",
+        "Incorrect Feature Merging"
+      ],
+      "generated_code_id": "generated_code_1.py"
+    },
+    "rating_medium_task_14": {
+      "semantic_correctness": 4,
+      "reasons": [
+        "Redundant API Call"
+      ],
+      "generated_code_id": "generated_code_1.py"
+    },
+    "rating_medium_task_4": {
+      "semantic_correctness": 4,
+      "reasons": [
+        "Redundant API Call"
+      ],
+      "generated_code_id": "generated_code_1.py"
+    },
+    "rating_medium_task_22": {
+      "semantic_correctness": 4,
+      "reasons": [
+        "Redundant API Call"
+      ],
+      "generated_code_id": "generated_code_1.py"
+    }
+  }
+}

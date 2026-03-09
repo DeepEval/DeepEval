@@ -1,0 +1,69 @@
+{
+  "ts_ms": 1767090153301,
+  "client_ip": "58.250.109.37",
+  "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36 Edg/143.0.0.0",
+  "surveyFile": "survey_deepseek_coder_v2_lite_instruct_oneshotcot_part1.json",
+  "meta": {
+    "href": "https://zestful-unexpansible-bayleigh.ngrok-free.dev/index_htmls/index_deepseek_coder_v2_lite_instruct_oneshotcot_part1.html",
+    "ts": "2025-12-30T10:22:38.662Z"
+  },
+  "data": {
+    "annotator_name": "Yi Cai",
+    "annotator_email": "caiy@buaa.edu.cn",
+    "rating_easy_task_9": {
+      "semantic_correctness": 5,
+      "generated_code_id": "generated_code_1.py"
+    },
+    "rating_easy_task_10": {
+      "semantic_correctness": 4,
+      "reasons": [
+        "Redundant API Call"
+      ],
+      "generated_code_id": "generated_code_1.py"
+    },
+    "rating_easy_task_2": {
+      "semantic_correctness": 5,
+      "generated_code_id": "generated_code_1.py"
+    },
+    "rating_medium_task_27": {
+      "semantic_correctness": 3,
+      "reasons": [
+        "Incorrect Model Structure"
+      ],
+      "generated_code_id": "generated_code_1.py"
+    },
+    "rating_medium_task_23": {
+      "semantic_correctness": 4,
+      "reasons": [
+        "Redundant API Call"
+      ],
+      "generated_code_id": "generated_code_1.py"
+    },
+    "rating_medium_task_21": {
+      "semantic_correctness": 4,
+      "reasons": [
+        "Missing API Call"
+      ],
+      "generated_code_id": "generated_code_1.py"
+    },
+    "rating_medium_task_19": {
+      "semantic_correctness": 5,
+      "generated_code_id": "generated_code_1.py"
+    },
+    "rating_medium_task_24": {
+      "semantic_correctness": 4,
+      "reasons": [
+        "Missing API Call"
+      ],
+      "generated_code_id": "generated_code_1.py"
+    },
+    "rating_medium_task_15": {
+      "semantic_correctness": 5,
+      "generated_code_id": "generated_code_1.py"
+    },
+    "rating_medium_task_9": {
+      "semantic_correctness": 5,
+      "generated_code_id": "generated_code_2.py"
+    }
+  }
+}

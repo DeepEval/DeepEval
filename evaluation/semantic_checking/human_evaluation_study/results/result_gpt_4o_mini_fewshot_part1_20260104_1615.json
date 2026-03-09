@@ -1,0 +1,78 @@
+{
+  "ts_ms": 1767514544979,
+  "client_ip": "2001:da8:203:bbbb:0:77:4d5:f381",
+  "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36 Edg/143.0.0.0",
+  "surveyFile": "survey_gpt_4o_mini_fewshot_part1.json",
+  "meta": {
+    "href": "https://zestful-unexpansible-bayleigh.ngrok-free.dev/index_htmls/index_gpt_4o_mini_fewshot_part1.html",
+    "ts": "2026-01-04T08:15:35.783Z"
+  },
+  "data": {
+    "annotator_email": "xiangy_ma@buaa.edu.cn",
+    "annotator_name": "ma xiangyue",
+    "rating_easy_task_1": {
+      "semantic_correctness": 5,
+      "generated_code_id": "generated_code_1.py"
+    },
+    "rating_easy_task_7": {
+      "semantic_correctness": 5,
+      "generated_code_id": "generated_code_1.py"
+    },
+    "rating_easy_task_3": {
+      "semantic_correctness": 5,
+      "generated_code_id": "generated_code_1.py"
+    },
+    "rating_medium_task_7": {
+      "semantic_correctness": 4,
+      "reasons": [
+        "Incorrect Feature Merging"
+      ],
+      "generated_code_id": "generated_code_1.py"
+    },
+    "rating_medium_task_27": {
+      "semantic_correctness": 4,
+      "reasons": [
+        "Unclear Semantic Failure"
+      ],
+      "generated_code_id": "generated_code_1.py"
+    },
+    "rating_medium_task_17": {
+      "semantic_correctness": 4,
+      "reasons": [
+        "Redundant API Call"
+      ],
+      "generated_code_id": "generated_code_1.py"
+    },
+    "rating_medium_task_15": {
+      "semantic_correctness": 4,
+      "reasons": [
+        "Redundant API Call",
+        "Incorrect API Ordering"
+      ],
+      "generated_code_id": "generated_code_1.py"
+    },
+    "rating_medium_task_33": {
+      "semantic_correctness": 4,
+      "reasons": [
+        "Incorrect API Selection"
+      ],
+      "generated_code_id": "generated_code_1.py"
+    },
+    "rating_medium_task_35": {
+      "semantic_correctness": 3,
+      "reasons": [
+        "Missing API Call",
+        "Redundant API Call",
+        "Incorrect API Ordering"
+      ],
+      "generated_code_id": "generated_code_1.py"
+    },
+    "rating_medium_task_14": {
+      "semantic_correctness": 4,
+      "reasons": [
+        "Redundant API Call"
+      ],
+      "generated_code_id": "generated_code_3.py"
+    }
+  }
+}

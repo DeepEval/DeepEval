@@ -1,0 +1,96 @@
+{
+  "ts_ms": 1767173348312,
+  "client_ip": "111.202.170.147",
+  "user_agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:146.0) Gecko/20100101 Firefox/146.0",
+  "surveyFile": "survey_gpt_4o_mini_oneshot_part2.json",
+  "meta": {
+    "href": "https://zestful-unexpansible-bayleigh.ngrok-free.dev/index_htmls/index_gpt_4o_mini_oneshot_part2.html",
+    "ts": "2025-12-31T09:29:01.132Z"
+  },
+  "data": {
+    "annotator_name": "luxuhui",
+    "annotator_email": "564661924@qq.com",
+    "rating_hard_task_25": {
+      "semantic_correctness": 4,
+      "reasons": [
+        "Incorrect Model Structure",
+        "Incorrect Feature Merging"
+      ],
+      "generated_code_id": "generated_code_1.py"
+    },
+    "rating_hard_task_30": {
+      "semantic_correctness": 4,
+      "reasons": [
+        "Incorrect API Selection",
+        "Missing API Call"
+      ],
+      "generated_code_id": "generated_code_1.py"
+    },
+    "rating_hard_task_37": {
+      "semantic_correctness": 3,
+      "reasons": [
+        "Incorrect Model Structure",
+        "Incorrect Feature Merging",
+        "Redundant API Call",
+        "Missing API Call"
+      ],
+      "generated_code_id": "generated_code_2.py"
+    },
+    "rating_hard_task_17": {
+      "semantic_correctness": 3,
+      "reasons": [
+        "Incorrect Feature Merging",
+        "Incorrect Model Structure",
+        "Incorrect API Ordering",
+        "Incorrect API Selection"
+      ],
+      "generated_code_id": "generated_code_1.py"
+    },
+    "rating_hard_task_29": {
+      "semantic_correctness": 3,
+      "reasons": [
+        "Incorrect Model Structure",
+        "Incorrect Feature Merging",
+        "Redundant API Call"
+      ],
+      "generated_code_id": "generated_code_1.py"
+    },
+    "rating_hard_task_43": {
+      "semantic_correctness": 4,
+      "reasons": [
+        "Incorrect API Selection",
+        "Incorrect API Ordering"
+      ],
+      "generated_code_id": "generated_code_1.py"
+    },
+    "rating_hard_task_28": {
+      "semantic_correctness": 4,
+      "reasons": [
+        "Incorrect API Selection"
+      ],
+      "generated_code_id": "generated_code_1.py"
+    },
+    "rating_hard_task_4": {
+      "semantic_correctness": 4,
+      "reasons": [
+        "Incorrect Model Structure"
+      ],
+      "generated_code_id": "generated_code_1.py"
+    },
+    "rating_hard_task_46": {
+      "semantic_correctness": 3,
+      "reasons": [
+        "Incorrect Model Structure",
+        "Incorrect API Selection"
+      ],
+      "generated_code_id": "generated_code_1.py"
+    },
+    "rating_hard_task_8": {
+      "semantic_correctness": 4,
+      "reasons": [
+        "Incorrect Model Structure"
+      ],
+      "generated_code_id": "generated_code_2.py"
+    }
+  }
+}

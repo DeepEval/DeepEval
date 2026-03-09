@@ -1,0 +1,71 @@
+{
+  "ts_ms": 1767448321342,
+  "client_ip": "2001:da8:215:3c0a:49a2:d527:7a77:fae9",
+  "user_agent": "Mozilla/5.0 (Linux; Android 12; HarmonyOS; DBY-W09; HMSCore 6.15.4.332) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.5735.196 HuaweiBrowser/16.0.11.301 Safari/537.36",
+  "surveyFile": "survey_gpt_4o_oneshotcot_part2.json",
+  "meta": {
+    "href": "https://zestful-unexpansible-bayleigh.ngrok-free.dev/index_htmls/index_gpt_4o_oneshotcot_part2.html",
+    "ts": "2026-01-03T13:51:53.973Z"
+  },
+  "data": {
+    "annotator_name": "李樱卓",
+    "annotator_email": "yingtuoaugenstern@qq.com",
+    "rating_hard_task_29": {
+      "semantic_correctness": 5,
+      "generated_code_id": "generated_code_1.py"
+    },
+    "rating_hard_task_23": {
+      "semantic_correctness": 5,
+      "generated_code_id": "generated_code_1.py"
+    },
+    "rating_hard_task_30": {
+      "semantic_correctness": 5,
+      "generated_code_id": "generated_code_1.py"
+    },
+    "rating_hard_task_17": {
+      "semantic_correctness": 4,
+      "reasons": [
+        "Redundant API Call"
+      ],
+      "generated_code_id": "generated_code_1.py"
+    },
+    "rating_hard_task_18": {
+      "semantic_correctness": 5,
+      "generated_code_id": "generated_code_1.py"
+    },
+    "rating_hard_task_20": {
+      "semantic_correctness": 4,
+      "reasons": [
+        "Incorrect Feature Merging"
+      ],
+      "generated_code_id": "generated_code_1.py"
+    },
+    "rating_hard_task_31": {
+      "semantic_correctness": 4,
+      "reasons": [
+        "Incorrect API Selection",
+        "Incorrect Feature Merging"
+      ],
+      "generated_code_id": "generated_code_2.py"
+    },
+    "rating_hard_task_11": {
+      "semantic_correctness": 4,
+      "reasons": [
+        "Incorrect Feature Merging"
+      ],
+      "generated_code_id": "generated_code_1.py"
+    },
+    "rating_hard_task_46": {
+      "semantic_correctness": 5,
+      "generated_code_id": "generated_code_1.py"
+    },
+    "rating_hard_task_21": {
+      "semantic_correctness": 3,
+      "reasons": [
+        "Incorrect API Selection",
+        "Incorrect Feature Merging"
+      ],
+      "generated_code_id": "generated_code_1.py"
+    }
+  }
+}
