@@ -28,7 +28,7 @@ We employ four prompting methods to LLMs on DeepEval, as detailed in ```./prompt
 |            | CodeGemma-7B-Instruct                   | 7B   | Google   | Open   | HuggingFace     |
 ## Results:
 ### RQ1: Benchmark Effectiveness: *How effective is DeepEval in benchmarking the ability of LLMs on DL code generation tasks?*
-As shown in the following figure, for RQ1, we employ zero-shot prompting for code generation across HumanEval, ClassEval, MLEval and DeepEval, measuring performance with *Code Executability Rate*.
+As shown in the following figure, for RQ1, we employ zero-shot prompting for code generation across HumanEval, ClassEval, MLEval, Deep-Bench, and DeepEval, measuring performance with *Code Executability Rate*.
 
 <img src="evaluation/dynamic_checking/presentation/RQ1.png" width="500"/> <br>
 ### RQ2: Code Syntax: *How do LLMs perform in generating DL code regarding static behavior?*
@@ -132,6 +132,18 @@ Note 2: To address false positives from Pylint, such as the message "Unable to i
   ```python
   python evaluation/dynamic_checking/dynamic_checking_mleval_main.py   # RQ1
   ```
+---
+- #### ​**Deep-Bench**
+- ​Environment Configuration:
+  ```bash
+   conda create -n MLEval python=3.10
+   conda activate MLEval
+   conda install environment_deepbench.yml
+   ```
+- ​Command:
+  ```python
+  python evaluation/dynamic_checking/dynamic_checking_deepbench_main.py   # RQ1
+  ```
 
 <!-- | Benchmark                     | Environment Configuration                          |Command |
    | ------------------------| -------------------------------------- |----|
@@ -173,6 +185,8 @@ Please cite our tool if this work is helpful to you:
   url          = {https://doi.org/10.5281/zenodo.17100624}
 }
 ```
+
+Addition: Please refer to the [substructures.pdf](./benchmark/resource/substructures.pdf) for more details about the substructures of the DeepEval dataset.
 <!-- ## Contact
 
 For any questions or inquiries, please contact the project maintainer at [xiangy_ma@buaa.edu.cn)](xiangy_ma@buaa.edu.cn)). -->
