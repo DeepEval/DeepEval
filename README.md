@@ -136,8 +136,8 @@ Note 2: To address false positives from Pylint, such as the message "Unable to i
 - #### ​**Deep-Bench**
 - ​Environment Configuration:
   ```bash
-   conda create -n MLEval python=3.10
-   conda activate MLEval
+   conda create -n DeepBench python=3.10
+   conda activate DeepBench
    conda install environment_deepbench.yml
    ```
 - ​Command:
