@@ -158,6 +158,7 @@ As listed as follows, we adhere to the specified experimental settings throughou
 | Temperature            | 0.8                                   |
 | Top-p Value            | 0.95                                  |
 | Hardware               | 2 × NVIDIA V100 GPUs                  |
+| Software Environment   | CentOS Linux 7.8.2003 (Core), Python 3.10.0, Keras 2.11.0, CUDA 11.8, and CuDNN 8.6 |
 | Repeat times           | 3                                     |
 
 ## Contributing
