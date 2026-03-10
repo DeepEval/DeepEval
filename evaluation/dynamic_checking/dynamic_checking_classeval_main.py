@@ -1,9 +1,7 @@
 import os
-import sys
 import json
 import pandas as pd
 import subprocess
-from tabulate import tabulate
 from utils.df2excel import DataFrame2Excel
 from utils.getallfiles import GetAllFiles
 from utils.count_code_lines import count_code_lines
@@ -127,4 +125,4 @@ if __name__ == '__main__':
             "meta_llama_3_1_8b_instruct"]
 
     compile_validation = Validation()
-    compile_validation.main(promptings, ["gpt_4o"])
+    compile_validation.main(promptings, llms)

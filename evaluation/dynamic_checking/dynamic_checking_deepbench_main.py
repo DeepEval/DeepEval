@@ -57,7 +57,7 @@ class Validation:
                 code_path = os.path.join(common_root_path, f'response/DeepBench/{llm}/{prompting}/{experiment_batch}')
                 verifications = self.batch_compile_codes(code_path)
 
-                save_json_path = os.path.join(common_root_path,f"evaluation/dynamic_checking/baselines/DeepBench/{llm}/{experiment_batch}/{prompting}.json")
+                save_json_path = os.path.join(common_root_path,f"evaluation/dynamic_checking/report/DeepBench/{llm}/{experiment_batch}/{prompting}.json")
 
                 if not os.path.exists(os.path.dirname(save_json_path)):
                     os.makedirs(os.path.dirname(save_json_path))
@@ -68,7 +68,7 @@ class Validation:
                 count_dict_list = []
 
                 for task_name in tasks_names:
-                    count_dict = {"Benchmark": task_name, "success": 0, "failed": 0, "main_entry": 0, "valid_pyfiles": 0, "rate(%)": 0}
+                    count_dict = {"Benchmark": task_name, "success": 0, "failed": 0, "valid_pyfiles": 0, "rate(%)": 0}
 
                     valid_pyfiles = 0
                     for pyfile in os.listdir(os.path.join(code_path, task_name)):
@@ -87,7 +87,6 @@ class Validation:
                                 count_dict["main_entry"] += 1
 
                     count_dict["valid_pyfiles"] = valid_pyfiles
-
                     if valid_pyfiles != 0:
                         count_dict["rate(%)"] = 100 * count_dict["success"] / valid_pyfiles
                     else:
@@ -99,27 +98,21 @@ class Validation:
                 Total = df_data.sum(axis=0)
                 Total['Benchmark'] = 'Total'
                 df_data = pd.concat([df_data, Total.to_frame().T], ignore_index=True)
-                total_success = df_data.loc[df_data['Benchmark'] == 'Total', 'success'].values[0]
-                total_rate = 100 * total_success / df_data.loc[df_data['Benchmark'] == 'Total', 'valid_pyfiles']
+                total_failed = df_data.loc[df_data['Benchmark'] == 'Total', 'failed'].values[0]
+                total_valid_pyfiles = df_data.loc[df_data['Benchmark'] == 'Total', 'valid_pyfiles'].values[0]
+                total_rate = 100 * (total_valid_pyfiles - total_failed)/ total_valid_pyfiles
 
                 df_data.loc[df_data['Benchmark'] == 'Total', 'rate(%)'] = total_rate 
                 total_row = df_data.iloc[-1].copy()
                 total_row['Benchmark'] = str(prompting)
                 dfs_last_row.append(total_row)
 
-                total_col = df_data.iloc[:, -1].copy()
-                total_col.name = str(prompting)
-                dfs_last_col.append(total_col)
-
-            first_col = df_data.iloc[:, 0].copy()
-            dfs_last_col.insert(0, first_col)
-
             summary_df = pd.DataFrame(dfs_last_row)
             summary_df.reset_index(drop=True, inplace=True)
-
             save_result_excel_path = os.path.join(common_root_path,
                         f"evaluation/dynamic_checking/report/DeepBench/{llm}/{llm}_{experiment_batch}.xlsx")
             DataFrame2Excel(df_data, save_result_excel_path).df2excel(sheet_name='summary')
+            print(f"Dynamic Checking for {llm} is finished.")
 
 
 if __name__ == '__main__':
@@ -135,7 +128,5 @@ if __name__ == '__main__':
             "gemma_2_9b_it",
             "meta_llama_3_1_8b_instruct"]
 
-    experiment_id = 'models_**'
-
     compile_validation = Validation()
-    compile_validation.main(promptings, llms, experiment_id)
+    compile_validation.main(promptings, llms)
